@@ -1,0 +1,112 @@
+\begin{table*}
+\caption{Results from the three metrics in all scenarios across the relevant dimension pairs. $\Diamond$ relates to coverage, $\dagger$ relates to average explored space among all steps, and $\bigcirc$ Average population fitness throughout all generations. Higher scores per column are highlighted in bold. $\star$ marks the lower values. Confidence intervals are shown for each average value ($\dagger$, and $\bigcirc$), and in the last row we show the average of all the 21 dimensions per metric.}
+% \centering
+\begin{subtable}[t]{0.48\linewidth}
+% \renewcommand\arraystretch{1.2}
+\resizebox{0.9\textwidth}{!}{%
+\centering
+\begin{tabular}{|l|ccc|}
+\hline
+Dimensions & \multicolumn{3}{c|}{\textit{High Leniency Scenario}}                                                                    \\ \hline
+        & \multicolumn{1}{c|}{$\Diamond$}  & \multicolumn{1}{c|}{$\dagger$} & \multicolumn{1}{c|}{$\bigcirc$}          \\ \hline
+Lin-Meso   & 77.9\%                           & \textbf{43.05$\pm$2.974} & 0.9$\pm$0.007                            \\ \hline
+Meso-Spa   & \textbf{84.2\%} & 30.38$\pm$3.796                           & 0.92$\pm$0.01                            \\ \hline
+Sym-Len    & 74.4\%                           & 24.38$\pm$3.527                           & \textbf{0.94$\pm$0.008} \\ \hline
+Sym-Lin    & 79.2\%                           & \textbf{40.14$\pm$2.302} & 0.91$\pm$0.007                           \\ \hline
+Sym-Meso   & \textbf{91\%}   & 34.37$\pm$3.976                           & 0.93$\pm$0.009                           \\ \hline
+Sym-Spa & \textbf{85.5\%} & 28.47$\pm$5.985                & \textbf{0.94$\pm$0.009} \\ \hline
+Sim-IS     & 60.8\%                           & $^{\star}${20.71$\pm$1.687}             & 0.9$\pm$0.007                            \\ \hline
+Sim-Len    & $^{\star}${59.3\%}             & 24.86$\pm$3.209                           & 0.89$\pm$0.009                           \\ \hline
+Sim-Lin    & 61.1\%                           & 30.8$\pm$1.256                            & $^{\star}${0.88$\pm$0.005}             \\ \hline
+Sim-Meso   & $^{\star}${59\%}               & 24.2$\pm$2.542                            & 0.89$\pm$0.011                           \\ \hline
+Sym-IS     & 78.9\%                           & 22.74$\pm$2.85                            & \textbf{0.94$\pm$0.012} \\ \hline
+Average.   & 72.19$\pm$3.97                   & 29.2$\pm$2.59                             & 0.91$\pm$0.01       
+\\\hline
+\end{tabular}%
+% \caption{\footnotesize (10,15)}
+\label{tab:table1_a}
+}%
+\end{subtable}%
+\hspace{\fill}%
+
+% \hfill % maximize the horizontal separation
+
+\begin{subtable}[t]{0.48\textwidth}
+% \renewcommand\arraystretch{1.2}
+\resizebox{0.9\textwidth}{!}{%
+% \flushright
+% \centering
+\begin{tabular}{|l|ccc|}
+\hline
+Dimensions & \multicolumn{3}{c|}{\textit{Low Leniency Scenario}}                                                                   \\ \hline
+         & \multicolumn{1}{c|}{$\Diamond$} & \multicolumn{1}{c|}{$\dagger$} & \multicolumn{1}{c|}{$\bigcirc$}          \\ \hline
+Len-Meso & $^{\star}${56.6\%}            & $^{\star}${19.46$\pm$5.55}   & \textbf{0.96$\pm$0.013} \\ \hline
+Len-Spa    & 71.4\%                           & $^{\star}${19.34$\pm$7.979}           & 0.94$\pm$0.016                           \\ \hline
+Lin-Meso   & 78.7\%                           & \textbf{43.5$\pm$3.76} & 0.92$\pm$0.013                           \\ \hline
+Lin-Spa    & $^{\star}${57.8\%}             & 28.28$\pm$4.109                         & 0.92$\pm$0.011                           \\ \hline
+Meso-Spa   & \textbf{78.9\%} & 27.15$\pm$7.315                         & 0.93$\pm$0.012                           \\ \hline
+Sym-Len    & 68.1\%                           & 21.54$\pm$5.88                          & \textbf{0.97$\pm$0.014} \\ \hline
+Sym-Spa    & \textbf{83.4\%} & 24.87$\pm$10.334                        & 0.95$\pm$0.014                           \\ \hline
+Sim-Lin    & 58.4\%                           & 30.78$\pm$2.602                         & $^{\star}${0.9$\pm$0.012}              \\ \hline
+Sim-Meso   & 62.3\%                           & 27.98$\pm$3.385                         & $^{\star}${0.9$\pm$0.014}              \\ \hline
+Sym-IS     & 70.8\%                           & 21.63$\pm$3.877                         & \textbf{0.96$\pm$0.011} \\ \hline
+Average.   & 67.09$\pm$3.35                   & 25.75$\pm$2.48                          & 0.93$\pm$0.01    
+\\\hline
+\end{tabular}%
+% \caption{\footnotesize (9,16)}
+\label{tab:table1_b}
+}%
+\end{subtable}%
+
+\bigskip 
+
+\begin{subtable}[t]{0.48\textwidth}
+\centering
+\begin{tabular}{|l|ccc|}
+\hline
+Dimensions & \multicolumn{3}{c|}{High Linearity Scenario}                                  \\ \hline
+        & \multicolumn{1}{c|}{$\Diamond$} & \multicolumn{1}{c|}{$\dagger$} & \multicolumn{1}{c|}{$\bigcirc$} \\ \hline
+Len-Spa    & 72.6\%             & $^{\star}${16.31$\pm$3.035} & 0.91$\pm$0.006             \\ \hline
+Lin-Meso   & 67.2\%             & \textbf{40.79$\pm$3.221}    & 0.85$\pm$0.015             \\ \hline
+Lin-Spa    & 62.7\%             & 33.55$\pm$0.963             & $^{\star}${0.84$\pm$0.013} \\ \hline
+Sym-Len    & 72.6\%             & 20.5$\pm$2.646              & \textbf{0.94$\pm$0.008}    \\ \hline
+Sym-Lin & \textbf{84.3\%}                 & \textbf{37.94$\pm$2.103}       & 0.87$\pm$0.013                  \\ \hline
+Sym-Spa    & \textbf{85.5\%}    & 18.94$\pm$4.366             & 0.92$\pm$0.011             \\ \hline
+Sim-Len    & $^{\star}${58.7\%} & 20.93$\pm$2.174             & 0.87$\pm$0.011             \\ \hline
+Sim-Lin    & 62.3\%             & 27.78$\pm$1.424             & $^{\star}${0.84$\pm$0.014} \\ \hline
+Sim-Meso   & 68\%               & 25.6$\pm$1.946              & $^{\star}${0.84$\pm$0.011} \\ \hline
+Sym-IS     & 82.8\%             & 21.24$\pm$3.005             & \textbf{0.94$\pm$0.011}    \\ \hline
+Average.   & 71.8$\pm$3.12      & 24.52$\pm$2.81              & 0.89$\pm$0.01         
+\\\hline
+\end{tabular}%
+% \caption{\footnotesize (9,13)}
+\label{tab:table1_c}
+\end{subtable}%
+\hspace{\fill}%
+\begin{subtable}[t]{0.48\textwidth}
+\flushright
+\centering
+\begin{tabular}{|l|ccc|}
+\hline
+Dimensions & \multicolumn{3}{c|}{High Meso-Pattern Scenario}                                               \\ \hline
+           & \multicolumn{1}{c|}{$\Diamond$} & \multicolumn{1}{c|}{$\dagger$} & $\bigcirc$                 \\ \hline
+Len-Lin    & $^{\star}${56.3\%}              & 32.49$\pm$1.536                & 0.92$\pm$0.007             \\ \hline
+Lin-Spa    & $^{\star}${55.7\%}              & 30.47$\pm$1.959                & 0.9$\pm$0.007              \\ \hline
+Sym-Len    & 65.7\%                          & $^{\star}${22.73$\pm$5.025}    & \textbf{0.96$\pm$0.009}    \\ \hline
+Sym-Lin    & 83.4\%                          & \textbf{44.4$\pm$1.019}        & 0.93$\pm$0.007             \\ \hline
+Sym-Meso   & 83.6\%                          & 38.45$\pm$5.136                & \textbf{0.96$\pm$0.01}     \\ \hline
+IS-Meso    & \textbf{90.2\%}                 & 34.82$\pm$3.749                & 0.95$\pm$0.009             \\ \hline
+Sim-IS     & 59.9\%                          & $^{\star}${21.16$\pm$2.237}    & 0.91$\pm$0.009             \\ \hline
+Sim-Lin    & 66.3\%                          & 36.29$\pm$1.585                & $^{\star}${0.89$\pm$0.008} \\ \hline
+Average.   & 72.34$\pm$4.12                  & 29.88$\pm$2.84                 & 0.93$\pm$0.01           
+\\\hline
+\end{tabular}%
+% \caption{\footnotesize (10,16)}
+\label{tab:table1_d}
+\end{subtable}%
+
+
+
+% \caption{\footnotesize Main caption describing \subref{tab:table1_a}, \subref{tab:table1_b}, \subref{tab:table1_c} and \subref{tab:table1_d}.}
+\label{tab:resultsTable}
+\end{table*}

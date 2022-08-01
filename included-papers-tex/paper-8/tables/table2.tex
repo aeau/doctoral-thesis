@@ -1,0 +1,85 @@
+\begin{table}[]
+\caption{displaying the grammatical rules. The columns marked with asterisks are identified as “motivations” by Doran and Parberry~\cite{Doran2011-questsMMORPGs}, but are used as a starting point for the quests. The “\textless \textgreater{}” indicates the next production rule to be taken, and actions without “\textless \textgreater{}” is  the terminating action.}
+\label{tab:productionRules}
+\resizebox{0.47\textwidth}{!}{
+\begin{tabular}{ll}
+\hline
+Production   rules &
+  Actions \\ \hline
+knowledge* &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","give"{]},   {[}"\textless{}spy\textgreater{}"{]}, \\
+  &
+  {[}"\textless{}go\_to\textgreater{}","listen","\textless{}go\_to\textgreater{}","report"{]}, \\
+ &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","use","\textless{}go\_to\textgreater{}","give"{]} \\
+comfort* &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","give"{]},\\
+  &
+  {[}"\textless{}go\_to\textgreater{}","damage","\textless{}go\_to\textgreater{}","report"{]} \\
+reputation* &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","give"{]},   \\
+ &
+ {[}"\textless{}go\_to\textgreater{}","\textless{}kill\textgreater{}","\textless{}go\_to\textgreater{}","report"{]}, \\
+ &
+  {[}"\textless{}go\_to\textgreater{}","\textless{}go\_to\textgreater{}","report"{]} \\
+serenity* &
+  {[}"\textless{}go\_to\textgreater{}","damage"{]},   \\
+ &
+ {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","use","\textless{}go\_to\textgreater{}","give"{]}, \\
+ &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","use","capture","\textless{}go\_to\textgreater{}","give"{]}, \\
+ &
+  {[}"\textless{}go\_to\textgreater{}","listen","\textless{}go\_to\textgreater{}","report"{]},   \\
+ &
+ {[}"\textless{}go\_to\textgreater{}","take","\textless{}go\_to\textgreater{}","give"{]}, \\
+ &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","give"{]},   \\
+ &
+ {[}"\textless{}go\_to\textgreater{}","damage","escort","\textless{}go\_to\textgreater{}","report"{]} \\
+protection* &
+  {[}"\textless{}go\_to\textgreater{}","damage","\textless{}go\_to\textgreater{}","report"{]},   \\
+ &
+ {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","use"{]}, \\
+ &
+  {[}"\textless{}go\_to\textgreater{}","repair"{]},   {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","use"{]},   \\
+ &
+ {[}"\textless{}go\_to\textgreater{}","damage"{]}, {[}"\textless{}go\_to\textgreater{}","repair"{]}, \\
+ &
+     {[}"\textless{}go\_to\textgreater{}","defend"{]} \\
+conquest* &
+  {[}"\textless{}go\_to\textgreater{}","damage"{]},   {[}"\textless{}go\_to\textgreater{}","\textless{}steal\textgreater{}","\textless{}go\_to\textgreater{}","give"{]} \\
+wealth* &
+  {[}"\textless{}go\_to\textgreater{}","\textless{}get\textgreater{}"{]},   {[}"\textless{}go\_to\textgreater{}","\textless{}steal\textgreater{}"{]}, {[}"repair"{]} \\
+ability* &
+  {[}"repair","use"{]},   {[}"\textless{}get\textgreater{}","use"{]}, {[}"use"{]},   {[}"damage"{]}, \\
+ &
+  {[}"\textless{}get\textgreater{}","experiment"{]} \\
+equipment* &
+  {[}"repair"{]},   {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","give"{]},   {[}"\textless{}steal\textgreater{}"{]},\\
+ &
+  {[}"\textless{}go\_to\textgreater{}","exchange"{]} \\
+subquest* &
+  {[}"\textless{}go\_to\textgreater{}"{]},   {[}"\textless{}go\_to\textgreater{}","\textless{}QUEST\textgreater{}","go\_to"{]} \\
+go\_to &
+  {[}"explore"{]},   {[}"\textless{}learn\textgreater{}","go\_to"{]} \\
+learn &
+  {[}"\textless{}go\_to\textgreater{}","\textless{}subquest\textgreater{}","listen"{]},   \\
+ &
+ {[}"\textless{}go\_to\textgreater{}","\textless{}get\textgreater{}","read"{]}, \\
+ &
+  {[}"\textless{}get\textgreater{}","\textless{}subquest\textgreater{}","give","listen"{]} \\
+get &
+  {[}"\textless{}steal\textgreater{}"{]},   {[}"\textless{}go\_to\textgreater{}","gather"{]}, \\
+ &
+  {[}"\textless{}go\_to\textgreater{}","\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","\textless{}subquest\textgreater{}","exchange"{]} \\
+steal &
+  {[}"\textless{}go\_to\textgreater{}","stealth","take"{]},   {[}"\textless{}go\_to\textgreater{}","\textless{}kill\textgreater{}","take"{]} \\
+spy &
+  {[}"\textless{}go\_to\textgreater{}","spy","\textless{}go\_to\textgreater{}","report"{]} \\
+capture &
+  {[}"\textless{}get\textgreater{}","\textless{}go\_to\textgreater{}","capture"{]} \\
+kill &
+  {[}"\textless{}go\_to\textgreater{}","kill"{]} \\ \hline
+\end{tabular}
+}
+\end{table}

@@ -1,78 +1,56 @@
-\subsection{Conclusions}
+\subsection{Conclusions and Future Work}
+
+%In this paper, we have evaluated in-depth the expressive range of IC MAP-Elites, how various pairs of dimensions yield a better search with more diverse and high-quality individuals  
+
+% \begin{enumerate}
+%     \item Regarding what pair of dimensions enable IC MAP-Elites to explore greater ranges...
+%     \item Regarding the comparative analysis we can observe...
+%     \item Regarding bias in the search space, it is shown that IC MAP-Elites is able to explore past the area of the target design, exploring in avg. around 60\% of the delimited search space by the granularity and dimensions. Moreover, Similarity has a high correlation with fitness, and depending on the objective of the designer, this might affect positively or negatively since there will be a strong bias towards highly similar individuals. 
+% \end{enumerate}
+
+% \begin{table}[]
+% \centering
+% \caption{Comparison of the avg. explored space and avg. fitness of the generated individuals in different evaluations.}
+% \label{tab:evaluationTable}
+% % \resizebox{0.25\textwidth}{!}{%
+% \begin{tabular}{|l|ccc|}
+% \hline
+% Dimension & \multicolumn{1}{c|}{$\bigtriangleup$} & \multicolumn{1}{c|}{$\bigcirc$} \\ \hline
+% NMP & 36.93\% & 53.62\% \\ \hline
+% NSP & 38.17\% & 60.77\%      \\ \hline
+% Leniency & 36.42\% & 56.55\%      \\ \hline
+% Symmetry & 38.42\% & 57\%      \\ \hline
+
+% \multicolumn{3}{l}{$\bigtriangleup$ Avg. coverage across dimensions} \\ 
+% \multicolumn{3}{l}{$\bigcirc$ Avg. coverage in respective dimension pair}
+% \end{tabular}%
+% % }
+% \end{table}
 
 
 
-% \begin{itemize}
-%     \item Discussion on what does this archetypical design trajectories mean?
-%     \item how to use them? next steps into integrating this into a system. To use this in a search-based approach as objectives for the generation to move towards the directions where (according to our archetypical design trajectories) the designers will move towards in their design process. Perhaps I could also bring the discussion from the workshop-paper for HC-AI.
-%     \item discussion on creativity? is the output or the process where the actual creativity is outputted? Compare using end-design clustering to using sequences to cluster.
-%     \item Discussion on how PCGRL relates to this type of work? --> Perhaps this is something for the background instead.
-% \end{itemize}{}
+In this paper, we have done an in-depth evaluation of IC MAP-Elites by analyzing the expressive range of all the possible pairs of dimensions, their relation to other dimensions and the fitness. %While one of the properties of MAP-Elites is to foster the exploration of a diverse and high-quality population, 
+Our results indicate specific dimensions in level generation, such as when using NMP, NSP, \textsc{leniency}, or Symmetry, that foster greater exploration. The exploration is not only fostered in their respective dimensions (in avg. 54\%, 61\%, 57\%, 57\%, respectively, when used) but also in all the others due to the diverse individuals generated within the respective dimensions as shown in \Cref{figs:dimensions-example}. As observed on~\Cref{figs:dimensions-related-fitness}, aesthetic feature dimensions such as~\emph{Similarity} and~\emph{Symmetry} have an impact when used or not in the search. When not using~\emph{Symmetry}, the search does not explore high levels of symmetry, disregarding to some extent that aesthetic feature in favor of exploring the other feature dimensions. Moreover, \emph{Similarity} has a high correlation with fitness as observed in~\Cref{figs:dimensions-related-fitness} and depending on the designer's objective, this might affect positively or negatively since there will be a strong bias towards highly similar individuals. In contrast, \textsc{is} seems to be more robust in the fitness landscape and the exploration of other dimensions because it captures the properties of the target room rather than its aesthetics. 
 
+Regarding the bias in the exploration when using IC MAP-Elites together with continuous and adaptive evolution, our results show that the generated content is highly diverse with dense areas along most of the searched space, which is shown as well in \Cref{tab:evaluationTable}. This means that due to the diversity pressure imposed by IC MAP-Elites, the search is unlikely to be biased towards creating content that is similar in the feature dimensions' scores of the target room. Yet IC MAP-Elites adapts to the target room and generates high-performing individuals along the rest of the space in the other dimensions, especially in those explicitly used in the search.
 
-% This paper presents a step towards designer modelling in a MI-CC environment by providing an implementation of designer personas as archetypical trajectories through style space, as a means to characterize several representative and frequent design styles together. 
+To further assess the algorithm, we ran an experiment using all possible dimensions (\Cref{figs:all-dimensions-earun}a) rather than specific pairs to observe the exploration and exploitation of the algorithm when not using specific pair of dimensions. As expected, it explores a substantial area of the search space in all dimensions (in avg. $51.7$\%) but surprisingly, the search results in the exploitation of sub-optimal individuals in all dimensions with an avg. fitness of $0.78$ as shown in \Cref{figs:dimensions-related-fitness}d. While using pair of dimensions results on $15.24$\% reduced exploration, the exploitation seems to be fairly spread among the explored space, visible in \Cref{figs:all-dimensions-earun}b and c, and the density related to fitness is focused on high-performing individuals~\Cref{figs:dimensions-related-fitness}a-c. This points towards that there are difficulties in (1) \textbf{fully exploring} the space when using a pair of dimensions even when the exploitation is distributed and focused on high-performing individuals, and in (2) \textbf{exploiting the promising areas} of the search when using a higher range of dimensions even when the space is vastly explored. 
 
-%This paper presents a novel approach and meaningful steps towards designer modeling in an MI-CC environment. By providing an implementation of designer personas as archetypical trajectories through style space, we show that 
+In addition, based on our experiments, such difficulties are exacerbated since the exploration stagnates and keeps exploiting the same areas after \~{}1000 generations, yet finding novel individuals. This happens regardless of the number of dimensions, which dimensions, or the target room. Our findings point to challenges in the \emph{selection step} of IC MAP-Elites, which selects cells uniformly random. Exploring different methods for the selection of cells and individuals is a promising future step. For instance, Gravina et al. \cite{p6Gravina2019-blendingNotionsDiversity} explored how four divergent search algorithms guide cells' selection.
+%, Novelty Search (NS), Surprise Search (SS), Linear combination of NS and SS, and a combination  of NS and SS via NSGA-II, 
+benefit MAP-Elites standard selection method.
 
-This paper presents a novel approach and meaningful steps towards designer modeling through an experiment on archetypical design trajectories analysis in an MI-CC environment. Through this, we characterize several representative design styles as designer personas. We have first run and compared several clustering setups to find the best partitioning of the design style using the edition sequences of the collected $180$ unique rooms, ending in $8196$ data points, and resulting in a set of twelve cohesive, coherent, and meaningful clusters. We have then mapped these $180$ design sequences in terms of these clusters, applying frequent sequence mining to find four frequent and unique designer styles, with related common sub-styles. As a result, we have presented a roadmap of design styles over a map of data-driven design clusters. 
+% In addition, based on our experiments, such difficulties are exacerbated since the exploration stagnates and keeps exploiting the same areas after \~{}1000 generations, yet finding novel individuals. This happens regardless of the number of dimensions, which dimensions, or the target room. Our findings point to challenges in the \emph{selection step} of IC MAP-Elites, which selects cells uniformly random. Exploring different methods for the selection of cells and individuals deserves more attention, and it is a promising future step. For instance, Gravina et al. \cite{p6Gravina2019-blendingNotionsDiversity} explored how the selection of cells is guided by four divergent search algorithms.
 
-%This paper presents a step towards designer modeling through an experiment on archetypical design trajectories analysis in an MI-CC environment, as a means to characterize several representative design styles as designer personas. We have first run and compared several clustering setups to find the best partitioning using the edition sequences of the collected $180$ unique rooms, ending in $8196$ data points, and resulting in a set of twelve cohesive, coherent, and meaningful clusters. We have then mapped these $180$ design sequences in terms of these clusters, applying frequent sequence mining to find four frequent unique designer styles, with related common sub-styles. As a result, we have presented a roadmap of design styles over a map of data-driven design clusters. %The examples in Figure \ref{p6fig:archetypical-examples}, help us to clarify 
+Furthermore, preliminary experiments seem to indicate that some dimensions, which are more explorative (e.g., NMP, NSP, Leniency, Symmetry), are more robust to changes in the target room, exploring similar areas of the search space regardless of the target, which can be observed in \Cref{figs:all-dimensions-earun} (b) and (c). This points towards dimensions that would make the algorithm more robust to changes, reinforcing its adaptability feature. Further experiments are needed to analyze how different dimensions are better at adapting to continuous changes in the target room, which would also indicate better stability in the search. Along these lines, further evaluation is needed with human designers to assess and explore whether IC MAP-Elites is beneficial for the MI-CC workflow and interaction. 
 
-%  namely the \textsc{Designer Personas}
+% At the very least, based on our results and comparing it to the previous EA, IC MAP-Elites will generate more diverse levels while retaining high-quality among them, giving more options and suggestions to designers. All of this, while also giving the designer a meaningful choice, as what dimensions are chosen impacts the search of IC MAP-Elites as demonstrated.% but our results indicate that spending resources on analyzing how dimensions behave and intertwine can arise better results in the explorative-exploitative tradeoff than just adding dimensions together blindly expecting more quality-diverse in the solutions.
+%Further experiments are needed to analyze how different pair of dimensions are better at adapting 
 
-% Our work draws on the ideas, concepts, and goals and concepts proposed by Liapis et al. when introducing the Designer Modeling as a model to capture multiple designer's processes. A prototype of such was implemented in the sentient sketchbook~\citepsixth{p6Liapis2014-designerModelImpl}, where it is proposed the use of interactive evolution by biasing the search space in favor of hand-crafted features of the design. we propose an alternative and novel route to designer modeling through clustering the design space and the room style based on the collected data. Moreover, we differ as well on the type of level design, being the sentient sketchbook a tool for strategy games~\citepsixth{p6liapis_generating_2013}, while EDD a tool for adventure and rogue-like games~\citepsixth{p6Alvarez2020-ICMAPE}. These differences strengthen the importance and usefulness of designer modeling, and highlight the holistic and generic properties of this designer-centric perspective.
+Currently, IC MAP-Elites is only used in EDD on a per room basis. Future work should consider the whole dungeon for the evolution procedure and further develop for the generation of complete dungeons using holistic metrics to evaluate the dungeon.
 
-Designer modeling was proposed as an approach to capture multiple designer's processes to create a better workflow by Liapis et al.~\citepsixth{p6Liapis2013-designerModel}, and our work draws on many of their ideas, concepts, and goals. Furthermore, a prototype of such was implemented in the sentient sketchbook~\citepsixth{p6Liapis2014-designerModelImpl}, where it is proposed different approaches to model style, process, and goals based on choice-based evolution and the designer's current design to adapt the provided suggestions accordingly. We propose an alternative route to designer modeling through clustering the design space and the room style based on the collected data. Moreover, we differ in the type of level design, being the sentient sketchbook a tool for strategy games~\citepsixth{p6liapis_generating_2013}, while EDD is a tool for adventure and rogue-like games~\citepsixth{p6Alvarez2020-ICMAPE}. These differences strengthen the importance and usefulness of designer modeling and highlight the holistic and generic properties of this designer-centric perspective and its possibilities.
+%, generating suggestions independently from the whole dungeon.
 
-% Designer modeling in computer-aided design tools was proposed by Liapis et al.~\citepsixth{p6Liapis2013-designerModel} as an approach to capture multiple designer's processes to create a better workflow, and a prototype of such was implemented in the sentient sketchbook~\citepsixth{p6Liapis2014-designerModelImpl}. While our work drags on many of the concepts, ideas, and goals described by Liapis et al., we propose an alternative route to designer modeling through clustering the design space
+In conclusion, based on our results, IC MAP-Elites generate more diverse levels while retaining high-quality among them, which would result in richer and more options and suggestions to designers. Our experiments show that which dimensions are used significantly impact the search space, fostering the search of high-quality individuals within the selected dimensions while not discouraging exploration in other dimensions. This means that by editing their levels and choosing which dimension IC MAP-Elites should focus on, the designers will be given more meaningful choices and interactions.
 
-% In their work, they propose the use of hand-crafted
-
-% Our work drags on many of the concepts, ideas, and goals described in~\citepsixth{p6Liapis2013-designerModel}, but we propose an alternative route to designer modeling through clustering the design space and the room style based on the collected data. In contrast 
-
-% Their work propose the use of interactive evolution by biasing the search space in favor of hand-crafted features of the design akin to~\citepsixth{p6Alvarez2020-DesignerPreference}. However, we propose an alternative and novel route to designer modeling through clustering the design space and the room style based on the collected data. Moreover, we differ as well on the type of level design, being the sentient sketchbook a tool for strategy games~\citepsixth{p6liapis_generating_2013}, while EDD a tool for adventure and rogue-like games~\citepsixth{p6Alvarez2020-ICMAPE}. Applying the idea of designer modelling to both genres, not only shows the importance and usefulness of designer modeling but also the holistic and generic view 
-
-% These differences strengthen the importance and usefulness of designer modeling, and highlight the holistic and generic properties of this designer-centric perspective.
-
-% % might be interesting to discuss this.
-% While the approach described in this paper is applied in a tool for creating zelda-like dungeon games~\citepsixth{p6tloz}, the approach can be reused and extended to other domains 
-
-These contributions allow us to better understand, cluster, categorize and isolate designer behavior. This is very valuable for mixed-initiative approaches, where a clear virtual model of the designer's style allows us to better drive the search process for procedurally generating content that is valuable for the designer. Designer personas have the potential to be used in many different scenarios. For instance, as objectives for a search-based approach to enable a more style-sensitive system, to evaluate the fitness of evolutionary generated content or to train PCG agents via Reinforcement Learning~\citepsixth{p6khalifa2020-pcgrl}. 
-
-Moreover, recognizing the designers' current style and the path taken so far, which would indicate a possible designer persona, could open the possibility for recognizing their intentions, preferences, and goals. This traced roadmap of designer personas could let a content generator anticipate a designer's next moves without heavy computational cost, just by identifying her current location on the map and offering content suggestions that lie in the most promising clusters to be visited next. Conversely, it could also identify designers who do not follow a certain path, i.e. deviating from the pattern, trying to understand their objective through their design style.
-
-% Finally, in our work, we did not observe any type of cross-path i.e. a design going from one path to another. We believe that this is due to the level at which we observe the archetypical paths. However, preliminary analysis on the dataset used in this paper and as expected, the design process of designed rooms within the same dungeon does follow different paths, and sometimes even crossing each other. This opens an interesting and exciting area to explore a wider layer, taking rooms as a set of archetypical paths taken by designers. Observing the paths taken in previous and future rooms, and the dungeon as a whole, as briefly introduced in section~\ref{p6sec:designStyle}, to understand the designers' intentions and goals when they proceed to create a new room is a promising future step to take with the current system. 
-
-%  i.e. room-wise, as the designer typically would design the room with a set of goals
-
-Finally, it is also important to observe the nature of the previous and future rooms created by a designer. Observing the dungeon as a whole, as briefly introduced in section~\ref{p6sec:designStyle}, to understand the designers' intentions and goals when they proceed to create a new room is a promising future step to take with the current system. 
-
-% Furthermore, the designer personas addresses the dynamic-dynamic system vs. dynamic-static system open question raised by Alvarez and Font~\citepsixth{p6Alvarez2020-DesignerPreference}, which relates to the challenge of adapting a system to the a ever-changing designer. With the use of the archetypical paths, the model is not anymore adapting and moving through the solution space with the designer, rather the designer traverse through an already clustered space. 
-
-% With the use of the archetypical paths, we can not only identify the current designer persona the designer is following but we can also adapt and anticipate to what they might end up doing. 
-
-% Furthermore, the designer personas addresses an open question raised by Alvarez and Font \citepsixth{p6Alvarez2020-DesignerPreference}, related to the challenges  using a dynamic-dynamic system vs. a dynamic-static system. The authors describe the dynamic-dynamic system as a system where both designer and AI-system move through the solution space, with the AI-system constantly trying to adapt to the designer. They concluded that the main challenge correspond to designers constantly concept drifting resulting in them continuously changing their decisions. Instead, the authors proposed the use of a dynamic-static system, where the model is not anymore adapting and moving through the solution space with the designer, rather the designer traverse through an already clustered space. With the use of the archetypical paths, we can not only identify the current designer persona the designer is following but we can also adapt and anticipate to what they might end up doing. 
-
-
-%and conclude that the main challenges in
-
-% Moreover, this traced roadmap of designer personas could let a content generator anticipate a designer's next moves without heavy computational cost, just by identifying her current location on the map and offering content suggestions that lie in the most promising clusters to be visited next. %Further, one could also be able to identify designers that do not follow a certain path i.e. deviating from the pattern, and try to understand through their design style their objective.
-
-
-
-
-
-% From the $180$ unique rooms, we extracted and used the edition sequence of each of the rooms, from their initial design to the more elaborated end-design, to compose a richer dataset that could capture the design process of a designer rather than focusing on the end-point. Through this, we ended up using $8196$ data points in our dataset.
-
-% We have first run and compared s
-
-
-% through experimenting with 
-
-% This paper presents a step towards designer modelling by providing a prototype implementation of designer personas as archetypical trajectories through style space. These archetypical paths
-
-% This paper presents an experiment on archetypical design trajectories analysis in a MI-CC environment, as a means to characterize several representative design styles as designer personas. We have first run and compared several clustering setups to find the best partitioning, resulting into a set of twelve cohesive, coherent, and meaningful clusters. We have then mapped almost 200 complete design sequences in terms of these clusters, applying sequence mining to find four frequent unique designer styles, with related common sub-styles. As a result, we have presented a roadmap of design styles over a map of data-driven design clusters. 
-
-
-
-% be used as goal for other systems were anticipating a design or creating a synthetic objective might be more complicated. We envision that these designer personas can be used within 
+% In conclusion, our evaluation is aligned with our expectations when enabling designers to explore different pairs of dimensions. Individuals found in the search space are, in general, more diverse and high-performing, which results in a richer population to be suggested to the designer. Our experiments show that which dimensions are used have a big impact in the search space, fostering the search of high-quality individuals within the selected dimensions while not discouraging exploration in other dimensions. In other words, enabling the designers to proactively decide which dimensions should be used in the search, gives them a high level of controllability with minimal loss in the expressive range.

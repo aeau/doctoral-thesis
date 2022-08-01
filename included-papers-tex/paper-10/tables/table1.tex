@@ -1,0 +1,74 @@
+% \begin{table}
+% \begin{center}
+% {\caption{Best performing setups based on their internal validation and visualization of clustered data points.}\label{table:setups}}
+% \resizebox{0.48\textwidth}{!}{
+% \begin{tabular}{ccccccc}
+% \hline
+% \rule{0pt}{12pt}
+% Algorithm&Data&K&$\Diamond$&$\Box$&$\bigtriangleup$ 
+% \\ 
+% \hline
+% \\[-6pt]
+% K-Means & Tiles-PCA & 9 & 0.43 & 0.73 & 9438.233 \\ 
+% K-Means & Tiles-PCA & 12 & 0.41 & 0.77 & 9436.928 \\
+% K-Means & Dimensions-PCA & 12 & 0.43 & 0.73 & 7738.343 \\
+% Agglomerative single & Combined-PCA & 6 & 0.51 & 0.43  & 38.833 \\ 
+% Agglomerative avg. & Dimensions-PCA & 6 & 0.44 & 0.67 & 3463.567 \\ 
+% \hline
+% \\[-6pt]
+% \multicolumn{6}{l}{$\Diamond$ Silhouette Score\ \
+% $\Box$ Davies Bouldin Index\ \
+% $\bigtriangleup$ Calinski-Harabasz Index}
+% \end{tabular}
+% }\end{center}
+% \end{table}
+
+% \begin{table}
+% \begin{center}
+% {\caption{Best performing setups based on their internal validation and visualization of clustered data points.}\label{table:setups}}
+% \resizebox{0.48\textwidth}{!}{
+% \begin{tabular}{ccccccc}
+% \hline
+% \rule{0pt}{12pt}
+% Algorithm&Data&K&$\Diamond$&$\Box$&$\bigtriangleup$&$ARI$
+% \\ 
+% \hline
+% \\[-6pt]
+% K-Means & Tiles-PCA & 9 & 0.43 & 0.73 & 9437.23 & 0.941\\ 
+% $\star$K-Means & Tiles-PCA & 12 & 0.41 & 0.77 & 9436.57 & 0.935 \\
+% K-Means & Dimensions-PCA & 12 & 0.43 & 0.73 & 7738 & 0.84\\
+% K-Means & Combined-PCA & 10 & 0.41 & 0.73  & 8455.34 & 0.931 \\ 
+% Agglomerative compl. & Tiles-PCA & 6 & 0.501 & 0.64 & 4221.34 & 0.719\\  
+% \hline
+% \\[-6pt]
+% \multicolumn{7}{l}{$\Diamond$ Silhouette Score\ \
+% $\Box$ Davies Bouldin Index\ \
+% $\bigtriangleup$ Calinski-Harabasz Index}
+% \end{tabular}
+% }\end{center}
+% \end{table}
+
+\begin{table}
+\begin{center}
+{\caption{Best performing setups based on their internal validation and visualization of clustered data points.}\label{table:setups}}
+\resizebox{0.48\textwidth}{!}{
+\begin{tabular}{cccccccc}
+\hline
+\rule{0pt}{12pt}
+Algorithm&Data&K&$\Diamond$&$\Box$&$\bigtriangleup$&$ARI$&$ARI(R)$
+\\ 
+\hline
+\\[-6pt]
+K-Means & Tiles-PCA & 9 & 0.43 & 0.73 & 9437.23 & 0.941 & 0.581\\ 
+$\star$K-Means & Tiles-PCA & 12 & 0.41 & 0.77 & 9436.57 & 0.935 & 0.775\\
+K-Means & Dimensions-PCA & 12 & 0.43 & 0.73 & 7738 & 0.84 & 0.876\\
+K-Means & Combined-PCA & 10 & 0.41 & 0.73  & 8455.34 & 0.931 & 0.866 \\ 
+Agglomerative compl. & Tiles-PCA & 6 & 0.501 & 0.64 & 4221.34 & 0.719 & 0.419\\  
+\hline
+\\[-6pt]
+\multicolumn{8}{l}{$\Diamond$ Silhouette Score\ \
+$\Box$ Davies Bouldin Index\ \
+$\bigtriangleup$ Calinski-Harabasz Index}
+\end{tabular}
+}\end{center}
+\end{table}

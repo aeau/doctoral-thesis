@@ -1,0 +1,197 @@
+\subsection{Related Work}
+
+Howard defined quests as "... a conceptual bridge that can help to join together many two-part or binary pairs [...] these include game and narrative, gaming and literature, technology and mythology and meaning and action~\cite{p812-howard2008quests}". Howard argues that quests unify both meaning and action, where meaning hails from strategic actions with thematic, narrative, and personal implications; and actions being those that are meaningful for the player on the level of ideas, personal ambitions, benefits to society, and spiritual authenticity~\cite{p812-howard2008quests}. Aarseth describes quests as concrete and attainable goals, and such can be hierarchic, concurrent, serial, or a combination of those. Further, Aarseth describes three basic quest types~\emph{Time-},~\emph{Place-}, and~\emph{Objective-oriented}, which can also be combined to form seven different quest types~\cite{p8aarseth2005hunt}. Questgram is based on the quest analysis and proposed grammar by Doran and Parberry, constructed and extracted from analyzing over 750 quests from four RPGs and where they defined quests as a task given to the player that challenges them to complete some goals in exchange for some reward~\cite{p8Doran2011-questsMMORPGs}. While helpful to understand quests as a whole, these definitions create a sense of ambiguity over different concepts surrounding quests. Yu et al.~\cite{p8yu2020quest} proposed a generic quest definition in games that aims at unifying related concepts that appear in most of other's work, clearing ambiguity and easing it's use in PCG quest generation tools. Formally, they define a quest as $Q = \langle T, \leq, R \rangle$, where a quest $Q$ is a partially ordered set $\leq$ of tasks $T$ to be done to receive one or more rewards from a set $R$, which usually are in-game items.
+
+% These definitions while helpful to understand quests as a whole; create a sense of ambiguity over different concepts surrounding quests. Yu et al.~\cite{p8yu2020quest} propose a generic quest definition in games that aims at unifying related concepts that appear in most of other's work, clearing ambiguity and easing it's use in PCG quest generation tools. Formally, they define a quest as $Q = \langle T, \leq, R \rangle$, where a quest $Q$ is a partially ordered set $\leq$ of tasks $T$ to be done to receive one or more rewards from a set $R$, which usually is an in-game item. A task $t \in T$ is further defined as a 4-tuple $\langle C, M, I, R_{t} \rangle$, where $C$ is a precondition for the task, $M$ is the system for $C$ to be true, $I$ is the presentation of the quest, and $R_{t}$ is the set of rewards for completing task $t$.
+
+\subsubsection{Story and Quest Generation}
+
+Quests are fundamental elements in most games, driving the plot and player actions and providing goals and tasks to engage players with the game and the narrative. Doran and Parberry analyzed quests in four RPGs and found nine different "motivations" from NPC's, which resulted together with a specific strategy in a "verb-noun" pair, for example, "steal supplies" or "attack enemy". They used this grammar to generate quests while the user chose between nine identified NPC motivations~\cite{p8Doran2011-questsMMORPGs}. Based on Doran and Parberry's action classification, Breault et al. developed an engine capable of creating quests similar to human-made ones, and since the engine generates quests based on the world state at the time of generation, the creation of possible quests increases as the game progresses~\cite{p8Breault2021-CONANQuestGen}. 
+
+One key characteristic in games is that they are interactive, and as such, can present choices to players. However, quests do not tend to provide such choice, especially in RPGs; rather, it is common that they are limited as a series of steps to follow.  An interesting approach is Questbrowser~\cite{p8Sullivan2009-questbrowser}, a quest design brainstorming tool where the designer can query the system for ideas, alternatives, and possibilities on elements or concepts that foster designers' creativity and help make quests playable (i.e., adding choice for players). However, presenting choices to players could create competing objectives for designers as they want to impose their narrative but, at the same time, want to create adaptable experiences for players. %Aarseth~\cite{p8Aarseth2012-Narrativetheory} discusses and analyzes this from the perspective of kernels, events that makes a story recognizable, and satellites, dispensable events that could be removed or changed. One example is Fa\c{c}ade~\cite{p8mateas2003-faccade}, where players' actions are fundamental as transition points that are taken in consideration when planning and adding subsequent beats that can change the kernel events of the game; adapting the story to the player.
+
+Planning algorithms are a common technique to compose stories and quests meaningfully and with some partial-ordering~\cite{p8young2013-plansNarrGen,Porteous2017-PlanningTechnologiesIS}, focusing and optimizing character believability together with multi-agent systems~\cite{p8Riedl2005-charBelievMulti,Riedl2006-StoryPlanningCreativity}, replicating common quests and quest patterns~\cite{p8Doran2011-questsMMORPGs,Trenton2010-questpatterns,31-breault2018let}, or identifying fundamental units and assembling them based on various pre-conditions~\cite{p8Kreminski2018-SketchingStorylets,Garbe2019-StoryletsAssembler}. Kreminski and Wardrip-Fruin~\cite{p8Kreminski2018-SketchingStorylets} mapped and compared multiple storylets-based systems and proposed the use of storylets, which are discrete, atomic, and recombinable narrative chunks, to assemble narratives based on a set of preconditions to create different narrative structures. Storylets were used by Garbe et al. in the StoryAssembler to generate dynamic narratives, which attempts to create a valid story with a planner using a set of provided storylets and storytelling goals that the planner uses as objective~\cite{p8Garbe2019-StoryletsAssembler}. 
+
+% Planning algorithms 
+
+% representative events of a story, and satellites, dispensable 
+
+% Interactive Storytelling 
+
+% While presenting choices to players is beneficial,
+
+% Presenting choices to players
+
+
+% An interesting approach is Questbrowser~\cite{p8Sullivan2009-questbrowser}, a quest design brainstorming tool using the common-sense database ConceptNet. In Questbrowser, the designer can query the system for ideas, alternatives, and possibilities on elements or concepts, that then can foster the creativity of designers and help make quests playable (i.e., adding choice for players). While presenting choices to players is beneficial, Presenting choices to players
+
+% The discussion on presenting choices to players roots in the 
+
+% Sullivan et al.~\cite{p8Sullivan2009-questbrowser} analyzed and explored this situation with Questbrowser, a quest design brainstorming tool using the common-sense database ConceptNet, that allows and helps designers create meaningful quest design and choices for players. In Questbrowser, the designer can query the system for ideas, alternatives, and possibilities on elements or concepts, that then can foster the creativity of designers and help make quests playable (i.e., adding choice for players).
+
+% challenges for   Questbrowser uses   and explored an approach, Questbrowser, to make quests playable (i.e., adding choice for players). Questbrowser is a quest design brainstorming tool that allows  Questbrowser uses 
+
+
+% Sullivan et al.~\cite{p8Sullivan2009-questbrowser} analyzed this situation and explored an approach, Questbrowser, to make quests playable (i.e., adding choice for players). Questbrowser is a quest design brainstorming tool that allows  Questbrowser uses 
+
+% Through Questbrowser 
+
+% Questbrowser  explores this with
+
+
+
+% Kreminski and Wardrip-Fruin~\cite{p8Kreminski2018-SketchingStorylets} mapped and compared multiple storylets-based systems and proposed the use of storylets to assemble narratives based on a set of preconditions with the goal of creating different narrative structures. Storylets are discrete, atomic, and recombinable narrative chunks, tested by Kreminski et al. with \emph{Felt} a story sifter that used parametrized storylets to produce story arcs~\cite{p8Kreminski2019-FeltStorySifter}, and as a core component in the StoryAssembler . 
+
+% Furthermore, Kreminski and Wardrip-Fruin~\cite{p8Kreminski2018-SketchingStorylets} mapped and compared multiple storylets-based systems and proposed the use of storylets, which are discrete, atomic, and recombinable narrative chunks, to assemble narratives based on a set of preconditions with the goal of creating different narrative structures. While not explicitly quest generation, Kreminski et al. introduced \emph{Felt} a story sifter that used parametrized storylets to produce story arcs
+
+
+% Moreover, since Questgram functions alongside a level generator, it is critical to discuss work that attempts to generate both facets and why this is important.
+Moreover, Questgram functions within EDD's level design tool, which means both would function in relation to each other. Kybartas and Bidarra discussed the relation between plot and space, focusing on the degree of automation for story elements. This resulted in six categories: \emph{automated space}, \emph{constrained space}, \emph{space simulation}, \emph{space modification}, and \emph{manual space that builds a gradient between automatic and manual generation}~\cite{p8kybartas2016survey}. Ashmore and Nitsche investigated a player-centric quest generation, where the progression through level generation is achieved with a "key and lock" structure, which results in a bridge between the generated space and the quests~\cite{p8ashmore2007-questGeneratedWorld}.
+
+% . The player engages in the quests to find the "key" to overcome the obstacle, thus blocking the player's progress in a flexible way, which according to Ashmore and Nitsche
+
+% They argue that even with breaking down the narrative in sub-components, the goal of an automatic narrative creation tool there would still be a large presence of a human author, as so, benefitting mixed-initiative methods but opening up new research questions for fully automatic methods~\cite{p8kybartas2016survey}.
+
+Dormans and Bakkes used two grammars to generate both missions and game space, where the latter was informed by the first. Missions are generated using graph grammars, creating a non-linear structure suited for exploration, while extended shape grammar generates the corresponding space required~\cite{p8dormans2011generating}. Further, Flodhag et al. use the information from levels co-created in \emph{EDD} and categorize them based on the meso-patterns within them to present a set of main and side objectives to designers in their dungeon~\cite{p8flodtol2020-WIPMakeSenseDungs}. Hartsook et al. explore the creation of complete RPGs from a story created by either a computational system or human-authored and a set of player preferences. Their approach creates and represents game worlds as transition graphs based on a story composed of plot points, player's playstyle preferences, and designer constraints~\cite{p8hartsook2011-storyWorlds}. 
+
+% Similar to Dormans and Bakes approach, Abuzuraiq et al. presented taksim that uses constrained graph partitioning
+
+
+% ADDITION TO DORMANS - Van der Linden et at. have proposed using gameplay grammar-based levels to generate dungeon levels, being able to significantly improve the design of procedurally generated levels [21].
+
+
+% which is critical given that Questgram functions alongside a level generator.
+
+
+% Add references to other approaches such as taksim~\cite{p8abuzuraiq2019-taksim}, research from Mark Riedl~\cite{p8Tambwekar2019-ControllableNeuralPlot}. Storylets~\cite{p8Kreminski2018-SketchingStorylets,Garbe2019-StoryletsAssembler}, etc. There was another good one from the PCG workshop 2018 (gotcha)~\cite{p8Smith2018-GraphBasedGeneration}.
+
+% There are a variety of methods for procedurally creating content such as constructive methods, producing only one output per run, or search-based methods, which use evolutionary algorithms to search for good content according to Darwinian evolution principles. One constructive approach is using grammars [4], for example, Dorman’s [20] conducted research on using two-layered grammars to generate both gameplay and game space [4]. Dividing missions and spaces as separate structures and generating the content in two individual steps [20]. Missions are generated using graph grammars, creating a non-linear structure suited for exploration while extended shape grammar generates the corresponding space required [20]. Van der Linden et at. have proposed using gameplay grammar-based levels to generate dungeon levels, being able to significantly improve the design of procedurally generated levels [21].
+
+ 
+% Doran and Parberry use a grammar constructed and extracted from analysing over 750 quests from four RPGs, to generate quests while the user simply chose between nine identified NPC motivations. Their work, defined quests as a task given to the player that challenges them to complete some goals in exchange of some reward~\cite{p89-Doran2011-questsMMORPGs}. 
+
+% Questgram is based on the quest analysis and proposed grammar by Doran and Parberry~\cite{p89-Doran2011-questsMMORPGs}, where they found nine different "motivations" from NPC´s which resulted together with a specific strategy in a “verb-noun” pair, for example, “steal supplies”. This derived into twenty atomic actions.
+
+% Doran and Parberry use a grammar constructed and extracted from analysing over 750 quests from four RPGs, to generate quests while the user simply chose between nine identified NPC motivations. Their work, defined quests as a task given to the player that challenges them to complete some goals in exchange of some reward~\cite{p89-Doran2011-questsMMORPGs}.  
+
+% Quest generation 
+% Quest generation has been approached in multiple ways, although focusing on one way or another in quest patterns.  
+
+% Quest generation has been approach in multiple ways 
+
+
+% Quest generation provides unique opportunities to games such as increasing replayability, 
+
+% As most games have some type of quest driving the plot and the player actions, and providing goals and tasks to motivate players; is normal that quest generation has been focused by the AI community. Quest generation provides unique opportunities to games such as increasing replayability
+
+% Quests are core elements to drive the plot of game
+% Quests are core elements in most games, where they are used as a means to drive the plot, the actions 
+% Narrative is a fundamental element in games, which as it helps creating immersion 
+
+% Given that most games have some type of quest driving the plot and the player actions, and providing goals and tasks to motivate players; quest generation has gained interest from the AI community. 
+
+% Level and narrative have been 
+% which is critical given that Questgram functions alongside a level generator.
+
+% For quest generation Parberry and Doran has categorized quests based on NPC’s motivations with the goal of autonomous generation [9]. Other research  within autonomous generation is Ashmore and Nitsche [30], investigating a player centric quest generation, where the progression through level generation is achieved with “key and lock” structure.
+
+
+% Games where the world is procedurally generated, encourage exploration, while games, where levels are procedurally generated, encourages replayability [15]. There is different type of replayability as Smith presents [28], reacting in a surprising environment (the game plays different content at each attempt), building generator strategies (experiencing different content and having the opportunity to build strategies around the content generator) and practicing in different environment (the game lets the player experience new challenges but of the same kind) [28]~\cite{p828-UnderstandingPCG}.
+
+
+\subsubsection{Mixed-Initiative Co-Creativity}
+
+% \textbf{Present EDD~\cite{p8alvarez2019empowering,Alvarez2020-ICMAPE}, Geminate~\cite{p8kreminski2020-Germinate}, the work I am just reading from Kreminski as well.}
+
+MI-CC is a paradigm where both humans and AI have a proactive initiative in the collaboration to co-create some creative content~\cite{p8yannakakis2014micc,liapis2016mixed}. Both human and AI leverage on each other's strengths to achieve the task and continuously negotiate to determine roles; thus, collaborating as a team~\cite{p8Allen99-MIinteraction}. One critical aspect of MI-CC systems is the link between these systems and theories of computational and human creativity, where a main focus of MI-CC is on fostering human's creativity while reducing their workload~\cite{p8Liapis2016-CanComputersFosterCreativity,Alvarez2018}.
+
+The \emph{Sentient Sketchbook} is an MI-CC tool for the co-creation of strategy games where the designer focused on creating low-resolution sketches, and the computational designer suggested variations generated with different evolutionary algorithms~\cite{p8Liapis2013-sentientsketchbook}. Cicero is an MI-CC system that helps designers create complete games using a recommender system and A-Priori to suggest what content might be added next regarding sprites, mechanics, rules, or interactions~\cite{p8machado2019pitako}. Another interesting MI-CC system is \emph{Why Are We Like This? (WAWLT)} where two players can develop a story transcript while supported by an AI system with tools to inspect the story world and with suggestions to direct the plot~\cite{p8Kreminski2020-WAWLT}.
+
+% \emph{Germinate} is an MI-CC system to co-create rhetorical games that allow designers to focus on a higher level, specifying constraints and properties of games they want the generator to create, and iteratively changing these based on the generator's output~\cite{p8kreminski2020-Germinate}. 
+
+EDD is an MI-CC system where the designer can create interconnected rooms that compose a dungeon while receiving a set of diverse suggestions using the IC MAP-Elites evolutionary algorithm driven by level design patterns and considering the designer's current design. The designer can interact with the suggestion system by locking tiles, editing their design, and selecting and interacting with hyper-parameters of IC MAP-Elites~\cite{p8Alvarez2018a,Alvarez2020-ICMAPE}
+
+
+% The designer can interact with the suggestion system by locking tiles (explicitly indicating what they want to preserve)~\cite{p8Alvarez2018a}, by their design, by choosing suggestions which train a preference model~\cite{p8Alvarez2020-DesignerPreference}, and by selecting multiple hyper-parameters of the evolutionary approach~\cite{p8Alvarez2020-ICMAPE}. 
+
+% Recently, an automatic dungeon assessment was introduced in EDD, which present a set of objectives to the designer based on what they created~\cite{p8flodtol2020-WIPMakeSenseDungs}. Questgram builds on top of EDD and takes advantage of it's mixed-initiative perspective, the levels that are created, and the objectives that are identified. 
+
+
+% Questgram is a prototype tool aiming at creating an MI-CC quest generation system that builds on top of EDD an MI-CC system for creating dungeon levels.
+
+% an automatic dungeon evaluation was introduced in EDD that assess the dungeon and the different patterns that 
+
+
+% However, while helpful to understand quests as a whole, quests and its components have been defined multiple times in research creating a sense of ambiguity over different concepts surrounding quests as discussed by Yu et al.~\cite{p8yu2020quest}. Yu et al.~\cite{p8yu2020quest} propose a generic quest definition in games that aims at unifying related concepts that appear in most of other's work, clearing ambiguity and easing it's use in PCG quest generation tools. Formally, they define a quest as $Q = \langle T, \leq, R \rangle$, where a quest $Q$ is a partially ordered set $\leq$ of tasks $T$ to be done to receive one or more rewards from a set $R$, which usually is an in-game item. A task $t \in T$ is further defined as a 4-tuple $\langle C, M, I, R_{t} \rangle$, where $C$ is a precondition for the task, $M$ is the system for $C$ to be true, $I$ is the presentation of the quest, and $R_{t}$ is the set of rewards for completing task $t$.
+
+% Furthermore, Questgram is based on the quest analysis and proposed grammar by Doran and Parberry, where they found nine different "motivations" from NPC´s which resulted together with a specific strategy in a “verb-noun” pair, for example, “steal supplies”. This derived into twenty atomic actions~\cite{p89-Doran2011-questsMMORPGs}. In their work, they use the grammar to generate quests while the user simply chose between the different motivations. Their work, defined quests as a task given to the player that challenges them to complete some goals in exchange of some reward.  
+
+% Parberry and Doran found 9 different “motivations” from NPC´s which resulted together with a specific strategy in a “verb-noun” pair, for example, “steal supplies”. This derived into twenty atomic actions~\cite{p89-Doran2011-questsMMORPGs}. A quest can be broken down into several side-quests [9], and be optional and unrelated to the main story-line~\cite{p815-Yannakakis2018,18-fundamentalsGameDesign}.
+
+% Yu et al.~\cite{p8yu2020quest} propose a quest definition that aims at unifying related concepts that appear in most of other's work, and formalizing it  specifically defining quests as a partially ordered set of tasks that must be completed to receive one or more rewards. Formally, they define quest as $Q = \langle T, \leq, R \rangle$, 
+
+
+% which is a partially ordered set $\leq$ of tasks $T$ that must be completed to receive a reward $R$, Reward is defined as $r \in R$, and Task as
+
+
+% Formally, they define quests as a partially ordered set of tasks that must be completed to receive a reward $Q = \langle T, \leq, R \rangle$, Reward as 
+
+% Yu et al.~\cite{p8yu2020quest} propose a generic quest definition that aims at unifying related concepts that appear in most of other's work, specifically a quest is defined as a partially ordered set of tasks to be done to receive one or more rewards from a set of
+
+% Yu et al.~\cite{p8yu2020quest} propose a generic quest definition in games that aims at unifying related concepts that appear in most of other's work, clearing ambiguity and easing it's use in PCG quest generation tools. Formally, they define a quest as $Q = \langle T, \leq, R \rangle$, where a quest $Q$ is a partially ordered set $\leq$ of tasks $T$ to be done to receive one or more rewards from a set $R$, which usually is an in-game item. A task $t \in T$ is further defined as a 4-tuple $\langle C, M, I, R_{t} \rangle$, where $C$ is a precondition for the task, $M$ is the system for $C$ to be true, $I$ is the presentation of the quest, and $R_{t}$ is the set of rewards for completing task $t$.
+
+% A reward $r \in R$ 
+
+% formalizing this to ease it's use in PCG quest generation tools. Formally, they define a quest as $Q = \langle T, \leq, R \rangle$, which 
+
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+
+% \subsubsection{Adventure Games, Dungeons, and Quests}
+
+% \textbf{Here we want to write about quests and dungeon games}
+
+% The genres where quests appear are mainly adventure games, action-adventure games, and role-playing games (RPG)~\cite{p812-howard2008quests}. Both RPGs and adventure games have a rich storyline, detailed characters, and involve exploration~\cite{p8aarseth2005hunt}. Dungeons as game content can be defined as a single level or set of levels that are set in an underground complex and is connected through an overworld with cities or a wilderness~\cite{p8Dahlskog2015-patternsDungeonsGens}. The cities can act as a replenishment zone where the player can do trades using found items or item upgrades. Dungeons can contain enemies, treasures, hidden passages, puzzles~\cite{p8Dahlskog2015-patternsDungeonsGens}, decorations, and Non-playable characters (NPC)~\cite{p8shaker_procedural_2016}, thus creating space that allows the player to explore the unknown areas~\cite{p8Dahlskog2015-patternsDungeonsGens}. Dungeons are a popular level design, especially within PCG~\cite{p8shaker_procedural_2016,aarseth2005hunt,Yannakakis2018}, where it has been present in popular games ever since the 1970s~\cite{p8Dahlskog2015-patternsDungeonsGens}. 
+
+% Moreover, Aarseth defines quests as “a game that depends on mere movement from position A to position B"~\cite{p8aarseth2005hunt} and Howard defines it as “A quest is a middle term, a conceptual bridge that can help to join together many two-part or binary pairs [..] these include game and narrative, gaming and literature, technology and mythology and meaning and action”~\cite{p812-howard2008quests}. This link between quest narrative, quests, and quest games has been proposed by Howard~\cite{p812-howard2008quests}, arguing that quests unify both meaning and action. The meaning hails from strategic actions with thematic, narrative and personal implications, and actions being those that are meaningful for the player on the level of ideas, personal ambitions, benefits to society, and spiritual authenticity. Quests can be linked together like a chain to advance in the game’s story further~\cite{p8Dahlskog2015-patternsDungeonsGens} and give structure by limiting the player’s available choice through providing access to certain areas only in a specific order(s)~\cite{p8Dahlskog2015-patternsDungeonsGens}, thus making the game designer take control of the players’ agenda~\cite{p8aarseth2005hunt}. Besides being a fundamental element for narrative progression~\cite{p817-SoaresdeLima_HierarchicalgenQuests}, quest affects the amount of space needed for a game’s landscape~\cite{p8dormans2011generating,aarseth2005hunt}. Aarseth describes three basic quest types~\emph{Time-},~\emph{Place-}, and~\emph{Objective-oriented}, which can also be combined to form seven different quest types.
+
+% Furthermore, Parberry and Doran found 9 different “motivations” from NPC´s which resulted together with a specific strategy in a “verb-noun” pair, for example, “steal supplies”. This derived into twenty atomic actions~\cite{p89-Doran2011-questsMMORPGs}. A quest can be broken down into several side-quests [9], and be optional and unrelated to the main story-line~\cite{p8Yannakakis2018,18-fundamentalsGameDesign}.
+
+% \subsubsection{Narrative and Quest Generation}
+
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+
+% Examples of games with procedurally generated content and dungeons are The Elder Scrolls V: Skyrim, Diablo, and Rogue  [4]. Skyrim uses PCG to create missions and adventures [27],  Diablo to create maps and the type, number, and placements of items and monsters[15]. Rogue is a classic example of early use of PCG with dungeons and even spawning a genre called Roguelikes [4]. These successful games and the unique challenges in their design have made dungeons an active and attractive PCG subject [4]. It  can also  increase replayability and become a design tool to assist designers, such as mixed-initiative systems [4]. The usage of PCG has been investigated by Aruajo and Souto through a case study of No Man’s Sky and state of the art study [27]. Aruajo and Souto  have proposed three recommendations for PCG in games with the desired effect. 
+
+% \begin{itemize}
+%     \item Basic - When PCG  is used to generate content, thus making developers able to work on predetermined templates instead of creating from scratch. Aruajo and Souto argue smaller studios with no or little PCG usage should focus on shorter games with interesting core design.
+%     \item Intense - When PCG is used to increase game time and enjoyment but does not detract from possibilities provided by the game. 
+%     \item Core - When PCG is used as a core element of the game. This requires a larger fine turning to make sure the players interest in the game is kept over the curse of the gameplay.
+% \end{itemize}
+
+% While PCG can offer a great quantity content wise, it could ultimately turn into uncreative and uninteresting content. The challenge when creating an interesting world is to balance between the need for a long game and to fill it with interesting stories and elements, thus arguing for a  content quality over a content quantity approach [27].
+
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+
+% Games where the world is procedurally generated, encourage exploration, while games, where levels are procedurally generated, encourages replayability [15]. There is different type of replayability as Smith presents [28], reacting in a surprising environment (the game plays different content at each attempt), building generator strategies (experiencing different content and having the opportunity to build strategies around the content generator) and practicing in different environment (the game lets the player experience new challenges but of the same kind) [28].
+
+% Definitely point towards Yu et al. quest definition and breakdown~\cite{p8yu2020quest}
+
+% Add references to other approaches such as taksim~\cite{p8abuzuraiq2019-taksim}, research from Mark Riedl~\cite{p8Tambwekar2019-ControllableNeuralPlot}. Storylets~\cite{p8Kreminski2018-SketchingStorylets,Garbe2019-StoryletsAssembler}, etc. There was another good one from the PCG workshop 2018 (gotcha)~\cite{p8Smith2018-GraphBasedGeneration}.
+
+% There are a variety of methods for procedurally creating content such as constructive methods, producing only one output per run, or search-based methods, which use evolutionary algorithms to search for good content according to Darwinian evolution principles. One constructive approach is using grammars [4], for example, Dorman’s [20] conducted research on using two-layered grammars to generate both gameplay and game space [4]. Dividing missions and spaces as separate structures and generating the content in two individual steps [20]. Missions are generated using graph grammars, creating a non-linear structure suited for exploration while extended shape grammar generates the corresponding space required [20]. Van der Linden et at. have proposed using gameplay grammar-based levels to generate dungeon levels, being able to significantly improve the design of procedurally generated levels [21].
+
+% The relation between plot and space have been further presented by Kybartas and Bidarra, with focus on the degree of automation for story elements. This resulted in five categories: automated space, constrained space, space simulation, space modification,  manual space that builds a gradient between automatic and manual generation~\cite{p8kybartas2016survey}. Kybartas and Bidarra argue that even with breaking down narrative in sub-components, the goal of an automatic narrative creation tool there would still be a large presence of a human author, as so, benefitting mixed initiative methods but opening up new research questions for fully automatic methods~\cite{p8kybartas2016survey}.
+
+% For quest generation Parberry and Doran has categorized quests based on NPC’s motivations with the goal of autonomous generation [9]. Other research  within autonomous generation is Ashmore and Nitsche [30], investigating a player centric quest generation, where the progression through level generation is achieved with “key and lock” structure.
+
+% More quest generation research has been conducted by Breault et al. following Parberry and Dorans action classification. The findings were that their developed engine was capable of creating quests similar to human written ones, and because the engine generates quests based on the world state at the time of generation, the creation of possible quests increases as the game progresses [31]. 
+
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% THIS HAS NOT BEEN DONE! %%%%%%%%%%%%%%%%%%%%%

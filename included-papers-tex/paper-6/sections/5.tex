@@ -1,167 +1,210 @@
-\subsection{Designer Personas} \label{p6section:results}
+\subsection{Expressive Range Analysis}
 
-%We  trained  3  models  for  each  representation  and  problem configuration. To analyze these models, we collected 40 generated levels for each model.  To generate the levels, 40 different random level layouts were generated, the models were then tasked with modifying these random layouts into good levels.   We  analyzed  the  final  modified  levels  using  different change percentages, ranging from0%to100%, where thepercentage represents the fraction of tiles the agent is allowedto change during inference
+\input{tables/table1}
 
-%To understand the typical progress of designers and validate the clustering, we visualize how typical design sessions traverse the various clusters. These trajectories  are  then  clustered  to  find  a  small  handful of designer personas.
+% \begin{table}[]
+% \centering
+% \caption{}
+% \label{tab:my-table}
+% % \resizebox{0.25\textwidth}{!}{%
+% \begin{tabular}{|l|lll|}
+% \hline
+% Dimensions & \multicolumn{1}{c|}{$\Diamond$} & \multicolumn{1}{c|}{$\bigtriangleup$} & \multicolumn{1}{c|}{$\bigcirc$} \\ \hline
+% IS-Sym         & 0.91 & 31.84\% & 42.7\%  \\
+% Len-IS         & 0.9  & 32.28\% & 39.7\%  \\
+% Len-Lin        & 0.9  & 34.7\%  & 47.6\%  \\
+% Len-Sim        & 0.88 & 33.95\% & 41\%    \\
+% Len-Sym        & 0.91 & 38.27\% & 56.5\%  \\
+% Lin-IS         & 0.9  & 31.63\% & 38\%    \\
+% Lin-Sim        & 0.88 & 32.6\%  & 40.8\%  \\
+% Lin-Sym        & 0.91 & 32.51\% & 48.6\%  \\
+% NMP-IS         & 0.89 & 33.58\% & 50.8\%  \\
+% NMP-Len        & 0.89 & 38.32\% & 67.2\%  \\
+% NMP-Lin        & 0.89 & 35.03\% & 56.6\%  \\
+% NMP-NSP        & 0.88 & 36.32\% & 63.9\%  \\
+% NMP-Sim        & 0.87 & 32.32\% & 36.9\%  \\
+% NMP-Sym        & 0.89 & 33.33\% & 51.6\%  \\
+% NSP-IS         & 0.89 & 32.94\% & 50.8\%  \\
+% NSP-Len        & 0.89 & 38.32\% & 63\%    \\
+% NSP-Lin        & 0.89 & 36.04\% & 44\%    \\
+% NSP-Sim        & 0.86 & 34.31\% & 49.7\%  \\
+% NSP-Sym        & 0.9  & 36.2\%  & 68.5\%  \\
+% Sim-IS         & 0.87 & 30.75\% & 28.5\%  \\
+% Sim-Sym        & 0.88 & 32.01\% & 43.2\%  \\ \hline
+% Average        & 0.89 & 34.15\% & 49.03\% \\ \hline
+% All Dimensions & 0.78 & 48.27\% & N/A      \\ \hline
+% Traditional EA & 0.92 & 21.09\% & N/A      \\ \hline
 
-\begin{figure*}[t]
-    \centering
-     \subfloat[\textsc{Architectural-focus}\label{p6subfig-1:dummy}]{%
-       \includegraphics[width=0.45\textwidth]{figures/1.png}
-     }
-     \hfill
-     \subfloat[\textsc{Goal-oriented}\label{p6subfig-2:dummy}]{%
-       \includegraphics[width=0.45\textwidth]{figures/2.png}
-     }\hfill
-    %  \medskip
-     \subfloat[\textsc{Split central-focus}\label{p6subfig-3:dummy}]{%
-       \includegraphics[width=0.45\textwidth]{figures/3.png}
-     }
-     \hfill
-     \subfloat[\textsc{Complex-balance}\label{p6subfig-4:dummy}]{%
-       \includegraphics[width=0.45\textwidth]{figures/4.png}
-     }
-    
-    \caption{Examples of each of the archetypical paths from one of the frequent sequences used to create the clusters. To the left of each subfigure, we present each key step in the trajectory i.e. when the design entered a new cluster. (a) presents the \textsc{Architectural-focus} archetypical path where the focus is firstly on creating the structural design of the rooms; the design process jumps back and forth suddenly to cluster 10 (one of the possible branches) due to the designer adding a boss, and removing it immediately. (b) presents the \textsc{Goal-oriented} archetypical path where the design focus on a minimal structure complexity and mix between adding structural changes and enemies/treasures. (c) shows the \textsc{Split central-focus} archetypical path where, intentionally, the designer creates a center obstacle with a boss and build around it. Finally, (d) presents the \textsc{Complex-balance} archetypical path; the design focuses on building complex, uncommon structures first and then add some goal to it with enemies and treasures, taking advantage of the spaces.}
-    \label{p6fig:archetypical-examples}
+% \multicolumn{4}{l}{$\Diamond$ Avg. Fitness \ \
+% $\bigtriangleup$ Avg. covered space all dims} \\ 
+% \multicolumn{4}{l}{$\bigcirc$ Covered search space in respective dimension pair}
+% \end{tabular}%
+% % }
+% \end{table}
+
+\begin{figure*}[h!]
+\centerline{\includegraphics[width=15cm]{figures/figure4.png}}
+\caption{Expressive range of the 21 possible combinations (from a to u) of dimensions picked in pairs. Each subfigure is composed of two plots: (left) an evaluation based on a given pair of dimensions; (right) the same pair of dimensions but evaluated in terms of Linearity and Leniency scores. Each hexagon relates to a dimensional score, whereas a lighter hue indicates a higher number of unique individuals generated under that particular score. All runs used~\Cref{figs:targetRoomsBas} as the target room, and its dimensional score is highlighted with an orange mark. Under each subfigure, we present data particular to the specific tested pair of dimensions. $\bigcirc$, $\dagger$, and $\odot$ represent the coverage percentage in the respective pair of dimensions when running IC MAP-Elites with the subfigure's pair of dimensions ($\bigcirc$), IC MAP-Elites with all dimensions in the search ($\dagger$), and when using objective-based EA ($\odot$). $\bigtriangleup$ represents the avg. coverage percentage across all dimensions when running IC MAP-Elites with the subfigure's pair of dimensions.
+%$\bigcirc$ represents the coverage percentage in the respective pair of dimensions when running IC MAP-Elites with the subfigure pair of dimensions. $\bigtriangleup$ represents the avg. coverage percentage in all pair of dimensions when running IC MAP-Elites with the subfigure pair of dimensions. $\dagger$ represents the coverage percentage in the respective pair of dimensions when using all dimensions in the IC MAP-Elites search. Finally, $\odot$ represents the coverage percentage in the respective pair of dimensions when using the objective-based EA.%An orange mark highlights the dimensional score of the target room.
+}
+\label{figs:full-expressive}
 \end{figure*}
 
+%\begin{figure}[h]
+%\centerline{\includegraphics[width=8cm]{figures/fig-all-dimensions-run.png}}
+%\caption{This figure shows a run with the same target room as all the independent runs presented in figure \ref{figs:full-expressive} but using all the 7 implemented dimensions in the IC MAP-Elites search. The search used 5 bins per dimension resulting in 78125 cells and the EA ran for 2000 generations. Perhaps i am missing a bit more on why this figure or perhaps combine it with figure \ref{figs:comparison-simple-complex} to compare them}
+%\label{figs:all-dimensions-earun}
+%\end{figure}
 
-Once we created, evaluated, and labeled the clusters, we were able to cluster and visualize the paths of a typical design session. Figure \ref{p6fig:paths-designers} presents an example of the design sessions, where we cluster each step of the design. This sequential process revealed that there is an interesting continuity between clusters, even capturing when a designer probably applied one of the procedural suggestions due to bigger steps in the design style clusters. Further, through this process, we could understand the progress of designers in their design process and represent their trajectory in relation to the traversed clusters rather than individual editions.
+\begin{figure*}[h!]
+\centerline{\includegraphics[width=\textwidth]{figures/figure5.png}}
+\caption{In-detail run showing how all dimensions relate to each other in alternative scenarios. In (a) IC MAP-Elites ran for 2000 generations using the same target room as in \Cref{figs:full-expressive} (\Cref{figs:targetRoomsBas}), but using all the dimensions in the search, which results in 78125 cells. (b) Shows how all dimensions were explored when using~\Cref{figs:full-expressive}f (NMP-NSP) as pair of dimension. In (c) we used the same dimensions as in (b) but we changed the target room to~\Cref{figs:targetRoomsComp}. The dimensional score of the respective target room in each subfigure (\Cref{figs:targetRoomsBas} for a and b, and \Cref{figs:targetRoomsComp} for c) is highlighted with an orange mark. In b and c, the dimensions used for the experiment are highlighted with a red border.}
+\label{figs:all-dimensions-earun}
+\end{figure*}
 
-\subsubsection{Unique Trajectories}
+\begin{figure}[h]
+\centerline{\includegraphics[width=8.5cm]{figures/figure6.png}}
+\caption{Relation between dimension score and fitness score. (a), (b), and (c) show results using, respectively, Similarity and Symmetry, NMP and NSP, and NMP and Linearity. (d) was run using all the 7 dimensions. All runs used~\Cref{figs:targetRoomsBas} as target room, and it's dimensions score are denoted with an orange line across the different plots.}
+\label{figs:dimensions-related-fitness}
+\end{figure}
 
-Using the clusters in Figure \ref{p6fig:all-clusters}, we clustered the design session of all the $180$ designs and collected the unique trajectories that arose from traversing the various clusters. These unique trajectories varied in the starting point, length, and end-point, however, when analyzing the trajectories we identified common patterns among them. They had a similar shape as the following $Unique=$\{0\textgreater8\textgreater4\textgreater7\textgreater10\}, where the first and last element of the sequence are respectively, the starting- and end-points, with all the unique intermediate steps in between.
+% \begin{figure}[h]
+% \centerline{\includegraphics[width=7cm]{figures/fitnessTOG1.png}}
+% \caption{Fitness evolution per 100 generations throughout all the runs. 
+% % with continuous lines it is shown the avg. fitness, and with dashed lines it is shown the max. fitness. 
+% Blue represents the fitness of the basic room (\Cref{figs:targetRoomsBas}), and Red represents the fitness of the complex room (\Cref{figs:targetRoomsComp}). 
+% }
+% \label{figs:avgfitness}
+% \end{figure}
 
-To gather the common patterns from the trajectories, we applied the Generalized Sequential Pattern (GSP) algorithm, which locates frequent subsequences in the analyzed trajectories. For instance, given three trajectories (a) \{5\textgreater1\textgreater3\textgreater11\textgreater9\}, (b) \{5\textgreater1\textgreater3\textgreater11\textgreater4\, and (c) \{0\textgreater1\textgreater3\textgreater11\}, none of these is a perfect match in its entirety, but GSP can spot that subsequences \{1\textgreater3\textgreater11\}, \{1\textgreater3\}, \{3\textgreater11\}, among others, appear with frequency $= 3$.
+%One of these two options
+%\begin{figure*}[h]
+%\centerline{\includegraphics[width=16cm]{figures/figure-complex-room-2.png}}
+%\caption{This figure shows the expressive range analysis of 3 different pair of dimensions, (a) Number of Spatial Patterns and Symmetry, (b) Number of Meso-Patterns and Symmetry, and (c) Number of Meso-Patterns and Number of Spatial Patterns. They ran using the same target room used to produce the rooms in figure \ref{figs:dimensions-example} which is a more advanced and elaborated room than the one used in figure \ref{figs:full-expressive}}
+%\label{figs:expressive-range-complex}
+%\end{figure*}
 
-%(2) obtain only 1 pattern ($\{5>1>3>11\}$) with frequency=2, if searching from starting points. Finally, using GSP, we find $\{5>1>3>11\}$, $\{1>3>11\}$, $\{1>3\}$, $\{3>11\}$
+%\begin{figure}[t]
+%\centerline{\includegraphics[width=8cm]{figures/figure-complex-room-1.png}}
+%\caption{Figure is work in progress, it is missing the information of what is the value of the dimensions for the main room used to generate the data}
+%\label{figs:full-expressive}
+%\end{figure}
+% 
 
-%We collected these unique trajectories, and 
-Furthermore, after doing a preliminary analysis, we identified some steps that we classified as ``border designs'': steps that are borderline between two clusters. These \textit{border designs} disrupted the sequence pattern mining by creating noise in the unique trajectories, specifically when these \textit{border designs} entered a different cluster for just a few steps. %we categorize them as when these "unique" noisy steps were brief.
-Therefore, we filtered them out by applying a threshold $\theta = 3$, so that all subsequences inside one cluster with less than $\theta$ steps are removed from the main sequence. I.e, the sample trajectory \{0\textgreater0\textgreater0\textgreater0\textgreater8\textgreater8\textgreater8\textgreater6\textgreater8\} turns into \{0\textgreater8\} instead of \{0\textgreater8\textgreater6\textgreater8\}. Through this, we were able to reduce the noise and the search space, obtaining more meaningful and frequent patterns.
+%\begin{figure}[h]
+%\centerline{\includegraphics[width=8cm]{figures/fig-comparison-dif-target.png}}
+%\caption{This figure is work in progress since I don't know if we should use it. (a) and (b) show how different dimensions related to each other using as target dimensions Number of Meso-Patterns and Number of Spatial Patterns. The (a) side shows the EA using the simple room as target room, and the (b) side shows the EA using the more elaborated room as target room.}
+%\label{figs:comparison-simple-complex}
+%\end{figure}
 
-\subsubsection{Archetypical Paths through Style Space}
+%We have run a second set of experiments addressing...
 
-%Figure \ref{p6fig:finalPaths} shows the archetypical paths taken by designers when creating rooms. Represented as arrows to denote direction, 
+% We ran a second set of experiments analyzing the expressive range~\cite{p6Smith:2010:Expressive-range} of the IC MAP-Elites using the 21 possible combinations of dimension pairs. We followed the same setup as presented in the previous section and every $100$ generations we collected the unique generated individuals' data, which was aggregated in all the expressive ranges and individually plotted in~\Cref{figs:avgfitness}. Through this, between $150$ to $2001$ individuals were produced every $100$ generation. By exploring the expressive range, we are able to:
 
-%From all the collected unique trajectories, we identified 4 main archetypical paths, which are the ones taken most frequently by designers either as their full path or as the initial path. In Figure \ref{p6fig:finalPaths}, it is shown the archetypical paths, represented as thicker arrows to denote direction, that represent the taken by designers when creating rooms. 
+% \begin{enumerate}
+%     \item Analyze how and which different pairs of dimensions enable IC MAP-Elites to explore a greater range of individuals while retaining high-quality.
+%     \item Conduct a comparative analysis among various dimensions.
+%     \item Identify bias in the search space.
+% \end{enumerate}
 
-In Figure \ref{p6fig:finalPaths}, we present the archetypical paths, represented as thicker arrows to denote direction, which show the most frequent paths taken by designers either through their whole design process or as the initial meaningful steps. From all the collected unique trajectories, we have identified 4 main archetypical paths, labelled, \textsc{Architectural-focus}, \textsc{Goal-oriented}, \textsc{Split central-focus}, and \textsc{Complex-balance}. In addition, we have numbered each cluster for easier visualization and referencing. 
+We ran a second set of experiments analyzing the expressive range \cite{p6Smith:2010:Expressive-range} of the IC MAP-Elites using the 21 possible combinations of dimension pairs. We followed the same setup as presented in the previous section, and every $100$ generations, we collected the unique generated individuals' data, which was aggregated in all the expressive ranges and individually plotted in~\Cref{figs:avgfitness}. Through this, between $150$ to $2001$ individuals were produced every $100$ generations. By exploring the expressive range and conducting a comparative analysis among the various dimension combinations, we intend (1) to assess IC MAP-Elites, its exploration and exploitation capabilities, and the feature dimensions, (2) to analyze how different dimension combinations affect the search for QD content, and (3) to identify bias in the search space.
 
-Moreover, in the figure, it can also be observed thinner purple arrows pointing to different clusters from several of the clusters that are part of the main paths. These are \textit{possible branches} presented in the unique trajectories and added based on their frequency. Through these possible branches, the design of an archetypical session, can vary and extended or deviate the final design. Each archetypical path is defined and explained as follows: 
+Moreover, in~\Cref{tab:evaluationTable} we present a comparison of the avg. diversity and avg. quality of the generated individuals between different approaches to support our evaluation. The approaches consist of IC MAP-Elites picking dimensions in pairs (avg. of the aggregated results), IC MAP-Elites using all dimensions at the same time in the search, and the objective-based EA that was used in EDD previous to IC MAP-Elites. When using a pair of dimensions in IC MAP-Elites, the search explores in avg. $52.4$\% in the respective pair of dimensions (individual results are presented in~\Cref{figs:full-expressive}) and the individuals generated have an avg. fitness of $0.89$. In comparison, when using all dimensions rather than only pairs, the search explores $51.7$\% across all dimensions, $15$\% more than when using pairs, but with a drop in the avg. fitness of the population ($0.78$), which is discussed further in~\Cref{sec:ERAFitness} and shown in~\Cref{figs:dimensions-related-fitness}. As expected and concluded before by Mouret and Clune~\cite{p6Mouret2015}, objective-based EA generated individuals with an avg. high fitness ($0.92$), but with low diversity ($22.48$\%). This means that the search had a narrower focus, and the generated levels did not differ much from each other. Objective-based ran for $5000$ generations, but it stagnated and stopped generating novel levels after $13$ generations i.e., stopped exploring, generating a total of $1669$ levels. Conversely, IC MAP-Elites kept generating novel levels until stopped, but considerably less after $1000$ generations.
 
-\paragraph{Architectural-focus}The path followed by this archetype focuses first on designing the architecture of the room with walls. Through this, the design focuses on shaping the visual patterns, chambers, and corridors to give a clear space for adding goals and objectives with enemies and treasures. The sequence is denoted with a green arrow in Figure \ref{p6fig:finalPaths}, and following the sequence \{0\textgreater8\textgreater3\textgreater7\}.
+% IC MAP-Elites is by far generating more diverse levels among 
 
-\paragraph{Goal-oriented}Design processes following this archetypical path, create the rooms in a more standard way, combining simpler symmetric wall structures with distributed placement of enemies and treasures. Thus, rather than focusing extensively on an individual part of the room, the rooms have an initial structure and then they are populated with some specific goal-in-mind. The sequence is denoted with a red arrow in Figure \ref{p6fig:finalPaths}, and following the sequence \{0\textgreater8\textgreater6\}.
+% We ran a second set of experiments analyzing the expressive range \cite{p6Smith:2010:Expressive-range} of the IC MAP-Elites using the 21 possible combinations of dimension pairs. By exploring the expressive range, we are able (1) to analyze how and which different pairs of dimensions enable IC MAP-Elites to explore a greater range of individuals while retaining high-quality, (2) to conduct a comparative analysis among various dimensions, and (3) to identify bias in the search space. We followed the same setup as presented in the previous section and every $100$ generations we collected the unique generated individuals' data, which was aggregated in all the expressive ranges and individually plotted in~\Cref{figs:avgfitness}. Through this, between $150$ to $2001$ individuals were produced every $100$ generation.%, and 4) to compare . PErhaps add some info on the fitness and dimensions
 
-%Thus, rather than focusing on an individual part of the room until satisfied, the rooms have some initial structures that are populated and continue through an iterative process between these steps.% rooms go through an iterative process of adding have some initial structures that are
+%When Smith and Whitehead~\cite{p6Smith:2010:Expressive-range} introduced the expressive range analysis of generators as an evaluation tool to examine the variety of the generated artifacts and the impact of different setups. In the paper, they highlight the importance of using comparison metrics that can measure emergent properties of the generated content. Map-Elites dimensions are features of interest in the search space that are not used to evaluate the population, rather they define the feature space of interest~\cite{p6Mouret2015}. Considering this and the previous work, we compare setups based on their behavior dimensions and on Leniency and Linearity, regardless of the used dimensions.
 
-\paragraph{Split central-focus}This archetypical path focuses on designing rooms with obstacles placed in the center of the room in the shape of enemies, treasures, or wall structures that clearly split the room into different areas. The design process is less organized than the other archetypes since it searches to achieve the split goal with any of the available tiles. The sequence is denoted with a black arrow in Figure \ref{p6fig:finalPaths}, and following the sequence \{0\textgreater5\textgreater6\}.
-%, since the middle step is cluster 5 ("Separating and populating chambers"), which relates to rooms which are expected since the cluster 5 ("Separating and populating chambers") relate to rooms that  as specific structural shapes are not necessary. 
+%Smith and Whitehead~\cite{p6Smith:2010:Expressive-range} argued that to be able to use expressive range analysis to evaluate and as a comparison tool between different setups of a generator, one must use comparison metrics that can measure emergent properties of the generated artifacts. MAP-Elites behavior dimensions are by definition emergent properties of the individuals that are not used to guide the generator (i.e. used as a fitness function) rather they are used explicitly \textbf{as an archive} to store elite individuals found in the search space. However, to be consistent with previous work, we also compared setups using Leniency and Linearity regardless of the dimensions used, besides using the behavior dimensions as comparison metrics. %, we also compared using Leniency and Linearity regardless of the dimensions used, to be consistent with previous works. %Space to cite other works that analyze the expressive range
 
-\paragraph{Complex-balance}This archetypical path focuses on building complex symmetric shapes with a clear objective for the player and adapting the spaces with a balance of enemies and treasures. In general, the rooms created following this path are more unique and typically balanced. %   with that adapt well. The process is quite 
-The sequence is denoted with a blue arrow in Figure \ref{p6fig:finalPaths}, and following the sequence \{8\textgreater3\textgreater6\}.
+Figure \ref{figs:full-expressive} shows the expressive range of the IC MAP-Elites with each letter referring to a unique pair of dimensions tested, and the subfigure divided into two different plots. In the left plot, we evaluate the setup based on the used pair of dimensions with each hexagon placed in relation to their dimensions' score. The hue of each of them is connected to the number of unique suggestions generated. Likewise, in the right plot, we evaluated the setup based on its linearity and leniency score, which is used to compare the setups' expressiveness. All the setups were run for $5000$ generations, using the same target room, which is shown as an orange marker (\Cref{figs:targetRoomsBas}).
 
-Furthermore, using these archetypical paths, we can then categorize certain clusters as key clusters or being more relevant than others based on their contribution to the paths, their frequency, and their usage. Most of the paths go through or end in cluster 6 (``Balancing and optimizing'') and cluster 8 (``Main architectural patterns''), which relate to rooms that have a more explicit mix between corridors and small chambers and more clear architecture. The rooms in those clusters are or shaped as end rooms, as in the case of cluster 6, or architecturally shaped to be “optimized” to a specific goal e.g. a dense bordered room. Similarly, most of the sequences start from cluster 0 ("Initial room shapes"), with $134$ out of the $180$ designs, which correlates to the type of designs encountered in that clusters. Thus, it is understandable that most of the archetypical paths pass through any of these three clusters. 
+In~\Cref{figs:full-expressive}, it is shown that with IC MAP-Elites, it is explored a substantial area of the generative space (denoted in the figure with $\bigcirc$ under each subfigure) rather than just exploiting the area around the target room, depicted as an orange marker. On average, in all the independent runs in their respective dimensions, the search explores around $52$\% of the space, filling at least half of the map with high-performing elites averaging $0.89$ (as shown in~\Cref{tab:evaluationTable}). It can also be observed that the dense areas of the search space (i.e., where the algorithm exploited the most) are distant from the target room's scores, and most of them are sparse throughout the search. This indicates that using IC MAP-Elites and a pair of dimensions at a time helps the distribution of the search while exploiting promising areas, and the search is less likely to be biased towards creating levels similar to the target.
 
-Nevertheless, it is the steps in-between what creates a clear differentiation between the archetypical paths, which is the benefit of observing the design process as a whole in the clustered room style space. For instance, in fig.~\ref{p6fig:finalPaths}, it can be observed that \textsc{Split central-focus} starts in the same cluster as three other paths, and tentatively ends in the same cluster as three other. However, the designs following \textsc{Split central-focus} are more different to the other trajectories, since it enters a cluster that is denser with several tile types in principle, and where designers seem to have a clearer goal.
-% With this, we can further understand why \textsc{Split central-focus} is more different to the other trajectories, since it enters a cluster that is "less organized" in principle. 
-
-%Furthermore, we can also observe that certain clusters are key steps for most paths because they are or a frequent starting or ending point. Most of the paths go through or end in cluster 6 ("Balancing and optimizing") and cluster 8 ("Main structural patterns"), which relate to rooms that have a more explicit mix between corridors and small chambers and a more clear structure, thus, it is understandable since the rooms in those clusters are or shaped as end rooms, as in the case of cluster 6, or structurally shaped to be “optimized” to a specific goal (E.g. dense bordered room, maze-like, more challenging, etc.). However, the distribution of endpoints is quite even, and meanwhile, cluster 6 and cluster 11 ("Chamber separation, Forced enemy encounter") are the most frequent ending points with $36$ and $25$ out of $180$ design processes, the rest of clusters are quite close.
-
-%Similarly, most of the sequences start from cluster 0 ("Initial room shapes"), with $134$ out of the $180$ designs, which correlates to the type of designs encountered in those clusters.
-
-Moreover, in figure~\ref{p6fig:archetypical-examples}, we present examples of each of the designer personas by visualizing the sequence of steps done in representative design sessions, showing how these paths would look like in practice. Each visualization of a designer persona has the key design steps to the left, where each image is in a sequence: the first is the first edition of the designer, the last is the final edition, and the in-between represent entering a new room style cluster. 
-
-In (a), it is shown the \textsc{Architectural-focus}, where the designer first created the border of the room with a clear chamber division. As the designer adds and subsequently removes the boss, the design jumps to cluster 10, which is one of the possible branches, adding a high challenge. In (b), it is shown the \textsc{Goal-Oriented}, where the designer sketched the main shape of the room followed by alternating between enemies, treasures, and walls to design the goal of the player within the room. In this example, the designer ends the design close to cluster 9, with a disorganized placement of tiles and a less aesthetical room, but forming small choke areas balancing the placement of enemies and treasures.
-
-In (c), it is shown the \textsc{Split Central-focus}, where the designer directly started by adding a boss in the center of the room and using this as a reference point, shaped the rest of the room. In (d), it is shown the \textsc{Complex-balance}, where the designer focused on creating an uncommon structure and followed by adding enemies and treasures symmetrically, with clear individual areas for the player to approach.
-
-% It is not surprising to focus on the center as it 
-
-Finally, further analyzing figure~\ref{p6fig:archetypical-examples}, it can also be observed an interesting dual tendency of the designers in the archetypical paths. This dual tendency is to either focus on the aesthetic configuration of the room based on what is perceived in the editor exemplified the personas: \textsc{Architectural-focus} and \textsc{Split central-focus}, and to focus on the player experience exemplified the personas: \textsc{Goal-oriented} and \textsc{Complex-balance}. Nevertheless, both are not mutually exclusive, instead this illustrates adequately the dualistic role the designer has when using the tool and designing rooms. That of creating an aesthetically pleasing object as it is seen in the editor, and that of creating an experience.% However, this is not mutually exclusive. Instead, it shows 
-
-
-% Furthermore, when analyzing how the different design sequences were clustered and forming the designer personas, we observed an interesting dual tendency of the designers. This dual tendency is to either focus on the aesthetic configuration of the room based on what is perceived in the editor through the personas: \textsc{Architectural-focus} and \textsc{Split central-focus}, and to focus on the player experience through the personas: \textsc{Goal-oriendted} and \textsc{Complex-balance}. This exemplified quite good 
-% dualistic role 
-% When forming the designer personas, and analyzing how different design sequences
-
-
-%where the designer focused on creating the shape of the room before adding any enemyfirst created the border of the room
-
-% Finally, in Figure \ref{p6fig:archetypical-examples}, we present examples of each of the archetypical paths to show how would these paths look like in practice, further supporting our findings and path definitions. 
-
-% The archtypical paths a dual tendency of the designers to either go for a strategy that reflects their perception of the level from the editor - like the aesthetic configurations of it, instead of the experiential ones. for example the ones that had a split central focus and a structural focus (which btw maybe i would change to architectural focus). and then there's the ones that have a focus on the player experience like the goal oriented and complex behavior ones. i think this split reflex a very nice dualistic role that the designer has in front of the editor - that of creating an aesthetically pleasing object, as they see it in the editor, and that of creating an experience.
-% , and exmplified
-%That build around
-
-
-
-% Notice that not all the clusters have connectionthat based on the unique trajectories, where designers decided to move towards other areas. 
-
-%it is shown the archetypical paths, represented as thicker arrows to denote direction, that represent the taken by designers when creating rooms. 
-% moving from 6 to 11 or from 3 to 11 is a fairly frequent step, thus making it and cluster 6, key points.
-% In fact, ending the design at 7 is not that common, thus, 
+Nevertheless, when using both leniency and linearity to compare the performance of the dimensions' pairs, it is shown that they are underexplored and within the same range (0.4-1.0) when not using them as dimensions. This points towards the search having difficulties getting out of other dimensions' local optima, especially since the densest search area is within the target room (this is denoted with $\bigtriangleup$ under each subfigure).
 
 
+% However, using both Leniency and Linearity scores to compare the performance of the pairs of dimensions even if the dimensions were different, does not explore much of the area. 
 
-% the red cluster with $95$ out of the $180$, and from the purple cluster with $49$ out of the $180$, which correlates to the type of designs encountered in those clusters, mainly emptier rooms with initial sketches and shapes. 
+% The dense areas of the search (i
 
-% Most of the paths start in cluster 0 ("Initial room shapes") 
+% In average, the search explores around 49\% of the space, fill, if we average all the explored area for each independent run in their respective dimension pairs. 
+% This search is around 49\% of the space, if we average all the explored area for each independent run in their respective dimension pairs. 
 
-% From the figure, we can extract the following clusters as key steps for most of the patterns: "light green", "light blue", "red", and "purple". 
+% We can observe that in most of the cases in \Cref{figs:full-expressive}, regardless of what pair of dimensions is used, IC MAP-Elites can explore a greater area of the search space rather than just around the target room, depicted as an orange marker in each plot, and even the dense areas of the search space (i.e. where the algorithm exploited the most) are distant from the target room's scores. Nevertheless, the expressive range shows that both leniency and linearity scores are explored within the same range (0.4-1.0) when not using any of them as dimensions, which points towards the search having difficulties getting out of other dimensions' local optima, especially since the densest search area is within the target room.
 
-% It can be observed that most of the paths end or go through the "light green" and "light blue" clusters. Both relate to rooms that have a more clear structural pattern and more explicit mix between corridors and small chambers, thus, is understandable since the rooms in those clusters are or shaped as end rooms or structurally shaped to be “optimized” to a specific goal (E.g. dense bordered room, maze-like, more challenging, etc.). Quantitatively, most of the sequences end up in those clusters, $64$ out of the $180$ end in cluster 6 (light blue) and $52$ out of the $180$ end in cluster 11 (light green).
+% We can observe that in most of the cases in \Cref{figs:full-expressive}, regardless of what pair of dimensions is used, IC MAP-Elites can explore a greater area of the search space rather than just around the target room, depicted as an orange marker in each plot, and even the dense areas of the search space (i.e. where the algorithm exploited the most) are distant from the target room's scores. Nevertheless, the expressive range shows that both leniency and linearity scores are explored within the same range (0.4-1.0) when not using any of them as dimensions, which points towards the search having difficulties getting out of other dimensions' local optima, especially since the densest search area is within the target room. %When using leniency or linearity as target dimensions, IC MAP-Elites finds solution in a bigger span of the
 
+%More about the dimensions, for instance, 
 
-% Similarly, most of the sequences start from the red cluster with $95$ out of the $180$, and from the purple cluster with $49$ out of the $180$, which correlates to the type of designs encountered in those clusters, mainly emptier rooms with initial sketches and shapes. 
+\subsubsection{Alternative Scenarios}
 
+In \Cref{figs:all-dimensions-earun}, we examine how the algorithm would vary its dimensions' exploration and exploitation in two different scenarios. (a) Using the same target room as in all the cases in \Cref{figs:full-expressive} but using all the possible dimensions in the search space (i.e. 7), and (c) using NMP and NSP (see Section~\ref{sec:dimensions}) as dimensions in the search but changing the target room to~\Cref{figs:targetRoomsComp}. To draw a better comparison, we added (b), which shows how all dimensions were explored when using~\Cref{figs:full-expressive}f (NMP-NSP) as pair of dimension.
 
-% \begin{figure*}
-% \centerline{\includegraphics[width=0.7\textwidth]{figures/path-examples-2.png}}
-% \caption{Examples of each of the archetypical paths from one of the frequent sequences used to create the clusters. To the left of each subfigure, we present each key step in the trajectory i.e. when the design entered a new cluster. (a) presents the \textsc{Structural focus} archetypical path where the focus is firstly on creating the structural design of the rooms; the design process jumps back and forth suddenly to cluster 10 (one of the possible branches) due to the designer adding a boss, and removing it immediately. (b) presents the \textsc{Goal-oriented} archetypical path where the design focus on a minimal structure complexity and mix between adding structural changes and enemies/treasures. (c) shows the \textsc{Split central-focus} archetypical path where intentionally, the designer creates a center obstacle with a boss and build around it. Finally, (d) presents the \textsc{Complex-balance} archetypical path; the design focuses on building complex uncommon structures first and then add some goal to it with enemies and treasures, taking advantage of the spaces.} \label{p6fig:archetypical-examples}
-% \end{figure*}
+%In \Cref{figs:all-dimensions-earun}, we examine how the algorithm would change (i.e. exploration and exploitation of the dimensions) in two different scenarios. (a) Using the same target room as in all the cases in \Cref{figs:full-expressive} but using all the possible dimensions in the search space, and (b) using NMP and NSP as dimensions in the search but changing the target room. To draw a better comparison, we added (c) which is a more detailed version of example (f) in \Cref{figs:full-expressive}, using NMP and NSP as dimensions. 
 
+% When using all the dimensions (a), IC MAP-Elites can explore a substantial area of the search space in each of the dimensions, which is expected since all the dimensions are now acting as archives. It can also be observed that when using NMP and NSP as dimensions (b and c) regardless of the target room, the search space is greatly explored in most of the dimensions. We suspect that this is because the range between low and high scores in the NMP or NSP dimensions produces very different rooms, as it can be seen in \Cref{figs:dimensions-example} in their respective rows. 
 
+When using all the dimensions (a), IC MAP-Elites can explore a substantial area of the search space in each of the dimensions ($51.7$\%), which in total is 15\% more searched space than when using only a pair of dimensions on average. This is expected since all the dimensions are now acting as archives. However, as it is noted in~\Cref{figs:full-expressive} under each subfigure, the actual explored space in the respective pairs ($\bigcirc$) is most of the time greater than what using all dimensions explore in the respective pair ($\dagger$).
 
-% \begin{subfigure}[t]{0.33\textwidth}
-%         \centering
-%         \includegraphics[width=0.95\textwidth]{figures/1.png}
-%         \caption{Linearity-\#MesoPatterns}
-%     \end{subfigure}%
-%     \begin{subfigure}[t]{0.33\textwidth}
-%         \centering
-%         \includegraphics[width=0.95\textwidth]{figures/1.png}
-%         \caption{Linearity-\#MesoPatterns}
-%     \end{subfigure}%
-%     \begin{subfigure}[t]{0.33\textwidth}
-%         \centering
-%         \includegraphics[width=0.95\textwidth]{figures/1.png}
-%         \caption{Linearity-\#MesoPatterns}
-%     \end{subfigure}%
-%     \begin{subfigure}[t]{0.33\textwidth}
-%         \centering
-%         \includegraphics[width=0.95\textwidth]{figures/1.png}
-%         \caption{Linearity-\#MesoPatterns}
-%     \end{subfigure}%
+It can also be observed that when using NMP and NSP as dimensions~\Cref{figs:all-dimensions-earun}b and c, regardless of the target room, IC MAP-Elites manages to still search a good amount of space (in avg. $38.7$\% and $43$\% among all dimensions, respectively). We suspect that this is because the range between low and high scores in the NMP or NSP dimensions produces very different rooms, as it can be seen in \Cref{figs:dimensions-example} in their respective rows. 
 
-%From the figure, it can be observed that most of the paths end or go through the "light green" and "light blue" clusters. Both relate to rooms that have a more clear structural pattern and more explicit mix between corridors and small chambers, thus, is understandable since the rooms in those clusters are or shaped as end rooms or structurally shaped to be “optimized” to a specific goal (E.g. dense bordered room, maze-like, more challenging, etc.). Further, most of the sequences end up
+%When using all the dimensions (a), IC MAP-Elites can explore a big range of solutions throughout each of the dimensions used in the search, which is expected since all the dimensions are now acting as archives. It can also be observed that when using NMP and NSP as dimensions (b and c) regardless of the target room, the solution space is highly explored in most of the dimensions, which is because the range between low and high scores in the NMP or NSP dimensions yields very different rooms and combinations of micro-patterns, as it can be seen in \Cref{figs:dimensions-example} in their respective rows. 
 
+Moreover, when comparing (a) and (b), it is noticeable that while (a) explores a greater area than (b) (in general, $15.24$\% more), %(in general, 10\% more), 
+it seems to be recurrently generating the same type of individuals (i.e. depicted with the hue of the hexagon) while in (b), the dense areas for most of the dimensions are sparser, especially when matching the pair of dimensions used for evaluation. 
+%This is of key importance for the fitness analysis in the following subsection, where we notice sub-optimal search-space exploitation when using all the dimensions.
+ Finally, it should be noted that while these three plots are comparable in their diversity search, they differ in the number of elites they store during the search, with an archive of 78125 cells for (a), and 25 cells for (b) and (c).
 
-%Most of the rooms end there, 64 end in cluster 6 (light blue) and 52 end in cluster 11 (light green), so it makes sense that they are key steps in most of the subsequences. Further, most of the rooms start in cluster 0 (red) – 95 rooms – or in cluster 8 (purple) – 49 rooms, which make them key steps as well
+% Moreover, when comparing (a) and (c), it is noticeable that while (a) can explore a more extensive area than (c), it seems to be recurrently generating the same type of individuals (i.e. depicted with the hue of the hexagon as the highly-dense areas), which in contrast in (c), the density areas for most of the dimensions are sparser, especially when matching the pair of dimensions used for evaluation. This is of key importance for the fitness analysis in the following subsection, where we notice sub-optimal search-space exploitation when using all the dimensions. Finally, it is interesting to note that these three plots, while comparable in their diversity search, differ quite drastically in the number of elites they can store during the search, with an archive of 78125 cells for (a), and 25 cells for (b) and (c). 
 
-%Most of the sequences with $95$ out of the $180$ starting in the red cluster, and $49$ out of the $180$ starting in the purple cluster. which correlates to the type of designs encountered in those clusters, mainly emptier rooms with initial sketches and shapes. 
+\subsubsection{Fitness Evaluation} \label{sec:ERAFitness}
 
+Figure~\ref{figs:dimensions-related-fitness} shows the relation of the fitness with the explored individuals in each dimension in 4 independent runs. (a, b, c) Were runs using dimensions in pairs with the same data and dimensions as in \Cref{figs:full-expressive} (u), (f), and (h), respectively. (d) Was run using all the dimensions in the search space with the same data as in \Cref{figs:all-dimensions-earun} (a). There is an evident high correlation between Similarity scores and fitness across all the subfigures, which is expected since our fitness value is highly dependant on the target's ratios. In contrast, IS is not even close to match the fitness curve of Similarity rather there are high-performing individuals along the dimension, even when IS calculates similarity using ratios, densities, and sparsities of the target's micropatterns to calculate the score of individuals. 
+% Symmetry seems to be to some extent disregarded when not used in the IC MAP-Elites search, as symmetry is overlooked in favor of exploring the other dimensions. Yet, when used  a very sensible feature dimension
 
-%Info about the trajectories, 1) variation (length), 2) starting cluster, 3) end-point cluster.
+% Along these lines, symmetry seems to be to some extent unstable when not used in the IC MAP-Elites search as symmetry is overlooked in favor of exploring the other dimensions. This is due to its aesthetic nature. Yet, when used in the search as in (a).
+
+%Nevertheless, IS is not even close to match the fitness curve of Similarity, even when IS calculates similarity using ratios, densities, and sparsity of the target's micropatterns to calculate the score of individuals. This indicates that if we are not interested in aesthetically similarities, we can explore a diverse amount of high-quality individuals that retain the target's properties.
+
+%Figure \ref{figs:dimensions-related-fitness} shows the relation of the achieved fitness with the explored individuals in each dimension in 4 independent runs. (a, b, c) Were runs using pair of dimensions, Similarity and Symmetry, NMP and NSP, and NMP and Linearity, respectively, using the same data as for \Cref{figs:full-expressive} (u), (f), and (h), respectively. (d) was run using all the dimensions in the search space using the same data as in \Cref{figs:all-dimensions-earun} (a). There is an evident high correlation between Similarity scores and fitness across all the subfigures, which is expected since our fitness value is highly dependant on the target's ratios. Nevertheless, what is more interesting is how IS does not match the fitness curve of the Similarity dimension, when IS uses ratios, densities, and sparsity of the target's micropatterns to calculate the score of individuals, in contrast with the tile by tile comparison done with Similarity. This indicates that if we disregard aesthetically similarities, we can explore a diverse amount of high-quality individuals that still contain property's similarities.
+
+%Moreover, our experiment shows that when using specific dimensions, we achieve a relatively better search (i.e. find more diverse and high-quality individuals) on those dimensions but when not, we are still able to explore it. 
+
+Moreover, our experiment shows that when using specific dimensions (\Cref{figs:dimensions-related-fitness}a-c), we achieve a relatively better search (i.e. find more diverse and high-quality individuals) in those dimensions, while still being able to explore the rest of dimensions. For instance, when not using NSP as a feature dimension such as in (a) or (c), the NSP dimension is fully explored but generating no high-quality individuals, meanwhile, when using NSP as a feature dimension as in (b), the search can find individuals in the same range as in (a) or (c) but with a higher fitness. 
+%Similar results can be seen in the other sub figures' dimensions of interest in relation to the used behavior dimensions, as in (a) with Similarity or in (c) with Linearity.
+Similar results can be seen in the rest of the dimensions where the search uses specific dimensions, for instance, in (a) exploring diverse and higher quality individuals in Similarity, or in (c) in Linearity.
 
 
-% \begin{itemize}
-%     \item[\textbf{DONE:}] Present 3 representative examples where we cluster each step of the design process. Perhaps I should create a room that would go through all the clusters?
-%     \item[\textbf{DONE:}] Explain that we did this for all the 180 designs, and we collected the unique trajectories along the clusters, reducing the dimensionality of each step to each cluster.
-%     \item[\textbf{DONE:}] Due to border designs (step that are in the border between 2 different clusters), we applied a threshold to reduce the noise those inputs could have when clustering the trajectories of the designer.
-%     \item[\textbf{DONE:}] this data (the sequences) were then applied the GSP algorithm, a subsequence frequent pattern mining algorithm, to extract the frequent patterns in the sequences (including subsequences within the sequence).
-%     \item This resulted in the following trajectories, which can also be observed in Figure X.
-%     \item 
-% \end{itemize}
+%Moreover, our experiment shows that when using specific dimensions, we achieve a relatively better search (i.e. find more diverse and high-quality individuals) on those dimensions but when not, we are still able to explore it. For instance, when not using NSP as a behavior dimension such as in (a) or (c), the full spectra of dimension NSP is explored but generating no high-quality individuals, meanwhile, when using NSP as a dimension such as in (b), the search can find individuals in the same range as in (a) or (c) but with a higher fitness. A similar phenomena can be seen in the rest of the dimensions where the search uses specific dimensions (e.g. (a) exploring diverse and higher quality individuals in Similarity, and (c) in Linearity).
+
+The most interesting result can be seen in (d), where we used all dimensions in the search. This allows for a vast search of diverse individuals in all dimensions, but at the same time it seems to exploit sub-optimal areas. On the other hand, when using only a pair of dimensions as in (a), (b) and (c), the search remained dense in high-quality individuals in all dimensions.
+
+%Finally, the most interesting result can be seen in (d), where we used all dimensions in the search. Meanwhile, it does allow for a vast search of diverse individuals in all dimensions, it seems to exploit sub-optimal areas, which in contrast, when using only a pair of dimensions, the search remained dense in high-quality individuals in all dimensions even though the dimensions were focused on a specific pair.
+
+\begin{figure}[h]
+\centerline{\includegraphics[width=7cm]{figures/figure7.png}}
+\caption{Fitness evolution per 100 generations throughout all the runs. 
+% with continuous lines it is shown the avg. fitness, and with dashed lines it is shown the max. fitness. 
+Blue represents the fitness of the basic room (\Cref{figs:targetRoomsBas}), and Red represents the fitness of the complex room (\Cref{figs:targetRoomsComp}). 
+}
+\label{figs:avgfitness}
+\end{figure}
+
+Furthermore, figure~\ref{figs:avgfitness} shows the aggregated fitness over time of all dimension pairs (21). The avg. max fitness and the avg. total fitness are depicted as a dashed line and a continuous line, respectively. Both are surrounded by a low opacity thicker line representing the confidence interval. The graph shows that across all pairs of dimensions, the avg. fitness of novel generated levels is very high regardless of the target room and the generation, with a minor fluctuation between $0.92$ and $0.94$. In addition, the graph furthers supports what is presented in \Cref{figs:dimensions-related-fitness} a, b, and c, with most of the individuals generated in high score regions of the space in relation to fitness, but also showing that this is stable throughout the generations. The stable fitness 
+
+This stationary overall high fitness is expected from MAP-Elites as it aims at constantly generating high-performing diverse individuals. This diversity goal, combined with an adaptive fitness dependant on the target room, makes it harder to generate levels with maximum fitness.~\Cref{figs:avgfitness} clearly shows this; depending on the fitness, there are scores in dimensions or pairs of dimensions that are less compatible with the fitness evaluation. Yet, what has been shown thus far in the multiple expressive range analysis and especially in~\Cref{figs:dimensions-related-fitness}a-c, is that IC MAP-Elites is able to generate high-performing and diverse levels. 
+
+% However,~\Cref{figs:avgfitness} also shows that there are 
+
+% The graph shows the avg. fitness of the novel feasible generated levels every 100 generations, which is 
+
+% In the graph, it is plotted the newly feasible generated individuals after 100 generations
+
+% This graph shows the fitness of the newly generated individuals after 100 generations
+
+%Furthermore, figure~\ref{figs:avgfitness} shows the aggregated fitness over time of all dimension pairs (21). The avg. fitness is depicted as a continuous line with varying thickness, signifying the number of unique individuals generated and evaluated, and surrounding the lines with a lower opacity is the confidence interval. The graph shows that across all pairs of dimensions, the average fitness of novel generated levels is very high regardless of the target room and the generation, with a minor fluctuation between $0.92$ and $0.94$. The graph also supports what is presented in \Cref{figs:dimensions-related-fitness} a, b, and c, with most of the individuals generated in high score regions of the space in relation to fitness, but also showing that this is stable throughout the generations as expected from MAP-Elites. %Finally, as steps pass the lines become thinner
+
+%even if the generations are very the fluctuatingin average across allall pair of dimensions the 
