@@ -1,0 +1,436 @@
+% 
+  
+\documentclass[hidelinks,green,onecolumn,twoside]{dissertation}
+% \usepackage[utf8]{inputenc}
+% \usepackage[english]{babel}
+
+% \usepackage{blindtext}
+
+\makeglossaries
+\input{glossary}
+
+
+
+% ==================================
+% REUSABLE
+% ==================================
+
+\newcommand{\myName}{Alberto Alvarez}
+% \newcommand{\myMainTitle}{Towards Leveraging Controllability Without Losing Expressivity through Using Quality Diversity Methods}
+% \newcommand{\myMainTitle}{Towards Leveraging Controllability without Losing Expressivity in Mixed-Initiative Procedural Content Generation}
+% \newcommand{\myMainTitle}{Controllability and Expressivity as Non-Competing Properties in Mixed-Initiative Procedural Content Generation}
+%\newcommand{\myMainTitle}{Exploring the Dynamic Properties of Interaction in Mixed-Initiative Procedural Content Generation}
+% \newcommand{\myMainTitle}{Exploring the Dynamic Properties of Interaction Between Designers and AI in Mixed-Initiative Procedural Content Generation}
+% \newcommand{\myMainTitle}{Exploring the Properties of Dynamic Interaction in Mixed-Initiative Procedural Content Generation}
+% \newcommand{\myMainTitle}{Exploring Game Design through Mixed-Initiative Collaboration}
+% \newcommand{\myMainTitle}{Exploring Game Design through Human-AI collaboration}
+% \newcommand{\myMainTitle}{TOWARDS LEVRAGING CONTROLLABILITY WITHOUT LOSING EXPRESSABILITY}
+%\newcommand{\myMainTitle}{Towards Adaptive Mixed-Initiative Co-Creativity}
+%\newcommand{\myMainTitle}{Towards Adaptive Human-AI Collaboration}
+%\newcommand{\myMainTitle}{Towards Holistic Procedural Content Generation}
+%\newcommand{\myMainTitle}{On }
+%\newcommand{\myMainTitle}{Exploring Game Design through Human-AI Collaboration}
+\newcommand{\myMainTitle}{Exploring Game Design through Human-AI Collaboration}
+\newcommand{\mySubTitle}{}
+
+% ==================================
+% USED IN THE COVER PAGE
+% ==================================
+\newcommand{\graduationYear}{2022}
+\newcommand{\mainUniversity}{Malmö University}
+\newcommand{\universityFaculty}{Faculty of Technology and Society}
+\newcommand{\universityDepartment}{Department of Computer Science and Media Technology}
+\newcommand{\partnerUniversity}{}
+\newcommand{\publicationSerie}{20}
+\newcommand{\dissertationType}{Doctoral Dissertation}
+\newcommand{\printISBN}{ISBN 978-91-7877-307-7}
+\newcommand{\pdfISBN}{ISBN 978-91-7877-308-4}
+\newcommand{\doi}{DOI 10.24834/isbn.9789178773084}
+\newcommand{\printCompany}{Media-Tryck, Lund}
+
+%Media-Tryck, Lund 2022
+%ISBN 978-91-7877-307-7 (print)
+%ISBN 978-91-7877-308-4 (pdf)
+%DOI 10.24834/isbn.9789178773084
+
+%%%%% NOT USED but Just in case
+% \newcommand{\myAdvisors}{Dr.~First~Supervisor, Prof.~Second~D.~Luffy}
+\newcommand{\myAdvisors}{Dr.~Jose~Font, Dr.~Julian~Togelius, Dr.~Steve~Dahlskog, Dr.~Nancy~D.~Russo}
+\newcommand{\myOpponent}{Dr.~Georgios~Yannakakis}
+
+\setcounter{secnumdepth}{5} %Change if you want section to appear!
+\setcounter{tocdepth}{5}
+
+% \renewcommand{\cftsecindent}{2em}
+% \renewcommand{\cftsecnumwidth}{0em}
+% \renewcommand{\cftsubsecnumwidth}{0em}
+% \renewcommand{\cftsubsubsecnumwidth}{0em}
+% \renewcommand{\cftparanumwidth}{0em}
+
+\begin{document}
+\pagenumbering{Roman}
+\frenchspacing
+\setlength{\parindent}{0.0em}
+% \addtokomafont{disposition}{\rmfamily}
+
+%\maketitle
+
+%\input{frontCover.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   CREATE THE TITLE AND AUTHOR INFORMATION     %
+%   BASED ON THE INFORMATION ADDED PREVIOUSLY   %
+%   IN THE COMMANDS                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setTitle{}{}
+\setPublicationSeries{}{}
+\setMainTitle{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  LIST ALL THE OTHER THESES DONE   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{otherTheses}
+\itemsep0em 
+    \item Jevinger, Åse. Toward intelligent goods: characteristics, architectures and applications, 2014, Doctoral dissertation.
+    \item Dahlskog, Steve. Patterns and procedural content generation in digital games: automatic level generation for digital games using game design patterns, 2016, Doctoral dissertation.
+    \item Fabijan, Aleksander. Developing the right features: the role and impact of customer and product data in software product development, 2016, Licentiate thesis.
+    \item Paraschakis, Dimitris. Algorithmic and ethical aspects of recommender systems in e-commerce, 2018, Licentiate thesis.
+    \item \sloppy Hajinasab, Banafsheh. A Dynamic Approach to Multi Agent Based Simulation in Urban Transportation Planning, 2018, Doctoral dissertation.
+    \item Fabijan, Aleksander. Data-Driven Software Development at Large Scale, 2018, Doctoral dissertation.
+    \item Bugeja, Joseph. Smart Connected Homes: Concepts, Risks, and Challenges, 2018, Licentiate thesis.
+    \item Alkhabbas, Fahed. Towards Emergent Configurations in the Internet of Things, 2018, Licentiate thesis.
+    \item Paraschakis, Dimitris. Sociotechnical Aspects of Automated Recommendations: Algorithms, Ethics, and Evaluation, 2020, Doctoral dissertation.
+    \item Tegen, Agnes. Approaches to Interactive Online Machine Learning, 2020, Licentiate thesis.
+    \item Alvarez, Alberto. Exploring the Dynamic Properties of Interaction in Mixed-Initiative Procedural Content Generation, 2020, Licentiate thesis.
+    \item Alkhabbas, Fahed. Realizing Emergent Configurations in the Internet of Things, 2020, Doctoral Dissertation.
+    \item Ashouri, Majid. Towards Supporting IoT System Designers in Edge Computing, 2021, Licentiate Thesis.
+    \item Bugeja, Joseph. On Privacy and Security in Smart Connected Homes, 2021, Doctoral Dissertation.
+    \item Azadvar, Ahmad. Predictive Psychological Player Profiling, 2021, Licentiate Thesis.
+    \item Holmberg, Lars. Human In Command Machine Learning, 2021, Licentiate Thesis.
+    \item John, Meenu Mary. Design Methods and Processes for ML/DL Models, 2021, Licentiate thesis.
+    \item Tegen, Agnes. Interactive Online Machine Learning, 2022, Doctoral Dissertation.
+    \item Ouhaichi, Hamza. Towards Designing a Flexible Multimodal learning analytics system: Exploiting IoT Technologies in Designing Multi-tier Architecture for Multimodal Learning Analytics, 2022, Licentiate thesis.
+    \item Alvarez, Alberto. \myMainTitle, \graduationYear, Doctoral Dissertation.
+\end{otherTheses}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%       DEDICATION      %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{dedication}
+%To the brave Venezuelans; the sun will shine again.
+Nam qui sapere aude.
+
+% To all who fight for freedom.
+
+%Retroceder para avanzar.
+\end{dedication}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%  ABSTRACT             %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0.9em}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{ABSTRACT}
+\section*{ABSTRACT}
+\normalfont
+
+% \begin{itemize}
+%     \item 200 - 250 words.
+%     \item Brief intro into the area
+%     \item the problem
+%     \item what this thesis is about
+%     \item what are the findings
+% \end{itemize}
+
+%Generally, the home or someone’s private residence has been considered a place where they can expect privacy; they are left alone as their behavior is unobserved by others. The right to be left alone encompasses all forms of behavioral observation, both from other people and other things. In smart connected homes, Internet of Things (IoT) devices often monitor their surroundings as a part of their functionality. For example, smart lighting with internet-connected sensors might light up a room when someone enters it. A simple action such as walking into the kitchen can then prompt the production of data which, in this context, is only made possible by sensors observing behavior in a generally considered private space – the home. Behavioral data of this kind has intrinsic value reflected in the increased investments in the data market (where data can be bought and sold) as a normalized part of business models. Due to its high prediction power – past behaviors are usually high indicators of future preferences – data has immense power in informing business decisions, personalizing IoTs, and training artificial intelligence. These capabilities, powered by data, also contribute to making smart connected homes more comfortable, safe, and energy-efficient for its users. Data from smart connected homes, the actors incentivized to harvest said data, and its subsequent exchange form a wider interrelated system. Just like there is a system harvesting sunlight, converting it to electricity, and distributing it to power an assortment of appliances enriching our lives, data follows a similar pattern only, unlike solar energy, parts of the data ecosystem are fully digital. Previous research has contributed to making parts of the ecosystem less opaque in terms of, e.g., securing data from actors with ill intentions and regulating parts of the market. However, non-malicious actors operating in accordance with prevailing laws (such as GDPR) might also have incentives that could be considered unethical and discount users’ right to privacy. The overarching goal of this research is therefore to study user privacy in smart connected homes and explore the ethics of data management in a digital ecosystem of Internet, things, and people.
+
+%As AI develops, grows, and expands, the more benefits we can have from it. AI is used in multiple fields to assist humans, such as object recognition, self-driving cars, or design tools. However, AI could be used for more than assisting humans in their tasks. It could be employed to collaborate with humans as colleagues in shared tasks, which is usually described as~\acrlong{mi} paradigm. 
+
+Game design is a hard and multi-faceted task that intertwines different gameplay mechanics, audio, level, graphic, and narrative facets. Games' facets are developed in conjunction with others with a common goal that makes games coherent and interesting. These combinations result in plenty of games in diverse genres, which usually require a collaboration of a diverse group of developers. Collaborators can take different roles and support each other with their strengths resulting in games with unique characteristics. The multi-faceted nature of games and their collaborative properties and requirements make it an exciting task to use Artificial Intelligence (AI). The generation of these facets together requires a holistic approach, which is one of the most challenging tasks within computational creativity. Given the collaborative aspect of games, the thesis approaches this generation through Human-AI collaboration, specifically using a mixed-initiative co-creative (MI-CC) paradigm. This paradigm creates an interactive and collaborative scenario that leverages AI and human strengths with an alternating and proactive initiative to approach a task. However, this paradigm introduces several challenges, such as Human and AI goal alignment or competing properties, discussed in this thesis. 
+
+In this thesis, game design and the generation of game facets by themselves and intertwined are explored in relation to Human-AI collaboration. AI takes a colleague's role with the designer, arising multiple dynamics, challenges, and opportunities. The main hypothesis is that AI can be incorporated into systems as a collaborator, enhancing design tools, fostering human creativity, and reducing workload. The challenges and opportunities that arise from this are explored, discussed, and approached throughout the thesis. As a result, multiple approaches and methods such as quality-diversity algorithms and designer modeling are proposed to generate game facets in tandem with humans, create a better workflow, enhance the interaction, and establish adaptive experiences.
+
+
+\begin{comment}
+
+Game design is a hard and multi-faceted task that intertwines different set of gameplay mechanics, audio, level, graphic, and narrative facets. Games' facets are developed in parallel and in conjunction with others with a common goal that makes games, in most cases, coherent and interesting. These combinations result in plenty of games in diverse genres, which require, in most cases, collaboration of a diverse group of developers. Collaborators can take different roles and support each others with their strengths resulting in games with unique characteristics. Both the multi-faceted nature of games and the collaborative properties and requirements of their creation makes it an exciting task using Artificial Intelligence (AI). The generation of these facets together requires a holistic approach, which is one of the most challenging tasks within computational creativity. Given the collaborative aspect of games, the thesis approaches this generation through Human-AI collaboration, specifically, using a mixed-initiative co-creative (MI-CC) paradigm. This paradigm creates an interactive and collaborative scenario that leverage on AI and human strengths with an alternating and proactive initiative to approach a task. However, this paradigm introduces several challenges such as Human and AI goal alignment or competing properties, which are discussed in this thesis. 
+
+In this thesis, game design and the generation of game facets by themselves and intertwined is explored in relation to Human-AI collaboration, where AI takes the role of a colleague with the designer, which arises multiple dynamics, challenges, and opportunities. The main hypothesis is that AI can be incorporated in systems as a collaborator, enhancing design tools, fostering human creativity, reducing their workload, and creating adaptive experiences. The challenges and opportunities that arise from this are explored, discussed, and approached throughout the thesis, and as a result multiple approaches are proposed to generate game facets in tandem with humans, create a better workflow, enhance the interaction, and establish adaptive experiences.
+
+
+with the aim of proposing multiple approaches to create a better workflow, enhance the interaction
+
+Furthermore, This collaboration arises several dynamic properties such as control, expressiveness, and initiative, which are all central to this thesis. \acrlong{qd} algorithms combined with control mechanisms and interactions for the designer are proposed to investigate this collaboration and properties. Designer and Player modeling is also explored, and several approaches are proposed to create a better workflow, establish adaptive experiences, and enhance the interaction. Through this, it is demonstrated the potential and benefits of these algorithms and models in the~\acrshort{mi} paradigm. 
+
+
+
+This thesis explores the generation of game facets by themselves and intertwined, mainly through an MI-CC paradigm where both Human and AI have an influence in the final content. The challenges and opportunities that arise from this are explored, discussed, and approached throughout the thesis 
+
+Consequently, this thesis explores the generation of game facets by themselves, intertwined, and with the MI-CC paradigm. 
+
+
+Within game design 
+
+Consequently, this thesis explores the generation of level design and narrative facets by themselves and intertwined app. Likewise, 
+
+To thaThis thesis explores the generation of level design and narrative facets by themselves and intertwined. Likewise, 
+
+Games are complex, multi-faceted systems that share common elements and underlying narratives, such as the conflict between a hero and a big bad enemy or pursuing some goal that requires overcoming challenges. However, identifying and describing these elements together is non-trivial as they might differ in certain properties and how players might encounter the narratives. Likewise, generating narratives also pose difficulties when encoding, interpreting, analyzing, and evaluating them. To address this, we present TropeTwist, a trope-based system that can describe narrative structures in games in a more abstract and generic level, allowing the definition of games' narrative structures and their generation using interconnected tropes, called narrative graphs. To demonstrate the system, we represent the narrative structure of three different games. We use MAP-Elites to generate and evaluate novel quality-diverse narrative graphs encoded as graph grammars, using these three hand-made narrative structures as targets. Both hand-made and generated narrative graphs are evaluated based on their coherence and interestingness, which are improved through evolution.
+
+There exists a plethora of games\footnote{For instance, currently there are more than 50k games in steam \url{https://store.steampowered.com/search/?category1=998}.}, with diverse genres and each containing a different set of gameplay mechanics, audio, level, graphic, and narrative facets. The creation and combination of these facets make game development a hard task, commonly involving a diverse group of developers~\cite{Blow2004-gamesHard}. Likewise, the generation of these facets in conjunction has been categorized as one of the biggest and most challenging tasks within computational creativity~\cite{Liapis2014-gameCreativity,Liapis2019-OrchestratingGames}. However, games share common elements and underlying narratives, but it is non-trivial how to identify these, how to define and analyze these games structurally, or what type of common underlying structures exist; pointed out as well by~\cite{aarseth2018-ontologicalMeta,Vozaru2021-gameSituation}.
+
+
+\begin{itemize}
+    \item What is the area?
+    \item problem
+    \item 
+\end{itemize}
+
+The main part of this thesis is to explore Game design in relation to human-ai collaboration? Game design subdivided into facets, so explore how that is done with human-ai collaboration (and what type of issues arise from that and what is needed?). Then we can connect this to the generation of multi-facetic content, intertwining content on its most basic level.
+
+
+
+Game design is a hard and multi-faceted task that intertwines different set of gameplay mechanics, audio, level, graphic, and narrative facets. Games' facets are developed in parallel but in conjunction with others with a common goal that makes most games a coherent and interesting interactive 
+
+These combinations result in plenty of games in diverse genres, which require, in most cases, collaboration of a diverse group of developers. Collaborators can take different roles and support each others with their strengths, which mainly result in games with unique characteristics and imbued with their personal touches. Games' facets 
+
+The multi-faceted nature of games makes it impossible
+
+
+%%this is what i will bring on when discussing AI
+The multi-faceted nature of games makes it an exciting task using Artificial Intelligence (AI), since them 
+
+
+The multi-faceted nature of these games 
+
+Game design is a hard and multi-faceted task that requires, in most cases, collaboration of a diverse group. Games consist of different set of gameplay mechanics, audio, level, graphic, and narrative facets; 
+
+As AI develops, grows, and expands, the more benefits we can have from it. AI is used in multiple fields to assist humans, such as object recognition, self-driving cars, or design tools. However, AI could be used for more than assisting humans in their tasks. It could be employed to collaborate with humans as colleagues in shared tasks, which is usually described as~\acrlong{mi} paradigm. This paradigm creates an interactive scenario that leverage on AI and human strengths with an alternating and proactive initiative to approach a task. However, this paradigm introduces several challenges. For instance, there must be an understanding between humans and AI, where autonomy and initiative become negotiation tokens. In addition, control and expressiveness need to be taken into account to reach some goals. Moreover, although this paradigm has a broader application, it is especially interesting for creative tasks such as games, which are mainly created in collaboration. Creating games and their content is a hard and complex task, since games are content-intensive, multi-faceted, and interacted by external users.
+
+Therefore, this thesis explores~\acrshort{mi} collaboration between human game designers and AI for the co-creation of games, where the AI's role is that of a colleague with the designer. The main hypothesis is that AI can be incorporated in systems as a collaborator, enhancing design tools, fostering human creativity, reducing their workload, and creating adaptive experiences. Furthermore, This collaboration arises several dynamic properties such as control, expressiveness, and initiative, which are all central to this thesis. \acrlong{qd} algorithms combined with control mechanisms and interactions for the designer are proposed to investigate this collaboration and properties. Designer and Player modeling is also explored, and several approaches are proposed to create a better workflow, establish adaptive experiences, and enhance the interaction. Through this, it is demonstrated the potential and benefits of these algorithms and models in the~\acrshort{mi} paradigm. 
+
+\end{comment}
+
+% As AI develops, grows, and expands, the more benefits we can have from it. AI is used in multiple field to assist humans, such as in object recognition, self-driving cars, or design tools. However, AI could be used for more than assisting humans in their tasks. It could be employed to collaborate with humans as colleagues in shared tasks, which is usually described as~\acrlong{mi} paradigm. This paradigm creates an interactive scenario that leverage on AI and human strengths with an alternating and proactive initiative to approach a task. However, this paradigm introduces several challenges. For instance, there must be an understanding between both humans and AI, where autonomy and initiative become negotiation tokens. In addition, control and expressiveness need to be taken into account as to reach some goals one might need to direct the other's output. Moreover, although this paradigm has a broader application, it is especially interesting for creative tasks such as games, which are mainly created in collaboration. Creating games and their content is a hard and complex task, since games are content-intensive, multi-faceted, and interacted by external users.
+
+% Therefore, this thesis explores~\acrshort{mi} collaboration between human game designers and AI for the co-creation of games, where the AI's role is that of a colleague with the designer. The main hypothesis is that AI can be incorporated in systems as a collaborator enhancing the usability of design tools, fostering the human's creativity, reducing their workload, and creating adaptive experiences. Furthermore, This collaboration arises several dynamic properties such as control, expressiveness, and initiative, which are all central to this thesis. To investigate this collaboration and properties, it is proposed the use of~\acrlong{qd} algorithms combined with control mechanisms and interactions for the designer. Designer and Player modeling is also explored and several approaches are proposed to create a better workflow, to establish adaptive experiences, and to enhance the interaction. Through this, it is demonstrated the potential and benefits of these algorithms and models in the~\acrshort{mi} paradigm. 
+% Finally, designer modeling is explored and several approaches are proposed to create a better workflow, adaptive experiences, and 
+
+\dissertationKeywords{Mixed-Initiative}{Procedural Content Generation}{Quality Diversity}[Computer Games][Computational Creativity]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%  PUBLICATION LIST     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{LIST OF PUBLICATIONS}
+\section*{LIST OF PUBLICATIONS}
+
+
+% \nobibliography{publications,references,methodologies}
+
+\fontfamily{phv}\selectfont\textbf{Included Papers}
+
+%%%% In order to have multi blbliographies the multibib package is being used
+%%%% you must call \nociteIncluded{paper_name} for paper (written by you) included in the dissertation
+%%%% you must call \nociteNonIncluded{paper_name} for papers (written by you) not included
+%%%% For normal citation in the text you should use \citen{paper_name}
+%%%% Finally, it loads a list of publications that is in the publciations.bib, you might just use the same
+%%%% .bib as the one you have in your reference list else just have one for your publications (good and simpler for your CV as well!)
+
+\bibliographystyleIncluded{ieeetr}
+\bibliographystyleNonIncluded{ieeetr}
+
+%\defcitealias{paper1}{International journal of logistics, issue 91}
+
+{\def\section*#1{}
+
+    
+    % \nociteIncluded{PaperVIII}
+    
+    
+    
+    % \nociteIncluded{paper4}
+   
+    \nociteIncluded{paper2}
+    \nociteIncluded{paper1}
+    \nociteIncluded{paper3}
+    \nociteIncluded{paper4}
+    \nociteIncluded{paper5}
+    \nociteIncluded{paper6}
+    \nociteIncluded{paper10}
+    \nociteIncluded{paper11}
+    \nociteIncluded{paper13}
+    \nociteIncluded{paper7}
+    \nociteIncluded{paper15}
+    \nociteIncluded{paper14}
+    \nociteIncluded{paper17}
+    %\nociteIncluded{paper20}
+    %\nociteIncluded{paper18}
+    
+    % \nociteIncluded{paper8-REJECTED}
+     
+ \normalfont\bibliographyIncluded{publications}
+
+   
+% \bigskip
+% \bigskip
+% \bigskip
+% \bigskip
+% \bigskip
+% \bigskip
+
+%{\fontfamily{phv}\selectfont\textbf{Related papers but not included in the thesis}}
+%
+%    \nociteNonIncluded{book-section-2}
+%    
+%    \normalfont\bibliographyNonIncluded{publications}
+}
+
+\newpage
+{\fontfamily{phv}\selectfont\textbf{Personal Contribution and Clarification}}
+~
+%\vspace{-15pt}
+
+%%%% Text about your personal contribution
+{\fontfamily{ptm}\selectfont
+
+Publication [6] is an extended version of [3], adding new features to the proposed algorithm, experiments, and evaluations.
+
+For all publications above except for [1], [2], [4], and [8], the first author was the main contributor with regards to inception, planning, execution and writing of the research. For [4], both authors contributed equally.
+
+For [1], [2], and [8] the first author contributed to inception, planning, and execution of key parts of the publications, and was the main contributor regarding the writing of the research. For [13], the last author was the main contributor with regards to inception and planning. For papers [1], [2], [7], [8], and [13], the research originated from the following theses for which I was [co]supervisor, respectively:
+
+\begin{itemize}
+    \item C. Nolasco, and A. Österman, "A Study on Mixed-Initiative for Fostering Creativity in Game Design," M.S. Thesis, DVMT, TS, Malmö University, Malmö, 2018, Available: \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20051}
+    
+    \item S. Johansson, "A Study on Fitness Functions and Their Impact in PCG," M.S. Thesis, DVMT, TS, Malmö University, Malmö, 2018. Available: \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20829}
+    
+    \item S. Tolinsson, and A. Flodhag, "To make sense of dungeons," B.S. Thesis, DVMT, TS, Malmö University, Malmö, 2020. Available: \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20865}
+    
+    \item E. Grevilius, and E. Olsson, "Mixed-initiative quest generation," B.S. Thesis, DVMT, TS, Malmö University, Malmö, 2020. Available: \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20600}
+    
+    \item T. Larsson, "AI as a Creative Colleague in Game Level Design," B.S. Thesis, DVMT, TS, Malmö University, Malmö, 2022.
+\end{itemize}
+    
+    
+    
+    % In the case of [6] and [7], both 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%   ACKNOWLEDGEMENT     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{ACKNOWLEDGEMENT}
+\section*{ACKNOWLEDGEMENT} \normalfont
+
+
+% I want to thank all my supervisors, Jose Font, Julian Togelius, Steve Dahlskog, and Nancy L. Russo; your advice, uncountable conversations, mentorship, and friendship is paramount for me and has contributed enormously to the conception of this thesis and my research path. I would like to thank especially my main supervisor, Jose; your teaching on AI back in Spain during my undergraduate really sparked the curiosity on me, which would then become the roadmap I took to be where I am now; I hope for many more years of collaboration! 
+
+
+% %I would like to thank my committee members for their academic guidance through the process of completing my dissertation: My PhD examiner Paul Davidsson, and the follow-up group, Carl-Magnus Olsson and Arezoo Sarkheily-Hägele. 
+
+% I would like to thank my PhD examiner Paul Davidsson, and the follow-up group, Carl-Magnus Olsson and Arezoo Sarkheily-Hägele for their academic guidance throughout the process of completing my licentiate. Your suggestions and discussions on my study plan helped shaped several of the decisions on this thesis. I would like to thank Professor Sebastian Risi, opponent at my Licentiate Seminar, Associate Professor Marco Scirea, opponent at the final seminar, and Professor Georgios Yannakakis, opponent at the PhD Defence, for their participation and guidance.
+
+% Furthermore, I would like to thank all my PhD colleagues for uncountable conversations, discussions, fikas, and random encounters! This goes especially to Majid Ashouri, Sergei Dytckov, Lars Holmberg, Johan Salo, and Jens Sjöberg (PhD at Jonköping University); your support and ears to discuss much more than research have enriched my journey so far. I would like to thank the faculty (and visiting faculty) for your support, friendship, and experience. Especially Cecilia Ovesdotter Alm, Solveig-Karin Erdal, Johan Holmberg, Åse Jevinger, Annabella Loconsole, Susanne Lundborg, Petra Mullerova, and Thomas Pederson; this little space is not enough to write all your help and support throughout this period.
+
+% Everyone that knows me (or has heard me talk for more than 5 minutes) knows how much I speak about my experience at the IT University of Copenhagen. Therefore, I cannot miss this opportunity to thank everyone I met there, from professors to former colleagues and fellow students, especially Pablo Sarmiento and Miruna Vozaru, great friends and collaborators.
+
+%I have studied in many different countries where I have had the opportunity to meet many special persons that are meaningful to me
+
+%Moreover, over time and during my studies, I have had the opportunity to meet many special persons meaningful to me. A complete list would be non-sense, but I want to take the space to thank some that I learned a ton from and were instrumental in my path: Mauricio De Marco, Juan Rodriguez, Rolman Rodriguez, Priscilla Teixeira, Daniel Zambrano, Luis Barranco, Alberto Hernandez, Jose Larrañaga, Juan Antonio Sanchez, Oscar Losada, Martin Nygård, Martin Thomsen, Peter Vestergård, Robin Nilsson, Anna Schölberg, and Anton Svensson.
+
+
+%I would like to thank my partner, Petronella Ottosson. In many ways, the path that brings me here presenting this work would have never been followed if it wasn't for you. Through eight wonderful years, your love, intelligence, and kindness have made me thrive and made the path endurable and achievable even in times when everything seemed impossible. I love you.
+
+% I would like to thank my partner, Petronella Ottosson; it will sound like a cliché, but if it were not for her, I would not have taken the path that brings me here. Helping me focus my life for the past eight years and being together all along is what has made me thrive and made the path endurable even in times that everything seemed impossible. I love you.
+
+%Last but not least, I would like to thank my parents, Armidas Alvarez and Beatriz Uribe, for your life teachings, sacrifices, and encouragement to follow my dreams even if it meant to be at a very different time zone. I would like to extend this gratefulness to my brothers, Carlos Alvarez and Orlando Alvarez, for the encouragement over the years and for distracting our parents while I went farther and farther away. Of course, I could not end this acknowledgment without thanking my Swedish and second family, Weronica Bernhardsson, Kajsa-Lena Ottosson, Matilda Ottosson, and Mats Ottosson. Thank you so much for all you have done for me and all we have lived together; the family and closeness feeling is the secret ingredient for a wholesome and endurable path. 
+
+%Finally, thanks to all the persons that I have met and talked to thus far, which these pages are not enough to list; we might have met for a brief moment or be long time friends, but know for sure that you have in one way or another influence my path. 
+
+%an endurable and consistent path. 
+% shaped the person I am now.
+
+
+
+%Thank y'all for your support! 
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{PREFACE}
+\section*{PREFACE} \normalfont
+\input{chapters/ethical-cons}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%   TABLE OF CONTENT    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parskip}{1.5em}
+\renewcommand*\contentsname{\fontfamily{phv}\selectfont CONTENT}
+\cleardoublepage
+\pdfbookmark{\contentsname}{Contents}
+\thispagestyle{empty}
+\tableofcontents{\thispagestyle{fancyplain}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%   ACRONYM TABLE       %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\printglossary[type=\acronymtype]
+
+
+% \addtocontents{toc}{\par Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\par}
+
+\setlength{\parskip}{0.5em}
+
+\cleardoublepage
+\pagenumbering{arabic}
+\part{COMPREHENSIVE SUMMARY}
+% \cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%   ADD ALL CHAPTERS    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{chapters/test-chapter}
+\input{chapters/introduction}
+\input{chapters/background}
+\input{chapters/AI-methods}
+\input{chapters/EDD}
+%\input{chapters/Algorithms}
+%\input{chapters/Algorithm_Adapt}
+%\input{chapters/DesignerPersonaEvaluation}
+\input{chapters/research-methodology}
+\input{chapters/contributions}
+\input{chapters/discussion}
+%\input{chapters/ethical-cons}
+\input{chapters/conclusions}
+
+
+\let\oldthebibliography=\thebibliography
+\renewenvironment{thebibliography}[1]{%
+   \oldthebibliography{#1}%
+   \setcounter{enumiv}{0}%
+}
+
+
+% \bibliographystyle{ieeetr}
+\bibliographystyle{ieeetr}
+\phantomsection
+\addcontentsline{toc}{section}{REFERENCES}
+\bibliography{references-zot,methodologies,games}
+% % \bibliographystyle{apalike}
+% \nobibliography{publications}
+
+%\input{chapters/external-papers} 
+
+\end{document}

@@ -1,0 +1,277 @@
+\section{CONTRIBUTIONS} \normalfont
+
+This section summarizes the research contributions of the publications that this thesis compiles and unifies. First, contributions and publications are linked to different RQs. Then, each RQ is presented and discussed from the perspective of the different included papers' contributions.
+
+% \begin{table}[h]
+% \centering
+% \caption{Relationship between the different research questions and the publications}\label{table:RQPapers}
+% % \resizebox{\textwidth}
+% % \resizebox{\textwidth}
+% \begin{tabular}{|c|c|}
+% \hline
+% \rule{0pt}{12pt}
+% RQ&Papers\\ \hline
+% % \\[-6pt]
+% RQ I & I, II, III, V\\ \hline
+% RQ II & IV, VI\\ \hline
+% RQ III & IV, VI\\ \hline
+% RQ IV & IV, VI\\ \hline
+% \end{tabular}
+% \end{table}
+
+% \begin{table}[h]
+% \centering
+% \caption{Relationship between the different research questions and the publications}\label{table:RQPapers}
+% % \resizebox{\textwidth}
+% % \resizebox{\textwidth}
+% \begin{tabular}{|c|c|}
+% \hline
+% \rule{0pt}{12pt}
+% RQ&Papers\\ \hline
+% % \\[-6pt]
+% \textsc{rq i} & \textsc{i, ii, iii, v}\\ \hline
+% RQ II & I, IV, VI\\ \hline
+% RQ III & I, IV, VI\\ \hline
+% RQ III & I, IV, VI\\ \hline
+% RQ III & I, IV, VI\\ \hline
+% RQ IV & IV, VI\\ \hline
+% \end{tabular}
+% \end{table}
+
+\begin{table}[h]
+\centering
+\caption{Relationship between the different research questions and the publications}\label{table:RQPapers}
+% \resizebox{\textwidth}
+% \resizebox{\textwidth}
+\begin{tabular}{|c|c|}
+\hline
+\rule{0pt}{12pt}
+RQ&Papers\\ \hline
+% \\[-6pt]
+\textsc{rq i} & \textsc{i, ii, iii}\\ \hline
+\textsc{rq ii} & \textsc{i, iv, v, vi}\\ \hline
+\textsc{rq iii} & \textsc{v, vi}\\ \hline
+\textsc{rq iii.i} & \textsc{v, vi}\\ \hline
+\textsc{rq iii.ii} & \textsc{v}\\ \hline
+\end{tabular}
+\end{table}
+\bigskip
+
+% \subsection{The Evolutionary Dungeon Designer}
+
+% \begin{itemize}
+%     \item Total description of EDD, and what it enables
+%     \item workflow and development
+% \end{itemize}
+
+\subsection[Research Question 1]{RQ1: How can we use and integrate quality-diversity algorithms into a mixed-initiative approach to help designers produce high-quality content and foster their creativity while allowing them to control, to a certain extent, the generated content?}
+
+%\begin{itemize}
+%    \item discuss what are the options given to the designer to control; use the figure I have made sometime before about this.
+%    \item Discuss on the two approaches explored within the evolutionary algorithm
+%    \item the first one is the ability for the designer to lock tiles to explicitly preserve their design. Align with this, is the inclusion of several-angles symmetry and bit-by-bit similarity as evaluation functions
+%    \item The second key work is the development of the Interactive Constrained MAP-Elites. Discuss its root, the multiple dimensions (which can be done as a table, since the features are in the paper), and the evaluations done in paper v and "VII".
+%\end{itemize}
+
+%~\acrlong{qd} algorithms are a family of algorithms within search-based approaches and~\acrlong{EC} that focus and rely on the strengths of both divergent and convergent search. Recently, Gravi\~{n}a et al. discussed the creation of game content through~\acrshort{qd} algorithms such as~\acrshort{mape} or~\acrshort{nslc}, with some examples developing interesting and key features~\cite{gravina2019procedural}.
+
+% Algorithms focusing on either divergence or convergence searches have been previously used in mixed-initiative approaches, such as .
+\acrshort{qd} algorithms have been recently introduced as a family of algorithms that leverage on the strengths of both convergent and divergent searches. Specifically, using strategies that help the search explore a greater area of the space while retaining high-performing individuals. However, how to handle these algorithms together with a human user giving inputs, changing conditions, and with certain goals in mind is non-trivial. Moreover, using these [and other] algorithms in collaboration with human users, providing control to them over the algorithm's output, is an open research area. This is mainly due to the many non-intuitive aspects of these algorithms, for instance, the variation operators or the genotype-to-phenotype conversion in~\acrlong{ea}s. As well as the use of design tools such as~\acrshort{edd} by inexperienced human users or non-programmers, and the focus of these tools, where the human user should design their objective rather than focusing on the algorithms.
+
+Therefore, we have focused a substantial part of the research into giving control to designers over multiple non-intuitive aspects of the~\acrshort{ea}, specifically, the~\acrfull{icmape}. In~\textsc{paper i} and based on related work~\cite{Baldwin2017}, the goal was to understand and analyze what are the challenges game designers encounter with~\acrshort{mi} systems (specifically, with~\acrshort{edd}). This drove the study into how to give control to users while preserving expressive power and the use of~\acrshort{qd} algorithms as an alternative. In~\textsc{paper ii}, it was investigated how to give to the designer explicit control over non-intuitive strategies and parameters in an intuitive way. Specifically, what ``genes'' could be selected and which not for crossover and mutation within the~\acrshort{ea}, and as consequence, preserve the designers intentions with their design. 
+
+Moreover, built on top of the Constrained~\acrshort{mape} by Khalifa et al.~\cite{Khalifa2018}, in~\textsc{paper v}, we introduced the~\acrlong{icmape}, the first use of~\acrshort{mape} in a mixed-initiative setup (see section~\ref{sec:icmap-elites}). Through~\acrshort{icmape} we added: \textit{interaction} for the designer with~\acrshort{mape}, \textit{continuous adaptation} of the generative space of the algorithm to the ever-changing designer's design, and a set of dungeon-like related features (presented in table~\ref{table:mape-dimensions}). This resulted in increasing diversity in the exploration of the search space while retaining high-performing solutions. Furthermore, it was established once-again control mechanisms of non-intuitive aspects of the~\acrshort{ea} for the designer through controlling the feature dimensions that discretise the search space. Based on our expressive range analysis evaluationm, we identified that ``[...] enabling the designers to proactively decide which dimensions should be used in the search, gives them a high level of controllability with minimal loss in the expressive range." This finding aligns with the priority of understanding the scope of impact and consequences of using~\acrshort{qd} algorithms in an~\acrshort{micc} paradigm.
+
+
+% this interaction, i.e., the~\acrshort{micc} paradigm, through using~\acrshort{qd} algorithms arises.
+
+
+%to the multiple areas that the designer can interact with and the multiple steps that are within the~\acrshort{icmape}Figure XX presents all the approaches and algorithms developed and incorporated into EDD within the EA evolutionary strategies, i.e., selection, crossover, mutation, and replacement, as well as the multiple features and control mechanisms users have when interacting with the tool. 
+
+%Finally, in~\textsc{paper v}, we introduced the~\acrlong{icmape}, which builds on top of the Constrained~\acrshort{mape}, the first use of~\acrshort{mape} in a mixed-initiative setup. adding \textit{interaction} for the designer with~\acrshort{mape}, \textit{continuous adaptation} of the generative space of the algorithm to the ever-changing designer's design, a set of features (presented in table~\ref{table:mape-dimensions}) for exploring the 
+
+%\textit{adaptability} and  for the algorithm to the ever-changing designer's design and \textit{continuous adaptation} of the generative space to the 
+
+%Therefore, we have focused a substantial part of the studies into: 1) understanding what are the challenges game designers encounter with mixed-initiative systems, which drove the investigation into how to give control to users while preserving expressive power and the study of~\acrshort{qd} algorithms in paper i. 2) with, and . what are the consequences of enabling such an interaction not only for the user but for the algorithm, in terms of positive for the system to explore different areas and help generate ``counter-intuitive" (even for the~\acrshort{ea}) designs
+
+%Their use in tools would be straigthforward if we were not 
+
+%We designed a variation of the MAP-Elites algorithm~\cite{Mouret2015,Khalifa2018}, and gave designers the option to control and change non-intuitive parameter in an intuitive way, e.g. what chromosomes could be selected and which not for crossover and mutation within the~\acrshort{ea}~\cite{Alvarez2018a}.
+
+%it is paramount to understand how to use~\acrshort{qd} algorithms effectively in these systems to fully leverage on their expressive power, while providing  at the same time that the humans could control their output, which as a consequence, requires the exploration on the dynamics of interacting with such algorithms.   \textbf{ why is it important??}
+
+% \subsection[Research Question 2]{RQ2: How can we use gameplay, player, and designer data to understand better players and designers' actions and behaviors, in order to enhance their experiences?}
+
+\subsection[Research Question 2]{RQ2: How can we use player and designer data to understand better their behaviors and procedures to enhance and adapt~\acrlong{micc} systems?}
+
+
+\acrlong{micc} tools such as~\acrshort{edd}, can benefit greatly from gameplay, player, and designer data. However, how to collect and use this is not straightforward, especially when the focus is not only to analyze and understand the users behavior but also to actively use the data to enhance and adapt their experiences. For instance, gameplay data can be used in systems such as the procedural personas~\cite{Holmgard2019-proceduralPersonas} to automatically test content. Player data such as where they are observing~\cite{Makantasis2019-pixel2Affect} or their experience~\cite{Yannakakis2011-experiencedrivenPCG} can be used to model how certain content might be perceived by the end-user. Designer data can be used to understand design processes and enhance the designer's experience by creating designer-tailored content and by modeling common designer practices and processes~\cite{Liapis2013-designerModel}.
+
+
+% In contrast, designer data can be used to create tailor-made experiences in design tools, as well as to capture and model multiple processes of designers to enhance the experience of the tool's users~\cite{Liapis2013-designerModel}.
+% ~\cite{melhart2020feel}
+
+Therefore, we have delved into collecting, analyzing, and using player and designer data, reported in~\textsc{paper i, iii, iv, vi}. Thus far, we have conducted three user studies: The first, reported in~\textsc{paper i} where we collected qualitative data from experienced game designers on the interaction with~\acrshort{edd} as a game design tool. The second user study reported in~\textsc{paper iv}, was conducted with beginner game designer, i.e., first-year game design students, and consisted of a mix between quantitative data, i.e. actions within the tool, and qualitative data, i.e., comments on the experience and usability of the tool. Finally, the third user-study is reported in~\textsc{paper vi}, which consisted primarily on increasing the scope of the study in~\textsc{paper iv} with data from a more diverse and wider group.
+
+In~\textsc{paper iii}, we collected personality scores from several players using the~\emph{cybernetic big five personality test}. We used the scores to model~\acrshort{ai} agents that then had to engage in particular situations such as jumping a gap or going around it. Through this, we focused on agents that could not only resemble the decision-making of their human counterpart, but that could have complementing characteristics. Moreover,~\textsc{paper v} and~\textsc{paper vi} focused on collecting and using designer data, specifically their actions within~\acrshort{edd} with the aim of modeling designer processes.
+% The approach presented in~\textsc{paper v} consisted in leveraging in the property of~\acrshort{icmape} and it's visualization to collect and estimate the designer's preferences of the presented suggestions, similarly to choice-based evolution~\cite{Liapis2012-adaptiveVisual}. 
+
+With the data collected and the techniques employed, it was possible to analyse certain player and designer' actions and characteristics. In the case of~\textsc{paper iii}, the similarities presented between agents and humans helped us identify characteristics that could be valuable to model for creating adapted content for the end-user. While in~\textsc{paper v} and~\textsc{paper vi}, the data collected corresponding to the designer's actions, not only allowed us to create models representing certain designers' procedures, but also highlighted interesting design processes.
+
+% In~\textsc{paper v}
+
+% This is about collecting the designers data; thus perhaps i should focus more on the user studies I did, what type of data was collected and how it was used to cerate some systems, and then in the other research questions I can focus on what those papers 
+
+
+% , where beginner game designers, i.e., first-year game design students, tested and together with the last of the studies in~\textsc{paper vi}
+
+%This could be used to model  to   the focus was not 
+
+
+
+% \textbf{There still remains many unknowns}
+
+
+\subsection[Research Question 3]{RQ3: How can we model different designers' procedures and use them as surrogate models to anticipate the designers' actions, produce content that better fits their requirements, and enhance the dynamic workflow of mixed-initiative tools?}
+
+There is a need for the AI to recognize design and creative procedures to have an aligned collaboration with the user. This is in oder to create adaptive experiences, and to fruitfully make this experiences enable an in-depth loop between AI and human. Therefore, collecting designers' data as they worked in the tool was paramount, as described in the contributions for RQ2. However, how to make use of this data into a functional model of the designer is non-trivial as well as what to do with such models.~\textsc{paper iv} and~\textsc{paper vi} explore such paradigm, where we proposed multiple approaches to model different but related processes. 
+
+The approach presented in~\textsc{paper iv} focused on creating a preference model of the designer. This was then used to steer the generation of suggestions into more meaningful, interesting, and preferred suggestions. It leveraged in the~\acrshort{icmape} implicit relation between cells along the behavior dimensions, and the visualization of the suggestion grid. Through this, it estimated and collected the designer's preferences based on the current set of suggestions. As the designer chose suggestions in the grid, an ad-hoc preference matrix was placed, estimating the preference of each suggestion in the grid. The estimated preference was used to compose a training set to subsequently train-and-test a neural network representing the preference of the designer. The network was then used in the fitness evaluation of each new individual in the~\acrshort{ea}, and the designer was then proposed a new set of suggestions that fitted their preferences. Effectively adapting seamlessly to the designer without interrupting their design process.
+
+% It consisted on leveraging in~\acrshort{icmape}' property  the property of~\acrshort{icmape} and it's visualization to collect and estimate the designer's preferences of the presented suggestions, similarly to choice-based evolution~\cite{Liapis2012-adaptiveVisual}, seamlessly adapting to the designer without interrupting their design process. 
+
+Moreover, the results from~\textsc{paper iv}, drove the approach presented in~\textsc{paper vi}, which focused on creating a general offline model of design style, specifically, when creating dungeons. To create such a model, we conducted two user studies with a diverse group of participants, i.e., game design students, game industry practitioners, and~\acrshort{ai} in games researchers. From these studies, it was used the design process of each of the created rooms (180 unique rooms), i.e., from an empty room to it's final version. An example of this design process is shown in figure~\ref{fig:designProcess}. By clustering this design process we were able to identify twelve representative clusters (shown in figure~\ref{fig:all-clusters}). Further, by analizing the same design processes, but in function of the clusters rather than individual changes, we identified four \emph{designer personas}. These designer personas are archetypical paths that most designers followed during the design process.
+
+% used design data from
+
+% We used data from two user studies with a diverse group of participants, and used the design process followed to create each individual room, i.e., from an empty to a finished version of the room. We were then able to identify twelve clusters where most designs finished, and by analyzing the design process but as step through the clustered style space, we were able to establish five archetypical paths that most designers followed, i.e., Designer Personas.
+
+Both publications present examples of how multiple design processes can be modelled as a designer model, their usability, and their impact in the generation process. The preference model in~\textsc{paper iv} was presented, implemented, and tested. While the designer personas and design style clusters in~\textsc{paper vi} were discussed from a wider perspective on how they could be used. Furthermore, besides aiming at modeling different designer's procedures, the main difference is how they are created: the preference model is an online-personal model that uses data from single designers. While the design style clusters and designer personas are offline-group models created on data from a diverse and wider group. Thus, through both, we explored multiple paths to capture design processes and to use them to enhance design tools.
+
+
+% how could it be used, while the designer persona in~\textsc{paper vi} discussed discussing how should a model could be used
+
+% \textsc{paper v} and~\textsc{paper vi} presented examples of designer modeling by modeling different designers' procedures and design processes, which could be used as surrogate models to enhance the understanding on design processes and the usability of design tools, such as~\acrshort{edd}. \textsc{paper v} presented a clear artifact design used to steer the generation of new suggestions based on the \textit{in situ} created preference model, while~\textsc{paper vi} presents the development of a novel model to analyze the designer's design process lacking it's implementation and test. However, designer personas usability in practice is discussed as 
+
+
+% and when used altogether form a designer model that could be used 
+
+% \textsc{paper v} and~\textsc{paper vi} presented examples of modeling different designers' procedures and design processes, and when used altogether form a designer model that could be used 
+
+% Through this approach we were able to identify a set of styles that most designers follow when creating content, i.e., Designer Personas, and model how the designer traverse the style space. 
+
+% For instance, rooms for a game like the binding of Isaac~\cite{mcmillen_binding_2011} could be classified based on multiple characteristics such as the room's objectives regarding enemies and treasures, access to different areas, or hidden encounter and treasures. Moreover, different designers could reach the same room style through different paths, where the focus along the creation could vary. Some designers would focus on the room's topology before anything else, whereas others would focus first on the objectives a player must achieve. These designer models could then be combined with search-based~\cite{Togelius2011} or other procedural generation methods~\cite{khalifa2020-pcgrl,Volz2018-GANevo} to suggest ways of getting to the next design style from the current one.
+
+% These models represent steps towards producing 
+
+% on creating a preference model of the designer, which was then used to steer the generation of suggestions into more meaningful, interesting, and preferred suggestions. 
+
+
+
+% Whereas modeling designer's procedures as described in~\cite{Liapis2013-designerModel}, and its usability as surrogate models to steer the collaboration and interaction produce actual benefit to the dynamic workflow of~\acrshort{micc} tools remains open for exploration, as a promising area.
+
+
+% Whereas we can model designer's procedures and how to use them, and then use such models as surrogate models of designers to steer the collaboration and interaction, as well as 
+
+% ancreate mixed-initiative tools that consider key aspects and procedures by the designer
+
+% Collecting designers' data as they worked on the tool 
+
+% \emph{Designer Modeling}, akin to player modeling~\cite{thawonmas2019artificial}, refers to creating models of individual designers or group of designers informed by how they create various type of content to create personalized experiences and adapted tools. Liapis et al. described designer modeling as capturing the style, process, preferences, intentions, and goals of designers as they create content~\cite{Liapis2013-designerModel}. Furthermore, Liapis et al. implemented a prototype of such model in the Sentient Sketchbook~\cite{Liapis2014-designerModelImpl}, where the focus was on using the designer's current design and choice-based evolution to capture process, style, and goals. Alvarez and Font~\cite{Alvarez2020-DesignerPreference}, proposed the use of the behavior characteristics of the generated levels where a neural network was trained on the estimated preference of the designer using a similar approach as the choice-based evolution from Liapis et al.~\cite{Liapis2014-designerModelImpl}.
+
+% An alternative method could be to identify a set of styles that most designers follow when creating content, and model how the designer traverse such a style space. For instance, rooms for a game like the binding of Isaac~\cite{mcmillen_binding_2011} could be classified based on multiple characteristics such as the room's objectives regarding enemies and treasures, access to different areas, or hidden encounter and treasures. Moreover, different designers could reach the same room style through different paths, where the focus along the creation could vary. Some designers would focus on the room's topology before anything else, whereas others would focus first on the objectives a player must achieve. These designer models could then be combined with search-based~\cite{Togelius2011} or other procedural generation methods~\cite{khalifa2020-pcgrl,Volz2018-GANevo} to suggest ways of getting to the next design style from the current one.
+
+\subsection[Research Question 3.1]{RQ3.1: What trade-offs arise from modeling and using designer's procedures to steer the generation of content towards personalized content?}
+
+\textsc{paper iv} and~\textsc{paper vi} present novel approaches to model specific designer procedures in order to create content and collaborate with designers in a more adaptive and meaningful way. However, the application of these models into the design process and to drive the collaboration of the computational designer arises multiple challenges and benefits. Such trade-offs were explored and discussed in~\textsc{paper iv} where some of these trade-offs were posted as three open areas for active research:~\textit{1) Dataset Creation}: the challenge on acquiring data, \textit{2) Preference Modality}: the challenge on using representative data, and \textit{3) System's Training-and-Usage}: the challenge to train and use~\acrshort{ml} models dynamically and\/or statically.  
+
+% through the use of a data-driven designer preference model in an interactive system,
+
+As designers use and interact with design tools, it must be decided what type of data should be used that better represent the procedure or process to be captured. Individual data could allow for a more adaptive experience, but collecting data from a single designer in a single session, might not be enough to accurately train such a model as in~\textsc{paper iv}. In contrast, using collective data might decrease that tailored experience, but it could point out towards frequent processes that are simultaneously followed by several designers as in~\textsc{paper vi}.
+
+Nevertheless, despite the use of collective or individual data to create these models, the challenge remains on what data captures faithfully the different processes. Seemingly representative data could be dependant of other attributes, which might be or not counterproductive to collect or analyze. In~\textsc{paper iv}, the data used was based on the suggestion grid, which implicitly used the cell relation of the behavior dimensions. This meant that for example, selecting a very symmetric room as the preferred one automatically meant that the less preferred suggestion was an asymmetric room. For other processes, it might be simpler to match data with process. For instance, the design style clusters presented in~\textsc{paper vi} were formed using the creation process of individual rooms. However, the design process of each designer is different and still present many unknowns; thus, the challenge of using representative data prevails.
+
+Likewise, \emph{concept drift:} the constant change in the training set for an~\acrshort{ml} model, is a main challenge in design tools, as when designers use the tool they have an ever-changing design process that varies greatly. This was highlighted by testers in~\textsc{paper iv}, as the suggestions from the computational designer were not aligned with the current design, mainly due to how and when the model was trained. The model was trained every time the designer chose a suggestion, and these events could be very far away from each other. For instance, the designer start with some goal when creating their room and when choosing a suggested room they expect this to help them reach their goal. However, there goals are by no means needed to be taken with them to the next room. Such a challenge partly motivated the research in~\textsc{paper vi}. Where rather than having a model that tries to update as the designer traverse through the generative space, the space is already clustered and models do not update with the designer. Through this approach, we aimed at clustering the designer's design in an already clustered design style space. Through this, they could be provided with adaptive experiences as the computational designer could make informed decisions based on where the designer's design is and where is headed. 
+
+
+% the suggestion chosen by the designer when creating the first room had characteristics relative to the designed room, as well as the designer had a different goal when creating such a room, but these are by no means needed to be taken with them to the next room. Such a challenge partly motivated the research in~\textsc{paper vi}, where rather than having a model that tries to update as the designer traverse through the generative space, the space is already clustered and models do not update with the designer. Through this approach, we aimed at clustering the designer's design in an already clustered design style space, which could provide adaptive experiences as the computational designer could make informed decisions based on where the designer's design is. 
+
+% \subsection[RQ4]{RQ3.1: What trade-offs arise from modeling and using designer's procedures and using these models to steer the generation of content}
+
+
+\subsection[Research Question 3.2]{RQ3.2: What constraints are created over the generative process when using designer models?}
+
+% \begin{itemize}
+%     \item constraints to the generation because of focusing on specific areas
+%     \item constraints in micc systems due to the possibly limiting the creative 
+% \end{itemize}
+
+Regardless of these trade-offs, using designer modeling impose implicit constraints in the generative system similar to any other system that adapts its functionality to satisfy a set of constraints. These constraints act as a set of guidelines to help the generative process select more appropriated suggestions such as in~\textsc{paper iv}, or to indicate possible steps the designer might take as in~\textsc{paper vi}. However, having these constraints also limits to some extent the generative space and expressive range of the AI. In~\textsc{paper v}, this was explored by using the preference model as part of the weighted sum of the fitness function to infer if a generated room might be preferred. Through this, the~\acrshort{ea} evaluated the generated content objectively through the fitness function, and subjectively through the preference model. If using an accurate model, the designer could receive suggestions aligned with their preference. This could mean that the generation would focus in some specific area of the generative space with the possibility of limiting both, the creativity of the computational designer and fostering the designer's creativity. Our evaluation, while lackluster as we did not achieve an accurate representation of the designer's preference, highlighted essential challenges when creating adaptive experiences. 
+
+% Actually, I could write that there is already some constraints that need to be satisfied or accounted for, as we have a fitness function that is informed by the user's design. 
+
+% the challenges when creating adaptive experiences  
+
+% However, our evaluation was lackluster as we did not achieve an accurate representation of the designer's preference, but it highlighted the other side of trying to create an adaptive experience
+
+% In~\textsc{paper vi},
+
+% Given the above mentioned trade-offs, this presented a dilemma. On the one hand, if using an accurate model, the designer would receive suggestions aligned with their preference. On the other hand, if the model would be accurate but not aligned with the designer's preferences, the designer would be suggested rooms lacking any sense.-
+
+% Together with the above mentioned trade-offs, this presented a dilemma  
+
+% However, while these constraints can be seen as a set of conditions that need to be satisfied by the generative process, they are used as a set of guidelines to help the generative process select more appropriated suggestions such as in~\textsc{paper v}, or to indicate possible steps the designer might take such as in~\textsc{paper vi}.
+
+
+% These con  as the algorithms would focus on specific areas of the generative space rather than others. while 
+
+
+% \subsection[RQ4]{RQ4: What type of challenges and benefits arise from trying to model designers' procedures and what type of constraints emerge from using these surrogate models to steer the generation towards personalized content?}
+
+
+
+% what type of constraints emerge from using these surrogate models to steer the generation towards personalized content?
+
+% \begin{itemize}
+%     \item constraints to the generation because of focusing on specific areas
+%     \item constrains in micc systems due to the possibly limiting the creative 
+% \end{itemize}
+
+% Regardless of these trade-offs, using designer modeling impose implicit constraints in the generative system, as the algorithms would focus on specific areas of the generative space rather than others. while 
+
+% The constraints imposed to the generation are not only ones defined by the data used to train the models, but also characterized by the expectation of the designer and usability of the computational designer.
+
+% but also imposed pressure into presenting expected preferred suggestions to designers. This constraint affect the generation by first, approaching 
+
+% Regardless of these trade-offs, the constraints imposed in the generative systems for using designer models are
+
+% However, its usability and dsads is still under resea5rch 
+
+% Exacerbated by how and when to train the~\acrshort{ml} model  
+
+% Furthermore, as the designer is using the tool they have an ever-changing design process that varies greatly, which fluctuates depending on the skill level of the designer. When this constant changing process is discussed around the training of~\acrshort{ml} models it is called \textit{concept drift}. 
+
+% In the~\acrshort{ml} community 
+
+% choosing when and how to update the model is non-trivial. 
+
+% Furthermore, training or using these models dynamically or statically is 
+
+% While these three challenges are common to most~\acrshort{ml} approaches, they are exacerbated when discussed in a~\acrshort{micc} system and when aiming at developing an in-depth collaboration since  . As we try to produce
+
+% implicit relation between cells along the behavior dimensions, and the visualization of the suggestion grid to estimate and collect the designer's 
+
+% Here i need to point out the challenge == However, seemingly representative data  representative data could be dependant of other attributes, which might be counterproductive to capture, for instance, in~\textsc{paper v}
+
+% While the long adaptability time did not allow the system to drive as expected the evolution, the constraints imposed to the generation are not only ones characterized by the data used to train the model, but also imposed pressure into presenting expected preferred suggestions to designers. This constraint affect the generation by first, approaching 
+
+% paper v discusses the benefits and challenges presented when actively using designer models 
+
+% % we discuss this trade-off as open areas for active research
+
+% However, these models have tradeoffs and creating and using them proved 
+
+% these models have 
+
+% \textbf{There still remains many unknowns}
+

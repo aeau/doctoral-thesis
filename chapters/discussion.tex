@@ -1,0 +1,90 @@
+\section{DISCUSSION AND CONCLUSIONS} \normalfont
+
+%One of this thesis's objectives was to develop algorithms that could collaborate with designers, giving them a varying degree of control through control mechanisms while still being expressive (RQ1). Three control mechanisms were introduced where the designer had direct and indirect control over non-intuitive parameters of the~\acrshort{ea}. These were: \emph{Locking tiles}, \emph{designer's design}, and \emph{feature dimensions}. In \textsc{paper i}, an explorative study was carried out to evaluate~\acrshort{edd} and it's current functionalities with game developers to gather and analyze game designer's requirements and impressions. \textsc{paper ii} focused on introducing aesthetic criteria to evaluate the content, and as a way for the designer to preserve their content. The locking tiles feature was introduced, which allowed designers to designate their design areas to be preserved by the~\acrshort{ea}. This allowed the computational designer to be more supportive by focusing on parts that the designer was not currently working on.
+
+%This section compiles and discusses the contributions in the context of the overarching goal of this thesis, namely, exploring game design aspects through human-AI collaboration and moving towards using AI as a colleague.
+
+%This section summarizes the research contributions of the publications that this thesis compiles and unifies. First, contributions and publications are linked to different RQs. Then, each RQ is presented and discussed from the perspective of the different included papers' contributions.
+
+% \setlength{\epigraphwidth}{3in} 
+% \epigraph{\textit{We can only see a short distance ahead, but we can see plenty there
+% that needs to be done.}}{Alan M. Turing, Computing Machinery and Intelligence}
+
+% Final conclusions, what does your research means? 
+
+% And now it begins. no, now it ends. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setlength{\parindent}{0.0em}
+
+%This thesis explored~\acrshort{mi} collaboration between human designers and AI for the co-creation of games in~\acrshort{edd}, a~\acrshort{micc} system. The focus has been on developing techniques and algorithms to investigate this interaction to highlight and argue for the benefits that can be achieved. Specifically, mutual inspiration to explore unknown design areas, foster the designer's creativity, and establish adaptive experiences. 
+
+This thesis explored game design and game content creation through human-AI collaboration. We used EDD and its extended inner systems (QuestGram, TropeTwist, and Story Designer) to analyze and study \acrshort{mi} collaboration. The focus has been on developing techniques and algorithms to investigate this interaction to highlight and argue for the benefits that can be achieved. Specifically, mutual inspiration to explore unknown design areas, foster the designer's creativity, and establish adaptive experiences.
+
+\subsection{Control, Expressiveness, and Adaptability}
+
+The interaction between designers and AI arises multiple dynamic properties such as initiative, control, and expressivity. \emph{Initiative} relates to how either agent engages in the tasks and to what extent. \emph{Control} relates to the control mechanisms enabled for either agent to direct or constraint the output of other agents based on some criteria. \emph{Expressivity} relates to the diversity of solutions that either agent can create. A strong candidate to cope with both the control and expressivity dynamic properties that arise in the interaction are~\acrshort{qd} algorithms. Thus, in \textsc{paper iii} and \textsc{paper vi}, it was introduced and implemented the~\acrlong{icmape}, a variation of the~\acrshort{mape} algorithm. Among its features, it enabled the designer to select feature dimensions (a key component of~\acrshort{mape}, explained in section~\ref{sec:map-elites}). The results from \textsc{paper iii} pointed towards enabling enough control since selecting feature dimensions and their granularity changes the search landscape and the retained solutions. However, this changes the features a designer might be interested in but does not limit the algorithm's expressivity to create diverse solutions. Further, the fitness function of~\acrshort{icmape} continuously adapts to the designer's design, acting as an indirect control mechanism.
+
+The results from \textsc{paper iii} and \textsc{paper vi} are further supported by the results in \textsc{paper ix}, where the behavior and generative space of~\acrshort{icmape} were analyzed by simulating design sessions. Given that one of the designer's interactions is the automated adaptation of the fitness based on the current design, we examined and evaluated how the search varied and adapted to a design session. The results showed that the algorithm adapts adequately, and the designer has, to a large extent, an impact on the generative space with their design. More exciting is that~\acrshort{icmape} is able to explore new areas of the space by adapting to the designer's design.
+
+% In \textsc{paper viii, xi}, we experimented with MI-CC narrative generation, where the computational designer had a more assistive role, and adaptation and control was not only based on what the designer directly created, but also elements from the level design facet. 
+
+
+In short, controllability, in many cases, is a competing property with expressivity. Since the control and constraints imposed could limit the expressive range for any of the constrained agents. However, in this thesis, it is shown that~\acrshort{qd} algorithms, specifically,~\acrshort{icmape}, can cope with this, showing robustness, adaptability, and stability when interacting with. Designers were provided with meaningful control, yet~\acrshort{icmape} adapted and kept exploring vast amounts of the generative space encountering high-performing solutions. Nevertheless, \textsc{paper xiii} showed the importance of agency regarding control, adaptation, and initiative for either agent. Our preliminary results reported high frustration levels as human designers got too constrained, losing agency and ultimately control over the final design and objective. Constraints limit the space, and as a consequence, they need to be overcome by encountering creative solutions. However, the system needs to provide enough space and creative freedom for designers to encounter these creative solutions.
+
+% Constraints, as explained by Boden, limit the space and as a cons The goal to add constraints fo that human designers 
+
+% Boden explains it conspicuously ``...  We [humans] seek the imposed constraints [...], and try to overcome them by changing the rules.~\cite{boden_creative_2004}''. Constraints limit the space, and as a consequence, they are overcome by encountering creative solutions.
+
+% , adaptability, and control anb for either agent. O
+
+\subsection{Adaptive Experiences}
+
+The work in \textsc{paper i, ii, iii,  vi, viii, xi, xiii} and the interest in seeking alternative approaches to foster creativity, create adaptive experiences, and enable more autonomy and initiative for the AI directed the research towards player and designer modeling. The former was explored in \textsc{paper iv}, where personality-driven player models were created to investigate their usability as a representative surrogate model and possible complement value in gameplay. 
+
+% Designer Modeling was explored through \textsc{paper v, vi}.
+\textsc{paper v} and~\textsc{paper x} presented examples of designer modeling by modeling different designers' procedures. These could be used as surrogate models to enhance the understanding of design processes and the usability of design tools, such as~\acrshort{edd}. \textsc{paper v} presented a clear artifact design used to steer the generation of new suggestions based on the \textit{in situ} created preference model. This work demonstrated the benefits that come with integrating these models in the~\acrshort{mi} loop, such as the possibility of seamlessly creating preferred content. However, it also demonstrated the challenges of selecting and collecting representative data or training-and-using models as designers develop.
+
+Furthermore,~\textsc{paper x} presented the development of a novel model to analyze the designer's design process, which could inform generative processes on the designer's style, goal, and intentions. The analysis of the resulting clusters based on each designer's design process resulted in the designer personas. These designer personas were presented as archetypical paths taken by designers through the clustered style space. Both models allow for the analysis of design and creative processes from a higher abstraction level rather than specific steps, akin to procedural personas or game design patterns. 
+
+These approaches toward designer modeling have shown the capabilities of modeling several procedures and how they could be used. They also show that design processes can be analyzed more abstractly, yielding interesting similarities among seamlessly different designers or design processes. Designer modeling has the possibility to create adaptive experiences for an individual or group of designers and could enable more autonomy and initiative for the AI. However, whereas this and its usability as surrogate models to enhance the collaboration, interaction, and generation produce actual benefits to the dynamic workflow of~\acrshort{micc} tools remain open for exploration as a promising area.
+
+\subsection{Towards Holistic PCG and MI-CC}
+
+In \textsc{paper viii, xi}, we experimented with MI-CC narrative generation where adaptation and control were not only based on what the designer directly created in the narrative facet but also elements from the level design facet. QuestGram limited designers with the level design content and the computational designer could be used repeatedly to address level design changes. On the other hand, Story Designer limited the computational designer with level design constraints, but the human designer could create freely. This could allow the human designer to be more exploratory and possibly change constraints back to the level design while the computational designer tries to adapt and overcome the constraints. However, this is left to future work, where these systems should be fully integrated and evaluated with user studies to understand the space of possibilities.
+
+Furthermore, our approaches in connection with related work show the possible intertwine capability of narrative and level design. For instance, for a designer, as discussed in \textsc{paper viii} and in~\cite{larsson_queststories_2021}, it feels natural to connect these elements in relation to objectives since these are already there, to some extent, when designing the levels but not formalized. The relevance of MI-CC tools is highlighted when there is a large search space, including many level design elements and other elements within the facet.
+
+% Holistic PCG and its implementation in MI-CC systems is an interesting and exciting path to continue exploring as ther
+
+% comes in play once 
+
+
+
+% Holistic PCG is an interesting and excit
+
+% An interesting and exciting path would be to explore the concept of holistic~\acrshort{pcg} and orchestration of the different game facets~\cite{liapis_orchestrating_2019} in connection with the~\acrshort{mi} paradigm. Holistic~\acrshort{pcg} is the generation of multiple contents (in different game facets) fitting each other in harmony as a collaborative process akin to how games are developed, with a limited amount of examples, but exhibiting exciting results~\cite{hartsook_toward_2011,cook_rogue_2014,hoover_audioinspace_2015,smith_situating_2011,dormans_generating_2011}. However, to what extent the generation is created in such a harmony that the facets interact and affect each other, and to what degree the user can interact with it is an open area for active research. 
+
+% Furthermore, there exists an essential link and relation between space (e.g., level or objects within) and narrative (e.g., the story tried to be told). Thus, choosing and associating level design and narrative as two facets to explore within the holistic~\acrshort{pcg} approach is appropriated. This was presented and described by Kybartas and Bidarra's survey~\cite{kybartas_quinn_survey_2017}, and explored and supported by related work~\cite{kishino_hunt_2005,dehn_story_1981,lebowitz_creating_1983,hartsook_toward_2011,karavolos_mixed-initiative_2015,abuzuraiq_taksim_2019}. Within the narrative facet and in most games, quests are an essential component. Therefore, exploring and generating quests is paramount by exploring multiple quest concepts~\cite{yu_what_2020}, analyzing quest patterns~\cite{trenton_quest_2010,smith_situating_2011}, and using surrounding ideas such as kernels and satellites for event division~\cite{aarseth_narrative_2012}.
+
+
+%using different denifitions~\cite{yu2020quest}, Within the narrative facet as well as in most games, quests are an essential componen I want to add this work by Yu et al.~\cite{yu2020quest}
+
+% It is paramount to identify the roles, goals, conflicts, relations that exist in a narrative scenario 
+%Quests have been studied 
+
+%Thus far, some exploratory work has been done combining both facets in the generative process of~\acrshort{edd}. Firstly, through a simple but effective way of analyzing patterns and objectives created by designers when designing their levels~\cite{flodhag_make_2020}. Secondly, by introducing~\acrshort{mi} creation of quests using grammars based on the quest analysis by Doran and Parberry~\cite{doran_prototype_2011}, to compose a series of subsequent objectives together with the designer~\cite{alvarez_questgram_2021}. 
+
+% \subsection{Patterns, Patterns, and More Patterns}
+
+% Patterns in all the systems. Simplify and abstract elements and their combination. Then it is easier to evaluate, but also to represent and show to the huyman designer., gfor them to use them. Patterns are useful as the designer can use them quickly to understand what are they creating and thefor the system as then the system can analyze the quality and quantity of these to be able to have an heuristic of what is being created.!!!!
+
+\subsection{Revisiting Human and AI Roles}
+
+Lubart discusses four different roles a computer might take to promote creativity; \emph{Nanny, pen-pal, coach, and colleague}~\cite{lubart_how_2005}, further discussed by Guzdial et al. based on how designers perceived the AI collaborator~\cite{guzdial_friend_2019}. These roles and how designers perceive them are essential to be explored to be understood properly. The role given to the AI could condition the experience and what is expected from each agent. In \textsc{paper xiii}, we preliminary explored the effects of the computational designer having more agency and, thus, having more decisions as a creative colleague could have. Our results show that more work is required, such as aligning and recognizing the goals, objectives, preferences, and intentions of human designers to be able to explore deeper relationships and collaborations.
+
+Establishing different roles such as colleague and collaborator might require some user model within the system, such as designer models~\cite{liapis_designer_2013}. Preference models~\cite{alvarez_learning_2020,liapis_adapting_2012} have been built based on designers' choices and used as surrogate models to evaluate further generated content. Similarly, using the designers' creation, the designers' processes and styles could be modeled to inform other systems and adapt the generated content~\cite{liapis_designer_2014,alvarez_designer_2022,halina_threshold_2022}.
+
+%. This is further explored by Guzdial et al. where designers perceived the AI collaborator with more or less value depending on their desired role for the AI, varying between: \emph{friend}, \emph{collaborator}, \emph{student}, or \emph{manager}~\cite{guzdial_friend_2019}.
+

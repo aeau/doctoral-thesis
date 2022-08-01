@@ -1,0 +1,246 @@
+\section{CONTRIBUTIONS} \normalfont
+
+%\setlength{\epigraphwidth}{2in} 
+%\epigraph{\textit{It's a kind of magic}}{Queen, A Kind of Magic.}
+
+%\setlength{\parindent}{0.0em}
+
+This section summarizes the research contributions of the publications that this thesis compiles and unifies. First, contributions and publications are linked to different RQs. Then, each RQ is presented and discussed from the perspective of the different included papers' contributions.
+
+% \begin{table}[h]
+% \centering
+% \caption{Relationship between the different research questions and the publications}\label{table:RQPapers}
+% % \resizebox{\textwidth}
+% % \resizebox{\textwidth}
+% \begin{tabular}{|c|c|}
+% \hline
+% \rule{0pt}{12pt}
+% RQ&Papers\\ \hline
+% % \\[-6pt]
+% RQ I & I, II, III, V\\ \hline
+% RQ II & IV, VI\\ \hline
+% RQ III & IV, VI\\ \hline
+% RQ IV & IV, VI\\ \hline
+% \end{tabular}
+% \end{table}
+
+% \begin{table}[h]
+% \centering
+% \caption{Relationship between the different research questions and the publications}\label{table:RQPapers}
+% % \resizebox{\textwidth}
+% % \resizebox{\textwidth}
+% \begin{tabular}{|c|c|}
+% \hline
+% \rule{0pt}{12pt}
+% RQ&Papers\\ \hline
+% % \\[-6pt]
+% \textsc{rq i} & \textsc{i, ii, iii, v}\\ \hline
+% RQ II & I, IV, VI\\ \hline
+% RQ III & I, IV, VI\\ \hline
+% RQ III & I, IV, VI\\ \hline
+% RQ III & I, IV, VI\\ \hline
+% RQ IV & IV, VI\\ \hline
+% \end{tabular}
+% \end{table}
+
+\begin{table}[h]
+\centering
+\caption{Relationship between the different research questions and the publications}\label{table:RQPapers}
+% \resizebox{\textwidth}
+% \resizebox{\textwidth}
+\begin{tabular}{|c|c|}
+\hline
+\rule{0pt}{12pt}
+RQ&Papers\\ \hline
+% \\[-6pt]
+\textsc{rq i} & \textsc{i, ii, iii, vi, viii, ix, xi, xii, xiii}\\
+% \textsc{rq i.i} & \textsc{iii, vi, ix, xi, xii}\\
+% \textsc{rq i.ii} & \textsc{viii, xi, xii}\\
+% \textsc{rq i.iii} & \textsc{ii, iii, vi, vii, viii, ix, xi, xii, xiii}\\
+\hline
+\textsc{rq ii} & \textsc{i, iv, v, x, xiii}\\ \hline
+\textsc{rq iii} & \textsc{v, x}\\ %\hline
+\textsc{rq iii.i} & \textsc{v, x}\\ %\hline
+\textsc{rq iii.ii} & \textsc{v}\\ \hline
+
+\textsc{rq iv} & \textsc{vii, viii, xi, xii}\\ %\hline
+%\textsc{rq iv.i} & \textsc{viii, xi, xii}\\ %\hline
+\textsc{rq iv.i} & \textsc{viii, xi}\\ %\hline
+\textsc{rq iv.ii} & \textsc{viii, xi, xii}\\ \hline
+
+%\textsc{rq v} & \textsc{xiii, xv}\\ \hline
+\end{tabular}
+\end{table}
+\bigskip
+
+% \subsection{The Evolutionary Dungeon Designer}
+
+% \begin{itemize}
+%     \item Total description of EDD, and what it enables
+%     \item workflow and development
+% \end{itemize}
+
+%\subsection[Research Question 1]{RQ1: How can we use and integrate quality-diversity algorithms into a mixed-initiative approach to help designers produce high-quality content and foster their creativity while allowing them to control, to a certain extent, the generated content?}
+
+% \subsection[Research Question 1]{RQ1: How can we generate content in tandem with designers in a mixed-initiative system to help them produce high-quality content and foster their creativity?}
+
+\subsection[Research Question 1]{RQ1: How can we use and integrate multiple algorithms such as quality-diversity algorithms and grammars into a mixed-initiative approach to help designers produce high-quality content and foster their creativity while allowing them to control, to a certain extent, the generated content?}
+
+% There are plenty of approaches and algorithms such as Evolutionary Computation, Machine Learning, or Wave Function Collapse that have been used to generate content as discussed in the background chapter~\ref{sec:background}. In this thesis, we are interested in exploring these algorithms and approaches, particularly quality-diversity algorithms, pattern-based systems, grammar systems and their use as encoding representation in MI-CC systems. In these MI-CC systems, the aim is to have more controllable yet expressive generators, and at the same time explore how they can be used to foster the designers' creativity and establish better human-AI collaboration and interactions.
+
+\acrshort{qd} algorithms have been recently introduced as a family of algorithms that leverage both convergent and divergent searches' strengths. Specifically using strategies that help the search explore a greater area of the space while retaining high-performing individuals. However, how to handle these algorithms together with a human user giving inputs, changing conditions, and with certain goals in mind is non-trivial. Moreover, using these [and other] algorithms in collaboration with human users, providing control over the algorithm's output, is an open research area. This is mainly due to the many non-intuitive aspects of these algorithms, such as the variation operators or the genotype-to-phenotype conversion in~\acrlong{ea}s. Likewise, this is due to the use of design tools such as~\acrshort{edd} by inexperienced human users or non-programmers, and the focus of these tools, where the human user should design their objective rather than focusing on the algorithms.
+
+Therefore, we have focused on giving designers control over multiple non-intuitive aspects of the~\acrshort{ea}, specifically, the~\acrfull{icmape}. In~\textsc{paper i} and based on related work~\cite{baldwin_mixed-initiative_2017}, the goal was to understand and analyze what are the challenges game designers encounter with~\acrshort{mi} systems (specifically, with~\acrshort{edd}). This drove the study into how to give control to users while preserving the algorithm's expressiveness and the use of~\acrshort{qd} algorithms as an alternative. In~\textsc{paper ii}, it was investigated how to give the designer explicit control over non-intuitive strategies and parameters in an intuitive way. Specifically, what ``genes'' could be selected and which not for crossover and mutation within the~\acrshort{ea}, and as a consequence, preserve the designer's intentions with their design. 
+
+Built on top of the Constrained~\acrshort{mape} by Khalifa et al.~\cite{khalifa_talakat_2018}, in~\textsc{paper iii} and~\textsc{paper vi}, we introduced the~\acrlong{icmape}, the first use of~\acrshort{mape} in a mixed-initiative setup. Through~\acrshort{icmape} we added: \textit{interaction} for the designer with~\acrshort{mape}, \textit{continuous adaptation} of the generative space of the algorithm to the ever-changing designer's design, and a set of dungeon-like related features. This resulted in increasing diversity in the exploration of the search space while retaining high-performing solutions. Furthermore, it was established control mechanisms of non-intuitive aspects of the~\acrshort{ea} for the designer through controlling the feature dimensions that discretize the search space. The interaction and collaborative benefits for both humans and MAP-Elites were further explored in \textsc{paper ix}. Our experiments support that the human designer's interaction can aid the algorithm to find new areas and constant generation of novel individuals (i.e., increase and aid its expressiveness), and at the same time, the human designer would receive more adaptive and tailor solutions by indirectly guiding and controlling the search. 
+
+While the aforementioned papers focused mainly on level design aspects,~\textsc{paper viii, xi, xii} focus on the generation of narrative elements such as quests (\textsc{paper viii}) and narrative structures (\textsc{paper xi, xii}), and their interconnection with level design. In \textsc{paper viii}, we explored the use of quest patterns extracted by Doran and Parberry~\cite{doran_prototype_2011}, in QuestGram, an MI-CC tool implemented in EDD. In fast iterative steps, designers could create levels and use QuestGram to create quests for the system using abstract quest actions. The system used entirely grammars to produce suggestions to designers, which were based on what the designer was creating. Designers could then control the computational designer output by requesting specific elements and could further use this when quests became invalid due to changes in level design; then, designers could simply resolve with the suggested action. In~\textsc{papers xi, xii}, the generation and co-creation of narrative structures are explored. Our objective was to explore narrative at a higher abstraction level; whereas quests provide tangible objectives, narrative structures provide structural information on the game, such as overarching objectives and conflicts, roles, factions, and relevant plot events. Narrative structures are encoded as graphs, and the computational designer uses the~\acrshort{icmape} to search graphs generated using graph grammars. Similar to~\textsc{paper iii, vi, ix}, the designer can guide and control the algorithm with their current graph while also constraining the search with level design elements.
+
+Finally, in~\textsc{paper xiii} we explored the impact of AI agency in MI-CC systems. Human Designers and Computational Designers are progressively losing and gaining agency, respectively, over the final design. Our preliminary results indicate that losing control over the AI, which as an indirect consequence, takes the initiative over the design's goal, and that this is not aligned with their view, frustrated most designers. Our goal was to investigate if, by giving more control to the computational designer and constraining the design space, the human designers' creativity could be fostered to overcome these constraints~\cite{bhaumik_lode_2021,acar_creativity_2019,boden_creative_2004}. Our approach then becomes a naive baseline to use as a comparison when further investigating how to vary human-AI collaborative capabilities to achieve goals and tasks, and foster human abilities.
+
+%Our goal was not to frustrate designers, rather investigate
+
+%Our preliminary results indicate
+
+
+
+
+%In this thesis, we are interested in exploring not only these algorithms, particularly quality-diversity algorithms, grammar systems, and their combination (e.g., encoding evolved content as grammars), but also how these can be used and implemented in MI-CC systems aiming at having more controllable yet expressive generators. Within this objective, we are interested in exploring how these algorithms could be used Another objective in this thesis 
+
+
+% \acrshort{qd} algorithms have been recently introduced as a family of algorithms that leverage both convergent and divergent searches' strengths. Specifically, using strategies that help the search explore a greater area of the space while retaining high-performing individuals. However, how to handle these algorithms together with a human user giving inputs, changing conditions, and with certain goals in mind is non-trivial. Moreover, using these [and other] algorithms in collaboration with human users, providing control over the algorithm's output, is an open research area. This is mainly due to the many non-intuitive aspects of these algorithms, such as the variation operators or the genotype-to-phenotype conversion in~\acrlong{ea}s. As well as the use of design tools such as~\acrshort{edd} by inexperienced human users or non-programmers, and the focus of these tools, where the human user should design their objective rather than focusing on the algorithms.
+
+% Therefore, we have focused a substantial part of the research into giving designers control over multiple non-intuitive aspects of the~\acrshort{ea}, specifically, the~\acrfull{icmape}. In~\textsc{paper i} and based on related work~\cite{baldwin_mixed-initiative_2017}, the goal was to understand and analyze what are the challenges game designers encounter with~\acrshort{mi} systems (specifically, with~\acrshort{edd}). This drove the study into how to give control to users while preserving the algorithm's expressiveness and the use of~\acrshort{qd} algorithms as an alternative. In~\textsc{paper ii}, it was investigated how to give the designer explicit control over non-intuitive strategies and parameters in an intuitive way. Specifically, what ``genes'' could be selected and which not for crossover and mutation within the~\acrshort{ea}, and as a consequence, preserve the designer's intentions with their design. 
+
+% Moreover, built on top of the Constrained~\acrshort{mape} by Khalifa et al.~\cite{khalifa_talakat_2018}, in~\textsc{paper iii} and~\textsc{paper vi}, we introduced the~\acrlong{icmape}, the first use of~\acrshort{mape} in a mixed-initiative setup (see section~\ref{sec:icmap-elites}). Through~\acrshort{icmape} we added: \textit{interaction} for the designer with~\acrshort{mape}, \textit{continuous adaptation} of the generative space of the algorithm to the ever-changing designer's design, and a set of dungeon-like related features (presented in table~\ref{table:mape-dimensions}). This resulted in increasing diversity in the exploration of the search space while retaining high-performing solutions. Furthermore, it was established a control mechanisms of non-intuitive aspects of the~\acrshort{ea} for the designer through controlling the feature dimensions that discretize the search space.
+
+% Mixed-Initiative systems aim at 
+
+% When using StoryDesigner!
+% In tables~\ref{tab:exp-int-step} and \ref{tab:exp-all-dims}, we present the results based on our metrics for the four experiments. Table~\ref{tab:exp-int-step} uses interestingness and step as dimension for MAP-Elites, while Table~\ref{tab:exp-all-dims} uses all dimension during search. To complement the analysis, figure~\ref{fig:experiment123} shows an exemplar expressive range analysis (ERA) for experiments 1-3 in the different configurations, and figure~\ref{fig:experiment-stepstep} shows an exemplar ERA for experiment 4 and an exemplar Temporal ERA (TERA) of the design steps. An ERA is an evaluation method to explore and visualize the expressiveness of an algorithm in content space~\cite{smith_analyzing_2010}. TERA is an extension of ERA that allows the inspection and analysis of changes in expressiveness over a defined period, which, when used in a non-aggregated fashion, as in experiment 4, shows the delta maps of the search~\cite{alvarez_assessing_2021}.
+
+% Analyzing and comparing the experiments show similar and consistent results across experiments regardless of using level design constraints or not, and using all dimensions or just a pair. Experiments 1-3 present consistent and stable results, similar among them in all metrics except coverage, which is more influenced by the specific graph and what type of information it provides, such as patterns, nodes, and connections. 
+
+% Experiment 4 shows MAP-Elites adaptability throughout the different design steps, especially visible in figure~\ref{fig:experiment-stepstep}. In the first two steps (4.1 and 4.2), MAP-Elites exploration is limited due to the narrative graph's simplicity. This is expected as the default narrative graph (HERO --> CONFLICT --> ENEMY) and the fine-tuned (i.e., ENEMY changed for BAD) has an interestingness score of 0 and, when used as a target, hinders the exploration with or without level constraints. However, as the design progresses, MAP-Elites adapt. Minimal input into the graph (experiment 4.3, onwards) improves the search and interestingness following the design's trend. IC MAP-Elites maintain properties such as adaptability and stability shown before for level design generation, making it adequate for the evolution of grammars and narrative structs as well. 
+
+% %and supports the results by Alvarez et al.~\cite{alvarez_assessing_2021} where the search can be guided implicitly by design steps.
+
+% Experiment 4 also shows a concrete example of how the narrative graph would be used and designed by designers to change components in a game and enable different narrative structures. When put in context with the graphs for experiments 1-3, show relative diversity and expressiveness in the system. Experiment 4 and its steps show as well how the structure can relate to different "in-game" and level components, how, through the structure, designers can design main and side objectives, and how these could be approached. For instance, the DRA as a side conflict in the game and then incorporated as a main part of the game since to get the MCG, the HERO needs to face the DRA. That could then be used, in practice, to change, constrain, or adapt quests or part of the level design to be aligned with the structure.
+
+% In this paper, we have presented \emph{Story Designer}, a mixed-initiative co-creative system implementation of TropeTwist~\cite{alvarez_tropetwist_2022} to design narrative structures in EDD. The system allows the creation of narrative structures as narrative graphs that defines the overarching narrative, identifying characters, their roles and involvement, objectives, and core events. Story Designer also presents a step towards creating a holistic system, intertwining level design and narrative through simple level design constraints, effectively delimiting the search space of MAP-Elites with promising results. We analyzed and evaluated Story Designer and the impact of these level constraints through four experiments; experiments 1-3 approach Story Designer in a more static scenario, while experiment 4 focuses on the step-by-step creation process.
+
+% Experiment 4 and, in general, the design process in Story Designer shows how the tropes, nodes, and connections, can be used to design a narrative structure step by step, changing the components of the narrative and how different elements in the game can be used and interpreted with simple changes. Defining conflicts among characters (thus, creating factions), defining primary and side objectives, as well as important elements in the narrative (e.g., plot devices), is a simple process. Changing these to adapt to the designer's goal is possible with minimal input. For instance, see the change from experiment 4.4 to 4.5 (fig.~\ref{fig:examples}.d4,d5), where DRA passes from a side objective to a main part of the structure by creating an "entails" connection and forming a DerP meso-pattern (increasing the graph's interestingness score to 0.33). Equally important, the system preserves its properties and adapts to the narrative graph created, which could create a better experience for the designer. However, we aim at evaluating Story Designer with a user study to assess its usability, the expressiveness designers have when creating structures, and the experience intertwining and creating level design constraints. 
+
+% \subsection[Research Question 1.1]{RQ1.1: How can we use and integrate quality-diversity algorithms into the mixed-initiative system?}
+
+% \subsection[Research Question 1.2]{RQ1.2: How can we use and integrate grammars into the mixed-initiative system?}
+
+% \subsection[Research Question 1.3]{RQ1.3: To what extent can designers control the algorithms to steer and adapt the generated content?}
+
+
+
+% Based on our expressive range analysis evaluations, we identified that ``[...] enabling the designers to proactively decide which dimensions should be used in the search, gives them a high level of controllability with minimal loss in the expressive range.'' This finding aligns with the priority of understanding the scope of impact and consequences of using~\acrshort{qd} algorithms in an~\acrshort{micc} paradigm.
+
+% \subsection[Research Question 2]{RQ2: How can we use gameplay, player, and designer data to understand better players and designers' actions and behaviors, in order to enhance their experiences?}
+
+\subsection[Research Question 2]{RQ2: How can we use player and designer data to better understand their behaviors and procedures to enhance and adapt~\acrlong{micc} systems?}
+
+\acrlong{micc} tools such as~\acrshort{edd}, can benefit greatly from player and designer data. However, how to collect and use this is not straightforward, especially when the focus is not only to analyze and understand the user's behavior but also to actively use the data to enhance and adapt their experiences. For instance, player data such as where they are observing~\cite{makantasis_pixels_2019} or their experience~\cite{yannakakis_experience-driven_2011} can be used to model how the end-user might perceive certain content. Designer data can be used to understand design processes and enhance the designer's experience by creating designer-tailored content and by modeling common designer practices and processes~\cite{liapis_designer_2013}.
+
+Therefore, we have delved into collecting, analyzing, and using player and designer data, reported in~\textsc{paper i, iv, v, x, xiii}. Thus far, we have conducted four user studies with this in mind: The first, reported in~\textsc{paper i}, where we collected qualitative data from experienced game designers on the interaction with~\acrshort{edd} as a game design tool. The second user study reported in~\textsc{paper v} was conducted with beginner game designers, i.e., first-year game design students, and consisted of a mix of quantitative data, i.e., actions within the tool, and qualitative data, i.e., comments on the experience and usability of the tool. The third user-study is reported in~\textsc{paper x}, which consisted primarily of increasing the scope of the study in~\textsc{paper v} with data from a more diverse and wider group. Finally, the fourth user study is reported in~\textsc{paper xiii}, where we evaluated how designers and their final design is influenced by an AI with increasing agency over the final design.
+
+In~\textsc{paper iv}, we collected personality scores from several players using the~\emph{cybernetic big five personality test}. We used the scores to model~\acrshort{ai} agents that then had to engage in particular situations such as jumping a gap or going around it. Through this, we focused on agents that could not only resemble the decision-making of their human counterpart, but that could have complementing characteristics. Moreover,~\textsc{paper v} and~\textsc{paper x} focused on collecting and using designer data, specifically their actions within~\acrshort{edd} with the aim of modeling designer processes.
+
+With the data collected and the techniques employed, it was possible to analyze certain players' and designers' actions and characteristics. In the case of~\textsc{paper iv}, the similarities presented between agents and humans helped us identify characteristics that could be valuable to model for creating adapted content for the end-user. The data collected corresponding to the designer's actions in~\textsc{paper v} and~\textsc{paper x}, not only allowed us to create models representing certain designers' procedures but also highlighted interesting design processes. Further, the data collected in \textsc{paper xiii} gave us an insight into the design process of- and highlighted constraints in the design space for both humans and AI. The results help us understand further problems with establishing deeper collaborations with AIs in colleague roles, which is the overarching goal within MI-CC.
+
+\subsection[Research Question 3]{RQ3: How can we model different designers' procedures and use them as surrogate models to anticipate the designers' actions, produce content that better fits their requirements, and enhance the dynamic workflow of mixed-initiative tools?}
+
+There is a need for the AI to recognize design and creative procedures to have an aligned collaboration with the user. This is in order to create adaptive experiences and to fruitfully make these experiences enable an in-depth loop between humans and AI. Therefore, collecting designers' data as they worked in the tool was paramount, as described in the contributions for RQ2. However, making use of this data into a functional model of the designer is not trivial, as well as what to do with such models.~\textsc{paper v} and~\textsc{paper x} explore such a paradigm, where we proposed multiple approaches to model different but related processes. 
+
+The approach presented in~\textsc{paper v} focused on creating a preference model of the designer. This was then used to steer the generation of suggestions into more meaningful, interesting, and preferred suggestions. It leveraged in the~\acrshort{icmape} implicit relation between cells along the behavior dimensions and the suggestion grid's visualization. Through this, it estimated and collected the designer's preferences based on the current set of suggestions. As the designer chose suggestions in the grid, an ad-hoc preference matrix was placed, estimating each suggestion's preference in the grid. The estimated preference was used to compose a training set to subsequently train-and-test a neural network representing the designer's preference. The network was then used in the fitness evaluation of each new individual in the~\acrshort{ea}. The designer was then proposed a new set of suggestions that fitted their preferences, adapting seamlessly to the designer without interrupting their design process.
+
+Moreover, the results from~\textsc{paper v}, drove the approach presented in~\textsc{paper x}, which focused on creating a general offline model of design style, specifically, when creating dungeons. To create such a model, we conducted two user studies with a diverse group of participants, i.e., game design students, game industry practitioners, and~\acrshort{ai} in games researchers. From these studies, it was used the design process of each of the created rooms (180 unique rooms), i.e., from an empty room to it's final version. By clustering this design process, we were able to identify twelve representative clusters. Further, by analyzing the same design processes, but in relation to the clusters rather than individual changes, we identified four \emph{designer personas}. These designer personas are archetypical paths that most designers followed during the design process.
+
+% . An example of this design process is shown in figure~\ref{fig:designProcess}. 
+
+Both publications present examples of how multiple design processes can be modeled as a designer model, their usability, and their impact in the generation process. The preference model in~\textsc{paper v} was presented, implemented, and tested. While the designer personas and design style clusters in~\textsc{paper x} were discussed from a wider perspective on how they could be used. Furthermore, besides aiming at modeling different designer's procedures, the main difference is how they are created: the preference model is an online-personal model that uses data from single designers. In contrast, the design style clusters and designer personas are offline-group models created on data from a diverse and wider group. Thus, we explored multiple paths to capture design processes and use them to enhance design tools through both.
+
+\subsection[Research Question 3.1]{RQ3.1: What trade-offs arise from modeling and using designer's procedures to steer the generation of content towards personalized content?}
+
+\textsc{paper v} and~\textsc{paper x} present novel approaches to model specific designer procedures to create content and collaborate with designers in a more adaptive and meaningful way. However, the application of these models into the design process and to drive the computational designer's collaboration arises multiple challenges and benefits. Such trade-offs were explored and discussed in~\textsc{paper v} where some of these trade-offs were posted as three open areas for active research:~\textit{1) Dataset Creation}: the challenge on acquiring data, \textit{2) Preference Modality}: the challenge on using representative data, and \textit{3) System's Training-and-Usage}: the challenge to train and use~\acrshort{ml} models dynamically and\/or statically.  
+
+As designers use and interact with design tools, it must be decided what type of data should be used that better represent the procedure or process to be captured. Individual data could allow for a more adaptive experience, but collecting data from a single designer in a single session, might not be enough to accurately train such a model as in~\textsc{paper v}. In contrast, using collective data might decrease that tailored experience, but it could point out towards frequent processes that are simultaneously followed by several designers as in~\textsc{paper x}.
+
+Nevertheless, despite the use of collective or individual data to create these models, the challenge remains on what data captures the different processes faithfully. Seemingly representative data could be dependant on other attributes, which might be or not counterproductive to collect or analyze. In~\textsc{paper v}, the data used was based on the suggestion grid, which implicitly used the cell relation of the behavior dimensions. For example, this meant that selecting a very symmetric room as the preferred one automatically meant that the less preferred suggestion was an asymmetric room. For other processes, it might be simpler to match data with the process. For instance, the design style clusters presented in~\textsc{paper x} were formed using individual rooms' design process. However, each designer's design process is different and still presents many unknowns; thus, the challenge of using representative data prevails.
+
+Likewise, \emph{concept drift:} the constant change in the training set for an~\acrshort{ml} model is a major challenge in design tools, as when designers use the tool, they have an ever-changing design process that varies greatly. This was highlighted by testers in~\textsc{paper v}, as the computational designer's suggestions were not aligned with the current design, mainly because how and when the model was trained. The model was trained every time the designer chose a suggestion, and these events could be very far away from each other. For instance, the designer starts with some goal when creating their room, and when choosing a suggested room, they expect this to help them reach their goal. However, their goals are by no means needed to be taken with them to the next room. Such a challenge partly motivated the research in~\textsc{paper x}. Where rather than having a model that tries to update as the designer traverses through the generative space, the space is already clustered, and models do not update with the designer. Through this approach, we aimed at clustering the designer's design in an already clustered design style space. Through this, they could be provided with adaptive experiences as the computational designer could make informed decisions based on where the designer's design is and where is headed. 
+
+\subsection[Research Question 3.2]{RQ3.2: What constraints are created over the generative process when using designer models?}
+
+Regardless of these trade-offs, using designer modeling impose implicit constraints in the generative system similar to any other system that adapts its functionality to satisfy a set of constraints. These constraints act as a set of guidelines to help the generative process select more appropriated suggestions such as in~\textsc{paper v}, or to indicate possible steps the designer might take as in~\textsc{paper x}. However, having these constraints also limits, to some extent, the generative space and expressive range of the AI. In~\textsc{paper v}, this was explored by using the preference model as part of the weighted sum of the fitness function to infer if a generated room might be preferred. Through this, the~\acrshort{ea} evaluated the generated content objectively through the fitness function, and subjectively through the preference model. If using an accurate model, the designer could receive suggestions aligned with their preference. This could mean that the generation would focus on some specific area of the generative space with the possibility of limiting both the creativity of the computational designer and fostering the designer's creativity.
+
+\subsection[Research Question 4]{RQ4: How can level design and narrative interact, act as constraints, be intertwined, and in general, have an active role affecting each other to produce a holistic system?  }
+
+%~\cite{kishino_hunt_2005}. A similar point is presented by Ashmore and Nitsche in relation to the games' interactivity as they discuss that a generated level without depth and context lacks interest for the final user~\cite{ashmore_quest_2007}, further discussed and related by Kybartas and Bidarra with a focus on story automation~\cite{kybartas_quinn_survey_2017}. Similarly, Dehn~\cite{dehn_story_1981} defines space (i.e, the world) as a post-hoc development and justification for authored events, while Lebowitz~\cite{lebowitz_creating_1983}
+
+Level design and narrative are two facets that are continuously linked~\cite{kishino_hunt_2005,ashmore_quest_2007,kybartas_quinn_survey_2017}. Not only because of their importance for players but due to the role that they have and play in each other's output and human perception. The designer's creations as constraints to generative models and algorithms within their respective facets are explored in RQ1 and the designer models' constraints in the generation in RQ3. In RQ4, we are interested in the role that other content representations and facets have as constraints for the generation of ``unrelated" content, e.g., the level design in narrative design. We investigated this by developing parallel systems such as EDD (\textsc{paper i, ii, iii}), QuestGram (\textsc{paper viii}) or TropeTwist (\textsc{paper xii}), that then could be intertwined (\textsc{paper xi}). 
+
+Furthermore, within Holistic PCG, we explored how and what level design aspects, either indirectly or directly, and implicitly or explicitly, could have a role in narrative. In \textsc{paper vii}, we considered the existing patterns in levels and the dungeon's structure to automatically assess the main and side objectives in the game. This means that designers could control [indirectly] the objectives with their level design. In \textsc{paper viii} and further explored in~\cite{larsson_queststories_2021}, designers had direct control over objectives and quests that would exist within EDD using abstract quest actions and dependant on the level design elements. Designers could add NPCs, quest items, and the rest of the elements, which could be used to create quests. Any addition or removal when designing the dungeon would alter the possible quests. \textsc{paper xi} and \textsc{paper xii} explored the creation of narrative in a higher abstraction layer. Instead of defining plots, quests, or stories, designers could shape and design narrative structures. Similar to QuestGram, level design elements could be used to constraint these structures and their generation as shown in \textsc{paper xi}.
+
+%For the effects in this thesis, we treat narrative as player overreaching objectives, quests, backstory, and narrative structures.
+
+
+%These structures and their generation could then be constrained by the level design elements.
+
+%With TropeTwist, designers can, by design, create ambiguous structures that 
+
+%had an indirect control over
+
+
+%In \textsc{paper vii}, we consider the existing patterns in levels and the dungeon's structure to automatically assess and present main and side objectives in the game. (What are objectives? This was then shown to the designer, which could use that as a reference point when designing to change [indirectly] the inferred objectives towards their goals. In \textsc{paper viii} and further explored in~\cite{thesis_jesper}, we added the explicit definition and creation of quests within EDD using abstract quest actions, dependant on the level design elements. Designers could add NPCs, quest items, and the rest of elements, which then could be used to create quests. Any addition or removal when designing the dungeon, would then alter the possible quests. \textsc{paper xi} and \textsc{paper xii}
+
+%\subsection[Research Question 4.1]{RQ4.1: What are the requirements and main factors needed to establish a relation between the level design and the narrative, and what are the criteria to evaluate the respective generated content?}
+
+%While level design and narrative are linked to each other, how they are represented 
+
+%representation there still needs to be 
+
+\subsection[Research Question 4.1]{RQ4.1: What are the factors to be considered when implementing such a paradigm and system in a mixed-initiative application, where a designer will be able to interact with the content?}
+
+%In \textsc{paper viii} and \textsc{paper xi}, it is presented two approaches where narrative and level design are implemented and exemplified in a mixed-initiative system. 
+
+\textsc{paper viii} and \textsc{paper xi} present approaches where narrative and level design is implemented, exemplified and tested in a mixed-initiative system. These systems, QuestGram and Story Designer, respectively, are preliminary steps towards \textit{holistic mixed-initiative systems}, where designers can interact with EDD and design parts of both facets. However, as the designer creates these facets, it becomes important what content is used, how it is represented, and how changing it could affect the other facet.
+
+In \textsc{paper viii}, we explored the iterative loop of designing both facets, where altering the level design had a direct effect on the created quest. How changes in the level design affect the quests might not be straightforward, especially when constantly iterating between both. Thus, we emphasized the communication of how these changes affected the quest, either because elements were removed or paths were blocked, which in turn showed to the designer what quest actions were affected. The designer could then manually change them or use one of the proposed suggestions to fix the quest for them. In \textsc{paper xi}, Story Designer was proposed as an MI-CC tool to build narrative structures using TropeTwist and EDD as foundations. Through four controlled studies using simulated data, we explored how level design data could be used to constrain the generated suggestions. Level design data was used to limit the quantity and roles to appear in the final generated and suggested narratives (i.e., how many villains, heroes, and plot devices). Thus, communication about how elements are interpreted is necessary, as well as investigating how the system is constrained and how to show these constrained spaces to designers. In Story Designer, it was chosen to constraint the algorithm, but not the manually edited structure. This is due to the ambiguous nature of TropeTwist, and how quickly changes to the structure reformulate these roles and patterns, which is visible in \textsc{paper xi} experiment 4.1-4.5. Thus, the computational designer is constrained, but not the human designer. However, the computational designer should adapt to the human structure, which could arise interesting uses of narrative meso-patterns to overcome the imposed constraints.
+
+%is not constrained
+
+%how besides assessing the generator capabilities.
+
+%In \textsc{paper xi}, we not only consider how to create these narrative structures in an easy-to-use language, but also what elements should constraint the generation of structures, and how to show to the designer these. However, for \textsc{paper xi} we did not run a user study
+
+%hus, it was important to consider how to communicate to the designer that certain quest action
+
+
+%However, as these systems are relevant for the design 
+
+
+%represent our two approaches 
+
+%present our two appra
+
+\subsection[Research Question 4.2]{RQ4.2: What are the effects of producing and using a holistic system for the creative process of a designer, and what challenges are imposed on computational creativity?}
+
+There are many factors and aspects to consider when discussing holistic PCG systems, their implementation in MI-CC systems, and how to best do this to assess the human-AI collaboration and interaction. However, due to the different interactions designers and computational designers have with the content, and how the content is intertwined, it is relevant to explore the effects and challenges for them. When designers used QuestGram (\textsc{paper viii}), they reported increased creativity when using the mixed-initiative, especially when quests became large due to, for instance, containing too many level design elements as designers got stuck (akin to writers' block) and the system showed alternatives. This points towards that in the early stages of the design, designers might not be overwhelmed with creating content in different facets, but as content increases, mixed-initiative systems slowly become more relevant. This is understandable, as game facets are usually not designed and developed by a single designer but by a team collaborating, which is the aim of MI-CC. Given the system's simplicity and the use of patterns, the computational designer in QuestGram is able to cope with these requirements. However, in Story Designer (\textsc{paper xi}), rules are less clear, and we use IC MAP-Elites to search the possibility space. We assessed, through simulations, how constraints affect the search space, which showed similar, stable, and consistent results regardless of constraints. This points that the task itself is hard to explore, but as shown in \textsc{paper xi} experiment 4.1-4.5, and in \textsc{paper ix}, IC MAP-Elites benefit from the human interaction; thus, it is a promising area to keep exploring. We, however, hypothesize that Story Designer will create a similar situation for designers as in QuestGram; the longer the design session, the more relevant the mixed-initiative and the AI role will have in the design process. This phenomenon could then be intrinsically attached to the holistic nature of these tools, which should be considered further.
+
+%Analyzing and comparing the experiments show similar and consistent results across experiments regardless of using level design constraints or not, and using all dimensions or just a pair. Experiments 1-3 present consistent and stable results, similar among them in all metrics except coverage, which is more influenced by the specific graph and what type of information it provides, such as patterns, nodes, and connections. 
+
+%However, this still needs much more research to understand this. For instance,
+
+%point towards
+
+%The system is able to cope with constraints
+
+
+
+% Actually, I could write that there is already some constraints that need to be satisfied or accounted for, as we have a fitness function that is informed by the user's design. 
