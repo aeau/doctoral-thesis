@@ -1,15 +1,15 @@
 \subsection{Evaluation}
 
 Questgram has undergone a two-fold evaluation, %was evaluated through a dynamic analysis experiment and user-study. This decision is based on Shaker et al. argues that a hybrid approach with both a 
-top down (expressivity analysis) and bottom up (user study), as suggested by Shaker et al \cite{p8shaker_procedural_2016}. %~\cite{p832-Horn2014-comparativePCG}; thus resulting in a understanding of both what the generator do through decided metrics and if the system is suitable for the designers . 
+top down (expressivity analysis) and bottom up (user study), as suggested by Shaker et al \citepeighth{p8shaker_procedural_2016}. %~\citepeighth{p832-Horn2014-comparativePCG}; thus resulting in a understanding of both what the generator do through decided metrics and if the system is suitable for the designers . 
 
 % \subsubsection{Experiment}
 
-% To evaluate content generators Yannakakis and Togelius argues that a content generator can be evaluated in three ways, directly by the designer or indirectly by either human players or AI agents~\cite{p815-Yannakakis2018}. While the method of evaluation generally is ad hoc in PCG research~\cite{p816-Dahlskog2015-patternsDungeonsGens}, Shaker et. al argues that “regardless of the method followed, generators are evaluated on their ability to achieve the desired goals of the designer”~\cite{p84-shaker_procedural_2016}; thus the evaluation method will be conducted and designed to achieve the goals we have on the generator.
+% To evaluate content generators Yannakakis and Togelius argues that a content generator can be evaluated in three ways, directly by the designer or indirectly by either human players or AI agents~\citepeighth{p815-Yannakakis2018}. While the method of evaluation generally is ad hoc in PCG research~\citepeighth{p816-Dahlskog2015-patternsDungeonsGens}, Shaker et. al argues that “regardless of the method followed, generators are evaluated on their ability to achieve the desired goals of the designer”~\citepeighth{p84-shaker_procedural_2016}; thus the evaluation method will be conducted and designed to achieve the goals we have on the generator.
 
 \subsubsection{Expressive Range Analysis} \label{sec:quantExp}
 
-Expressive Range Analysis visualizes the expressivity and diversity of the generator and measures variations in the generated content according to specific metrics~\cite{p8Smith:2010:Expressive-range}. In our case, these metrics are quest length and actions. With them, we visualize each action's probability to be included in a quest of any given length and the existing dependencies between the actions and the grammar productions. 
+Expressive Range Analysis visualizes the expressivity and diversity of the generator and measures variations in the generated content according to specific metrics~\citepeighth{p8Smith:2010:Expressive-range}. In our case, these metrics are quest length and actions. With them, we visualize each action's probability to be included in a quest of any given length and the existing dependencies between the actions and the grammar productions. 
 
 We ran the grammar using the dungeon seen in Figure~\ref{figs:GUI:overview} and created $100000$ quests with a maximum length of 50 quest actions, although the system could create on average 146 long quests. We chose 50 quest actions because of the dungeon's size and what it could offer and because creating quests with more than 50 subsequent %quest 
 actions are highly unlikely to find in commercial games. 
@@ -57,40 +57,28 @@ Finally, Figure \ref{figs:evaluation:CommonSequence} indicates a clear bias in t
 % 5.2.3 Result of the experiment
 
 
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.9\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{included-papers-tex/paper-8/figures/perLengthExperiment-an.png}
-        \caption{Chance (in \%) for every quest action (row) to appear in a quest of a given length (column).}
-        \label{figs:evaluation:length}
-    \end{subfigure} \hfill% \
+%\begin{figure*}[t]
+%    \centering
+%    \begin{subfigure}[t]{0.9\textwidth}
+%        \centering
+%        \includegraphics[width=1\textwidth]{included-papers-tex/paper-8/figures/perLengthExperiment-an.png}
+%        \caption{Chance (in \%) for every quest action (row) to appear in a quest of a given length (column).}
+%        \label{figs:evaluation:length}
+%    \end{subfigure} \hfill% \
     %  \captionsetup[subfigure]{width=0.9\textwidth}
-    \begin{subfigure}[t]{0.9\textwidth}
-        \centering
-         \includegraphics[width=1\textwidth]{included-papers-tex/paper-8/figures/perStepsExperiment-an.png}
-        \caption{Chance (in \%) for every action (row) to appear at the Nth step of a quest (column), regardless its length.}
-        \label{figs:evaluation:steps}
-    \end{subfigure}
-    % \begin{subfigure}[t]{0.8\textwidth}
-    %     \centering
-    %     \includegraphics[width=0.7\textwidth]{included-papers-tex/paper-8/figures/CommonSubsequence-GSP.png}
-    %     \caption{Most commonly generated subsequences, with a minimum size of 3.}
-    %     \label{figs:evaluation:CommonSequence}
-    % \end{subfigure} %\hfill%
-    %  \begin{subfigure}[t]{0.48\textwidth}
-    %     \centering
-    %     \includegraphics[width=.99\textwidth]{included-papers-tex/paper-8/figures/CommonSubsequence-GSP.png}
-    %     \caption{Most common quest actions encountered using GSP}
-    %     \label{figs:evaluation:rnd}
-    % \end{subfigure}%
-    \caption{Results from the Expressive Range Analysis}
-    \label{figs:Experiments}
-\end{figure*}
+%    \begin{subfigure}[t]{0.9\textwidth}
+%        \centering
+%         \includegraphics[width=1\textwidth]{included-papers-tex/paper-8/figures/perStepsExperiment-an.png}
+%        \caption{Chance (in \%) for every action (row) to appear at the Nth step of a quest (column), regardless its length.}
+%        \label{figs:evaluation:steps}
+%    \end{subfigure}
+%    \caption{Results from the Expressive Range Analysis}
+%    \label{figs:Experiments}
+%\end{figure*}
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=0.48\textwidth]{included-papers-tex/paper-8/figures/CommonSubsequence-GSP.png}
+    \includegraphics[width=0.9\textwidth]{included-papers-tex/paper-8/figures/CommonSubsequence-GSP.png}
     \caption{Most commonly generated subsequences, with a minimum size of 3.}
     \label{figs:evaluation:CommonSequence}
 \end{figure}
@@ -101,11 +89,11 @@ Finally, Figure \ref{figs:evaluation:CommonSequence} indicates a clear bias in t
 
 
 
-% The evaluation of the artefacts usability and functionality was evaluated through a small user study. When evaluating PCG systems, Shaker et. al argues that when making a PCG system, “we are also creating a large amount of content for players to experience, thus it is important to be able to evaluate how successful the generator is according to players who interact with the content”~\cite{p8shaker_procedural_2016}. In our case, EDD is a development tool for designers and not for actual players, but we argue that the actor interacting with the system, in our case, the designer, still is the interactive actor and thus we have decided to do an evaluation with actual potential users of the artefact. An additional advantage of conducting a user study is that it evaluates the aspects that cannot be objectively measured, such as aesthetics and playing experience~\cite{p8Yannakakis2018}. In addition, previous studies on mixed-initiative systems have been conducted through a user study, such as the first version of  EDD[35], its second follow-up study [36] and Sentient Sketchbook [24]. 
+% The evaluation of the artefacts usability and functionality was evaluated through a small user study. When evaluating PCG systems, Shaker et. al argues that when making a PCG system, “we are also creating a large amount of content for players to experience, thus it is important to be able to evaluate how successful the generator is according to players who interact with the content”~\citepeighth{p8shaker_procedural_2016}. In our case, EDD is a development tool for designers and not for actual players, but we argue that the actor interacting with the system, in our case, the designer, still is the interactive actor and thus we have decided to do an evaluation with actual potential users of the artefact. An additional advantage of conducting a user study is that it evaluates the aspects that cannot be objectively measured, such as aesthetics and playing experience~\citepeighth{p8Yannakakis2018}. In addition, previous studies on mixed-initiative systems have been conducted through a user study, such as the first version of  EDD[35], its second follow-up study [36] and Sentient Sketchbook [24]. 
 
 % \subsubsection{Results}
 
-Six participants tested our tool following three pre-designed tasks and questionnaires to evaluate Questgram's usability, functionality, and usability. They were all given a document describing the study's purpose and aim, a brief introduction to EDD, and the interview overview. The users were then asked to complete three tasks that covered the tool's functionality and different approaches to creating quests. The tasks were to 1) manually create a quest, 2) automatically create a quest, and 3) create a quest through mixed-initiative. They were also asked to create a dungeon that suited their preferences and objectives before creating quests. The questionnaire consisted of 17 closed-ended questions, and the rest were open-ended. The interview began with a questionnaire with six questions about the users' background and experience within game development and finish with questions about their experience and opinions on the tool. Both the questionnaire and interview followed guidelines described by Oates~\cite{p833-ResearchingInfoSystems}.  
+Six participants tested our tool following three pre-designed tasks and questionnaires to evaluate Questgram's usability, functionality, and usability. They were all given a document describing the study's purpose and aim, a brief introduction to EDD, and the interview overview. The users were then asked to complete three tasks that covered the tool's functionality and different approaches to creating quests. The tasks were to 1) manually create a quest, 2) automatically create a quest, and 3) create a quest through mixed-initiative. They were also asked to create a dungeon that suited their preferences and objectives before creating quests. The questionnaire consisted of 17 closed-ended questions, and the rest were open-ended. The interview began with a questionnaire with six questions about the users' background and experience within game development and finish with questions about their experience and opinions on the tool. Both the questionnaire and interview followed guidelines described by Oates~\citepeighth{p833-ResearchingInfoSystems}.  
 
 The participants were selected through convenience sampling and were game developers working in game and level design (2) and game development alumni (4), without any experience with EDD or mixed-initiative tools. Five out of six have played dungeon/adventure games and have developed some game with quests and missions, while only two out of six have developed dungeon style games.
 
@@ -123,7 +111,7 @@ The participants described the system as helpful and useful; pointing out that t
 
 \paragraph{Automatic Suggestions}
 
-Participants generally described the automatic suggestions as useful to gain inspiration, keep the quest creation diverse, and learn what could be created, rather than useful to replace or add to their work. For instance, one participant said that "[the system] suggested to capture a monster which had thought about killing. The "capture" option might be more interesting and might have been an option I had otherwise overlooked." Similarly, another participant pointed out that the automatic suggestions "... were useful in getting inspiration for quests, and to learn the program and what kinds of quests I was actually able to make." Usually, designers have a predetermined idea on how they would like the narrative to unfold. However, based on the responses we received, the system gave a different perspective to the users on what they could create or how they could continue a quest, which makes the tool useful for brainstorming quest design similar to tools such as Questbrowser~\cite{p8Sullivan2009-questbrowser}, albeit constrained to the possible quest actions.
+Participants generally described the automatic suggestions as useful to gain inspiration, keep the quest creation diverse, and learn what could be created, rather than useful to replace or add to their work. For instance, one participant said that "[the system] suggested to capture a monster which had thought about killing. The "capture" option might be more interesting and might have been an option I had otherwise overlooked." Similarly, another participant pointed out that the automatic suggestions "... were useful in getting inspiration for quests, and to learn the program and what kinds of quests I was actually able to make." Usually, designers have a predetermined idea on how they would like the narrative to unfold. However, based on the responses we received, the system gave a different perspective to the users on what they could create or how they could continue a quest, which makes the tool useful for brainstorming quest design similar to tools such as Questbrowser~\citepeighth{p8Sullivan2009-questbrowser}, albeit constrained to the possible quest actions.
 
 Still, participants preferred to use the system as inspiration rather than effectively incorporating changes to the quests. This was mainly due to the suggestion not feeling cohesive enough with what participants created until then, and the random tiles picked for the quest action. For instance, receiving a "GO TO" suggestion to a random tile on the opposite side of the level and not near the player or the previous quest action.
 
@@ -161,10 +149,10 @@ In general, the participants expressed that more interaction with the quest sequ
 
 \subsubsection{User Study Discussion}
 
-Since we use the work by Doran and Parberry~\cite{p8Doran2011-questsMMORPGs} as a base for the quest generation, this research indirectly tests their quest patterns and their applicability into a mixed-initiative tool. We leveraged on these quest patterns similar as others have on quest patterns~\cite{p8Trenton2010-questpatterns,Smith2011-situatingQuests}, and how EDD leverages on level design patterns for the level generation~\cite{p8Baldwin2017,alvarez2019empowering}. The use of quest patterns greatly improves the communication with the designers as they can use concepts they feel comfortable with and relate better to the content they create. All of our participants confirmed the previous statement by pointing out how the tool was straightforward, easy to understand with quests actions to be found in any other game type, and easy to use even if they had never used a mixed-initiative tool.
-% We leveraged on the quest patterns defined by Doran and Parberry~\cite{p8Doran2011-questsMMORPGs} similarly to how EDD leverages on level design patterns for the level generation facet~\cite{p8Baldwin2017,alvarez2019empowering}.
+Since we use the work by Doran and Parberry~\citepeighth{p8Doran2011-questsMMORPGs} as a base for the quest generation, this research indirectly tests their quest patterns and their applicability into a mixed-initiative tool. We leveraged on these quest patterns similar as others have on quest patterns~\citepeighth{p8Trenton2010-questpatterns,p8Smith2011-situatingQuests}, and how EDD leverages on level design patterns for the level generation~\citepeighth{p8Baldwin2017,p8alvarez2019empowering}. The use of quest patterns greatly improves the communication with the designers as they can use concepts they feel comfortable with and relate better to the content they create. All of our participants confirmed the previous statement by pointing out how the tool was straightforward, easy to understand with quests actions to be found in any other game type, and easy to use even if they had never used a mixed-initiative tool.
+% We leveraged on the quest patterns defined by Doran and Parberry~\citepeighth{p8Doran2011-questsMMORPGs} similarly to how EDD leverages on level design patterns for the level generation facet~\citepeighth{p8Baldwin2017,alvarez2019empowering}.
 
-% Leveraging on game design patterns is not new~\cite{p8Bjork2004-GameDesignPatterns} and similar conclusions have been presented before~\cite{p814-Dahlskog2015-patternsDungeonsGens,Smith2011-situatingQuests,Trenton2010-questpatterns,Baldwin2017,Alvarez2018}; thus, our user study confirms.
+% Leveraging on game design patterns is not new~\citepeighth{p8Bjork2004-GameDesignPatterns} and similar conclusions have been presented before~\citepeighth{p814-Dahlskog2015-patternsDungeonsGens,Smith2011-situatingQuests,Trenton2010-questpatterns,Baldwin2017,Alvarez2018}; thus, our user study confirms.
 
 Furthermore, while relevant, the suggestions by the system felt impractical mainly and according to participants because the system randomly assigned tiles for the suggested quest action, which limited the tool's perceived usability. Another reason is the use of abstract quest actions. On the one hand, this allows us to disconnect the system from specific implementations and gameplay functionalities of the quests, creating and representing a more generic system. On the other hand, this resulted in a lack of thematic and concrete elements such as NPC roles or defined plot lines and plot elements to follow. These make it harder for designers to contextualize their creations and why the system recommends specific quest actions. %Some preliminary study was done 
 
@@ -172,7 +160,7 @@ Furthermore, while relevant, the suggestions by the system felt impractical main
 
 Nevertheless, the system was helpful for creativity support and design aid as the suggestions were used as an inspiration to what was possible and what to do next rather than using the actual suggestion. Participants only applied suggestions when the next step felt mundane, and the system suggested a logical position. Leveraging on the human designer for deciding location, while the system provides the quest actions that would follow a more typical quest based on the quest patterns would probably compose a better collaboration. 
 
-%Likewise, this also shows the need for exploring other fundamental and useful ways to establish human-AI collaboration, specifically MI-CC tools that effectively enables the proactive collaboration and creation. Some preliminary study showed that when adding NPC roles and adapting Questgram to it, helps the users contextualize and create quests more alike common quests in RPG. Yet, users used even less the suggested actions as it was seem as "help for novices," rather than a way to create quests between both. This points towards the need to explore other fundamental and more useful ways to establish MI-CC workflows where systems can adapt and create ~\cite{p8Zhu2018-XAIDesignersMICC}. , but reducing even more the use of the suggested actions, 
+%Likewise, this also shows the need for exploring other fundamental and useful ways to establish human-AI collaboration, specifically MI-CC tools that effectively enables the proactive collaboration and creation. Some preliminary study showed that when adding NPC roles and adapting Questgram to it, helps the users contextualize and create quests more alike common quests in RPG. Yet, users used even less the suggested actions as it was seem as "help for novices," rather than a way to create quests between both. This points towards the need to explore other fundamental and more useful ways to establish MI-CC workflows where systems can adapt and create ~\citepeighth{p8Zhu2018-XAIDesignersMICC}. , but reducing even more the use of the suggested actions, 
 
 %Furthermore, while relevant, the suggestions by the system felt impractical because the system randomly assigned tiles for the suggested quest action. This limited the tool's perceived usability as participants used the suggestions more as an inspiration to what was possible and what to do next rather than using the actual suggestion. Participants only used suggestions when the next step felt mundane, and the system suggested a logical position. Leveraging on the human designer for deciding location, while the system provides the quest actions that would follow a more typical quest based on the quest patterns would compose a better collaboration.
 
@@ -180,7 +168,7 @@ Nevertheless, the system was helpful for creativity support and design aid as th
 
 %While our tool is helpful for creativity support
 
-Some feature suggestions such as separating quests or reordering the quest sequence would have improved the user experience considerably, as after manually placing just a few quest actions, the quest became harder to approach. Even if the system was tested to generate 50 quest actions as explained in section~\ref{sec:quantExp}, this might be impractical for human designers. An interesting suggestion was to use color tags or similar to understand which agent (Human or machine) created the quest. Then, designers could also use this as a way to understand decisions made by the system and for the system to create a model of the current designer's quests. This could also be used for a collaborative tool where several designers interact with each other and a centralized system; for a more crowdsourced approach such as the one proposed by Charity et al.~\cite{p8charity2020baba}.
+Some feature suggestions such as separating quests or reordering the quest sequence would have improved the user experience considerably, as after manually placing just a few quest actions, the quest became harder to approach. Even if the system was tested to generate 50 quest actions as explained in section~\ref{sec:quantExp}, this might be impractical for human designers. An interesting suggestion was to use color tags or similar to understand which agent (Human or machine) created the quest. Then, designers could also use this as a way to understand decisions made by the system and for the system to create a model of the current designer's quests. This could also be used for a collaborative tool where several designers interact with each other and a centralized system; for a more crowdsourced approach such as the one proposed by Charity et al.~\citepeighth{p8charity2020baba}.
 
 %\subsubsection{General Discussion}
 

@@ -197,7 +197,8 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[t!]
-\resizebox{0.45\textwidth}{!}{%
+\centering
+\resizebox{0.7\textwidth}{!}{%
 \begin{tabular}{|l|ccc|}
 \hline
 Dimensions & \multicolumn{3}{c|}{Low Leniency Scenario}                                                    \\ \hline
@@ -687,17 +688,17 @@ Average.   & 72.34$\pm$4.12                  & 29.88$\pm$2.84                 & 
 % \label{tab:perDimension}
 % \end{table}
 
-%In our experiments, we discuss and analyze two desirable features in QD-algorithms, \textit{stability} and \textit{adaptability}. %, and fertility~\cite{p9Ashlock2018-fertility}, 
+%In our experiments, we discuss and analyze two desirable features in QD-algorithms, \textit{stability} and \textit{adaptability}. %, and fertility~\citepninth{p9Ashlock2018-fertility}, 
 %as two features to be analyzed. 
 
 \begin{figure*}[t!]
-\centerline{\includegraphics[width=0.8\textwidth]{figures/exp1-lowlen-exploring_new_area/accumulative__X-sym-Y-len-simplified-2.png}}
+\centerline{\includegraphics[width=\textwidth]{figures/exp1-lowlen-exploring_new_area/accumulative__X-sym-Y-len-simplified-2.png}}
 %\centerline{\includegraphics[width=0.55\textwidth]{figures/low-len/accu__X-sym-Y-len.png}}
 \caption{Aggregated TERA using Sym and Len following the low leniency scenario (fig.~\ref{figs:roomsexperiments}.a). Highlights how the design introduces new generative region to the algorithm. In red (step 12) it is highlighted when the design enters a new region of the space and MAP-Elites is then able to generate individuals in that region, explained in detail in Case 1.}
 \label{figs:exp1}
 \end{figure*}
 
-We have conducted a series of experiments on EDD to analyze the \emph{adaptability} and \emph{stability} of IC MAP-Elites, as well as the effects of the interaction for MAP-Elites and the user. \emph{Stability} relates to the steady generation of high-performing individuals, while gradually growing the search and stably covering the generative space at each edit step. \emph{Adaptability} relates to the ability of the search to adapt to changing conditions, adjusting the search to the new goals, while still generating high-performing individuals. Both features, relate to the notions of evolvability~\cite{p9doncieux2020-noveltyEvolvability}, the ability of the search to generate creative individuals in problems with changing conditions.
+We have conducted a series of experiments on EDD to analyze the \emph{adaptability} and \emph{stability} of IC MAP-Elites, as well as the effects of the interaction for MAP-Elites and the user. \emph{Stability} relates to the steady generation of high-performing individuals, while gradually growing the search and stably covering the generative space at each edit step. \emph{Adaptability} relates to the ability of the search to adapt to changing conditions, adjusting the search to the new goals, while still generating high-performing individuals. Both features, relate to the notions of evolvability~\citepninth{p9doncieux2020-noveltyEvolvability}, the ability of the search to generate creative individuals in problems with changing conditions.
 
 % as how the search process benefits from the continuous mixed-initiative approach. 
 
@@ -724,7 +725,7 @@ All our experiments are evaluated and analyzed following the same procedure and 
 % the \textit{cumulative coverage average among all design steps} .
 
 \begin{figure*}[t!]
-\centerline{\includegraphics[width=0.8\textwidth]{figures/exp2-highlin-exploringchamber/accumulative__X-len-Y-mesoPat-simplify-2.png}}
+\centerline{\includegraphics[width=\textwidth]{figures/exp2-highlin-exploringchamber/accumulative__X-len-Y-mesoPat-simplify-2.png}}
 %\centerline{\includegraphics[width=0.55\textwidth]{figures/low-len/accu__X-sym-Y-len.png}}
 \caption{Aggregated TERA using Len and Meso following the high linearity scenario (fig.~\ref{figs:roomsexperiments}.b). Highlights subtle discovery of new generative regions.  In red (step 12), this subtle discovery is highlighted, explained in detail in Case 2.}
 \label{figs:exp2}
@@ -752,7 +753,7 @@ Overall the average population fitness ($\bigcirc$) is very high with 0.915 in a
 
 IC MAP-Elites works in constant interaction with the edited design. Each step reshapes the fitness landscape to a certain extent, which could hinder the evolutionary process. However, per step, an avg. of 27.34\% of the space is covered by generating novel individuals (i.e., not encountered previously in the population). This, coupled with the relatively narrow confidence intervals, means that the search is constantly exploring the space, diversifying and encountering new spaces. However, as it will be exemplified through the cases, the implicit explorative and exploitative mechanisms of MAP-Elites might not be enough to explore new regions, which can be introduced interactively to MAP-Elites.
 
-%Furthermore, the searched space continuously grows after every step ($\bigtriangleup$). The wider confidence interval is due to the big steps performed at earlier generations, which is expected to some extent by MAP-Elites as there is high-pressure to fill the bins with elites. As more elites are encountered, the lesser bins will remain empty; thus, the search will cover similar spaces, which is what can be observed in most of our experiments. Fontaine et al.~\cite{p9Fontaine2019-hearhstoneDecks} explored and evaluated a similar scenario with good results using MAP-Elites with Sliding Boundaries. In our experiments, When using \textit{Inner Similarity (IS)}, the search grew the most on average regardless of the second dimension, as well as with \textit{Similarity (Sim)}. \textit{Sim} focuses on aesthetical similarity and \textit{IS} internal similarity regarding sparsity and density of tiles. Thus, this could be due to the dimensions pressuring the search to generate different-yet-close individuals to the target room.
+%Furthermore, the searched space continuously grows after every step ($\bigtriangleup$). The wider confidence interval is due to the big steps performed at earlier generations, which is expected to some extent by MAP-Elites as there is high-pressure to fill the bins with elites. As more elites are encountered, the lesser bins will remain empty; thus, the search will cover similar spaces, which is what can be observed in most of our experiments. Fontaine et al.~\citepninth{p9Fontaine2019-hearhstoneDecks} explored and evaluated a similar scenario with good results using MAP-Elites with Sliding Boundaries. In our experiments, When using \textit{Inner Similarity (IS)}, the search grew the most on average regardless of the second dimension, as well as with \textit{Similarity (Sim)}. \textit{Sim} focuses on aesthetical similarity and \textit{IS} internal similarity regarding sparsity and density of tiles. Thus, this could be due to the dimensions pressuring the search to generate different-yet-close individuals to the target room.
 
 % As more elites are encountered, the lesser bins remain empty 
 
@@ -791,7 +792,7 @@ The following cases examine TERAs following the different scenarios presented in
 
 
 \begin{figure*}[ht]
-\centerline{\includegraphics[width=0.8\textwidth]{figures/exp4-mesopat-explorDeadend_leavesearch/simple__X-sym-Y-mesoPat-simplify-combo-2.png}}
+\centerline{\includegraphics[width=\textwidth]{figures/exp4-mesopat-explorDeadend_leavesearch/simple__X-sym-Y-mesoPat-simplify-combo-2.png}}
 %\centerline{\includegraphics[width=0.55\textwidth]{figures/low-len/accu__X-sym-Y-len.png}}
 \caption{Non-aggregated TERA using Sym and Meso following the high meso-pattern level scenario (fig.~\ref{figs:roomsexperiments}.c). Highlights overall properties of interacting with MAP-Elites.a, b, and c, represent the main areas of focus explained in detail in Case 3.}
 \label{figs:exp3}
@@ -857,7 +858,7 @@ However, at step 12 (highlighted in red in fig~\ref{figs:exp1}), when reaching a
 
 Case 1 showed that by entering an unexplored region of the generative space, the designer could show possibilities for the algorithm and influence the search, yet more subtle guidance is possible. Figure~\ref{figs:exp2} presents such a case. We focus on the high linearity scenario (fig.~\ref{figs:roomsexperiments}.b), where the goal was to create a single narrow corridor between the top and left door and add some objective at the bottom entrance. Through this, we not only aimed at high linearity but also tried to promote other main characteristics such as the open chamber/corridor balance, or the combination of meso-patterns.
 
-Similar to the previous case, in figure~\ref{figs:exp2}, it is shown that for many steps, the search does not explore a big part of the generative space. In this case, the room does not move either in the generative space as the changes are not affecting the dimensions. However, between steps 13 to 17, a new region of the generative space is filled (highlighted in red in fig~\ref{figs:exp2}), which indicates that even if changes in the room do not have a direct influence by moving in the generative space, they still can foster exploration in new regions. These main steps are visible in fig.~\ref{figs:roomsexperiments}.b, subfigure 5, and 6 from the left. Specifically, lower leniency regions are generated once the room is divided into a representative corridor and a big open area with a treasure meso-pattern. These stepping-stones gave the needed “building blocks” to MAP-Elites to cross and mutate until the new generative space was explored. Moreover, similarly to the previous case, the algorithms generates significantly more novel individuals during this time  (around 531 novel individuals), and the search covers 20\% of the space, exploiting the new region, akin to Novelty search behavior~\cite{p9liapis2015-ConstrainedNoveltySearch}.
+Similar to the previous case, in figure~\ref{figs:exp2}, it is shown that for many steps, the search does not explore a big part of the generative space. In this case, the room does not move either in the generative space as the changes are not affecting the dimensions. However, between steps 13 to 17, a new region of the generative space is filled (highlighted in red in fig~\ref{figs:exp2}), which indicates that even if changes in the room do not have a direct influence by moving in the generative space, they still can foster exploration in new regions. These main steps are visible in fig.~\ref{figs:roomsexperiments}.b, subfigure 5, and 6 from the left. Specifically, lower leniency regions are generated once the room is divided into a representative corridor and a big open area with a treasure meso-pattern. These stepping-stones gave the needed “building blocks” to MAP-Elites to cross and mutate until the new generative space was explored. Moreover, similarly to the previous case, the algorithms generates significantly more novel individuals during this time  (around 531 novel individuals), and the search covers 20\% of the space, exploiting the new region, akin to Novelty search behavior~\citepninth{p9liapis2015-ConstrainedNoveltySearch}.
 
 % (the number of novel individuals there is a significant rise in the number of individuals (\~{}531 novel individuals) and a \~{20}\% search grow, concentrating in the new area, akin novelty search's behavior.
 
@@ -870,7 +871,7 @@ Similar to the previous case, in figure~\ref{figs:exp2}, it is shown that for ma
 
 In this case, we analyze the TERA of unique individuals generated each step using Sym and Meso as dimension pairs (fig.~\ref{figs:exp3}). We heed to the high meso-pattern level scenario (fig.~\ref{figs:roomsexperiments}.c), where we subdivided the room into small open chambers with clear objectives. Overall, in fig.~\ref{figs:exp3} two aspects stand out; firstly, the generative space is explored more at the early steps, as there are fewer constraints from the edited design. Secondly, the generated individuals seem to follow the path taken by the design in the generative space. Supported by the other cases, this indicates that the design can filter the search and point regions of interest for the IC MAP-Elites. %Furthermore,  this pair of dimensions in the specific scenario, have very high scores analyzing the data in table~\ref{tab:resultsTable} for this pair of dimensions in the specific scenario, 
 
-Moreover, opposite to case 1 and as a consequence of filtering the generative space, when the design leaves low scoring regions, the algorithm rapidly disregards creating individuals in those spaces. For instance, the bottom region after step 7 (fig.~\ref{figs:exp3}.a). Further, as the room is changing but without any type of influence in the searched dimensions e.g., steps 12 to 15 (fig.~\ref{figs:exp3}.b), MAP-Elites has difficulties exploring the space. A similar challenge was discussed by Alvarez et al.~\cite{p9Alvarez2020-ICMAPE}, where their experiments showed that the search got to a plateau after 1000 generations due to the MAP-Elites lacking the incentive to explore. Even if their experiments focused on static environments, this case gives further evidence that minimal changes to the design and lack of influence in the generative space, conditions the exploration of space and the generation of novel individuals. 
+Moreover, opposite to case 1 and as a consequence of filtering the generative space, when the design leaves low scoring regions, the algorithm rapidly disregards creating individuals in those spaces. For instance, the bottom region after step 7 (fig.~\ref{figs:exp3}.a). Further, as the room is changing but without any type of influence in the searched dimensions e.g., steps 12 to 15 (fig.~\ref{figs:exp3}.b), MAP-Elites has difficulties exploring the space. A similar challenge was discussed by Alvarez et al.~\citepninth{p9Alvarez2020-ICMAPE}, where their experiments showed that the search got to a plateau after 1000 generations due to the MAP-Elites lacking the incentive to explore. Even if their experiments focused on static environments, this case gives further evidence that minimal changes to the design and lack of influence in the generative space, conditions the exploration of space and the generation of novel individuals. 
 
 Lastly, at step 16 (fig.~\ref{figs:exp3}.c), we encounter a similar situation as with fig.~\ref{figs:exp2};  where a design edition enables the needed “building blocks” for MAP-Elites. In this case, it was triggered by the forming of a dead-end chamber pattern, which enables even more meso-patterns to be used and discovered. Rather than finding a new region of the generative space, this time, the search gets rebooted, and therefore, explores all regions generating novel individuals.
 % Lastly, in the last step of the scenario i.e., step 24 (fig.~\ref{figs:exp3}.d), the design enters the highest score in the meso dimension. Thus, helping MAP-Elites to find individuals in a previously unexplored area akin to fig.~\ref{figs:exp1}.

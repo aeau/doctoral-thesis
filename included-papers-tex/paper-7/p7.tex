@@ -1,4 +1,4 @@
-\graphicspath{{included-papers-tex/paper-6/}}
+%\graphicspath{{included-papers-tex/paper-7/}}
 
 %\includedPaper{\textsc{paper vi - designer modeling through design style clustering}}{\textsc{paper vi - designer modeling through design style clustering}}{Alberto Alvarez, Jose Font, and Julian Togelius}
 
@@ -16,11 +16,11 @@ Extended Abstracts of the 2020 Annual Symposium on Computer-Human Interaction in
 \section*{TO MAKE SENSE OF PROCEDURALLY GENERATED DUNGEONS}
 
 \subsection{Introduction}
-Procedural content generation (PCG) has found itself in the spotlight within game development with games such as Minecraft~\cite{p7minecraft}, No Man's Sky~\cite{p7nomansky}, and Spelunky~\cite{p7spelunky}, improving replayability, reducing the developers' workload, and fostering the designers' creativity~\cite{p7shaker2016procedural,hastings_evolving_2009,Alvarez2018}. However, some type of narrative or context is required to make sense of the PCG content when implemented into the game space~\cite{p7ashmore2007}. An example of narrative is objectives. If there is an objective within the content, for example, finding a sacred gem in a dangerous dungeon, then that creates interaction between the user and the content, which creates the needed context.
+Procedural content generation (PCG) has found itself in the spotlight within game development with games such as Minecraft~\citepseventh{p7minecraft}, No Man's Sky~\citepseventh{p7nomansky}, and Spelunky~\citepseventh{p7spelunky}, improving replayability, reducing the developers' workload, and fostering the designers' creativity~\citepseventh{p7shaker2016procedural,p7hastings_evolving_2009,p7Alvarez2018}. However, some type of narrative or context is required to make sense of the PCG content when implemented into the game space~\citepseventh{p7ashmore2007}. An example of narrative is objectives. If there is an objective within the content, for example, finding a sacred gem in a dangerous dungeon, then that creates interaction between the user and the content, which creates the needed context.
 
 % LATER? The motivation with this research is mainly to expand on the knowledge regarding procedural narrative, its generation, and to make sense of content by developing an artifact that creates context by connecting the content through procedurally generated objectives. But also to further develop EDD by implementing the artifact as a sub-system within the tool.
 
-The Evolutionary Dungeon Designer (EDD) is a mixed-initiative design tool used for creating and generating dungeons \cite{p7alvarexempowering}. This paper gathers the first step towards implementing a sub-system for EDD, which procedurally generates objectives for dungeons. The current sub-system gathers and continuously adapts to the designer's dungeon to place different objectives based on the rooms' content. Through this, the designer focuses on creating the dungeon while seamlessly, they are provided with the different generated objectives. We evaluate the artifact's utility, quality, and efficacy based on how well the objectives represent the layout of the dungeon with experimental scenarios. 
+The Evolutionary Dungeon Designer (EDD) is a mixed-initiative design tool used for creating and generating dungeons \citepseventh{p7alvarexempowering}. This paper gathers the first step towards implementing a sub-system for EDD, which procedurally generates objectives for dungeons. The current sub-system gathers and continuously adapts to the designer's dungeon to place different objectives based on the rooms' content. Through this, the designer focuses on creating the dungeon while seamlessly, they are provided with the different generated objectives. We evaluate the artifact's utility, quality, and efficacy based on how well the objectives represent the layout of the dungeon with experimental scenarios. 
 
 % This sub-system acts as a way of automating the generation of objectives that will itself act as a narrative for the player to progress throughout the generated dungeon, and adapts to the designer's design.
 
@@ -29,57 +29,58 @@ The Evolutionary Dungeon Designer (EDD) is a mixed-initiative design tool used f
 
 \subsection{Related Work}
 \subsubsection{The Evolutionary Dungeon Designer}
-EDD is a mixed-initiative tool for designers to create dungeons as a set of interconnected tile-based rooms~\cite{p7alvarexempowering}. Each tile in a room can be modified to represent different types of paths, obstacles or rewards, and are used to form inventorial (Fig.~\ref{fig:tiles}.b) or spatial (Fig.~\ref{fig:tiles}.c) micro patterns. These micro patterns can be further combined to form meso patterns (Fig.~\ref{fig:tiles}.d) such as treasure or guarded rooms. Furthermore, as the designer creates rooms, EDD dynamically offers procedurally generated room suggestions through the Interactive Constrained MAP-Elites, using such patterns as evaluation and continuously adapting to the designer's design~\cite{p7Alvarez2020-ICMAPE}.
+EDD is a mixed-initiative tool for designers to create dungeons as a set of interconnected tile-based rooms~\citepseventh{p7alvarexempowering}. Each tile in a room can be modified to represent different types of paths, obstacles or rewards, and are used to form inventorial (Fig.~\ref{fig:tiles}.b) or spatial (Fig.~\ref{fig:tiles}.c) micro patterns. These micro patterns can be further combined to form meso patterns (Fig.~\ref{fig:tiles}.d) such as treasure or guarded rooms. Furthermore, as the designer creates rooms, EDD dynamically offers procedurally generated room suggestions through the Interactive Constrained MAP-Elites, using such patterns as evaluation and continuously adapting to the designer's design~\citepseventh{p7Alvarez2020-ICMAPE}.
 % The designer can e.g. place the player in the room, add doorways that can be connected to other rooms, place enemies and treasures. When the design of a room is complete, EDD then generates room templates through a genetic algorithm that base its calculations on what the handmade room looks like 
 
 \begin{figure}[]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/figure1.png}
-  \caption{The main components in EDD. (a) A basic room, (b) different placeable tiles, (c) micro patterns and (d) meso patterns \cite{p7Alvarez2018a}.}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/figure1.png}
+  \caption{The main components in EDD. (a) A basic room, (b) different placeable tiles, (c) micro patterns and (d) meso patterns \citepseventh{p7Alvarez2018a}.}
   \label{fig:tiles}
 \end{figure}
 
-%Each tile represents a piece of information and is used to create micro patterns. A pre-existing pattern finder in EDD analyses the tile information within a room to generate micro patterns which can be spatial or inventorial. Examples of micro patterns are chambers, corridors and connectors which are spatial, while bosses, enemies and treasure are inventorial (Figure \ref{fig:tiles}). Micro patterns combined compose meso patterns \cite{p7Alvarez2018a}. Examples of meso patterns are guard rooms, treasure rooms and ambushes (Figure \ref{fig:tiles}). 
+%Each tile represents a piece of information and is used to create micro patterns. A pre-existing pattern finder in EDD analyses the tile information within a room to generate micro patterns which can be spatial or inventorial. Examples of micro patterns are chambers, corridors and connectors which are spatial, while bosses, enemies and treasure are inventorial (Figure \ref{fig:tiles}). Micro patterns combined compose meso patterns \citepseventh{p7Alvarez2018a}. Examples of meso patterns are guard rooms, treasure rooms and ambushes (Figure \ref{fig:tiles}). 
 % Meso patterns, unlike micro patterns, are neither spatial nor inventorial. Meso patterns are composite patterns which are a combination of both. An example of this are the guard rooms which contain the spatial micro pattern of a chamber and the inventorial micro patterns of enemies.
 
 \subsubsection{Procedural Generation of Game Narrative}
-Interactivity and narrative have conflicting demands \cite{p7jenkins2004game}. With narrative, the author decides the direction of the flow, while interactivity turns to the player for motive power. Straying from the author's path may make for a less satisfying story, but restricting the player's freedom of actions will have the same effect on the game. But game designers are not only storytellers, but they also sculpt and design game worlds and spaces.
+Interactivity and narrative have conflicting demands \citepseventh{p7jenkins2004game}. With narrative, the author decides the direction of the flow, while interactivity turns to the player for motive power. Straying from the author's path may make for a less satisfying story, but restricting the player's freedom of actions will have the same effect on the game. But game designers are not only storytellers, but they also sculpt and design game worlds and spaces.
 %Not all games tell stories, there are more abstract games like Tetris, but games can never be reduced to simply experiencing a story, games are spaces with a possibility for narrative 
 
-Generated content needs context in the game space. A lack of context may negatively affect user experience, with the content being perceived as empty or meaningless \cite{p7ashmore2007}. The limitations of a story are related to the quest combinations available. By understanding the structure of quests, we can also understand the limits and potential of these kinds of games and how to create rich, open game worlds and tell interesting stories within them~\cite{p7aarseth2005hunt}.
+Generated content needs context in the game space. A lack of context may negatively affect user experience, with the content being perceived as empty or meaningless \citepseventh{p7ashmore2007}. The limitations of a story are related to the quest combinations available. By understanding the structure of quests, we can also understand the limits and potential of these kinds of games and how to create rich, open game worlds and tell interesting stories within them~\citepseventh{p7aarseth2005hunt}.
 
-The common factor with objectives in games is to provide the player a reason to further progress through the game \cite{p7ashmore2007}. When generating content for game space, narrative, or context, needs to be generated as well. In action-adventure games, the level design is essential, and when procedurally generating levels for these games, it is best to break down the generation process in two steps, one for generating game space and one for generating missions \cite{p7dormans2011generating}.
+The common factor with objectives in games is to provide the player a reason to further progress through the game \citepseventh{p7ashmore2007}. When generating content for game space, narrative, or context, needs to be generated as well. In action-adventure games, the level design is essential, and when procedurally generating levels for these games, it is best to break down the generation process in two steps, one for generating game space and one for generating missions \citepseventh{p7dormans2011generating}.
 
-Charbitat bases narrative generation on sets of tiles, which partitions the game space and creates a graph that keeps track of the player's position. Through this, the system evaluates new possible objectives to generate that would suit better. This evaluation takes in mind previous objectives and actions done by the player, resulting in a more adaptive experience while also increasing the replayability \cite{p7ashmore2007}.
+Charbitat bases narrative generation on sets of tiles, which partitions the game space and creates a graph that keeps track of the player's position. Through this, the system evaluates new possible objectives to generate that would suit better. This evaluation takes in mind previous objectives and actions done by the player, resulting in a more adaptive experience while also increasing the replayability \citepseventh{p7ashmore2007}.
 
 % Kybartas et. al's survey on generative narrative techniques explores the development of different techniques used in not only the game development industry but also in academic settings. 
-Procedural narrative generation is often approached split into two tasks, plot and space, either automatically or manually generated \cite{p7kybartas2016survey,dormans2011generating,abuzuraiq2019-taksim,Hartsook2011TowardWorlds}. The plot is defined as a set of events with an overall structure that represents both the temporal ordering and the causal relations between the events. Space includes the characters, settings, props, and anything which is present either physically or abstractly in the space of the narrative. By generating space, they also generate context for it, thus creating a unique narrative for each possible outcome of the generative process.
-% Slant, developed by Montfort et. al \cite{p7montfort2013slant} is an example of a well implemented version of narrative generation. Dormans et. al \cite{p7dormans2011generating} and Kybartas et. al \cite{p7kybartas2016survey} both claim that to generate narrative requires the two aspects mentioned above: plot, and space. 
+Procedural narrative generation is often approached split into two tasks, plot and space, either automatically or manually generated \citepseventh{p7kybartas2016survey,p7dormans2011generating,p7abuzuraiq2019-taksim,p7Hartsook2011TowardWorlds}. The plot is defined as a set of events with an overall structure that represents both the temporal ordering and the causal relations between the events. Space includes the characters, settings, props, and anything which is present either physically or abstractly in the space of the narrative. By generating space, they also generate context for it, thus creating a unique narrative for each possible outcome of the generative process.
+% Slant, developed by Montfort et. al \citepseventh{p7montfort2013slant} is an example of a well implemented version of narrative generation. Dormans et. al \citepseventh{p7dormans2011generating} and Kybartas et. al \citepseventh{p7kybartas2016survey} both claim that to generate narrative requires the two aspects mentioned above: plot, and space. 
 
 \subsection{Generating Objectives for Dungeons} \label{sec:approach}
 
 Using the room's meso patterns and their qualities, each room is assigned an objective described in Figure \ref{fig:objectives}: defeat the enemies, find the treasure, defeat the boss, except the initial room, which is always excluded to avoid placing objectives where the player enters the dungeon. When all rooms have been assigned an objective, we calculate the number of objectives $N_{obj}$ needed for the dungeon based on its size and layout. Furthermore, the number of objectives is calculated as $N_{obj} = \max(1, DE + ((R-DE)/K))$, where $DE$ is the number of dead ends, $R$ is the total number of rooms, and $K$ is an adjusting variable. High values for $K$ lower the number of objectives per normal (non-dead end) rooms. The designer can trigger the objective generation at any time in EDD by pressing a \textit{toggle objectives} button.%The system always exclude the initial room as a possible objective to avoid placing objectives where the player enters the dungeon.
 
 \begin{figure}[]
-  \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/objectives.png}
+  \centering 
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/objectives.png}
   \caption{Every type of dungeon objective as both main objective (green) and side objective (blue). The icons represent the different types of objectives (a) “Defeat the enemies”, (b) “Find the treasure” and (c) “Defeat the boss”.}
   \label{fig:objectives}
 \end{figure}
 
 All objectives are then sorted due to their relevance. The most relevant objective is set as the only main objective of the dungeon. Side objectives are subsequently assigned in descendant relevance order until the amount of objectives needed is reached. The sorting algorithm for objective relevance evaluation calculates the following metrics:
 
-\paragraph*{Dead end.} Dead ends have a higher chance of hosting interesting content for the player \cite{p7ashmore2007}. Therefore, to not make the outskirts of the dungeon feel meaningless, dead ends are prioritized locations for objective placement.
+\paragraph*{Dead end.} Dead ends have a higher chance of hosting interesting content for the player \citepseventh{p7ashmore2007}. Therefore, to not make the outskirts of the dungeon feel meaningless, dead ends are prioritized locations for objective placement.
 
-\paragraph*{Distance to the player.} Placing all objectives close to the start position, preventing full space exploration, would break the players’ immersion \cite{p7jenkins2004game}. Therefore, large distances (measured in rooms) from the player are encouraged when placing objectives. %Therefore, traversing more rooms to reach the objective are encouraged when placing objectives.
+\paragraph*{Distance to the player.} Placing all objectives close to the start position, preventing full space exploration, would break the players’ immersion \citepseventh{p7jenkins2004game}. Therefore, large distances (measured in rooms) from the player are encouraged when placing objectives. %Therefore, traversing more rooms to reach the objective are encouraged when placing objectives.
 
 \paragraph*{Connectivity.} Rooms connected to many rooms have a higher chance of the player passing through them than those with fewer connections. Therefore, to foster the exploration of these rooms, rooms with fewer connections to other parts of the dungeon will be prioritized to have an objective.
 
-\paragraph*{Quality.} The objectives are based on the existing meso patterns in the room. Each meso pattern receives a quality score~\cite{p7Baldwin2017}, that when combined, create the quality of the room.
+\paragraph*{Quality.} The objectives are based on the existing meso patterns in the room. Each meso pattern receives a quality score~\citepseventh{p7Baldwin2017}, that when combined, create the quality of the room.
 
 % Objectives are then sorted in sequential steps. The policy to sort follows the same order as the presented metrics, where the algorithm chooses the more relevant by first testing dead ends, then largest distance to player, then lower connectivity, and finally, quality of the meso patterns within the room.
 
 Objectives are then sorted in sequential steps. The policy for, any given pair of objectives, choosing the more relevant one, is:
+
 \begin{enumerate}
     \item Return the objective that is set in a dead end. If both are, or neither of them is, then
     \item return the objective with the largest distance to the player. If both lie at the same distance, then
@@ -95,7 +96,7 @@ We have carried out a total of 14 simulations in EDD for testing the objective g
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results1.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results1.png}
   \caption{The most simplistic layout of a dungeon with a main objective (green).}
   \label{fig:oldfig5}
 \end{figure}
@@ -105,7 +106,7 @@ Figure \ref{fig:oldfig5} shows the simplest scenario (two empty interconnected r
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results2.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results2.png}
   \caption{Small single-path dungeon layouts.}
   \label{fig:oldfig6}
 \end{figure}
@@ -115,7 +116,7 @@ Figure \ref{fig:oldfig6} shows two different small sequential scenarios. In simu
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results3.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results3.png}
   \caption{Small circular dungeons.}
   \label{fig:oldfig7}
 \end{figure}
@@ -124,7 +125,7 @@ Figure \ref{fig:oldfig7} shows two small scenarios without any dead ends. Only o
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results4.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results4.png}
   \caption{Large dungeon layouts with several dead ends.}
   \label{fig:oldfig8}
 \end{figure}
@@ -133,7 +134,7 @@ Figure \ref{fig:oldfig8} shows results in two larger scenarios with several dead
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results5.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results5.png}
   \caption{Two large circular dungeon layouts without dead ends.}
   \label{fig:oldfig9}
 \end{figure}
@@ -142,7 +143,7 @@ Figure \ref{fig:oldfig9} generates objectives for larger circular dungeons with 
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results6.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results6.png}
   \caption{Large circular dungeons layout with dead ends.}
   \label{fig:oldfig10}
 \end{figure}
@@ -153,14 +154,14 @@ In (b), the system adapts to the placement of the initial room in the dead end t
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results7.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results7.png}
   \caption{A large circular dungeon layout with dead ends, rooms of different sizes and varying content.}
   \label{fig:oldfig11}
 \end{figure}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/Figures/results8.png}
+  \includegraphics[width=\columnwidth]{included-papers-tex/paper-7/figures/results8.png}
   \caption{Two different room designs shown with and without meso patterns toggled. (a) and (c) as well as (b) and (d) are the same design. The two room designs represent the bottom room from Figure \ref{fig:oldfig11}.b) and c), respectively.}
   \label{fig:oldfig12}
 \end{figure}
@@ -177,11 +178,11 @@ In (c), we showcase how the system generates objectives based on the content in 
 
 % An interesting topic for the discussion is the choice of making the algorithm for the dungeon objectives deterministic or stochastic. In the current state of the artefact, the algorithm is deterministic which means that the same dungeon design will always produce the same dungeon objectives. The approach was chosen since we believe it was most suitable for our testing purposes. An alternative approach to this is to generate stochastic dungeon objectives, meaning that the system will generate different objectives for the same dungeon design every time. Though, these two approaches of generating objectives for dungeon designs have different purposes. A deterministic approach gives the designer more control over the objectives generated for the content produced, though at the cost of a variety of objectives for the dungeon designs. However, the stochastic approach is the polar opposite. With this approach the system can generate endless combinations of objectives for the same dungeon design which creates more variety, but this leads to the designer losing control over the final result of the content created with the tool. Therefore, the different approaches are most suitable for different purposes and scenarios based on the needs of the designers.
 
-% In Orchestrating Game Generation \cite{p7liapis2018orchestrating}, Liapis et. al. discusses the necessity of a harmonizing communication across domains, for instance within a game. A great example of this would be a system which could procedurally model and animate a character, which would generate content that is meaningfully related and intertwined, and not just a layered creation. This would achieve the harmonization, where the two parts of the system orchestrates the various computational creators. Dormans et. al. talks about dividing the generation process in two steps, one for the game space and the other for context \cite{p7dormans2011generating}. So, by dividing the generation process within EDD, we followed in Dormans’ footprints to not lose the existing scope of the system. This integration between the two systems gives the designer the opportunity to view what objectives the designed layout will have and from there on redesign that layout to better fit what the designer has in mind for the context of the game space. Thus, you can argue that the artefact which has been developed and EDD, being our two creative domains, do work together in a harmonious way.
+% In Orchestrating Game Generation \citepseventh{p7liapis2018orchestrating}, Liapis et. al. discusses the necessity of a harmonizing communication across domains, for instance within a game. A great example of this would be a system which could procedurally model and animate a character, which would generate content that is meaningfully related and intertwined, and not just a layered creation. This would achieve the harmonization, where the two parts of the system orchestrates the various computational creators. Dormans et. al. talks about dividing the generation process in two steps, one for the game space and the other for context \citepseventh{p7dormans2011generating}. So, by dividing the generation process within EDD, we followed in Dormans’ footprints to not lose the existing scope of the system. This integration between the two systems gives the designer the opportunity to view what objectives the designed layout will have and from there on redesign that layout to better fit what the designer has in mind for the context of the game space. Thus, you can argue that the artefact which has been developed and EDD, being our two creative domains, do work together in a harmonious way.
 
 \subsection{Conclusions and Future Work}
 
-We have developed a sub-system integrated into EDD that generates suitable objectives based on dungeon layouts created in a mixed-initiative environment. This integration has been carried out in a harmonic way~\cite{p7liapis2018orchestrating} with EDD's already existing functionalities.
+We have developed a sub-system integrated into EDD that generates suitable objectives based on dungeon layouts created in a mixed-initiative environment. This integration has been carried out in a harmonic way~\citepseventh{p7liapis2018orchestrating} with EDD's already existing functionalities.
 %The results show that building objectives on top of existing meso patterns is a viable and computationally cheap solution. 
 The developed artifact also 
 %help designers get a better visual understanding of the content they are creating in EDD, enhancing

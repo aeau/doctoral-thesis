@@ -7,7 +7,7 @@
 % \end{enumerate}
 
 \begin{figure*}[t]
-\centerline{\includegraphics[width=15cm]{figures/figure2.png}}
+\centerline{\includegraphics[width=\textwidth]{figures/figure2.png}}
 \caption{Best resulting cluster set. K-Means (K=12), using the \textbf{Tiles} Dataset. While it scores slightly less in the internal indices that other setups, a qualitative analysis successfully gives us more granularity by subdividing the main bottom clusters, to label and cluster the design process of designers. Sample rooms belonging to each cluster are displayed on the right, next to the total number of rooms in the cluster.} \label{fig:all-clusters}
 \end{figure*}
 
@@ -21,20 +21,20 @@
 % \caption{Example of a step by step edition sequence of a design session and it's clustering. At the top, we present the actual sequence and steps of one of the rooms in the dataset, in a $4\times7$ grid, starting at the top left with the first edition. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{fig:paths-designers}
 % \end{figure}
 
-\begin{figure}
-\centerline{\includegraphics[width=0.4\textwidth]{figures/figure3.png}}
+\begin{figure}[t]
+\centerline{\includegraphics[width=0.7\textwidth]{figures/figure3.png}}
 \caption{
 % Example of a step by step edition sequence of a design session and it's clustering. At the top, we present the actual sequence and steps of one of the rooms in the dataset, in a $4\times7$ grid, starting at the top left with the first edition. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black (every 3 steps), it is shown how each step of the design process is clustered by our approach
 Example of a room's design step sequence and its clustering. At the top, we present the design steps of one of the rooms in the dataset starting at the top left with the first design step. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black (every 3 steps), it is shown how each step of the design process is clustered by our approach} \label{fig:paths-designers}
 \end{figure}
 
-\input{tables/table1.tex}
+\input{included-papers-tex/paper-10/tables/table1}
 
 This paper presents an approach and method for the implementation of designer personas: an analysis of designer style clustering to isolate archetypical paths that can later be used to build ML surrogate models of archetypal designers. Such models would allow for an stable and static design and solution space to be traversed by designers, adapting it to them as they explore their creative process.
 
 % Such models would adapt to the dynamic designer during the mixed-initiative creative process by being placed in the solution space, allowing the designer to traverse the space of models as she drifts through the many dimensions of her creative process.
 
-The proposed system builds on top of EDD's Designer Preference Model and preliminary results \cite{p10Alvarez2020-DesignerPreference}, expanding it to classify the designers' designs based on clusters developed using previously hand-made design sequences by expert and non-expert designers. Figure \ref{fig:approach-steps} illustrates our approach in five sequential stages, from data collection to experimentation and results. The first four stages are explained in the following subsections, whereas Section~\ref{section:results} shows the experimental results.
+The proposed system builds on top of EDD's Designer Preference Model and preliminary results \citeptenth{p10Alvarez2020-DesignerPreference}, expanding it to classify the designers' designs based on clusters developed using previously hand-made design sequences by expert and non-expert designers. Figure \ref{fig:approach-steps} illustrates our approach in five sequential stages, from data collection to experimentation and results. The first four stages are explained in the following subsections, whereas Section~\ref{section:results} shows the experimental results.
 
 \subsubsection{Data Collection}
 
@@ -53,7 +53,7 @@ Moreover, five different copies of the dataset were created to analyze and compa
     \item \textbf{Tiles:} Each room tile type is mapped to a single-color pixel and the rooms are simplified to a pixel-tile based representation, as shown in the second stage of Figure \ref{fig:approach-steps}. The dimensions are downscaled to $13\times 7\times3$.
     %Each room tile is simplified to a single-color pixel, as shown in the second stage of Figure \ref{fig:approach-steps}, downscaled to $13\times 7\times3$.
     
-    \item \textbf{Dimensions:} Each room is described by its five IC MAP-Elites feature dimension values, excluding the similarity scores: \textsc{Linearity}, \textsc{Leniency}, \textsc{\#MesoPatterns}, \textsc{\#SpatialPatterns}, and \textsc{Symmetry}. A complete description of these features can be found in~\cite{p10Alvarez2020-ICMAPE}.
+    \item \textbf{Dimensions:} Each room is described by its five IC MAP-Elites feature dimension values, excluding the similarity scores: \textsc{Linearity}, \textsc{Leniency}, \textsc{\#MesoPatterns}, \textsc{\#SpatialPatterns}, and \textsc{Symmetry}. A complete description of these features can be found in~\citeptenth{p10Alvarez2020-ICMAPE}.
     
     \item \textbf{Inner Content:} Each room is described by $12$ values, related to the count, sparsity, and density of the enemy, treasure, floor, and wall tiles contained in it.
     
@@ -62,9 +62,9 @@ Moreover, five different copies of the dataset were created to analyze and compa
 
 \subsubsection{Clustering and Analysis}
 
-% To run all setups, data reduction algorithms, clustering algorithms, and do the internal evaluation of the clusters, we used scikit-learn machine learning toolset~\cite{p10scikit-learn}. 
+% To run all setups, data reduction algorithms, clustering algorithms, and do the internal evaluation of the clusters, we used scikit-learn machine learning toolset~\citeptenth{p10scikit-learn}. 
 
-We used the Scikit-learn machine learning toolset~\cite{p10scikit-learn} to run all setups, data reduction and clustering algorithms, and to internally evaluate the clusters. To obtain the best set of clusters, we ran different setups with the above datasets. The data was reduced to two meaningful dimensions with two different data reduction algorithms, Principal Component Analysis (PCA) and T-Distributed Stochastic Neighbor Embedding (T-SNE). For both dimension reduction algorithms, we fit the algorithms with each individual dataset, setting to two principal components and in the case of T-SNE using PCA as an initializing algorithm, and transforming the data into a \emph{pca\_dataset} and \emph{tsne\_dataset}. Each two-dimensional point in the new datasets represents a step in the sequences described above. Preliminary tests without dimensionality reduction using the same distance metrics were conducted for all datasets except for \textbf{Room} and \textbf{Tiles} since the amount of dimensions made it computationally infeasible. These did not result in good space partition, achieved worse internal indices, and produced disjointed clusters. For detailed information, see the supplementary material.  % and reducing to $95\%$ of variance within datasets were conducted and resulted in worse internal indices, and disjointed space partition. %Likewise, for the T-SNE, we fit the algorithm with each individual dataset, setting the parameters to two principal components and using PCA as initializing algorithm, and then transformed the data into a new dataset \textit{tsne_dataset} per dataset.
+We used the Scikit-learn machine learning toolset~\citeptenth{p10scikit-learn} to run all setups, data reduction and clustering algorithms, and to internally evaluate the clusters. To obtain the best set of clusters, we ran different setups with the above datasets. The data was reduced to two meaningful dimensions with two different data reduction algorithms, Principal Component Analysis (PCA) and T-Distributed Stochastic Neighbor Embedding (T-SNE). For both dimension reduction algorithms, we fit the algorithms with each individual dataset, setting to two principal components and in the case of T-SNE using PCA as an initializing algorithm, and transforming the data into a \emph{pca\_dataset} and \emph{tsne\_dataset}. Each two-dimensional point in the new datasets represents a step in the sequences described above. Preliminary tests without dimensionality reduction using the same distance metrics were conducted for all datasets except for \textbf{Room} and \textbf{Tiles} since the amount of dimensions made it computationally infeasible. These did not result in good space partition, achieved worse internal indices, and produced disjointed clusters. For detailed information, see the supplementary material.  % and reducing to $95\%$ of variance within datasets were conducted and resulted in worse internal indices, and disjointed space partition. %Likewise, for the T-SNE, we fit the algorithm with each individual dataset, setting the parameters to two principal components and using PCA as initializing algorithm, and then transformed the data into a new dataset \textit{tsne_dataset} per dataset.
 
 All the resulting datasets were then clustered using \textsc{K-Means, K-Medoids, Agglomerative clustering}, and \textsc{DBSCAN}. K-Means was initialized using the standard k-means++ implementation in scikit-learn, which initializes all centroids distant from each other. K-Medoids was initialized similarly, using the standard k-medoids++, and tested using the \emph{cosine}, \emph{euclidean}, and \emph{manhattan} distances. Agglomerative clustering is a hierarchical clustering approach using a bottom-up approach implemented in scikit-learn using four different linkage criteria for comparing data points: \emph{Ward}, \emph{Complete}, \emph{Average}, and \emph{Single}. Finally, DBSCAN clusters points based on density separated by low-density areas; thus, DBSCAN automatically finds $k$ based on two parameters, $\epsilon$ describing the maximum distance between points and \emph{min\_samples} describing the minimum amount of samples within a group to be considered a cluster. K-Means, K-Medoids, and Agglomerative clustering were tested using multiple $K$ values ranging from 3 to 13, and DBSCAN was tested with several $\epsilon$ values ranging from 0.3 to 1.0, and \emph{min\_samples} ranging from 2 to 9.
 
@@ -185,7 +185,7 @@ Moreover, besides the local relation between clusters, the clusters are implicit
 
 
 \begin{figure}[t!]
-\centerline{\includegraphics[width=9cm]{figures/figure4.png}}
+\centerline{\includegraphics[width=\textwidth]{figures/figure4.png}}
 \caption{Final and common designer trajectories. The archetypical paths are represented with thick arrows, and were calculated using the frequencies of subsequences from $180$ diverse rooms. Each color represent a unique trajectory; with green the \textsc{Architectural-focus}, with red the \textsc{Goal-oriented}, with black the \textsc{Split central-focus}, and with blue the \textsc{Complex-balance}. Finally, thinner purple arrows extending from clusters traversed by the archetypical paths show the multiple possible branches that an archetypical path can deviate or extend to.} \label{fig:finalPaths}
 \end{figure}
 

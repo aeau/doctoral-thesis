@@ -1,12 +1,12 @@
 \subsection{Performance Evaluation across Dimensions}
 
 \begin{figure}[h]
-\centerline{\includegraphics[width=0.48\textwidth]{figures/figure3.png}}
+\centerline{\includegraphics[width=0.8\textwidth]{figures/figure3.png}}
 \caption{Rooms at generation $2090$ targeting Number of spatial-patterns (X) and Symmetry (Y). Each cell displays (top-right) the fitness of the optimal individual in its related feasible population. }
 \label{figs:patt_sym}
 \end{figure}
 
-First, we ran a set of experiments to test the results from the IC MAP-Elites using all possible combinations of the available dimensions using two dimensions at a time. All experiments were run using $13\times7$ rooms, the same room size as in \emph{The Binding of Isaac}~\cite{p6mcmillen_binding_2011}, a representative example of a dungeon-based adventure game. In each experiment, the initial population was set to $1000$ mutated individuals distributed in feasible and infeasible populations in all cells which were set to a maximum capacity of $25$ individuals each. IC MAP-Elites ran continuously, and every $100$ generations rendered the elites of each cell. At each generation, it selected $5$ parents per population among uniformly random chosen cells. Offspring were always produced through a two-point crossover and had a 30\% chance of being mutated, which would randomly alter one tile in the level.
+First, we ran a set of experiments to test the results from the IC MAP-Elites using all possible combinations of the available dimensions using two dimensions at a time. All experiments were run using $13\times7$ rooms, the same room size as in \emph{The Binding of Isaac}~\citepsixth{p6mcmillen_binding_2011}, a representative example of a dungeon-based adventure game. In each experiment, the initial population was set to $1000$ mutated individuals distributed in feasible and infeasible populations in all cells which were set to a maximum capacity of $25$ individuals each. IC MAP-Elites ran continuously, and every $100$ generations rendered the elites of each cell. At each generation, it selected $5$ parents per population among uniformly random chosen cells. Offspring were always produced through a two-point crossover and had a 30\% chance of being mutated, which would randomly alter one tile in the level.
 
 \Cref{figs:patt_sym} shows a grid containing the best found suggestions at generation $2090$, while aiming for number of spatial-patterns at the X-axis and symmetry at the Y-axis with a granularity of $5$. Each cell displays the optimal individual of the feasible population under a given pair of dimension values. The fitness score is displayed on the cells' top-right corner.
 
@@ -16,11 +16,11 @@ Results in \Cref{figs:patt_sym} are representative of the good quality diversity
 
 Fitness values show that some dimension combinations are harder to optimize than others, so that the whole grid depicts a gradient landscape of the compatibility between each pair of dimensions. The bottom-left corner shows difficulties producing symmetric rooms with low amounts of spatial patterns, as opposed to rooms with many corridors (upper-right corner), which seem to favor the generation of symmetrical structures.% The bottom row shows that aiming for low symmetry generally produces slightly less optimal results, whereas the top row shows that corridors are the most favorable spatial pattern for building symmetric rectangular rooms.
 
-Additional similar experiments can be found in~\cite{p6alvarez2019empowering}, where we combined other pairs of dimensions and analyzed and discussed the correlation and limitations found in them. However, in the following section, we present an extension of those evaluations through a more exhaustive and in-depth assessment of IC MAP-Elites.
+Additional similar experiments can be found in~\citepsixth{p6alvarez2019empowering}, where we combined other pairs of dimensions and analyzed and discussed the correlation and limitations found in them. However, in the following section, we present an extension of those evaluations through a more exhaustive and in-depth assessment of IC MAP-Elites.
 
-% In~\cite{p6alvarez2019empowering}, we presented similar additional experiments combining other pairs of dimensions, analyzing and discussing the correlation and limitations found in them. However, in the following section we present an extension of those evaluations through a more exhaustive and in-depth assessment of IC MAP-Elites.
+% In~\citepsixth{p6alvarez2019empowering}, we presented similar additional experiments combining other pairs of dimensions, analyzing and discussing the correlation and limitations found in them. However, in the following section we present an extension of those evaluations through a more exhaustive and in-depth assessment of IC MAP-Elites.
 
-% Additional experiments were carried out combining other pairs of dimensions. The complete results can be found in \cite{p6alvarez2019empowering}, together with their analysis and discussion in terms of the existing correlations found between each pair of dimensions.%, as well as the effects of integrating the MAP-Elites approach into a continuously evolving environment.
+% Additional experiments were carried out combining other pairs of dimensions. The complete results can be found in \citepsixth{p6alvarez2019empowering}, together with their analysis and discussion in terms of the existing correlations found between each pair of dimensions.%, as well as the effects of integrating the MAP-Elites approach into a continuously evolving environment.
 
 % \begin{figure}[!t]
 % \centering

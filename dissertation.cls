@@ -71,7 +71,7 @@
 % \usepackage{natbib}
 %\usepackage[resetlabels,labeled]{multibib}
 \usepackage{multibib}
-\newcites{Included,NonIncluded,pone,psecond,pthird,pfourth,pfifth,psixth}{Included Publications,Excluded Publications,References,References,References,References,References,References}
+\newcites{Included,NonIncluded,pone,psecond,pthird,pfourth,pfifth,psixth,pseventh,peighth,pninth,ptenth}{Included Publications,Excluded Publications,References,References,References,References,References,References,References,References,References,References}
 % \newcites{q}{References}
 % \usepackage{bibentry}
 % \nobibliography*
@@ -116,7 +116,8 @@ left=3.0cm, right=2.2cm]{geometry}
 %  \usepackage[caption=false,font=footnotesize]{subfig}
 % \fi
 
-\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage{subcaption}
+%\usepackage[caption=false,font=footnotesize]{subfig}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

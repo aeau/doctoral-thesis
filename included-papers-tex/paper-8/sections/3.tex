@@ -38,7 +38,7 @@
     \label{figs:GUI}
 \end{figure*}
 
-Questgram is a quest generation tool that lets the designer compose one long sequence of quest actions to create an overarching objective for the dungeon they are creating. These quest actions are based on the quest analysis and classification and produced grammar by Doran and Parberry~\cite{p8Doran2011-questsMMORPGs}. Questgram builds on top of EDD extending its level design and generation capabilities with a mixed-initiative quest editor and takes advantage of its mixed-initiative perspective and the level design system.
+Questgram is a quest generation tool that lets the designer compose one long sequence of quest actions to create an overarching objective for the dungeon they are creating. These quest actions are based on the quest analysis and classification and produced grammar by Doran and Parberry~\citepeighth{p8Doran2011-questsMMORPGs}. Questgram builds on top of EDD extending its level design and generation capabilities with a mixed-initiative quest editor and takes advantage of its mixed-initiative perspective and the level design system.
 
 
 % , where a set of nine NPC motivations were extracted, and formed as a production rules for a grammar. Our system is implemented on top of EDD, extending its level design and generation capabilities with a mixed-initiative quest editor. 
@@ -51,9 +51,9 @@ Questgram is a quest generation tool that lets the designer compose one long seq
 
 %Perhaps some formal definition?
 
-EDD was extended with some key elements such as a new quest editor view depicted in figure~\ref{figs:GUI:overview}, and two new generic tiles; an NPC acting as quest giver and target, and a quest item, which is the subject of many quests. These two new tiles were kept as generic as possible for future systems to have the responsibility of handling what type of NPC and object should replace those, similarly as with the other tiles in EDD such as the generic enemy, boss, and treasure. These tiles, together with the pre-existing enemy and boss tiles, have been intertwined with the actions, resulting in the "unlocking" mechanism of different quests, which can be observed in table~\ref{table:prereq}. It must be noted that while Questgram integrates and utilizes the different features and tiles of EDD's level generation facet, there is no integration of the new tiles and quests with EDD's evolutionary algorithm IC MAP-Elites~\cite{p8Alvarez2020-ICMAPE}. This is left for future work.
+EDD was extended with some key elements such as a new quest editor view depicted in figure~\ref{figs:GUI:overview}, and two new generic tiles; an NPC acting as quest giver and target, and a quest item, which is the subject of many quests. These two new tiles were kept as generic as possible for future systems to have the responsibility of handling what type of NPC and object should replace those, similarly as with the other tiles in EDD such as the generic enemy, boss, and treasure. These tiles, together with the pre-existing enemy and boss tiles, have been intertwined with the actions, resulting in the "unlocking" mechanism of different quests, which can be observed in table~\ref{table:prereq}. It must be noted that while Questgram integrates and utilizes the different features and tiles of EDD's level generation facet, there is no integration of the new tiles and quests with EDD's evolutionary algorithm IC MAP-Elites~\citepeighth{p8Alvarez2020-ICMAPE}. This is left for future work.
 
-While games can be either linear, semi-open, or open, with branching narratives and the design structured by the types of quests featured in a game~\cite{p8aarseth2005hunt}, with concepts such as kernels and satelites~\cite{p8Aarseth2012-Narrativetheory}; our approach only allows for the creation of a single overarching quest.
+While games can be either linear, semi-open, or open, with branching narratives and the design structured by the types of quests featured in a game~\citepeighth{p8aarseth2005hunt}, with concepts such as kernels and satelites~\citepeighth{p8Aarseth2012-Narrativetheory}; our approach only allows for the creation of a single overarching quest.
 
 % our system forces the game to be linear. 
 
@@ -61,7 +61,7 @@ While games can be either linear, semi-open, or open, with branching narratives 
 
 % One limitation of our system is that it only allows for a single overarching quest, which can be seen as a set of quests, 
 
-% While games can be either linear, semi-open, or open, and the design is structured by the types of quests featured in a game~\cite{p8aarseth2005hunt}, with concepts such as kernels and satelites~\cite{p8Aarseth2012-Narrativetheory}; our system forces the game to be linear. 
+% While games can be either linear, semi-open, or open, and the design is structured by the types of quests featured in a game~\citepeighth{p8aarseth2005hunt}, with concepts such as kernels and satelites~\citepeighth{p8Aarseth2012-Narrativetheory}; our system forces the game to be linear. 
 
 \subsubsection{Quest Actions}
 
@@ -69,12 +69,12 @@ While games can be either linear, semi-open, or open, with branching narratives 
 
 \input{included-papers-tex/paper-8/tables/table2}
 
-Doran and Parberry identified 19 different actions to be used as quest actions~\cite{p8Doran2011-questsMMORPGs}, which we implemented and where each has its contextual prerequisites to be able to add them. In some cases, we have decided regarding if the actor represented in the action is friendly, e.g., NPC, or hostile, based on the tool's nature and the levels created. These actions are available for both the grammar and the designer to create as many steps as wanted in the overarching quest. The actions, their original prerequisite, and the domain-specific prerequisite are depicted in table~\ref{table:prereq}. 
+Doran and Parberry identified 19 different actions to be used as quest actions~\citepeighth{p8Doran2011-questsMMORPGs}, which we implemented and where each has its contextual prerequisites to be able to add them. In some cases, we have decided regarding if the actor represented in the action is friendly, e.g., NPC, or hostile, based on the tool's nature and the levels created. These actions are available for both the grammar and the designer to create as many steps as wanted in the overarching quest. The actions, their original prerequisite, and the domain-specific prerequisite are depicted in table~\ref{table:prereq}. 
 
 These actions can be added one after each other in any order by the designers allowing for combinations and quests outside of the possible grammar seen in table~\ref{tab:productionRules}. Besides manual creation, the designer can instead pick a suggested action from the generated actions from the right panel, which offers the next action to be added to the quest. After deciding these options, the user will need to press the "+" button on the bottom panel, which will add the action to the quest sequence.
 
 
-% Based on Doran and Parberry's work, we implemented 19 different actions to be used as quest actions~\cite{p8Doran2011-questsMMORPGs},. In some cases, we have made the decision regarding if the actor represented in the action is friendly e.g., NPC or hostile e.g., enemy given the nature of the tool and the levels created. These actions are available for both the grammar and the designer to create as many steps as wanted in the overarching quest.  The actions are depicted in table~\ref{tab:prerequisites}, which also shows 
+% Based on Doran and Parberry's work, we implemented 19 different actions to be used as quest actions~\citepeighth{p8Doran2011-questsMMORPGs},. In some cases, we have made the decision regarding if the actor represented in the action is friendly e.g., NPC or hostile e.g., enemy given the nature of the tool and the levels created. These actions are available for both the grammar and the designer to create as many steps as wanted in the overarching quest.  The actions are depicted in table~\ref{tab:prerequisites}, which also shows 
 
 % These actions can be added one after the other one in any order by the designers allowing for combinations and quests outside of the possible grammar seen in table~\ref{tab:grammar}
 
@@ -86,7 +86,7 @@ These actions can be added one after each other in any order by the designers al
 
 \subsubsection{Quest Grammar}
 
-The system employs a generative grammar, specifically Lindenmayer Systems (L-Systems)~\cite{p8Lindenmayer1996-LSystems} to generate the different set of quests using the production rules depicted in table~\ref{tab:productionRules}. The production rules are divided into two categories: 1) motivations for NPCs to start a quest such as~\emph{knowledge} where the focus would be to create quests with more passive actions or~\emph{reputation} where the focus would be to kill some enemy to gain reputation with some NPC. 2) Non-motivation rules related to the development of quests (i.e., non-terminal symbols) such as "go\_to" or "get". In table~\ref{tab:productionRules} non-terminal symbols are represented with "<" and ">", and terminal symbols simply list the action.
+The system employs a generative grammar, specifically Lindenmayer Systems (L-Systems)~\citepeighth{p8Lindenmayer1996-LSystems} to generate the different set of quests using the production rules depicted in table~\ref{tab:productionRules}. The production rules are divided into two categories: 1) motivations for NPCs to start a quest such as~\emph{knowledge} where the focus would be to create quests with more passive actions or~\emph{reputation} where the focus would be to kill some enemy to gain reputation with some NPC. 2) Non-motivation rules related to the development of quests (i.e., non-terminal symbols) such as "go\_to" or "get". In table~\ref{tab:productionRules} non-terminal symbols are represented with "<" and ">", and terminal symbols simply list the action.
 
 % The system can generate complete quests on its own by using one of the NPC Motivations as axiom, but when used in a mixed-initiative fashion with the designer manually creating the quests, the system uses the current active quest sequence created by the designer. The system then proposes a set of valid quest items to the designer to continue the quest or replace a current action. 
 
