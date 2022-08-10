@@ -1,23 +1,60 @@
 \subsection{Introduction}
 
-% Procedural Content Generation (PCG) is defined as the use of algorithms to generate game content (levels, narrative, visuals, or even game rules) with limited human input \citepsixth{p6shaker_procedural_2016}. Recent research works have shown PCG's ability to enable new game genres, as well as to create better environments and benchmarks for learning algorithms \citepsixth{p6risi2019procedural}.
+% How can we best build a system that lets a human designer collaborate with procedural content generation (PCG) algorithms to create useful and novel game content? 
+Collaboration between AI and humans to co-design and co-create content is a significant challenge and the main focus of Mixed-Initiative Co-Creativity (MI-CC), which is the joint effort by a human user and AI to create content together~\cite{p13yannakakis_mixed-initiative_2014,liapis_can_2016}. In an MI-CC environment, designers can unleash their creativity while the computer ensures playability, measures quality, and potentially inspires them towards more creative designs. These systems' objectives are to foster creativity and provide seamless proactive collaboration, ultimately enabling a mutually beneficial collaboration. The AI role has been categorized depending on the computer agency and initiative: nanny, pen-pal, coach, and colleague~\cite{p13lubart_how_2005}. For an AI to be a colleague, it would have to intervene in the human process and take initiatives directly affecting the end product and creative process.
 
-% In parallel, 
+% that splits into four categories sorted by an ascending degree of computer agency over the creative process~\cite{p13roles}:  For an AI to be a true colleague, it would have to intervene the human's process and take initiatives which directly affect the end product. Morai Maker, an AI-driven Game Level Editor for Super Mario Bros-style games~\cite{p13morai-maker}, is an example of this. The human designer and the AI are equal co-creators that take turns to directly affect the final output, and they both have to work together by adapting to each other's design decisions.
 
-% Julian's text
+% MI-CC is the joint effort by a human user and AI to create content together in a digital environment~\cite{p13MI-CC}, where a designer can unleash their creativity while the computer ensures playability, measures quality, and potentially inspires them towards more creative designs~\cite{p13tanagra,sentient-sketchbook,morai-maker}. 
 
-How can we best build a system that lets a human designer collaborate with procedural content generation (PCG) algorithms in order to create useful and novel game content? Various systems have been proposed that allow for humans and algorithms to share authorship by both editing and critiquing the content being created, in what is called the mixed-initiative paradigm~\citepsixth{p6yannakakis2014micc,p6liapis2016mixed}. However, for such collaboration to reach its true potential, there needs to be an understanding between the human designer and the software system about what needs to be designed; ideally even a shared goal.
-
-Reaching such a shared understanding is a hard task even when both collaborators share significant cultural and professional background. When one of the collaborators is a computer program, this task is perhaps AI-complete. But we can take steps towards the goal of shared understanding. One idea is to train a supervised learning model on traces of other collaborative creation session and try to predict the next step the human would take in the design process. The main problem with this is that people are different, and different creators will want to take different design actions in the same state; another problem is what to do in design states that have not been encountered in the training data. To remedy this, it has been proposed to train multiple different models, predicting the next step for different designer ``personas'' (akin to procedural personas in game-playing~\citepsixth{p6Holmgard2019-proceduralPersonas}). However, for such a procedure to be effective, we need to have a sufficient amount of training data. The more different designer personas there are, the more training data is necessary.
-
-One way of overcoming this problem could be to change the level of abstraction at which design actions are modeled and predicted. Instead of predicting individual edits, one could identify different styles or phases of the artifact being created, and model how a designer moves from one to another. To put this concretely in the context of designing rooms for a Zelda-like dungeon crawler~\citepsixth{p6tloz}, one could classify room styles depending on whether they were enemy onslaughts, complex wall mazes, treasure puzzles, and so on. One could then train models to recognize which types of rooms a user creates in which order. By clustering sequences of styles, we could formulate designer personas as archetypical trajectories through style space, rather than as sequences of individual edits. For example, in the context of creating a dungeon crawler, some designers might start with the outer walls of the rooms and then populate it with NPCs, whereas another type of designer might first sketch the path they would like the player to take from the entrance to the exit and then add parts of the room outside the main path. These designer models could then be combined with search-based or other procedural generation methods to suggest ways of getting to the next design style from the current one. 
-
-In this paper we provide a prototype implementation of designer personas as archetypical paths through style space. Through this, we take a step further into modeling designers  For this we use the Evolutionary Dungeon Designer (EDD), a research platform for exploring mixed-initiative creation of dungeon crawler content~\citepsixth{p6alvarez2019empowering,Baldwin2017}. Data from several dozen users designing game levels with the tool have been used to train the models. Based on this data, we clustered room styles to identify a dozen distinct types of rooms. To understand the typical progress of designers and validate the clustering, we visualize how typical design sessions traverse the various clusters. We also perform frequent sequence mining on the design sessions to find a small handful of designer personas.
-
-% end of Julian's text
+ 
 
 
+% However, there needs to be an understanding between the human designer and the AI system about what needs to be designed, ideally even a shared goal.
 
+% The role of the AI in mixed-initiative systems is usually relegated to the background giving the human control over tasks, goals, and processes to achieve the final design. Nevertheless
+
+% Approaches such as designer modeling~\cite{p13liapis_designer_2013,alvarez_designer_2022} or player modeling~\cite{p13yannakakis_experience-driven_2011,holmgard_automated_2019} could help reducing the gap.
+
+% There are
+
+% Human-AI collaboration has been 
+
+Morai Maker is an AI-driven Level Editor for Super Mario Bros-style games~\cite{p13guzdial_friend_2019}, which aims at having an AI as a colleague, with an equal role as the human designer, both adapting to each other. The Evolutionary Dungeon Designer (EDD) is a mixed-initiative design tool for rogue-like dungeon games~\cite{p13alvarez_fostering_2018}. EDD uses an evolutionary algorithm (MAP-Elites) to constantly generate finished rooms for the user to pick and replace their design based on the user's manual designs. The AI does not have any definitive control over the design decisions. Rather it suggests content adapted to the designer's current design, and the designer has the option not to incorporate the AI in their creations~\cite{p13alvarez_empowering_2019}. Nevertheless, it seems relevant to explore how other degrees of AI agency could affect the resulting co-creative process in terms of frustration, constraints, efficiency, or diversity, compared to when two humans create together. This comes with potential issues derived from altering the AI's agency; that human creativity can be dampened by restrictions in the creative process~\cite{p13yannakakis_mixed-initiative_2014}.
+
+% The Evolutionary Dungeon Designer (EDD) is a mixed-initiative design tool for rogue-like dungeon games~\cite{p13eddy1}. EDD uses an evolutionary algorithm (MAP-Elites) to, based on the user's manual designs, constantly generate finished rooms for the user to pick and replace their designincorporate into the design process. This matches the nanny paradigm~\cite{p13roles}, which solely supports with suggestions and shows helpful information about the rooms~\cite{p13eddy2}. The AI does not have any definitive control over the design decisions, and the designer has the option to not incorporate the AI in its creations~\cite{p13eddy2}. Nevertheless, it seems relevant to explore how other degrees of computer agency could affect the resulting co-creative process in terms of novelty, surprise, efficiency, and diversity, as compared to when two humans create together. This comes with potential risks derived from altering the initiative of the AI, that human creativity can be dampened by restrictions and frustration in the creative process~\cite{p13MI-CC}.
+
+% To enable a colleague relationship between human and AI in EDD, the AI would have to take initiatives in the design process~\cite{p13roles}. 
+
+This paper explores how AI with varying degrees of agency affects the human users' design process in EDD. Three different versions of the tool are developed with varying degrees of the AI's control over the design process. These versions are then examined in a user study, and the results are analyzed to understand further the colleague relationship between humans and AI in MI-CC systems. The study also analyzes the degree of support these three AI companions have on lateral thinking, which is a vital part of the creative process. By assessing the three variants of agency, it is possible to compare the differences in the resulting creative relationships between the designer and AI, identifying factors that affect the designer's creative process in terms of frustrating elements, perceived limitations, and adaptation to their creative colleague.
+
+
+% \textbf{RQ1: How does adjusting the control of the design decisions in mixed-initiative systems affect the human user's creativity?}
+
+% \begin{itemize}
+%     \item \textbf{RQ1.1} What are the effects on the human designer's design goal during the process?
+    
+    
+%     \item \textbf{RQ1.2} What are the effects on the human designer's perception of limitations or frustration?
+    
+    
+% \end{itemize}
+
+
+
+% Answering this research question aspires to provide understanding of the human's interaction with mixed-initiative systems and how it affects the human's experience in different degrees of creative freedom.
+
+
+% \textbf{RQ2: How can the three degrees of initiative be explored to asses the support of the AI in terms of the human's creative process?}
+
+% \begin{itemize}
+%     \item \textbf{RQ2.1} How do they support lateral thinking and the introduction of new ideas?
+    
+    
+%     \item \textbf{RQ2.2} How does the designer respond to the AI's differing degrees of initiative?
+    
+    
+% \end{itemize}
 
 
 

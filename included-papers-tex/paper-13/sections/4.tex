@@ -1,66 +1,71 @@
-\subsection{Concepts and Definitions}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table*}[t]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|lllllllllll|l|}
+\hline
+AIs  & Len       & Lin       & Meso      & Spatial   & Symmetry  & $W_{dens}$ & $W_{spar}$ & $E_{dens}$ & $E_{spar}$ & $T_{dens}$ & $T_{spar}$ & Steps       \\ \hline
+AIv1 & 0.56±0.07 & 0.91±0.02 & 0.15±0.05 & 0.35±0.1  & 0.43±0.11 & 0.27±0.09  & 0.21±0.05  & 0.24±0.07  & 0.22±0.05  & 0.37±0.13  & 0.36±0.11  & 39.25±6.38  \\
+AIv2 & 0.62±0.09 & 0.92±0.02 & 0.13±0.07 & 0.41±0.11 & 0.35±0.18 & 0.26±0.08  & 0.19±0.03  & 0.27±0.06  & 0.32±0.05  & 0.28±0.09  & 0.3±0.1    & 84.31±14.85 \\
+AIv3 & 0.57±0.08 & 0.91±0.01 & 0.12±0.05 & 0.34±0.09 & 0.35±0.12 & 0.21±0.05  & 0.15±0.01  & 0.3±0.06   & 0.35±0.06  & 0.34±0.07  & 0.37±0.05  & 76.75±17.02 \\ \hline
+\end{tabular}%
+}
+\caption{Summary of the created rooms filtered by the AI version used. The first five values relates to the MAP-Elites dimensions, then the fitness of the rooms, the density and sparsity values for wall (W), enemies (E), and treasures (T), and finally the avg. steps taken to design a room.}
+\label{tab:AIavgValues}
+\end{table*}
 
-%This paper presents an approach and fundamental steps towards the implementation of designer personas: an analysis of designer style clustering to isolate archetypical paths that can be later be used to build ML surrogate models of archetypal designers. Such models would adapt to the dynamic designer during the mixed-initiative creative process by being placed in the solution space, allowing the designer to traverse such space of models as she drifts through the many dimensions of her creative process.
+\subsection{Experiment Setup}
 
-% design archetypes 
+We conducted a user study to explore the user experience of using different levels of AI agency, the different design characteristics, and the relationship between the human designer and the AI. We collected both quantitative data on the AI's impact on the co-designed end product and qualitative data through think-a-loud and semi-structured interviews regarding the users' experience when interacting with the AI. The interview structure is inspired by the pyramid model, meaning the interviews will begin with specific questions, and gradually have more open questions, which naturally allows for a discussion towards the end. This model is chosen to support the variation of subjects the interview is desired to cover, as well as support natural transitions between the questions and their openness. The questions and user study procedure can be found in Appendix A. 
 
-Our work draws from many of the ideas and concepts introduced by Liapis et al.~\citepsixth{p6Liapis2013-designerModel}, in relation to style, goals, preferences and design processes of designers. Nevertheless, given the interdisciplinary scope of this system, and the multiple concepts discuss throughout the paper, it is essential to have operational definitions on the different terms used.
+%The interviews are semi-structured, meaning it includes both closed and more open questions, and depending on the discussion and answers, some questions might be omitted.
 
-\subsubsection{Design Style} \label{p6sec:designStyle}
-
-%Every designer has a different style when creating content, especially levels, where one might 
-
-% One idea is to train a supervised learning model on traces of other collaborative creation session and try to predict the next step the human would take in the design process. The main problem with this is that people are different, and different creators will want to take different design actions in the same state;
-
-% One way of overcoming this problem could be to change the level of abstraction at which design actions are modeled and predicted. Instead of predicting individual edits, one could identify different styles or phases of the artifact being created, and model how a designer moves from one to another. To put this concretely in the context of designing rooms for a Zelda-like dungeon crawler~\citepsixth{p6tloz}, one could classify room styles depending on whether they were enemy onslaughts, complex wall mazes, treasure puzzles, and so on. One could then train models to recognize which types of rooms a user creates in which order. By clustering sequences of styles or phases we could formulate designer personas as archetypical trajectories through style space, rather than as sequences of individual edits. For example, in the context of creating a dungeon crawler, some designers might start with the outer walls of the rooms and then populate it with NPCs, whereas another type of designer might first sketch the path they would like the player to take from the entrance to the exit and then add parts of the room outside the main path.
-
-There exist many different styles when creating content, especially levels, that designers can create and adapt to accomplish their goals and the experiences they want for players. On a general level, \emph{Design Style} can be analyzed as overarching goals that different designers have when creating a dungeon. For instance, dungeons in games such as Zelda\citepsixth{p6tloz} or The Binding of Isaac\citepsixth{p6mcmillen_binding_2011}, represent a particular playing style planned by the designer. In the former, low tempo, exploring the dungeon, and secret rooms define the style of the dungeons, whereas in the latter, high tempo, optimizing time and resources, small rooms, and in general high-challenge define the dungeons. 
-
-While interesting and relevant to understand the designers' holistic design process and the expected player experience, \emph{Design Style} can also be discussed from an individual room basis. Rooms have their own set of characteristics and styles that can be identified and modeled to understand their design process. Some would prefer to create the architecture of the room first to then create the goals within, whereas others would like to place strategic objectives around and then create the architecture around it or alternating between both. Even with such a division, how to reach those design styles is not straightforward and does not require the same strategy, which also shows the preference and style of individual designers. For instance, if the goal is to create a challenge to reach a door, the designer could create a room with a substantial amount of enemies, or create a concentrated high-challenge in the center of the room, or divide the room into smaller choke areas. Therefore, in this paper, we treat \emph{Design Style} as the style designers follow to create a room, informed by the individual steps each has taken connected to their preferences and goals.
-
-% this general level is interesting to udnerstand the designer's holistic design process, there is a need to 
-
-% analyzing the individual rooms gives a
-
-% Every designer has a different style when creating content, especially levels, some would prefer to create the architecture of the room first to them proceed to create the goals within, whereas others would like to place strategic objectives around and then create the architecture around it or alternating between both. Even with such a division, how to reach those design styles is not straightforward and does not require the same strategy, which also shows the preference and style of individual designers. For instance, if the goal is to create challenge to reach a door, the designer could create a room with a substantial amount of enemies, or create a concentrated high-challenge in the center of the room, or divide the room into smaller choke areas.
-
-% Going to a more general level, one could also think of the designs as overarching goals that different designers have when creating the dungeon. For instance, dungeons in games such as Zelda\citepsixth{p6tloz} or The Binding of Isaac\citepsixth{p6mcmillen_binding_2011}, represents a certain playing style planned by the designer. In the former, low tempo, exploring the dungeon, and secret rooms defines the style of the dungeons, whereas in the latter, high tempo, optimizing time and resources, small rooms, and in general high-challenge. While this general level is interesting to udnerstand the designer's holistic design process, there is a need to 
-
-% the whole dungeon represents a certain playing style the design
-
-% One can also think on the designs as a overaching goals that different designers would have, some would luike a high-tempo with smaller rooms and high challenge with minimal rewards while others might prefer the designer to go through more convoluted mazes with many connections to confuse the player and reward the understanding of patterns. While this view is interesting to understand the designer's holistic design process; in this paper we threat Design Style specifically as the style designers follow to create a room, informed by the individual steps each has taken.
+% We collected quantitative data regarding what impact the AI had on the co-designed end product, and how the human designer interacted with the AI's contributions. Likewise, we collected qualitative data through recorded think-aloud observations and semi-structured interviews regarding the users' experience, and possibly catch certain remarks of frustration or appreciation of their digital colleague that can be valuable for the discussion of the relationship between the co-creators. 
 
 
-% % I think i should discuss 
+%We collected the following data:
 
-% % While very discussed, style 
+%\begin{itemize}
+%    \item \textbf{Audio Recordings:} 
+%\end{itemize}
 
-% We can discuss this in both a specific and general level. For adventure and rogue-like games such as Zelda\citepsixth{p6tloz} or The Binding of Isaac\citepsixth{p6mcmillen_binding_2011}, the whole dungeon represents a certain playing style the design  %in-development
+Eight participants tested our tool with game design and level design experience. One participant was a professional game designer with eight years of professional experience (first participant), and seven participants were third-year Game Development students. They all had an individual digital session, where we shared our screen, and they took remote control to conduct the study. Participants accepted to participate, signed consent forms, and then received a short introduction describing the experiment and its steps. The participants were then asked to design two contiguous rooms in a dungeon, repeating this process for each of the AI variants and expressing their design decisions verbally whenever they felt like it. After using the tool, the participants were interviewed, focusing on and covering an overarching understanding of the user experience, particularly in terms of creativity and interaction with the AI.
 
-\subsubsection{Designer's Goals}
+% the relationship that occurs between the AI and human designer (See Appendix B). 
 
-% Usually, designers' goals are linked to the experiences they want to create for players, however, in a MI-CC tool, the goal is defined as the 
+For all the sessions, human designers could place up to 12 tiles, and the AI could place as many tiles as the human placed. The AI could contribute only in a rectangular area surrounding the tiles the human designer recently contributed with, including a margin of 1 tile. This choice is made to support a responsive and collaborative behavior of the AI that builds on the human designer's contribution.
 
-% It is identified as the 
-The designer's goal is defined as the current state of rooms and the set of interactions done in the tool or sequence of steps taken thus far, to reach such a state. Goals by the designer are linked to the addition and strategic placement of enemies and treasures, giving some goal for the player, e.g., forcing the fight with an enemy or allowing the player to avoid the conflict through side paths.
 
-%Specifically, this definition is used as the current goal to be achieve by the designer identified as the sequence of steps taken thus far. Goals by the designer are linked to the addition and strategic placement of enemies and treasures, which gives some type of goal for the player, e.g. force the fight with an enemy or give the opportunity for the player to avoid the conflict through side paths. 
+% The locations available for the AI to contribute in for each turn are limited to a rectangular area surrounding the tiles the human designer recently contributed with, including a margin of 1 tile. This choice is made to support a responsive and collaborative behavior of the AI that builds on the human designer's contribution.
 
-%Moreover, in EDD the designer is tasked to create a dungeon with an unlimited amount of interconnected rooms where each room can be further designed on it's own. When designing the dungeon and the rooms, the designers have the freedom to create the rooms as they want with any goal for the player. For instance, if the goal of the designer is to create a boss room, she might create a room with some narrow corridors that end up in a fight with a boss.
+% The margin for the contribution area is set to 1, as it was found during experimentation that any margin bigger than this is likely perceived as the AI contributing to other areas than the ones the human is focused on, because of the default size of the room being relatively small.
 
-\subsubsection{System Goals}
+%  as this enables the designer to contribute with an adequate amount of tiles during their turn and create representable structures
 
-The system goals are defined as the system's approach to support and foster the work of the designer by providing suggestions aligned with her current design or giving assistance, information, visualization, and measurements when needed. In general, when providing suggestions, the system aims at generating rooms among multiple areas of the generative space, simultaneously providing rooms adapted to the designer's goal and different from it. 
+% The rooms produced during the user study are displayed in Figure 6, 7 and 8. Rooms with red borders are infeasible, meaning there are unreachable tiles. The UI displays a warning when this happens, and the AI can repair this during its turn, however the resulting rooms that are infeasible are a result of the human designer creating unreachable areas, and then immediately selecting to go to the World Editing view, before pressing "End Turn". 
+% Each participant created two rooms for each version of the AI. Participant 1 created Room 1 and Room 2 for all version, Participant 2 created Room 3 and Room 4 for all version, etc. All of the participants had the option to adjust the sizes of the rooms in the World Editing view before entering the Room Editing view, however none of them did, and therefore all of the resulting rooms are of the default size. The designer also has the option to change the location of the hero and the doors. The location of the hero was only moved twice in all of the session, and the doors where never moved. 
 
-%The system's goal is to support the work of the designer by providing assistance, information, and measurement when needed. The system's main feature is the provided suggestions by means of the Interactive Constrained MAP-Elites~\citepsixth{p6Alvarez2020-ICMAPE}. These suggestions adapts to the current room's design by automatically modifying the fitness function in favor of the new features of the room such as enemy and treasure ratios or the balance between corridors and open chambers. Through this suggestions, the goal is to provide possible designs in the generative space for the designer while fostering her creativity by presenting suggestions that might not have been considered by her.
 
-\subsubsection{Shared Goals}
 
-The shared goals between the system and the designer are defined as the goals the designer has when creating the dungeon and the individual rooms. Thus, in this paper, the shared goal is set and defined by the designer with her design, and as she develops, adapts, and changes, the system seeks to adjust its goals to support the designer's work. Furthermore, the aim of this paper is to propose a system that is able to identify the designer's current goal and style to adapt further the system's goals to provide a personalized experience.
 
-% \subsubsection{Design Archetypes}
-%   %in-development
-% Design archetypes or archetypical designer paths are used to describe and represent design processes' paths taken by designers when creating levels 
-% This is akin to player archetypes~\citepsixth{p6bartle1996-taxonomy} that partition players into descriptive categories by analyzing their in-game behavior and reactions, design archetypes or archetypical designer paths are used to describe and represent 
 
-% analyzes the behavior of players  partition players into descriptive categories 
+
+%, the participant will take part in an interview. The questions, and their order, are planned out and designed to cover an overarching understanding of the user experience, in particular in terms of creativity, and the relationship that occurs between the AI and human designer (See Appendix B). 
+
+
+
+
+%The participants were asked to repeat this for each of the AI-initiatives. was asked to repeatEach pair of room 
+
+% then asked to complete three tasks, each regarding
+
+%The users were then asked to complete three tasks that covered the tool's functionality and the AI-initiatives, respectively for each task. The tasks were 
+
+
+%and different approaches to creating quests. The tasks were to 1) manually create a quest, 2) automatically create a quest, and 3) create a quest through mixed-initiative. They were also asked to create a dungeon that suited their preferences and objectives before creating quests. The questionnaire consisted of 17 closed-ended questions, and the rest were open-ended. The interview began with a questionnaire with six questions about the users' background and experience within game development and finish with questions about their experience and opinions on the tool. Both the questionnaire and interview followed guidelines described by
+
+
+
+%The participants used the tool
+
+

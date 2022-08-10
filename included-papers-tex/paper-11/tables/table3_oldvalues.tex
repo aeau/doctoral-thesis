@@ -1,0 +1,22 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table*}[t]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|llll|llll|}
+\hline
+               & \multicolumn{4}{c|}{With level constraint}               & \multicolumn{4}{c|}{No level constraint}                \\ \hline
+Experiment     & Avg. coverage & Avg. Uniques & Avg. fitness & Avg. Int   & Avg. coverage & Avg. Uniques & Avg. fitness & Avg. Int  \\ \hline
+Experiment 1   & 35.3\%±0.7$\star$    & 688.4±103.7  & \textbf{0.64±0.023$\star$}   & 0.30±0.017 & \textbf{36.9\%±1.4$\star$}    & \textbf{1454.8±492.9} & 0.63±0.02$\star$    & \textbf{0.33±0.03} \\
+Experiment 2   & 27.9\%±2.9    & 692.6±210.6  & \textbf{0.63±0.02}    & 0.31±0.025 & \textbf{30\%±2.3}      & \textbf{1782.4±238.2} & 0.61±0.02    & \textbf{0.34±0.02} \\
+Experiment 3   & 34.7\%±1.9    & 777.8±211.4  & \textbf{0.6±0.01}     & 0.33±0.032$\star$ & \textbf{38.2\%±1.1}    & \textbf{1910.4±375.6$\star$} & 0.56±0.01    & \textbf{0.36±0.01$\star$} \\
+Experiment 4   & \textbf{34.7\%±3.7}    & 787.4±285.1$\star$  & \textbf{0.56±0.03}    & \textbf{0.24±0.022} & 33.9\%±3.8    & \textbf{1750.2±624.6} & 0.49±0.04    & 0.23±0.02 \\ \hline
+Experiment 4.1 & 7.4\%±2.9     & 65.8±15.3    & \textbf{0.56±0.04}    & \textbf{0.07±0.045} & \textbf{9.8\%±2.3}     & \textbf{116.6±24.9}   & 0.47±0.05    & 0.07±0.05 \\
+Experiment 4.2 & 7.08\%±3.1    & 59.4±27.5    & \textbf{0.54±0.07}    & 0.06±0.043 & \textbf{10.9\%±0.6}    & \textbf{170±86.5}     & 0.42±0.04    & \textbf{0.09±0.03} \\
+Experiment 4.3 & 15.74\%±4.9   & 137±72.1     & \textbf{0.55±0.04}    & \textbf{0.26±0.031} & \textbf{20.9\%±2.6}    & \textbf{335.8±126}    & 0.45±0.05    & 0.22±0.05 \\
+Experiment 4.4 & \textbf{21.6\%±4.6}    & 209.8±79.1   & \textbf{0.58±0.04}    & \textbf{0.25±0.038} & 21.6\%±4.7    & \textbf{478.8±208.4}  & 0.49±0.05    & 0.24±0.05 \\
+Experiment 4.5 & \textbf{27.7\%±4.2}    & 315.4±118.9  & \textbf{0.57±0.03}    & 0.29±0.019 & 26.2\%±4.3    & \textbf{649±207.4}    & 0.52±0.03    & \textbf{0.29±0.01} \\ \hline
+\end{tabular}%
+}
+\caption{Experiments using all possible dimensions (7 dimensions) as behavioral dimensions in the MAP-Elites search. Coverage relates to the pair Interestingness-Step for comparison with Study 1. Values in bold represent the best values in the specific experiment between using or not using level constraints. $\star$ represents the best values across experiments within their specific condition (using or not level constraints).}
+\label{tab:exp-all-dims}
+\end{table*}

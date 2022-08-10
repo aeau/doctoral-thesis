@@ -1,0 +1,35 @@
+\subsection{Discussion and Limitations}
+
+%Limitations with the trope-graph representation, the use of ambiguity (or unambiguity), Focalization, Metrics not based on human evaluation and judgement (moving towards a mixed-initiative system will help although, dont solve the problems). Also, the need for an intermediary system that can make sense of the graphs, or at least an ''interpreter'' that can interpret many stories from the structure, and can learn/be guided by the user.
+
+%Limitations with the trope-graph representation, the use of ambiguity (or unambiguity), Focalization, Metrics not based on human evaluation and judgement (moving towards a mixed-initiative system will help although, dont solve the problems). Also, the need for an intermediary system that can make sense of the graphs, or at least an ''interpreter'' that can interpret many stories from the structure, and can learn/be guided by the user.
+
+%TropeTwist allows the generation 
+
+The trope-graph representation in TropeTwist allows for a quick definition of narrative structures. They are, by design, ambiguous, do not encode temporal information besides causal chains, and are, to some extent, generic, which makes structures relatively simple to develop but more complex to interpret. These design decisions make the system encode less rich information than others, such as Scheherazade~\cite{p12elson-2012-dramabank}, but allow the structure to be interpreted in multiple ways. For instance, the generated graphs could equally describe different stories, and the interpretation given in this paper is just one of many. Thus, the system effectively shifts the complexity from the structure to the ``interpreter.'' While the generated structures could already serve as inspiration for users, an interpreter could provide alternative interpretations that could be guided by or learned from users, which is part of our future work.
+
+%The trope-graph representation in TropeTwist allows for quick definition of narrative structures. They are, by design, ambiguous, do not encode temporal information besides causal chains, and are to some extent, generic which makes structures relatively simple to develop, but more complex to interpret. These design decisions make the system encode less rich information in comparison to others such as Scheherazade, but allows the structure to be interpreted in multiple ways. For instance, the generated graphs could equally describe different stories, and the interpretation given in this paper is just one of many. Thus, the system is effectively shifting the complexity from the structure to the ``interpreter.'' The development of an interpreter system. to interpret stories form the structures is an exciting future work. While the generated structures could already serve as inspiration for users; an interpreter could provide alternative interpretations that could be guided by or learn from users.
+
+%The need and development of an ``interpreter'' system to interpret stories from the structures is  
+
+%I think that the graphs you give as examples, while they are much too ambiguous to be interpreted by themselves and have serious coherence issues under many interpretations, could already serve as excellent inspirations for human creativity. But this is not an angle you emphasize throughout the paper. 
+
+
+%For instance, the interpretation given about the generated graphs could have easily been  The system is effectively 
+
+%The 
+
+
+
+%The narrative structure endogenous properties such as gener
+
+%The complexity in interpretation 
+
+%They encode, however, less information 
+
+Furthermore, the metrics proposed and developed here were used to tune and evaluate the graph outputs without humans in the loop. However, they do not stand in or replace human judgment. The metrics are estimated heuristics mainly based on the graph functionality and relation among patterns. Most of them are related to a ``root graph,'' which is a preliminary step for making TropeTwist interactive and have humans-in-the-loop. We aim to develop a mixed-initiative version of TropeTwist, where metrics depend on the designer's creation. This would, in turn, allow the designer to steer the MAP-Elites search, generating content adapted to them~\cite{p12alvarez_assessing_2021}, and for MAP-Elites to assist designers with ideation proposing varied structures.
+
+%Furtheremore, These metrics (pattern quality, fitness functions, and behavior dimensions) were developed and used to tune and evaluate the graph outputs without humans in the loop. However, they do not stand in or replace human judgement. The metrics are estimated heuristics mainly based on the graph functionality and relation among patterns. Most of them are related to a ``root graph,'' which is a preliminary step for making TropeTwist interactive and have humans-in-the-loop. In future work, we aim at validating these metrics with human designers as well as developing a mixed-initiative version of TropeTwist, where metrics are dependant on the designer's creation. This would, in turn, allow the designer to steer the generation~\cite{p12alvarez_assessing_2021}, and for MAP-Elites to assist designers with ideation proposing related but different structures.
+
+%You: the quality is an estimated heuristic based on their functionality and relation to other similar patterns. We agree with the description done by R1, but these qualities are relative to the edited graph. We envision these as parameterized qualities, as one of our goals with the system is to create a mixed-initiative system where qualities will be adapted to what the designer creates.
+ 

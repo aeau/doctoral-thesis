@@ -1,0 +1,22 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table*}[t]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|llll|llll|}
+\hline
+               & \multicolumn{4}{c|}{With level constraint}              & \multicolumn{4}{c|}{No level constraint}                \\ \hline
+Experiment     & Avg. coverage & Avg. Uniques & Avg. fitness & Avg. Int  & Avg. coverage & Avg. Uniques & Avg. fitness & Avg. Int  \\ \hline
+Experiment 1   & 23\%±2.7      & 145.8±34.6   & \textbf{0.71±0.02$\star$}    & 0.35±0.04 & \textbf{24\%±3.5}      & \textbf{229±53.7}     & 0.69±0.01$\star$    & \textbf{0.37±0.04} \\
+Experiment 2   & 19.1\%±1.2    & 174.8±26.5   & \textbf{0.7±0.03}     & 0.37±0.02 & \textbf{21.7\%±1.9}    & \textbf{296.4±20.1}   & 0.69±0.01$\star$   & \textbf{0.37±0.01} \\
+Experiment 3   & 20.4\%±1.4    & 152.8±21.1   & \textbf{0.67±0.02}    & 0.39±0.03$\star$ & \textbf{21.5\%±2.2}    & \textbf{238.2±28.9}   & 0.65±0.01    & \textbf{0.4±0.01$\star$}  \\
+Experiment 4   & 26.8\%±1.7$\star$    & 277.8±30$\star$     & \textbf{0.64±0.02}    & 0.24±0.04 & \textbf{29.9\%±1.5$\star$}    & \textbf{515±82.1$\star$}     & 0.64±0.03    & \textbf{0.29±0.02} \\ \hline
+Experiment 4.1 & 7.1\%±1.6     & 46.4±11.4    & 0.58±0.04    & 0.09±0.03 & \textbf{10\%±2.2}      & \textbf{89.2±30.3}    & \textbf{0.6±0.04}     & \textbf{0.14±0.07} \\
+Experiment 4.2 & 4.3\%±1.4     & 27.8±12.4    & 0.57±0.06    & 0.09±0.04 & \textbf{7.8\%±3.6 }    & \textbf{70.4±42.5}    & \textbf{0.61±0.05}    & \textbf{0.17±0.09} \\
+Experiment 4.3 & 10.7\%±1.8    & 60±15.2      & \textbf{0.63±0.03}    & 0.26±0.06 & \textbf{15.5\%±3.2}    & \textbf{129±45.1}     & 0.6±0.07     & \textbf{0.32±0.04} \\
+Experiment 4.4 & 13.3\%±2.9    & 81±29.4      & \textbf{0.68±0.02}    & 0.28±0.06 & \textbf{16.6\%±1.6}    & \textbf{144.2±34.4}   & 0.67±0.04    & \textbf{0.35±0.04} \\
+Experiment 4.5 & 11.9\%±3.1    & 62.6±25.9    & 0.69±0.06    & \textbf{0.35±0.04} & \textbf{12.9\%±0.8}    & \textbf{82.2±21.5}    & \textbf{0.69±0.04}    & 0.34±0.05 \\ \hline
+\end{tabular}%
+}
+\caption{Average values from the experiments using Interestingness and Step as dimensions. Values in bold represent the best values in the specific experiment between using or not using level constraints. $\star$ represents the best values across experiments within their specific condition (using or not level constraints).}
+\label{tab:exp-int-step}
+\end{table*}

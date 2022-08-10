@@ -1,219 +1,135 @@
-\subsection{Room Style Clustering}
+\subsection{Building narrative structures with tropes}
 
-% \begin{enumerate}
-%     \item Information on the user studies and how we develop the clusters.
-%     \item collected data through 2 user studies
-%     \item transformed the data into 5 datasets
-%     \item data reduction through PCA and T-SNE. Cluster with K-means, K-Medoids, agglomerative clustering and DBSCAN. Evalulated through internal indices (silhouette index, DB index, and CH-index) 
-% \end{enumerate}
+In storytelling, a trope~\cite{p12tropesSimpsons} is a convention or figure of speech that the storyteller assumes to be recognizable by the audience. TvTropes is an online wiki that compiles and describes several thousand tropes in many sorts of media~\cite{p12tvtropes}. As exemplified by \cite{p12periodicTable}, tropes could be interconnected in graph-like structures, called story molecules, to succinctly depict the structure behind a narrative. 
 
-\begin{figure*}[ht!]
-\centerline{\includegraphics[width=\textwidth]{figures/process-steps.png}}
-\caption{The stages of the design style clustering development: (1) Data was first collected through two user studies. (2) Then, using the design sequences, the data was processed into five different datasets, one using the room images, a second using the tiles information, and three using tabular information. (3) A data reduction technique was applied to different datasets, and then they were clustered and internally evaluated. (4) The clusters were formed, picked from the best performing methods, and labeled based on the data points within each cluster. The cluster were evaluated by visualizing how a typical design session traverse the various clusters, and K-Means (K=12) was chosen as the final approach. (5) Finally, using this final approach all the sequences were clustered and archetypical paths were identified.%(5) The final approach,  K-Means (K=12) was evaluated by visualizing how a typical design session traverse the various clusters. Finally, the sequences were clustered by the final approach and archetypical paths were identified.
-} \label{p6fig:approach-steps}
-\end{figure*}
+\subsubsection{TropeTwist}
 
-\begin{figure*}[t]
-\centerline{\includegraphics[width=\textwidth]{figures/final-cluster.png}}
-\caption{Best resulting cluster set. K-Means (K=12), using the \textbf{Tiles} Dataset. While it scores slightly less in the internal indices that other setups, a qualitative analysis successfully gives us more granularity by subdividing the main bottom clusters, to label and cluster the design process of designers. Sample rooms belonging to each cluster are displayed on the right, next to the total number of rooms in the cluster.} \label{p6fig:all-clusters}
-\end{figure*}
+TropeTwist elaborates on the concept of story molecule to represent narratives using graph-like structures of interconnected tropes, called narrative graphs (NG). NGs encode narrative structures in an abstract level that show and define the game's narrative structure and certain abstract properties such as key items, roles, relations, or main events. Table \ref{tab:tropes} shows all the included tropes to be used as nodes. Nodes are depicted (fig~\ref{fig:teaserfig}) with shapes specific to their trope base type: heroes (rectangle), conflicts (diamond), enemies (hexagon), and plot devices (circle). HERO is the base pattern of 5MA, NEO, and SH. ENEMY is the base pattern of EMP, BAD, and DRAKE. PLD is the base pattern of CHK, MCG, and MHQ.
 
-% \begin{figure*}[b]
-% \centerline{\includegraphics[width=13cm]{figures/representative cluster-steps.png}}
-% \caption{Examples of a step by step edition sequence of a design session and it's clustering. To the left, we present the actual sequence and steps of one of the rooms in the dataset and to the right is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{p6fig:paths-designers}
-% \end{figure*}
+Nodes in a narrative graph are necessarily interconnected by either unidirectional or bidirectional edges (with one or both arrowheads) or by entailment edges (with a single diamond head). Given nodes A and B, A $\diamondsuit$--- B, reads as ``A entails B,'' whereas A $\rightarrow$ B denotes a relationship from A to B, and B $\rightarrow$ A the opposite. A $\leftrightarrow$ B denotes a reflexive relationship between A and B. As an example, HERO $\rightarrow$ CONFLICT $\rightarrow$ EMP denotes a hero who is in conflict against an empire-type enemy, whereas HERO $\leftrightarrow$ CONFLICT denotes a hero who is in conflict with themselves. EMP $\diamondsuit$--- DRAKE $\diamondsuit$--- NEO, denotes an empire that entails a dragon enemy that, once beaten, will lead to the appearance of a chosen one hero, creating some causal links. The system is ambiguous by design. We take advantage of the ambiguity for 1) the generation of new structures (fewer constraints), 2) removing the focus on details by designers to let them focus on the overarching picture, and 3) for other systems to define and interpret these abstract properties. 
 
-% \begin{figure}[h]
-% \centerline{\includegraphics[width=8cm]{figures/representative-cluster-steps-alter.png}}
-% \caption{Example of a step by step edition sequence of a design session and it's clustering. At the top, we present the actual sequence and steps of one of the rooms in the dataset, in a $4\times7$ grid, starting at the top left with the first edition. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{p6fig:paths-designers}
-% \end{figure}
+Furthermore, interconnecting tropes can give rise to other tropes and patterns, described in the following section. The nodes and their respective trope and pattern were chosen from a subset of tropes in generic categories such as heroes or plot devices. These categories were inspired and chosen based on tropes from TVTropes, the division by James Harris~\cite{p12periodicTable}, and previous research such as Propp's morphology~\cite{p12propp1975-morphology} or Greimas' actantial model~\cite{p12Greimas84-structuralSemantics}. 
+% Given the nature of tropes, interconnecting them can arise other tropes, which we describe in the following section.
 
-\begin{figure*}
-\centerline{\includegraphics[width=\textwidth]{figures/representative-clusters-small.png}}
-\caption{Example of a step by step edition sequence of a design session and it's clustering. At the left, we present the actual sequence and steps of one of the rooms in the dataset, in a $4\times7$ grid, starting at the top left with the first edition. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{p6fig:paths-designers}
-\end{figure*}
+\subsubsection{Trope Patterns}
 
-This paper presents an approach and fundamental steps towards the implementation of designer personas: an analysis of designer style clustering to isolate archetypical paths that can be later be used to build ML surrogate models of archetypal designers. Such models would adapt to the dynamic designer during the mixed-initiative creative process by being placed in the solution space, allowing the designer to traverse such space of models as she drifts through the many dimensions of her creative process.
+%These patterns were identified based on tropes, such as RevP, or as a functional combination of tropes and patterns such as DerP. 
 
-The proposed system builds on top of EDD's Designer Preference Model and preliminary results \citepsixth{p6Alvarez2020-DesignerPreference}, expanding it to classify the designers' designs based on clusters developed using previously hand-made design sequences by expert and non-expert designers. Figure \ref{p6fig:approach-steps} illustrates our approach in five sequential stages, from data collection to experimentation and results. The first four stages are explained in the following subsections, whereas Section~\ref{p6section:results} shows the experimental results.
+Tropes and interconnected tropes (i.e., subgraphs) give rise to different types of patterns. These patterns can be \textbf{micro-patterns}, encapsulating a single trope node, \textbf{meso-patterns}, often composed by more than one micro-pattern with special meaning, and \textbf{auxiliary patterns}, denoting graph problems. We calculate the relative tropes and patterns' quality within an NG and use this to assess the general quality of the graph. These qualities are proxies for certain characteristics among the defined patterns that are used to evaluate the graphs, but they do not capture any story quality; especially, since we are only defining structures. When generating narrative graphs from a root (explained in section~\ref{sec:evolvingNarratives}), the quality of a narrative graph becomes relative to the root, henceforth, the ``root graph'' (RG). In the following descriptions, we will use \textbf{EG} referring to the ``evaluated graph'' we are calculating the pattern's quality (the generated individual), and \textbf{RG} to refer to the relative and root graph. When using subscript ``pat,'' we refer to the current pattern that is evaluated. 
 
-\subsubsection{Data Collection}
+%buHowever, these qualities do not capture any story quality; rather they are used as proxys for certain characteristics among patterns 
 
-We conducted two user studies where participants were tasked with freely designing a dungeon in EDD and the rooms that compose it with no further restrictions, using all the available tiles i.e. floor, wall, treasure, enemy, and boss tiles. All participants were introduced to the tool before the design exercise. User-generated data was gathered during the complete design session, creating a new data entry every time the designer edited the dungeon. In total, we had $40$ participants, $25$ of these (i.e. NYU participants) were industry or academic researchers within the Games and AI field, and the other $15$ (i.e. MAU participants) were game design students. This resulted in a diverse dataset composed of $180$ unique rooms like the ones depicted in Figure~\ref{p6fig:approach-steps}, that was pre-processed and clustered in the subsequent stages. 
+For most patterns, we calculate three general qualities (indicated when used) that add to the quality of the pattern. $G_{q}(pattern)$ relates to the \textit{Generic} quality of patterns in EG, which calculates the general occurrence of a pattern within EG compared to its occurrence in RG, calculated in eq.~\ref{eq:generic_qual}. $R_{q}(pattern)$ relates to the \textit{Repetition} quality of patterns, which calculates if a trope is unique in EG ($R_{q}(pattern) = 1$) or its ratio among the same base pattern. Lastly, $I_{q}(pattern)$ relates to the \textit{Involvement} quality of patterns in EG, which calculates the amount of associations a pattern has with \textbf{structure patterns}. Involvement means that the pattern is either \textit{source} or \textit{target} in a structure and is calculated as the ratio of structure pattern involvement by the structure pattern count in EG. These three metrics incentivize graphs with similar amount and type of nodes than RG, minimal repetitions, and more involvement. 
 
-\subsubsection{Dataset pre-processing}
-
-From the $180$ unique rooms, we extracted and used the edition sequence of each of the rooms, from their initial design to the more elaborated end-design, to compose a richer dataset that could capture the design process of a designer rather than focusing on the end-point. Through this, we ended up using $8196$ data points in our dataset.
-%just the end-point. We ended up using $8196$ rooms
-Moreover, five different copies of the dataset were created to analyze and compare the performance of the clustering stage using the following image pre-processing methods:
-
-\begin{enumerate}
-\setcounter{enumi}{0}
-    \item \textbf{Room:} No pre-processing. Room images are fed into the next stage as they were created by the designer, with a resolution of $1300\times 700\times3$, corresponding to width, height, and RGB ($3$ color channels).
-    
-    \item \textbf{Tiles:} Each room tile type is mapped to a single-color pixel and the rooms are simplified to a pixel-tile based representation, as shown in the second stage of Figure \ref{p6fig:approach-steps}. The dimensions are downscaled to $13\times 7\times3$.
-    %Each room tile is simplified to a single-color pixel, as shown in the second stage of Figure \ref{p6fig:approach-steps}, downscaled to $13\times 7\times3$.
-    
-    \item \textbf{Dimensions:} Each room is described by its five IC-MAP-Elites feature dimension values, excluding the similarity scores: \textsc{Linearity}, \textsc{Leniency}, \textsc{\#MesoPatterns}, \textsc{\#SpatialPatterns}, and \textsc{Symmetry}. A complete description of these features can be found in~\citepsixth{p6Alvarez2020-ICMAPE}.
-    
-    \item \textbf{Inner Content:} Each room is described by $12$ values, related to the count, sparsity, and density of the enemy, treasure, floor, and wall tiles contained in it.
-    
-    \item \textbf{Combined:} A combination of the \textbf{Dimensions} and \textbf{Inner Content} methods.
-\end{enumerate}
-
-\subsubsection{Clustering and Analysis}
-
-To run all setups, data reduction algorithms, clustering algorithms, and do the internal evaluation of the clusters, we used scikit-learn machine learning toolset~\citepsixth{p6scikit-learn}. To obtain the best set of clusters, we ran different setups with the above datasets. The data was reduced to two meaningful dimensions with two different data reduction algorithms, Principal Component Analysis (PCA) and T-Distributed Stochastic Neighbor Embedding (T-SNE). For both data reduction algorithms, we fit the algorithms with each individual dataset, setting to two principal components and in the case of T-SNE using PCA as initializing algorithm, and transforming the data into a new dataset \emph{pca\_dataset} and \emph{tsne\_dataset} per dataset. Each two-dimensional point in the new datasets represents a step in the sequences described above.%Likewise, for the T-SNE, we fit the algorithm with each individual dataset, setting the parameters to two principal components and using PCA as initializing algorithm, and then transformed the data into a new dataset \textit{tsne_dataset} per dataset.
-
-Moreover, all the resulting datasets were then clustered using \textsc{K-Means, K-Medoids, Agglomerative clustering}, and \textsc{DBSCAN}. K-Means was initialized using the standard k-means++ implemented in scikit-learn, which initialize all centroids distant from each other. K-Medoids was initialized similarly, using the standard k-medoids++, and tested using the \emph{cosine}, \emph{euclidean}, and \emph{manhattan} distances. Agglomerative clustering is a hierarchical clustering approach using a bottom-up approach implemented in scikit-learn using four different linkage criteria for comparing data points: \emph{Ward}, \emph{Complete}, \emph{Average}, and \emph{Single}. Finally, DBSCAN cluster points based on density separated by low-density areas; thus, DBSCAN automatically finds $k$ based on two parameters, $\epsilon$ describing the maximum distance between points and \emph{min\_samples} describing the minimum amount of samples within a group to be considered a cluster. K-Means, K-Medoids, and Agglomerative clustering were tested using multiple $K$ values ranging from 3 to 13, and DBSCAN was tested with several $\epsilon$ values ranging from 0.3 to 1.0, and \emph{min\_samples} ranging from 2 to 9.
-
-%, testing with $K$ values ranging from 3 to 13 for the first three ones, and several $\epsilon$ values for DBSCAN.
-
-%testing different minimum distance between data points ($\epsilon$) and the minimum amount of data points within a cluster to be considered a dense region for DBSCAN.
-
-Since we lack a labeled dataset (i.e. ground truth) for cluster validation, we evaluated the results from all setups using the internal indices below, as well as manually inspecting the rooms composing the resulting clusters.
-
-%Since in our approach lacks a labeled dataset (i.e. ground truth) for cluster validation, 
-
-\begin{itemize}
-\item \textbf{Silhouette Score:} The Silhouette Score shows how similar a data point is to the cluster it is associated with, through calculating the difference between the $\overline{distance}$ from the point to the points in the nearest cluster and the $\overline{distance}$ to the points in the actual cluster. The value is bounded from -1 to +1, with values closer to +1 indicating a good separation of the clusters, and closer to -1 meaning that some points might belong to another cluster.
-\item \textbf{Davies-Bouldin Index:} The DB-index is the ratio between the within-cluster distances and between-clusters distances. With this, we can have an insight into the average similarity of clusters with their closest cluster. The value is bounded from 0 to +1, with values closer to 0 relate to clusters that are farther apart from each other and less dispersed, thus, this index is more crucial when we have more dense representations.
-\item \textbf{Calinski-Harabasz Index:} The CH-index is another index related to the density of the clusters and how well separated they are. The score is the ratio between the within-cluster dispersion (compactness) and the between-cluster dispersion (separation). The CH-index is positively unbounded, and the higher the score the better.
-\end{itemize}
-
-\subsubsection{Cluster Labelling}
-
-\begin{table}
-\begin{center}
-{\caption{Best performing setups based on their internal validation and visualization of clustered data points.}\label{p6table:setups}}
-\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{ccccccc}
-\hline
-\rule{0pt}{12pt}
-Algorithm&Data&K&$\Diamond$&$\Box$&$\bigtriangleup$ 
-\\ 
-\hline
-\\[-6pt]
-K-Means & Tiles-PCA & 9 & 0.43 & 0.73 & 9438.233 \\ 
-K-Means & Tiles-PCA & 12 & 0.41 & 0.77 & 9436.928 \\
-K-Means & Dimensions-PCA & 12 & 0.43 & 0.73 & 7738.343 \\
-Agglomerative single & Combined-PCA & 6 & 0.51 & 0.43  & 38.833 \\ 
-Agglomerative avg. & Dimensions-PCA & 6 & 0.44 & 0.67 & 3463.567 \\ 
-\hline
-\\[-6pt]
-\multicolumn{6}{l}{$\Diamond$ Silhouette Score\ \
-$\Box$ Davies Bouldin Index\ \
-$\bigtriangleup$ Calinski-Harabasz Index}
-\end{tabular}
-}\end{center}
-\end{table}
-
-Table~\ref{p6table:setups} shows the best performing setups according to their internal indices scores. The clusters in these setups were manually inspected in order to detect the qualitative features that better define them. 
-
-When using the \textbf{Dimensions} and \textbf{Combined} datasets, the clusters do perform good, if not better, in certain indices than when using the \textbf{Tiles} dataset. However, when analysing the resulting setups, they were missing a clearer relation between the clustered rooms, which was exacerbated when analysing sequences and paths on these setups, where they missed continuity between clusters.
-
-Conversely, given that we are creating tile-based rooms and dungeons, the features were more representative for the \textbf{Tiles} dataset, which when used, generally performed well in the evaluated internal indices, and the produced clusters meaningfully separate the data. Further, as it will be presented in Section \ref{p6section:results}, when clustering sequences and analyzing the cluster path of the designs, there exist a continuity between designs that supports its usability. Figure \ref{p6fig:all-clusters} shows the best-resulting cluster set found among all the experiments run.
+\begin{equation}
+\label{eq:generic_qual}
+    G_{q}(pattern) = 1.0 - |RG_{pat} - EG_{pat}|/\max(RG_{pat}, EG_{pat})
+\end{equation}
 
 
 
-% As expected, the \textbf{Tiles} dataset generally performed well in the evaluated internal indices, and the produced clusters meaningfully separated the data.
-% better information and were meaningfully group together.  relation each of the features have with 
+% RG compared to its ocurreas $G_{q}(pattern) = |RG_{pat} - EG_{pat}|/\max(RG_{pat}, RG_{pat})$. For instance, if a pattern appears as many times in EG as it appears in RG, then $G_{q}(pattern) = 1$, else we calculate the difference using normal distribution centered on the RG's pattern occurrences value.
 
-% As expected, the \textbf{Tiles} representation have good results across the 3 indices, 
+% $R_{q}(pattern)$ relates to the \textit{Repetition} quality of patterns, which calculates how many of the same trope exists in EG, calculated as $R_{q}(pattern) = pattern_type$. If the trope appears once in EG, then $R_{q}(pattern) = 1$, else we simply set $R_{q}(pattern)$ as the number of repetitions normalized by the number of tropes of the same generic type. 
 
-% JOSÉ: I leave it here waiting for the final results from Alberto
+% Lastly, $I_{q}(pattern)$ relates to the \textit{Involvement} quality of patterns in EG, which calculates the amount of \textbf{structure patterns} that a specific pattern is involved in. Involvement means that the pattern is either \textit{source} or \textit{target} in a structure and is calculated as the amount of structures patterns the trope is involved normalized by the total amount of structure patterns in EG.
 
-%Moreover, We noticed that the agglomerative approach results in very specific clusters alongside a quite broad cluster consisting of unrelated data points, regardless of the $K$ used. These setups scored well in the different indices but fail to accurately partition the space in relevant groups.
+\paragraph{Micro-Patterns}
 
-%Moreover, there are recurrent clusters between the different setups but when using more clusters like in figure~\ref{p6fig:all-clusters} (b), we can have more granularity when partitioning the space, improving the separation of more related data points. In figure~\ref{p6fig:all-clusters}(b) we present several rooms that have been clustered together matching the labeling of the clusters. In the figure, there is a clear correlation between the designs and the labels of their respective cluster, and an interesting continuity between the final clusters.
+Micro-patterns are the fundamental unit in the system, which aims at categorizing different sets of the individual patterns that are shown in table~\ref{tab:tropes}. Micro-patterns are single nodes and the basic building block that, when interconnected, allows the detection of meso-patterns.
 
-% In Figure~\ref{p6fig:all-clusters}, we present the final and selected approach for clustering room styles using K-Means (K=12) and the \textbf{Tiles} dataset reduced with the PCA algorithm. To the right, next to each color in the legend, we have different representative rooms that belong to the clusters, in their respective color, and have been clustered together. Furthermore, besides the local relation between clusters, there exists a layered division among group of clusters in the y-axis, where the bottom clusters relate more to architectural pattern complexity, from very empty rooms to mazes. The middle clusters focus on populating the rooms with enemies and treasures, creating the actual goals of the room and balancing the challenge. Finally, the top clusters are composed of dense rooms where the enemy and treasure addition do not necessarily need to follow any clear objective. 
+\emph{Structure Pattern (SP)} is any type of trope that would give some structural definition to a narrative, whether this being a conflict, specific act, or a part in a dramatic arc (e.g., climax). Currently, the only type of structure trope is the \textsc{conflict} (CONF) trope, which represents the most basic structural interaction. The quality $SP_{q}$ is calculated as the equally weighted linear combination of:
 
+\begin{equation}
+    SP_{q} = G_{q}(SP) + I_{q}(SP)
+\end{equation}
 
-% The clusters's label are plotted on top of each of the clusters, describing in general, the content that is within them. These cluster 
+\emph{Character Pattern (CP):} are identified as nodes within the narrative that could be either the player, possible ally or enemy NPCs, or simple enemies. In TropeTwist, it is distinguished between heroes and villain patterns, and these are commonly used as \textbf{sources} or \textbf{targets} (or both) of other patterns, and on a few special occasions to denote a relation to another character. The quality $CP_{q}$ is calculated per group (heroes and villains), and it is the equally weighted linear combination of:
 
-In the figure, we have plotted on top of the clusters the labels describing in general, the content that is within them. The following is a description of the clusters and the rooms that were clustered together:
+\begin{equation}
+    CP_{q} = G_{q}(CP) + R_{q}(CP) + I_{q}(CP)
+\end{equation}
 
-\textbf{0. Empty-Initial rooms:} %This cluster contains $1797$ data points, and 
-This cluster relates mostly to the initial designs made by the designers. These designs are from completely empty rooms to initial work-in-progress structures.
+\emph{Plot Device Pattern (PDP)} is described as the element within the narrative that moves it forward, as a goal, object, or dramatic element to be used or encountered by any of the characters. The quality $PDP_{q}$ is calculated as the equally weighted linear combination of:
 
-\textbf{1. Maze-like complex architecture:} This cluster to the extreme of the architectural patterns complexity layer, relates to more highly-linear, confined and maze-like rooms.% with more structure on what is possible. %The cluster contains $269$ data points.
-
-\textbf{2. Dense, less organized:} This cluster contains rooms that still have a certain objective but are moving towards more disorganized distributions of micro-patterns in relation to their density. %This cluster contains $410$ data points.
-
-\textbf{3. architectural complexification:} %This cluster contains $841$ data points, and 
-This cluster relates mostly to the complexification of wall structures by having dense wall chunks, representative architectural patterns, or symmetrical patterns.
-
-\textbf{4. Dense, full range leniency:} Focusing on density as the other two clusters within the same layer, this cluster relates to rooms that are in the full range of leniency from very rewarding, treasure rooms to very challenging boss rooms. %This cluster contains $144$ data points.
-
-\textbf{5. Separating and populating chambers:} This cluster relates to the process of separating rooms into distinct chambers, focusing on the center of the room, and starting to populate rooms with enemies and treasures. %The cluster contains $781$ data points.
-
-\textbf{6. Balancing and optimizing:} This cluster contains a mix between corridors and chambers within rooms with a focus on balancing rooms and optimizing their design towards certain goals. %The cluster contains $638$ data points.
-
-\textbf{7. Bordered rooms with deeper architectural development:} This cluster relates mostly to rooms with an added wall border by the designer, and where the focus is to shape chambers and develop more visual structures.
-
-\textbf{8. Main architectural shapes:} Similar to other clusters within the same layer, this cluster relates to the development and definition of main architectural patterns that are somewhat symmetric.
-
-\textbf{9. Dense, disorganized micro-patterns:} This cluster clusters the extreme rooms that contain a high density of tiles, other than floor-tiles, without a clear structure or objective for the player.
-
-\textbf{10. High challenge, clear goal:} This cluster relates to well-shaped rooms with clear wall structures and goals, towards more challenge. 
-
-\textbf{11. Chamber separation with forced enemy encounter:} This cluster relates to rooms that are in the process of a clear segmentation into corridors and chambers, and that enforce to some extent, enemy encounters for the player. 
-
-Furthermore, besides the local relation between clusters, the clusters are implicitly divided in three layers on the Y-axis. From bottom to top, (a) architectural patterns complexity, relating to clusters composed of rooms with clearer or complex shapes done with walls, from empty rooms to mazes. (b) Goal creation, enemy/treasure balance, with clusters comprehending the strategic addition of enemies and treasures to establish objectives in the room for the player. In terms of EDD, these rooms are composed of more meso patterns. And (c), over-population, which relates to clusters filled with less organized and dense rooms where the enemy and treasure addition do not necessarily need to follow any clear objective. Identifying the designer in such layer, and the path they have taken to get there could show meaningful information in the design process. For instance, the intentions of the designer, in what phase of the design process she is at the moment i.e. trying the tool or observing how the tool reacts or scraping her current goal towards a new goal within the room. 
-
-% \begin{enumerate}
-% \setcounter{enumi}{-1}
-% \item[0] \textbf{Empty/Initial rooms:}
-% \item \textbf{Complex wall mazes:} 
-% \item \textbf{Dense, less structure} 
-% \item \textbf{Structural complexification:} 
-% \item \textbf{Dense, full range leniency} 
-% \item \textbf{Separating and populating chambers:} 
-% \item \textbf{Balancing and optimizing rooms:} 
-% \item \textbf{Bordered rooms with deeper structural development:}
-% \item \textbf{Development of main structural shapes:} 
-% \item \textbf{Dense, unstructured:} 
-% \item \textbf{Challenging rooms with clear goal:} 
-% \item \textbf{Chamber separation with forced enemy encounter:} 
-% \end{enumerate}
+\begin{equation}
+    PDP_{q} = G_{q}(PDP) + R_{q}(PDP)
+\end{equation}
 
 
+\paragraph{Meso-Patterns}
+%~\cite{p12dahlskog2014-multimultilevel} 
+Meso-patterns are the features that emerge in the narrative from dynamically combining micro-patterns and, on some occasions, these with other meso-patterns. They are always composed of more than one pattern denoting some spatial, semantic, or usability relationship within the narrative graph. We identified a subset of Tropes (extracted from TVTropes~\cite{p12tvtropes}) that requires or works as the combination between more fundamental units. For instance, the \textit{reveal pattern} relates to the ``Good all along'' or ``evil all along.''
 
-\begin{figure*}[t!]
-\centerline{\includegraphics[width=\textwidth]{figures/resulting-paths-FINAL.png}}
-\caption{Final and common designer trajectories. With thick arrows it is presented the archetypical paths, calculated using the frequencies of subsequences from $180$ diverse rooms. Each color represent a unique trajectory; with green the \textsc{Architectural-focus}, with red the \textsc{Goal-oriented}, with black the \textsc{Split central-focus}, and with blue the \textsc{Complex-balance}. Finally, thinner purple arrows extending from clusters traversed by the archetypical paths show the multiple possible branches that an archetypical path can deviate or extend to.} \label{p6fig:finalPaths}
-\end{figure*}
+\emph{Conflict Pattern (ConfP)} is a type of structure pattern composed by a conflict node (Con), a source $s$ node, and a target $t$ node, which are both CPs and usually a hero and a villain or the same character as $s$ and $t$. For instance, the subgraph HERO $\rightarrow$ CONFLICT $\rightarrow$ EMP, indicates that a hero CP has a conflict with an enemy CP. A conflict node can be used indefinitely to define several ConfP. A ConfP is also either~\textsc{explicit} or~\textsc{implicit}. \textsc{Explicit} conflicts are explicitly encoded in the graph and directed from $s$ to $t$ passing through the conflict trope. On the other hand, \textsc{Implicit} conflicts relates to the conflicts from $t$ (or derivatives) to $s$ (or derivatives) that are not encoded in the graph. For instance, the previous example is an \textsc{explicit} conflict from HERO to EMP, and at the same, the EMP has an \textsc{implicit} conflict with the HERO. The quality $ConfP_{q}$ is calculated as the equally weighted linear combination of:
 
-% \begin{figure*}[t]
-% \centerline{\includegraphics[width=16cm]{figures/final-cluster.png}}
-% \caption{Best resulting cluster sets. (a) is K-Means (K=9), and (b) is K-Means (K=12), both are using the \textbf{Tiles} Dataset. While (b) performs slightly worst in the internal indices, when inspecting the qualitative features, it successfully subdivides the main bottom clusters which grants us with more granularity to label and cluster the design process of designers.} \label{p6fig:all-clusters}
-% \end{figure*}
+\begin{equation}
+    ConfP_{q} = G_{q}(ConfP) + R_{q}(ConfP)% + I_{q}(ConfP)
+\end{equation}
 
-% \begin{figure}[t]
-% \centerline{\includegraphics[width=8cm]{figures/cluster-figure-updated.png}}
-% \caption{Overview of how the design style clustering would be used and integrated into the evaluation of the suggestions provided to the user. %is used and integrates into the evaluation of the suggestions provided to the user.
-% } \label{p6fig:cluster}
-% \end{figure}
+%\begin{equation}
+%    ConfP_{q} = G_{q}(ConfP) + R_{q}(ConfP) + I_{q}(ConfP)
+%\end{equation}
 
-% \begin{figure}[t]
-% \centerline{\includegraphics[width=8cm]{figures/all_clusters.png}}
-% \caption{All the selected clusters to be labeled and analyzed. In order, each of the clustering approaches correspond to the setups presented in table~\ref{p6table:setups}. (e) Shows extra information on the designs that were clustered together, and which were used to label the respective cluster.} \label{p6fig:all-clusters}
-% \end{figure}
+\emph{Derivative Pattern (DerP)} defines a relationship between tropes connected by ``entails'' connections ($\diamondsuit$---). Therefore, a DerP contains a list of patterns connected by entails, named derivatives. DerP starts from a root micro-pattern and continue until no more ``entail'' connections are encountered, effectively establishing a hierarchy from the root derivative to the rest. By design, the patterns within a DerP have a local and temporal order and a causal relationship. For instance, in the subgraph EMP $\diamondsuit$--- DRAKE $\diamondsuit$--- NEO, engaging with the \emph{EMP}, entails both the conflict with \emph{DRAKE} and the appearance of \emph{NEO}. This means that only by overcoming the \emph{DRAKE}, \emph{NEO} will appear - as a new hero or the evolution of another. The quality $DerP_{q}$ is calculated (eq.~\ref{eq:derp}) based on its $G_{q}(DerP)$, the ratio of derivatives within the DerP among the total amount of derivatives across all DerPs in EG ($ratio\theta_{q}$), and the derivatives' diversity. 
 
-% \begin{figure}[b]
-% \centerline{\includegraphics[width=8cm]{figures/hand-made-clusters.png}}
-% \caption{Example of hand-made room designs used to create the clusters. only (a) and (b) belong to the same clusters} \label{p6fig:handMadeClustered}
-% \end{figure}
+%within the pattern to the total amount of derivatives among all DerPs in EG ($bal\theta_{q}$), and the derivatives' diversity.
 
-% \begin{figure*}[t]
-% \centerline{\includegraphics[width=18cm]{figures/approach_steps.png}}
-% \caption{Rooms at generation $2090$ targeting Number of spatial-patterns (X) and Symmetry (Y). Each cell displays (top-right) the fitness of the optimal individual in its related feasible population. }
-% \label{p6figs:approachSteps}
-% \end{figure*}
+%\begin{equation}
+%\label{eq:derp}
+%    DerP_{q} = G_{q}(DerP) + 
+%    bal\theta_{q} + 
+%    \frac{\sum_{i=0}^{len(DerP_{der})}i_{basepattern}}{len(DerP_{der})}
+%\end{equation}
 
-% \begin{figure}[t]
-% \centerline{\includegraphics[width=8cm]{figures/cluster-figure-updated.png}}
-% \caption{Example of a figure caption.}
-% \label{p6fig:implementationClusters}
-% \end{figure}
+\begin{equation}
+\label{eq:derp}
+    DerP_{q} = G_{q}(DerP) + 
+    %\frac{len(DerP_{der})}{len(EG_{DerP_der})} +
+    ratio\theta_{q} + 
+    \frac{\sum_{i=0}^{len(DerP_{der})}DerP_{der_ibasepat}}{len(DerP_{der})}
+\end{equation}
+
+\emph{Reveal Pattern (RevP)} connects two independent CPs as one, meaning that character A was, in fact, always character B, and vice-versa. This pattern identifies confusion and surprise within an EG, as, for instance, a villain could have been, in fact, ``Good All Along''\footnote{https://tvtropes.org/pmwiki/pmwiki.php/Main/GoodAllAlong}. In practice, a RevP is identified as a villain or hero connected with a unidirectional connection ($\rightarrow$) to another hero or villain. As a consequence, all existing conflicts between them would become \emph{fake}. $RevP_{q}$ is calculated based on its $G_{q}(RevP)$, the number of reveals in EG in relation to characters, and the number of fake conflicts given the specific reveal.
+
+\begin{multline}
+    RevP_{q} = G_{q}(RevP) + \frac{len(EG_{RevP})}{len(EG_{CP})} +  \\ \Bigg( 1.0 - \frac{\sum_{i=0}^{len(EG_{conf})}    \begin{cases}
+        1,& \text{if } RevP \in x_{i}\\
+        0,              & \text{otherwise}
+    \end{cases}}{len(EG_{conf})} \Biggl)
+\end{multline}
+
+\emph{Active Plot Device Pattern (APD)} operationalize and integrate PDPs within a narrative since PDPs only describe an abstract goal or target. In practice, an \textit{APD} is identified as PDPs that have at least one incoming connection, and optionally, one single outgoing connection. These limitations are added to limit the effect of a PDP within a narrative. $APD_{q}$ is measured based on its $G_{q}(APD)$, and the APD's usability, calculated based on the sum of incoming and outgoing connections divided by half of the nodes in EG depicted as $bal\gamma_{q}$, penalizing APDs for not using all their connections. % that do not use . $bal\gamma_{q}$ penalizes APDs that do not use as many connections as possible.
+
+\begin{equation}
+    APD_{q} = G_{q}(APD) + bal\gamma_{q}
+\end{equation}
+
+\emph{Plot Points (PP)} are key events within the EG, identified as discrete moments given some pattern. The derivatives within a \textit{DerP}, RevP's source, and PDPs that are \textit{APD} are considered as plot points. $PP_{q}$ is measured based on the number of PPs within RG ($ G_{q}(PP)$), and the number of PPs within EG in relation to the number nodes within it ($Balance_{q}(PP)$).
+
+\begin{equation}
+    PP_{q} = G_{q}(PP) + Balance_{q}(PP)
+\end{equation}
+
+\emph{Plot Twist (PT)} takes advantage of plot points to identify those that could have a bigger impact on the narrative. In practice, \emph{PTs} consider the source of \textit{RevP}, derivatives from \textit{DerP} that are a different micro-pattern than the root of the DerP (except PDPs), and \textit{APDs} that are connected to other \textit{APDs}. For instance, in the subgraph: EMP $\diamondsuit$--- DRAKE $\diamondsuit$--- NEO, given that NEO is a different micro-pattern than root EMP (Hero and Villain, respectively), NEO will be identified as a \textit{Plot Twist} as it alters the ``natural'' order in the DerP. $PT_{q}$ is based on the number of PTs within RG ($ G_{q}(PT)$), the PT's involvement in EG, and the balance of PTs based on the PPs in EG. Involvement varies depending on the associated pattern to PT. When a PT is associated with a \textit{RevP}, involvement is calculated as how much the structure changes based on that (i.e., how many fake conflicts are created). When it is related to \textit{DerP}, involvement is calculated as how different the pattern is and its order within the derivatives. Finally, when it is related to \textit{APD}, involvement is based on how usable the \textit{APD} is within the narrative based on incoming and outgoing connections.
+
+\begin{equation}
+    PT_{q} = G_{q}(PT) + I_{q}(PT_{assoc_pat}) + \frac{len(EG_{pt})}{len(EG_{pp})}
+\end{equation}
+
+\paragraph{Auxiliary Patterns}
+
+Auxiliary patterns denote problems in the graph and sub-optimal or impractical nodes and connections within a graph. They are classified into \textit{Nothing}, which are nodes that are not identified as part of a meso-pattern; and \textit{Broken Link}, which are outgoing connections from a node that are not used or do not lead to any pattern.
+
+\subsubsection{Proof-of-Concept}
+\label{sec:PoC}
+
+TropeTwist can be used to represent different narrative structures and parts of games. To test and show TropeTwist's expressiveness, we chose to form three different narrative graphs representing different games shown in figure~\ref{fig:teaserfig}, top row: \emph{Zelda: Ocarina of Time} (Zelda:OoT)~\cite{p12tloz:oot}, \emph{Zelda: A Link to the Past} (Zelda:LttP)~\cite{p12tloz:lttp} - eastern palace, and \emph{Super Mario Bros} (SMB)~\cite{p12mario}. They represent different games from different genres (fig.~\ref{fig:teaserfig}.a and \ref{fig:teaserfig}.b are adventure-dungeon games, and \ref{fig:teaserfig}.c is a platformer), and represent different game's phases; in the case of fig.~\ref{fig:teaserfig}.a and \ref{fig:teaserfig}.c, both represent the main structure of the game, while \ref{fig:teaserfig}.b, represents a specific area and sequence of the game.
+
+Figure~\ref{fig:teaserfig}.a represents a simplified overarching narrative structure from Zelda: OoT. The ocarina of time, given by Zelda to Link, is defined as a McGuffin (MCG) that, when collected by ``young link,'' allows him to go forward in time to ``adult link,'' the chosen one (NEO). This, in turn, enables explicit conflicts between hero and enemy characters, which represents the main loop of the game. The structure shows two factions, a set of heroes and the BAD. %Pattern-wise, $HERO \rightarrow SH$ represents an \textbf{RevP}, which in turn, represents an \textbf{PT}; $HERO \rightarrow MCG \rightarrow NEO$ represents an \textbf{APD}, and the rest of elements are interconnected by \textbf{ConfP}.
+
+%The tri-force, which is the main item to collect in the game, is defined as a McGuffin (MCG) 
+
+Figure~\ref{fig:teaserfig}.b represents the structure and plot points from the eastern palace in Zelda: LttP. All palaces in \textit{A Link to the Past} follow a very similar structure and sequence. The HERO's goal is to get the ``Pendant of Courage'' (MCG). However, the MCG derives from ENEMY and BAD, so the HERO must overcome them to achieve his goal. The structure shows a causal and linear narrative that could be used to identify elements that need to appear before others, similar to the work by Dormans and Bakkes~\cite{p12dormans2011generating}. %Pattern-wise, ENEMY $\diamondsuit$-- MHQ $\diamondsuit$-- BAD $\diamondsuit$-- MCG represent an \textbf{DerP}, and ENEMY $\diamondsuit$--- MHQ $\diamondsuit$-- BAD, BAD $\diamondsuit$-- MCG $\rightarrow$ HERO, and HERO $\diamondsuit$-- MHQ $\rightarrow$ HERO represent \textbf{APDs}.
+
+Figure~\ref{fig:teaserfig}.c represents the overarching narrative structure of SMB. In SMB, the objective of Mario (HERO) is to rescue Peach (HERO) from Bowser (BAD). To do this, the player goes through a series of platform worlds that always end in a ``Fake Bowser'' (DRAKE). The player must continue until encountering the ``Real Bowser'' (BAD), which then would enable the player to get to their objective (MCG). %Pattern-wise, the game represents a simple narrative structure, where EMP $\diamondsuit$-- DRAKE $\diamondsuit$-- BAD $\diamondsuit$-- MCG, denotes an \textbf{DerP} as a linear increase in difficulty, and HERO $\rightarrow$ MCG $\rightarrow$ HERO denotes an \textbf{APD}.

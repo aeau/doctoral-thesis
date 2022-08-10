@@ -1,0 +1,22 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table*}[]
+\caption{Experiments using all possible dimensions (7 dimensions) as behavioral dimensions in the MAP-Elites search. Coverage relates to the pair Interestingness-Step for comparison with Study 1. Values in bold represent the best values in the specific experiment between using or not using level constraints. $\star$ represents the best values across experiments within their specific condition (using or not level constraints).}
+\label{tab:exp-all-dims}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|llll|llll|}
+\hline
+               & \multicolumn{4}{c|}{With level constraint}                                       & \multicolumn{4}{c|}{No level constraint}                                                                       \\ \hline
+Experiment     & Avg. coverage     & Avg. Uniques       & Avg. fitness       & Avg. Int           & Avg. coverage              & Avg. Uniques              & Avg. fitness              & Avg. Int                  \\ \hline
+Experiment 1   & 33.2\%±1.5        & 496.2±132.3        & 0.75±0.05$\star$   & 0.32±0.03          & \textbf{36.7\%±1.8}        & \textbf{1257.8±165.3}     & \textbf{0.75±0.02$\star$} & \textbf{0.33±0.02}        \\
+Experiment 2   & \textbf{29\%±3.4} & 760.8±100.9$\star$ & \textbf{0.72±0.01} & 0.32±0.02          & 27.8\%±2                   & \textbf{1221.8±229.3}     & \textbf{0.72±0.01}        & \textbf{0.33±0.01}        \\
+Experiment 3   & 33.6\%±1.5        & 658.2±48.2         & \textbf{0.71±0.01} & 0.34±0.01$\star$   & \textbf{37.2\%±1.7}        & \textbf{1357.4±48$\star$} & 0.68±0.01                 & \textbf{0.36±0.01$\star$} \\
+Experiment 4   & 35.2\%±2$\star$   & 690.4±325.4        & 0.71±0.03          & \textbf{0.29±0.02} & \textbf{38.3\%±1.8$\star$} & \textbf{1314.6±181.1}     & \textbf{0.73±0.01}        & 0.28±0.02                 \\ \hline
+Experiment 4.1 & 6.5\%±1.4         & 56.8±8.5           & \textbf{0.67±0.06} & 0.04±0.02          & \textbf{10.2\%±1.5}        & \textbf{118.6±43.5}       & 0.65±0.06                 & \textbf{0.07±0.03}        \\
+Experiment 4.2 & 8.8\%±1.9         & 74.8±19.9          & \textbf{0.59±0.04} & 0.07±0.02          & \textbf{9.9\%±2.5}         & \textbf{153.6±21.9}       & 0.56±0.1                  & \textbf{0.09±0.05}        \\
+Experiment 4.3 & 16.4\%±2.1        & 123.8±17.7         & \textbf{0.62±0.04} & 0.19±0.02          & \textbf{23\%±1.5}          & \textbf{377.2±81.2}       & 0.61±0.07                 & \textbf{0.25±0.02}        \\
+Experiment 4.4 & 17.8\%±3.5        & 155.8±25.5         & 0.65±0.06          & 0.21±0.05          & \textbf{25.8\%±1.5}        & \textbf{286.8±209.3}      & \textbf{0.65±0.05}        & \textbf{0.26±0.01}        \\
+Experiment 4.5 & 23\%±3.2          & 232.8±69.8         & \textbf{0.67±0.02} & 0.28±0.03          & \textbf{30.8\%±3}          & \textbf{891.8±202.3}      & 0.67±0.04                 & \textbf{0.3±0.01}         \\ \hline
+\end{tabular}%
+}
+\end{table*}

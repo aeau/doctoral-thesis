@@ -1,219 +1,411 @@
-\subsection{Room Style Clustering}
+\subsection{Story Designer}
 
-% \begin{enumerate}
-%     \item Information on the user studies and how we develop the clusters.
-%     \item collected data through 2 user studies
-%     \item transformed the data into 5 datasets
-%     \item data reduction through PCA and T-SNE. Cluster with K-means, K-Medoids, agglomerative clustering and DBSCAN. Evalulated through internal indices (silhouette index, DB index, and CH-index) 
-% \end{enumerate}
+% Me he tomado la libertad de darle el nombre de Story Designer a esta nueva herramienta en EDD. Te parece? Sobre todo es para simplificar cómo nos referimos a él
 
-\begin{figure*}[ht!]
-\centerline{\includegraphics[width=\textwidth]{figures/process-steps.png}}
-\caption{The stages of the design style clustering development: (1) Data was first collected through two user studies. (2) Then, using the design sequences, the data was processed into five different datasets, one using the room images, a second using the tiles information, and three using tabular information. (3) A data reduction technique was applied to different datasets, and then they were clustered and internally evaluated. (4) The clusters were formed, picked from the best performing methods, and labeled based on the data points within each cluster. The cluster were evaluated by visualizing how a typical design session traverse the various clusters, and K-Means (K=12) was chosen as the final approach. (5) Finally, using this final approach all the sequences were clustered and archetypical paths were identified.%(5) The final approach,  K-Means (K=12) was evaluated by visualizing how a typical design session traverse the various clusters. Finally, the sequences were clustered by the final approach and archetypical paths were identified.
-} \label{p6fig:approach-steps}
-\end{figure*}
-
-\begin{figure*}[t]
-\centerline{\includegraphics[width=\textwidth]{figures/final-cluster.png}}
-\caption{Best resulting cluster set. K-Means (K=12), using the \textbf{Tiles} Dataset. While it scores slightly less in the internal indices that other setups, a qualitative analysis successfully gives us more granularity by subdividing the main bottom clusters, to label and cluster the design process of designers. Sample rooms belonging to each cluster are displayed on the right, next to the total number of rooms in the cluster.} \label{p6fig:all-clusters}
-\end{figure*}
-
-% \begin{figure*}[b]
-% \centerline{\includegraphics[width=13cm]{figures/representative cluster-steps.png}}
-% \caption{Examples of a step by step edition sequence of a design session and it's clustering. To the left, we present the actual sequence and steps of one of the rooms in the dataset and to the right is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{p6fig:paths-designers}
+% \begin{figure*}[t!]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/main-help.png} %temp
+%     \caption{The Story Designer screen in EDD.}
+%     \label{fig:story-screen}
 % \end{figure*}
 
-% \begin{figure}[h]
-% \centerline{\includegraphics[width=8cm]{figures/representative-cluster-steps-alter.png}}
-% \caption{Example of a step by step edition sequence of a design session and it's clustering. At the top, we present the actual sequence and steps of one of the rooms in the dataset, in a $4\times7$ grid, starting at the top left with the first edition. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{p6fig:paths-designers}
-% \end{figure}
+% \begin{itemize}
+% \item Brief intro to the tool's purpose. %done
+% \item Subsection about story structures with TVtropes, node types, connection types, examples %done
+% \item Subsection with EDD's story structure creation view. %done
+% \item Subsection with representing and evolving with Graph Grammars in EDD 
+% \end{itemize}
 
-\begin{figure*}
-\centerline{\includegraphics[width=\textwidth]{figures/representative-clusters-small.png}}
-\caption{Example of a step by step edition sequence of a design session and it's clustering. At the left, we present the actual sequence and steps of one of the rooms in the dataset, in a $4\times7$ grid, starting at the top left with the first edition. At the bottom, it is the actual trajectory of the design in the cluster space. Numbered and in black, it is shown how each step of the design process is clustered by our approach} \label{p6fig:paths-designers}
-\end{figure*}
+% \input{tables/table1}
 
-This paper presents an approach and fundamental steps towards the implementation of designer personas: an analysis of designer style clustering to isolate archetypical paths that can be later be used to build ML surrogate models of archetypal designers. Such models would adapt to the dynamic designer during the mixed-initiative creative process by being placed in the solution space, allowing the designer to traverse such space of models as she drifts through the many dimensions of her creative process.
+% \begin{itemize}
+%     \item Brief intro to the tool's purpose.
+%     \item Subsection about TropeTwist briefly explaining how tropes are used and the trope patterns. story structures with TVtropes, node types, connection types, examples done \checkmark
+%     \item Subsection with EDD's story structure creation view, and workflow. \checkmark
+%     \item Add info on the development from questgram with specific NPCs and the questview changed (although, that last part is not relevant). Also add the info on how to actually use this system.
+%     \item Brief subsection with how graph gramamrs work and how we represent these graphs for the EA. Not super in detail because all of that is from tropetwist. 
+%     \item The things that are extended in this version is the amount of dimensions, and how the elites are shown! (besides actually showing all of this!)
+%     \item Dimensions should be addressed in the final subsection. 
+%     \item How elites are shown and all of that goes to the workflow subsection.
+% \end{itemize}
 
-The proposed system builds on top of EDD's Designer Preference Model and preliminary results \citepsixth{p6Alvarez2020-DesignerPreference}, expanding it to classify the designers' designs based on clusters developed using previously hand-made design sequences by expert and non-expert designers. Figure \ref{p6fig:approach-steps} illustrates our approach in five sequential stages, from data collection to experimentation and results. The first four stages are explained in the following subsections, whereas Section~\ref{p6section:results} shows the experimental results.
 
-\subsubsection{Data Collection}
+%\begin{figure*}[t!]
+%    \centering
+%    \includegraphics[width=\textwidth]{figures/current_GUI.png}
+%    \caption{The Story Designer screen in EDD.}
+%    \label{fig:story-screen}
+%\end{figure*}
+ 
+% \input{tables/table1}
 
-We conducted two user studies where participants were tasked with freely designing a dungeon in EDD and the rooms that compose it with no further restrictions, using all the available tiles i.e. floor, wall, treasure, enemy, and boss tiles. All participants were introduced to the tool before the design exercise. User-generated data was gathered during the complete design session, creating a new data entry every time the designer edited the dungeon. In total, we had $40$ participants, $25$ of these (i.e. NYU participants) were industry or academic researchers within the Games and AI field, and the other $15$ (i.e. MAU participants) were game design students. This resulted in a diverse dataset composed of $180$ unique rooms like the ones depicted in Figure~\ref{p6fig:approach-steps}, that was pre-processed and clustered in the subsequent stages. 
+Story Designer is a new system integrated in EDD, which presents a visual interface for mixed-initiative narrative structure generation. It makes extensive use of the TropeTwist system as foundation to build narrative graphs and assess them by identifying trope patterns. The user manually designs a story structure by adding and interconnecting nodes in a graph, which seeds an evolutionary algorithm (EA) that generates story structure suggestions that can be incorporated into the user's design. This continuous co-creative design process implements the Interactive Constrained MAP-Elites (IC MAP-Elites) approach presented in~\cite{p11alvarez_empowering_2019}, providing quality-diverse suggestions across several feature-dimensions.
 
-\subsubsection{Dataset pre-processing}
+Story Designer is interconnected with the level design facet in EDD. This means that the narrative graphs that can be developed and that can be generated and suggested are constrained by the content that exists in the levels. For instance, if the designer adds two NPCs besides the Hero, then the system could at most, use three character nodes to represent them, or if the designer adds a boss enemy and a quest item, this would mean that the boss enemy could be represented as one of the villain nodes (e.g., Enemy, Big Bad, or Dragon) and the quest item as a possible Plot Device.
 
-From the $180$ unique rooms, we extracted and used the edition sequence of each of the rooms, from their initial design to the more elaborated end-design, to compose a richer dataset that could capture the design process of a designer rather than focusing on the end-point. Through this, we ended up using $8196$ data points in our dataset.
-%just the end-point. We ended up using $8196$ rooms
-Moreover, five different copies of the dataset were created to analyze and compare the performance of the clustering stage using the following image pre-processing methods:
+\subsubsection{TropeTwist}
 
-\begin{enumerate}
-\setcounter{enumi}{0}
-    \item \textbf{Room:} No pre-processing. Room images are fed into the next stage as they were created by the designer, with a resolution of $1300\times 700\times3$, corresponding to width, height, and RGB ($3$ color channels).
-    
-    \item \textbf{Tiles:} Each room tile type is mapped to a single-color pixel and the rooms are simplified to a pixel-tile based representation, as shown in the second stage of Figure \ref{p6fig:approach-steps}. The dimensions are downscaled to $13\times 7\times3$.
-    %Each room tile is simplified to a single-color pixel, as shown in the second stage of Figure \ref{p6fig:approach-steps}, downscaled to $13\times 7\times3$.
-    
-    \item \textbf{Dimensions:} Each room is described by its five IC-MAP-Elites feature dimension values, excluding the similarity scores: \textsc{Linearity}, \textsc{Leniency}, \textsc{\#MesoPatterns}, \textsc{\#SpatialPatterns}, and \textsc{Symmetry}. A complete description of these features can be found in~\citepsixth{p6Alvarez2020-ICMAPE}.
-    
-    \item \textbf{Inner Content:} Each room is described by $12$ values, related to the count, sparsity, and density of the enemy, treasure, floor, and wall tiles contained in it.
-    
-    \item \textbf{Combined:} A combination of the \textbf{Dimensions} and \textbf{Inner Content} methods.
-\end{enumerate}
+TropeTwist~\cite{p11alvarez_tropetwist_2022} is a system that uses tropes~\cite{p11lewis_governing_2018,garcia-sanchez_simpsons_2021,richmond_tv_2004,harris_periodic_2016}, narrative conventions easily recognizable by the audience, as patterns that combine to compose narrative structures. These structures define generic aspects of a story, leading to the identification of events, roles, and other relevant narrative elements arranged as nodes in an interconnected narrative graph. By having all this elements in a graph, entire narratives are encoded using graph grammars, to then procedurally generate novel narrative variations by means of a MAP-Elites algorithm that considers several narrative evaluation metrics, such as interestingness, coherence, and cohesion. 
 
-\subsubsection{Clustering and Analysis}
-
-To run all setups, data reduction algorithms, clustering algorithms, and do the internal evaluation of the clusters, we used scikit-learn machine learning toolset~\citepsixth{p6scikit-learn}. To obtain the best set of clusters, we ran different setups with the above datasets. The data was reduced to two meaningful dimensions with two different data reduction algorithms, Principal Component Analysis (PCA) and T-Distributed Stochastic Neighbor Embedding (T-SNE). For both data reduction algorithms, we fit the algorithms with each individual dataset, setting to two principal components and in the case of T-SNE using PCA as initializing algorithm, and transforming the data into a new dataset \emph{pca\_dataset} and \emph{tsne\_dataset} per dataset. Each two-dimensional point in the new datasets represents a step in the sequences described above.%Likewise, for the T-SNE, we fit the algorithm with each individual dataset, setting the parameters to two principal components and using PCA as initializing algorithm, and then transformed the data into a new dataset \textit{tsne_dataset} per dataset.
-
-Moreover, all the resulting datasets were then clustered using \textsc{K-Means, K-Medoids, Agglomerative clustering}, and \textsc{DBSCAN}. K-Means was initialized using the standard k-means++ implemented in scikit-learn, which initialize all centroids distant from each other. K-Medoids was initialized similarly, using the standard k-medoids++, and tested using the \emph{cosine}, \emph{euclidean}, and \emph{manhattan} distances. Agglomerative clustering is a hierarchical clustering approach using a bottom-up approach implemented in scikit-learn using four different linkage criteria for comparing data points: \emph{Ward}, \emph{Complete}, \emph{Average}, and \emph{Single}. Finally, DBSCAN cluster points based on density separated by low-density areas; thus, DBSCAN automatically finds $k$ based on two parameters, $\epsilon$ describing the maximum distance between points and \emph{min\_samples} describing the minimum amount of samples within a group to be considered a cluster. K-Means, K-Medoids, and Agglomerative clustering were tested using multiple $K$ values ranging from 3 to 13, and DBSCAN was tested with several $\epsilon$ values ranging from 0.3 to 1.0, and \emph{min\_samples} ranging from 2 to 9.
-
-%, testing with $K$ values ranging from 3 to 13 for the first three ones, and several $\epsilon$ values for DBSCAN.
-
-%testing different minimum distance between data points ($\epsilon$) and the minimum amount of data points within a cluster to be considered a dense region for DBSCAN.
-
-Since we lack a labeled dataset (i.e. ground truth) for cluster validation, we evaluated the results from all setups using the internal indices below, as well as manually inspecting the rooms composing the resulting clusters.
-
-%Since in our approach lacks a labeled dataset (i.e. ground truth) for cluster validation, 
+Nodes in a narrative graph represent tropes. Interconnected tropes create other composite tropes and patterns, that can be identified as subgraphs of a complete narrative graph. These patterns can be \textbf{micro-patterns} encapsulating a single trope node, \textbf{meso-patterns}, often composed by more than one micro-pattern with a specific meaning, and \textbf{auxiliary patterns}, identifying structural gaps in the graph. For a detailed definition of all tropes and patterns, please refer to~\cite{p11alvarez_tropetwist_2022}. Here we present a comprehensive summary:
 
 \begin{itemize}
-\item \textbf{Silhouette Score:} The Silhouette Score shows how similar a data point is to the cluster it is associated with, through calculating the difference between the $\overline{distance}$ from the point to the points in the nearest cluster and the $\overline{distance}$ to the points in the actual cluster. The value is bounded from -1 to +1, with values closer to +1 indicating a good separation of the clusters, and closer to -1 meaning that some points might belong to another cluster.
-\item \textbf{Davies-Bouldin Index:} The DB-index is the ratio between the within-cluster distances and between-clusters distances. With this, we can have an insight into the average similarity of clusters with their closest cluster. The value is bounded from 0 to +1, with values closer to 0 relate to clusters that are farther apart from each other and less dispersed, thus, this index is more crucial when we have more dense representations.
-\item \textbf{Calinski-Harabasz Index:} The CH-index is another index related to the density of the clusters and how well separated they are. The score is the ratio between the within-cluster dispersion (compactness) and the between-cluster dispersion (separation). The CH-index is positively unbounded, and the higher the score the better.
+    \item Micro-patterns are the fundamental narrative unit in the system, encapsulating tropes in building blocks to create complex narrative structures. These are classified into structure patterns (SP), that articulate the story elements (i.e. Conflict), character patterns (CP) (i.e. heroes and villains), and plot device patterns (PDP), that move the story forwards towards a particular goal (i.e. the MacGuffin).
+    \item Meso-patterns may emerge from the combination of micro-patterns and other meso-patterns, denoting spatial, semantic, and usability relationship within the narrative graph.
+    \begin{enumerate}
+        \item The \emph{Conflict Pattern (ConfP)} ties a conflict node to two other nodes representing both parties in a conflict (i.e. HERO $\rightarrow$ CONFLICT $\rightarrow$ EMP, a hero is in conflict with the Empire).
+        \item The \emph{Derivative Pattern (DerP)} defines relations of entailment between other nodes, called derivatives. These derivatives acquire a local and temporal order, and a causal relationship. I.e the former conflict connected to EMP $\diamondsuit$--- DRA $\diamondsuit$--- NEO, means that the hero engages the Empire, which entails both a conflict with the Dragon (\emph{DRA}) and the appearance of the Chosen One (\emph{NEO}).
+        \item The \emph{Reveal Pattern (RevP)} connects two independent CPs as one, meaning that character A was, in fact, always character B, and vice-versa. This pattern turns all existing conflicts between them into \emph{fake} conflicts.
+        \item The \emph{Active Plot Device Pattern (APD)} triggers a PDP and integrates it in the the narrative, since PDP are passively described and lack any start condition.
+        \item \emph{Plot Points (PP)} are key discrete narrative events. The derivatives within a \textit{DerP}, the source of a reveal pattern, as well as active plot devices are considered plot points.
+        \item A \emph{Plot Twist (PT)} identifies those plot points that could change the natural flow of the narrative. I.e. in EMP $\diamondsuit$--- DRA $\diamondsuit$--- NEO, NEO is identified as a plot twist since its nature (heroic) is opposed to that of the first node EMP (villainous), which alters the natural order of the connecting derivative pattern.
+    \end{enumerate}
+    \item Auxiliary patterns spot and encapsulate those areas in the graph that don't contain meaningful narrative information. \textit{Nothing} highlights nodes that are not identified or part of any meso-pattern; whereas \textit{Broken Link} marks outgoing connections from any node that do not lead to any pattern.
 \end{itemize}
 
-\subsubsection{Cluster Labelling}
 
-\begin{table}
-\begin{center}
-{\caption{Best performing setups based on their internal validation and visualization of clustered data points.}\label{p6table:setups}}
-\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{ccccccc}
-\hline
-\rule{0pt}{12pt}
-Algorithm&Data&K&$\Diamond$&$\Box$&$\bigtriangleup$ 
-\\ 
-\hline
-\\[-6pt]
-K-Means & Tiles-PCA & 9 & 0.43 & 0.73 & 9438.233 \\ 
-K-Means & Tiles-PCA & 12 & 0.41 & 0.77 & 9436.928 \\
-K-Means & Dimensions-PCA & 12 & 0.43 & 0.73 & 7738.343 \\
-Agglomerative single & Combined-PCA & 6 & 0.51 & 0.43  & 38.833 \\ 
-Agglomerative avg. & Dimensions-PCA & 6 & 0.44 & 0.67 & 3463.567 \\ 
-\hline
-\\[-6pt]
-\multicolumn{6}{l}{$\Diamond$ Silhouette Score\ \
-$\Box$ Davies Bouldin Index\ \
-$\bigtriangleup$ Calinski-Harabasz Index}
-\end{tabular}
-}\end{center}
-\end{table}
 
-Table~\ref{p6table:setups} shows the best performing setups according to their internal indices scores. The clusters in these setups were manually inspected in order to detect the qualitative features that better define them. 
+\subsubsection{Workflow}
 
-When using the \textbf{Dimensions} and \textbf{Combined} datasets, the clusters do perform good, if not better, in certain indices than when using the \textbf{Tiles} dataset. However, when analysing the resulting setups, they were missing a clearer relation between the clustered rooms, which was exacerbated when analysing sequences and paths on these setups, where they missed continuity between clusters.
 
-Conversely, given that we are creating tile-based rooms and dungeons, the features were more representative for the \textbf{Tiles} dataset, which when used, generally performed well in the evaluated internal indices, and the produced clusters meaningfully separate the data. Further, as it will be presented in Section \ref{p6section:results}, when clustering sequences and analyzing the cluster path of the designs, there exist a continuity between designs that supports its usability. Figure \ref{p6fig:all-clusters} shows the best-resulting cluster set found among all the experiments run.
+Story Designer is integrated in EDD as a separate view (Figure \ref{fig:story-screen}) that can be accessed anytime from the dungeon editor. The use starts with a minimal sample narrative graph HERO $\rightarrow$ CONFLICT $\rightarrow$ ENEMY in the manual edition pane (center). This graph can be extended by adding nodes from the node context menu that pops up with a right-click on an empty space. Node are arranged by type for the sake of clarity, and an option to automatically re-arrange the graph is shown at the end of the menu. Right-clicking on an existing node border will pop up the edge context menu, that allows the user to create a new connection or to delete the selected node. Existing connections are deleted by left-clicking on them.
+
+In a way similar to EDD's room editor \cite{p11alvarez_empowering_2019}, as the user edits the narrative graph manually, this graph is fed into the underlying evolutionary algorithm that procedurally generates on the fly alternative narrative graphs in the suggestions pane (right). The top-right corner shows the feature-dimension matrix, whose cells are colored depending on the fitness of the fittest elite contained in it, ranging from dark red (no elite yet), to dark green (optimal fitness). The elite in the selected cell of the matrix is displayed in the bottom-right corner. Hovering the mouse above a cell displays its elite's graph above the selected one, which allows the user to compare several graphs at a glance.    
+
+%\subsubsection{Building stories with tropes}
+
+%In storytelling, a trope \cite{p11garcia-sanchez_simpsons_2021} is a convention or figure of speech that is assumed by the storyteller to be easily recognizable by the audience. TV tropes is an online wiki and repository that compiles, curates, and describes several thousands of tropes in many sorts of media, such as television, films, literature, and games \cite{p11richmond_tv_2004}. As exemplified by \cite{p11harris_periodic_2016}, tropes can be interconnected in graph-like structures, called story molecules, to succinctly depict the story behind a narrative in any common media.
+
+%Story Designer elaborates on the concept of story molecule as a means to represent stories using graph-like structures of interconnected tropes, called narrative graphs. Table \ref{tab:tropes} shows all the tropes that can be added as nodes to a narrative graph, represented by their symbol. Nodes are depicted with shapes specific to their trope type: heroes (rectangle), conflicts (diamond), enemies (hexagon), and plot devices (circle).
+
+%Nodes in a narrative graph are necessarily interconnected by either unidirectional or bidirectional edges (with one or both arrow heads), or by entailment edges (with a single diamond head). Given nodes A and B, A $\diamondsuit$--- B reads as "A entails B", whereas A $\rightarrow$ B denotes a relationship from A to B, and B $\rightarrow$ A the opposite. A $\leftrightarrow$ B denotes a reflexive relationship between A and B. As an example, HERO $\rightarrow$ CONFLICT $\rightarrow$ EMP denotes a hero who is in conflict against an empire-type enemy, whereas HERO $\leftrightarrow$ CONFLICT denotes a hero who is in conflict with herself. EMP $\diamondsuit$--- DRA $\diamondsuit$--- NEO, denotes an empire that entails a dragon enemy that, once beaten, will lead to the appearance of a chosen one hero.
 
 
 
-% As expected, the \textbf{Tiles} dataset generally performed well in the evaluated internal indices, and the produced clusters meaningfully separated the data.
-% better information and were meaningfully group together.  relation each of the features have with 
+%\subsubsection{Trope Patterns}
 
-% As expected, the \textbf{Tiles} representation have good results across the 3 indices, 
+%\begin{itemize}
+%    \item This has to be reduced considerably to simply introduce the terms but link the reader to the TropeTwist paper! (Add it to Arxiv)!
+%    \item Micro: Micro-patterns are the fundamental unit in the system which aims at categorizing different sets of the individuals patterns that are shown in table~\ref{tab:tropes}. Micro-patterns are the basic building block which when connected together allows the detection of meso-patterns.  (AND WRITE THEM)
+%    \item Meso: If micro-patterns are the fundamental units to construct narratives in StoryDesigner, then Meso-patterns are the features~\cite{p11dahlskog_multi-level_2014} that emerge in the narrative from dynamically combining micro-patterns and in some occasions these with meso-patterns. Meso-patterns are composite patterns, always composed by more than one pattern denoting some spatial, semantic, and usability relationship within the narrative graph. Micro-, meso-, and macro-patterns have been used to generalize the generation of content and reduce the burden and complexity of generators mainly in regards to evaluation and encoding of the content, as well as a tool to compare generated or human-authored content. For StoryDesigner and the creation of narratives, we have identified a subset of Tropes (extracted from TVTropes) that require (or work as) the combination between more fundamental units. For instance, the reveal pattern relates to the "Good all along" or "evil all along" tropes from TVTropes. (AND WRITE THEM)
+%    \item AUXILIARY: Denotes problems in the graph, and sub-optimal and impractical nodes and connections within a graph. (AND WRITE THEM)
+%\end{itemize}
 
-% JOSÉ: I leave it here waiting for the final results from Alberto
+%\subsubsection{TropeTwist}
 
-%Moreover, We noticed that the agglomerative approach results in very specific clusters alongside a quite broad cluster consisting of unrelated data points, regardless of the $K$ used. These setups scored well in the different indices but fail to accurately partition the space in relevant groups.
+%------------------------------
 
-%Moreover, there are recurrent clusters between the different setups but when using more clusters like in figure~\ref{p6fig:all-clusters} (b), we can have more granularity when partitioning the space, improving the separation of more related data points. In figure~\ref{p6fig:all-clusters}(b) we present several rooms that have been clustered together matching the labeling of the clusters. In the figure, there is a clear correlation between the designs and the labels of their respective cluster, and an interesting continuity between the final clusters.
+% \subsubsection{Trope Patterns}
 
-% In Figure~\ref{p6fig:all-clusters}, we present the final and selected approach for clustering room styles using K-Means (K=12) and the \textbf{Tiles} dataset reduced with the PCA algorithm. To the right, next to each color in the legend, we have different representative rooms that belong to the clusters, in their respective color, and have been clustered together. Furthermore, besides the local relation between clusters, there exists a layered division among group of clusters in the y-axis, where the bottom clusters relate more to architectural pattern complexity, from very empty rooms to mazes. The middle clusters focus on populating the rooms with enemies and treasures, creating the actual goals of the room and balancing the challenge. Finally, the top clusters are composed of dense rooms where the enemy and treasure addition do not necessarily need to follow any clear objective. 
+%\subsubsection{Tropes as Patterns}
+
+% Given the nature of tropes as recognizable parts of stories
+% The system analyzes the possible tropes to us
+
+% All patterns calculate their quality, which is then used in different ways to estimate the quality and fitness of narrative structures.
+
+% In most of the patterns that will be described we calculate and use two general qualities, which are indicated when used. The first quality is the $generic_{qual}(pattern)$, which uses the occurrence of the specific pattern within the edited graph by the user and is calculated as:
+
+% \begin{equation}
+%     quantity_{qual}(pattern) = pattern \sim \mathcal{N}(\mu,\,\sigma^{2})\,.
+% \end{equation}
+
+% where...
+
+% The second general quality used to calculate the quality of the tropes is the $quantity_{qual}(pattern, trope)$, which uses the occurrence of a trope of a specific pattern class within the tested graph, and is calculated as:
+
+% \begin{equation}
+%     repetition_{qual}(pattern, trope) = \dfrac{\sum_{i=0}^{\left | patterns \right |}}{\left | pattern \right |}
+% \end{equation}
+
+% where $p$ is defined as the specific patterns within  $p = pattern \in AllPatterns$,
+
+% \paragraph{Micro-Patterns}
+
+% Micro-patterns are the fundamental unit in the system which aims at categorizing different sets of the individuals patterns that are shown in table~\ref{tab:tropes}. Micro-patterns are the basic building block which when connected together allows the detection of meso-patterns. 
+
+% \paragraph{Structure Pattern}
+
+% An structure pattern (SP) is any type of trope that would give some structural definition to a narrative, whether this being a conflict, specific act, or a part in a dramatic arc (e.g., climax). In Story Designer, the only type of structure trope is the \textsc{conflict} (C) trope, which represents the most basic structural interaction. The quality $SP_{qual}$ is calculated as the normalized linear combination of:
+
+% \begin{equation}
+%     SP_{qual} = generic_{qual}(SP) + involvement_{qual}(SP)
+% \end{equation}
+
+% \paragraph{Hero Pattern}
+
+% Hero patterns (HP) are good characters within the narrative that could potentially be the main hero of the narrative or complementary roles. In Story Designer, \textsc{HERO}, \textsc{5MA}, \textsc{NEO}, \textsc{SH} are classified as HP. HPs are commonly used as source or targets (or both) of other patterns and in a few special occasions to denote a relation to another character. The quality $HP_{qual}$ is calculated as the normalized linear combination of:
+
+% \begin{equation}
+%     HP_{qual} = generic_{qual}(HP) + quantity_{qual}(HP) + involvement_{qual}(HP)
+% \end{equation}
+
+% \paragraph{Villain Pattern}
+
+% Villain patterns (VP) are by nature, evil characters within the narrative that could be the antagonist of the narrative, an elite enemy, or a faction\footnote{Having more than one villain in the narrative structure effectively establishes the bosses as \textit{Disc-One Final Boss} \url{https://tvtropes.org/pmwiki/pmwiki.php/Main/DiscOneFinalBoss}}. In Story Designer, \textsc{ENEMY}, \textsc{EMP}, \textsc{BAD}, \textsc{DRA} are classified as VP. As the opposite of the HPs, VPs properties and usages are mirrored. The quality $VP_{qual}$ is calculated as the normalized linear combination of:
+
+% \begin{equation}
+%     VP_{qual} = generic_{qual}(VP) + quantity_{qual}(VP) + involvement_{qual}(VP)
+% \end{equation}
+
+% \paragraph{Plot Device Pattern}
+
+% Plot device patterns (PDP), are described as the element within the narrative moves it forward, in the shape of a goal, object, or dramatic element to be used or encountered by any of the characters. The quality $PDP_{qual}$ is calculated as the normalized linear combination of:
+
+% \begin{equation}
+%     PDP_{qual} = generic_{qual}(PD) + quantity_{qual}(PDP)
+% \end{equation}
 
 
-% The clusters's label are plotted on top of each of the clusters, describing in general, the content that is within them. These cluster 
+% \paragraph{Meso-Patterns}
 
-In the figure, we have plotted on top of the clusters the labels describing in general, the content that is within them. The following is a description of the clusters and the rooms that were clustered together:
+% If micro-patterns are the fundamental units to construct narratives in StoryDesigner, then Meso-patterns are the features~\cite{p11dahlskog2014-multimultilevel} that emerge in the narrative from dynamically combining micro-patterns and in some occasions these with meso-patterns. Meso-patterns are composite patterns, always composed by more than one pattern denoting some spatial, semantic, and usability relationship within the narrative graph. Micro-, meso-, and macro-patterns have been used to generalize the generation of content and reduce the burden and complexity of generators mainly in regards to evaluation and encoding of the content, as well as a tool to compare generated or human-authored content. For StoryDesigner and the creation of narratives, we have identified a subset of Tropes (extracted from TVTropes) that require (or work as) the combination between more fundamental units. For instance, the reveal pattern relates to the "Good all along" or "evil all along" tropes from TVTropes
 
-\textbf{0. Empty-Initial rooms:} %This cluster contains $1797$ data points, and 
-This cluster relates mostly to the initial designs made by the designers. These designs are from completely empty rooms to initial work-in-progress structures.
+% %In StoryDesigner and for the creation of narratives, we have identif
+% %Meso-patterns are features 
+% %Meso-patterns are composite patterns, which combine or effectively utilizes several micro-patterns or other meso-patterns to produce 
+% %Meso-patterns are the combination
+% % Micro-patterns are the fundamental unit in the system which aims at categorizing different sets of the individuals patterns that are shown in table~\ref{tab:tropes}. Micro-patterns are the basic building block which when connected together allows the detection of meso-patterns. 
 
-\textbf{1. Maze-like complex architecture:} This cluster to the extreme of the architectural patterns complexity layer, relates to more highly-linear, confined and maze-like rooms.% with more structure on what is possible. %The cluster contains $269$ data points.
+% \paragraph{Conflict Pattern} Relates to the conflict between two character micro-patterns (HPs or VPs). A conflict $C$ is formally defined as $\langle s, C, t \rangle$ where s and t are a character micro-pattern (i.e., either hero pattern or villain pattern). $C$ denotes the general conflict trope, which can be simple conflict (c), conflict against nature (cona), or conflict against society (coso). A conflict meso-pattern do not necessarily describe a conflict between two different characters, as conflicts can be self-conflicts expressed as a bi-directional connection between the character trope and conflict trope. This effectively makes $s$ and $t$ the same. 
 
-\textbf{2. Dense, less organized:} This cluster contains rooms that still have a certain objective but are moving towards more disorganized distributions of micro-patterns in relation to their density. %This cluster contains $410$ data points.
+% Moreover, a conflict pattern is either~\textsc{explicit} or~\textsc{implicit} as depicted in figure~\ref{fig:conflict_pattern_a} and~\ref{fig:conflict_pattern_b}. \textsc{Explicit Conflicts} are the ones that are explicitly encoded in the graph and directed from a source $s$ to a target $t$ passing through the conflict trope $C$. On the other hand, \textsc{Implicit Conflicts} relates to the conflicts from a target $t$ (or derivatives) to a source $s$ (or derivatives) that are not encoded in the graph. For instance, if a hero has an explicit conflict with an enemy, but the enemy does not, that produces an implicit conflict from enemy to hero. Conflicts are the main way of representing some type of structure and groups within StoryDesigner, and as seen before in the micro-pattern definition, they play a crucial role in their quality. The quality $ConfP_{qual}$ is calculated as the normalized linear combination of:
 
-\textbf{3. architectural complexification:} %This cluster contains $841$ data points, and 
-This cluster relates mostly to the complexification of wall structures by having dense wall chunks, representative architectural patterns, or symmetrical patterns.
+% \begin{equation}
+%     ConfP_{qual} = generic_{qual}(ConfP) + quantity_{qual}(ConfP) + involvement_{qual}(ConfP)
+% \end{equation}
 
-\textbf{4. Dense, full range leniency:} Focusing on density as the other two clusters within the same layer, this cluster relates to rooms that are in the full range of leniency from very rewarding, treasure rooms to very challenging boss rooms. %This cluster contains $144$ data points.
+% % and must be opposite to each other (e.g., if $s$ is a hero pattern, then $t$ must be a villain pattern.
+% % \paragraph{Implicit Conflict Pattern}
+% \paragraph{Composite Conflict Pattern} very simple, works as a grouper for a set of conflict patterns united by the same \textit{structure pattern}. This means, that if the same structure pattern is responsible (or is used) to establish $n$ amount of conflicts, then there will be $n$ amount of conflict patterns, and they will all be encapsulated within one composite conflict pattern. This is beneficial when we need to check and evaluate properties of the conflicts, such as the amount of conflicts associated to one single structure pattern (burdening) or the amount of self-conflicts. Due to this nature, CCP do not calculate a quality per se, rather their quality is cumulative from all the $ConfP$ they contain normalized by the amount of $ConfP$. 
+% %there will be one CCP 
 
-\textbf{5. Separating and populating chambers:} This cluster relates to the process of separating rooms into distinct chambers, focusing on the center of the room, and starting to populate rooms with enemies and treasures. %The cluster contains $781$ data points.
+% \paragraph{Derivative Pattern} Derivatives defines a relationship between tropes connected by "entails" connections ($\diamondsuit$---). Derivatives start from a root micro-pattern and continue until no more "entail" connections are encounter, effectively establishing a hierarchy from the root to the derivatives. By design, the patterns within a derivative pattern have a local and temporal order, and a causal relationship. For instance, in the example given at the start of this section (EMP $\diamondsuit$--- DRA $\diamondsuit$--- NEO); having a conflict or engaging with the \emph{EMP}, entails both the conflict with \emph{DRA} and the appearance of \emph{NEO}. In this context, this means that only by "beating", "winning against", or any other way of overcoming the \emph{DRA} we will make \textit{narrative space} for \emph{NEO} to appear - as a new hero or the evolution of another. The \textit{narrative space} is crucial as it helps building up situations and plot points, and create meaningful interactions. The quality of a derivative pattern $Derp_{qual}$ is calculated based on its quantity on the target narrative graph, the balance of derivatives within this pattern using a gaussian bell centered on the avg. in the tested narrative graph ($\theta$), and the diversity of the derivatives.
 
-\textbf{6. Balancing and optimizing:} This cluster contains a mix between corridors and chambers within rooms with a focus on balancing rooms and optimizing their design towards certain goals. %The cluster contains $638$ data points.
+% \begin{equation}
+%     Derp_{qual} = generic_{qual}(Derp) + 
+%     \theta + 
+%     \frac{\sum_{i=0}^{|Derp_{der}|}i_{base}}{|Derp_{der}|}
+% \end{equation}
 
-\textbf{7. Bordered rooms with deeper architectural development:} This cluster relates mostly to rooms with an added wall border by the designer, and where the focus is to shape chambers and develop more visual structures.
+% % , and have, by design, a local temporal order and causal 
 
-\textbf{8. Main architectural shapes:} Similar to other clusters within the same layer, this cluster relates to the development and definition of main architectural patterns that are somewhat symmetric.
+% \paragraph{Reveal Pattern} A reveal connects two independent characters as one, meaning that character A was in fact always character B, and vice-versa. This pattern serves for creating confusion and surprise within a narrative structure, as for instance, a villain could have been in fact "Good All Along"\footnote{https://tvtropes.org/pmwiki/pmwiki.php/Main/GoodAllAlong}. In practice, a reveal pattern is identified as a villain or hero connected with a uni-directional connection ($\rightarrow$) to a hero or villain, respectively. As a consequence, all existing conflicts between factions would become \emph{fake}. $rev_{qual}$ is calculated based on its quantity on the target narrative graph, the amount of total reveals in the tested narrative graph in relation to characters, and the amount of generated fake conflicts given this specific reveal.
 
-\textbf{9. Dense, disorganized micro-patterns:} This cluster clusters the extreme rooms that contain a high density of tiles, other than floor-tiles, without a clear structure or objective for the player.
+% \begin{equation}
+%     rev_{qual} = generic_{qual}(rev) + repetition_{qual}(rev) + \Bigg( 1.0 - \frac{\sum_{i=0}^{|conf|}    \begin{cases}
+%         1,& \text{if } rev \in x_{i}\\
+%         0,              & \text{otherwise}
+%     \end{cases}}{|ng_{conf}|} \Bigg)
+% \end{equation}
 
-\textbf{10. High challenge, clear goal:} This cluster relates to well-shaped rooms with clear wall structures and goals, towards more challenge. 
+% % the balance of derivatives within this pattern using a gaussian bell centered on the avg. in the tested narrative graph ($\theta$), and the diversity of the derivatives. 
 
-\textbf{11. Chamber separation with forced enemy encounter:} This cluster relates to rooms that are in the process of a clear segmentation into corridors and chambers, and that enforce to some extent, enemy encounters for the player. 
+% % Reveal patterns connect and relate a character with an opposing, as both are the same but in different factions.
 
-Furthermore, besides the local relation between clusters, the clusters are implicitly divided in three layers on the Y-axis. From bottom to top, (a) architectural patterns complexity, relating to clusters composed of rooms with clearer or complex shapes done with walls, from empty rooms to mazes. (b) Goal creation, enemy/treasure balance, with clusters comprehending the strategic addition of enemies and treasures to establish objectives in the room for the player. In terms of EDD, these rooms are composed of more meso patterns. And (c), over-population, which relates to clusters filled with less organized and dense rooms where the enemy and treasure addition do not necessarily need to follow any clear objective. Identifying the designer in such layer, and the path they have taken to get there could show meaningful information in the design process. For instance, the intentions of the designer, in what phase of the design process she is at the moment i.e. trying the tool or observing how the tool reacts or scraping her current goal towards a new goal within the room. 
+% \paragraph{Active Plot Device Pattern} Plot device patterns by themselves only describe a goal or target to be achieved within a narrative. However, they do not operationalize and integrate those within the narrative. Once an PDP is in use by connecting to another micro-pattern and having other micro-patterns connected to it, then they do key contributions to the narrative. Almost all narrative make use of a plot device to move forward the story; thus, in Story Designer PDPs get utilize quickly as well. In practice, an \textit{APD} is identified as PDPs that contains at least any one connection to them, and optionally, one single output connection. These limitation is added to limit the effect of a PDP wihthin a narrative. The $APD_{qual}$ is measured based on the amount of APDs within the target graph, and the APD's usability, calculated based on the amount of incoming connections and output normalized using a gaussian bell centered on the half size of the tester narrative graph defined as $\theta$. Usability is calculated like this to penalize APDs that do not use as many connections as possible but neither be the only APD in place.
 
-% \begin{enumerate}
-% \setcounter{enumi}{-1}
-% \item[0] \textbf{Empty/Initial rooms:}
-% \item \textbf{Complex wall mazes:} 
-% \item \textbf{Dense, less structure} 
-% \item \textbf{Structural complexification:} 
-% \item \textbf{Dense, full range leniency} 
-% \item \textbf{Separating and populating chambers:} 
-% \item \textbf{Balancing and optimizing rooms:} 
-% \item \textbf{Bordered rooms with deeper structural development:}
-% \item \textbf{Development of main structural shapes:} 
-% \item \textbf{Dense, unstructured:} 
-% \item \textbf{Challenging rooms with clear goal:} 
-% \item \textbf{Chamber separation with forced enemy encounter:} 
-% \end{enumerate}
+% \begin{equation}
+%     APD_{qual} = generic_{qual}(APD) + \theta
+% \end{equation}
 
 
+% \paragraph{Plot Elements} 
 
-\begin{figure*}[t!]
-\centerline{\includegraphics[width=\textwidth]{figures/resulting-paths-FINAL.png}}
-\caption{Final and common designer trajectories. With thick arrows it is presented the archetypical paths, calculated using the frequencies of subsequences from $180$ diverse rooms. Each color represent a unique trajectory; with green the \textsc{Architectural-focus}, with red the \textsc{Goal-oriented}, with black the \textsc{Split central-focus}, and with blue the \textsc{Complex-balance}. Finally, thinner purple arrows extending from clusters traversed by the archetypical paths show the multiple possible branches that an archetypical path can deviate or extend to.} \label{p6fig:finalPaths}
+% Plot elements are treated as composite patterns and meso-patterns, but rather than pointing some underlying trope such as \emph{reveal}, they describe key elements within the current narrative structure. Plot elements can then be used to assess semantically the narrative graph and to inform other systems about main events within the structure.
+
+% % They are technically composite patterns as the meso-patterns, but are linked to plot information and description.
+
+% \paragraph{Plot Points} Plot points are key events happening within the narrative graph, identified as discrete moments given some pattern. At the moment, we consider as plot points, the derivatives within a \textit{Derivative pattern}, the reveal pattern's source, and the plot devices that are \textit{Activate plot Device}. Quality $PP_{qual}$ is measured based on the amount of PPs within the target narrative graph, and the amount of PPs within the tested narrative graph, in relation to the nodes within it.
+
+% \begin{equation}
+%     PP_{qual} = generic_{qual}(PP) + quantity_{qual}(PP)
+% \end{equation}
+
+% \paragraph{Plot Twist} Plot twists take advantage of plot points to identify those that could have a bigger impact, surprise a player, or change drastically the narrative. In practice, \emph{PTs} consider the source of \textit{RevP}, derivatives from \textit{DerP} that are a different micro-pattern than the root, and \textit{APDs} that are connected to other \textit{APDs}. For instance, reusing the same example of EMP $\diamondsuit$--- DRA $\diamondsuit$--- NEO, given that NEO is a different micro-pattern than root EMP, this will be identified as a \textit{Plot Twist} as it alters the "natural" order in the derivative. PTs quality ($PT_{qual}$) is based on the amount of PTs within a target narrative graph, the PT's degree of involvement in the narrative, and the balance of PTs in function of the PPs in the tested narrative graph. When a PT is related to a \textit{RevP}, involvement is calculated as how much the structure changes based on that (i.e., how many fake conflicts are created). When it is related to \textit{DerP}, involvement is calcualted as how different the pattern is and its order within the derivatives. Finally, when it is related to \textit{APD}, involvement is based on how usable the \textit{APD} is within the narrative based on incoming and outgoing connections.
+
+% \begin{equation}
+%     PT_{qual} = generic_{qual}(PT) + involvement_{qual}(PT, assoc_{pat}) + \frac{|ng_{pt}|}{|ng_{pp}|}
+% \end{equation}
+
+% \paragraph{Auxiliary Patterns}
+
+% Denotes problems in the graph, and sub-optimal and impractical nodes and connections within a graph.
+
+% \paragraph{Nothing} Nodes that are not assigned or identified within any of the meso-patterns, are categorized as \textit{Nothing} within Story Designer. This means that their contribution to the overall narrative is none-existent; thus, pointing towards "degenerated" narratives. 
+% \paragraph{Broken Link} A node might be useful within a narrative but not all of its connections. Therefore, unused connections within a graph are assigned a \textit{Broken Link} pattern to identify those that do not contribute to a coherent and interesting narrative structure.
+
+% \paragraph{Micro-Patterns}
+
+% \paragraph{Structure Pattern}
+% \paragraph{Hero Pattern}
+% \paragraph{Villain Pattern}
+% \paragraph{Plot Device Pattern}
+
+% \paragraph{Meso-Patterns}
+
+% \paragraph{Conflict Pattern} Relates to the conflict between two character micro-patterns. A conflict $C$ is formally defined as $\langle s, C, t \rangle$ where s and t are a character micro-pattern (i.e., either hero pattern or villain pattern). $C$ denotes the general conflict trope, which can be simple conflict (c), conflict against nature (cona), or conflict against society (coso). A conflict meso-pattern do not necessarily describe a conflict between two different characters, as conflicts can be self-conflicts expressed as a bi-directional connection between the character trope and conflict trope. This effectively makes $s$ and $t$ the same. 
+
+% Moreover, a conflict pattern is either~\textsc{explicit} or~\textsc{implicit}. 
+
+% % and must be opposite to each other (e.g., if $s$ is a hero pattern, then $t$ must be a villain pattern.
+% % \paragraph{Implicit Conflict Pattern}
+% \paragraph{Composite Conflict Pattern}
+% \paragraph{Derivative Pattern}
+% \paragraph{Reveal Pattern}
+
+
+% \paragraph{Plot Elements}
+
+% \paragraph{Plot Points}
+% \paragraph{Active Plot Device Pattern}
+% \paragraph{Plot Twist}
+
+% \paragraph{Auxiliary Patterns}
+
+% \paragraph{Nothing}
+% \paragraph{Broken Link}
+
+
+
+
+\subsubsection{Evolving narrative structures with Graph Grammars}
+
+The underlying evolutionary algorithm in Story Designer is an adapted version of IC MAP-Elites~\cite{p11alvarez_interactive_2020} to evolve grammars. In Story Designer, an individual's phenotype is a narrative graph, and its encoding genotype is a graph grammar. A graph grammar is a context-free grammar whose productions add, remove, and modify nodes and edges to a graph. 
+
+An individual's genotype is the production rules of the grammar, which are deterministic i.e., a production rule (or pattern) only matches one production. Given that the graph grammar does not need to be applied sequentially until terminal nodes are reached, every individual does a random sampling of the rules in their genotype to produce \emph{recipes}. \emph{Recipes} simply describe the order of rules to be applied (sequentially) and the amount of times they will be applied. \emph{Recipes} do not have repetitions within them i.e., if rule 1 is added at step 2, subsequent addition would simply add to the amount of times that rule will be applied at step 2. The internal parts of the EA works exactly as in TropeTwist, but now it is extended to use all the capabilities of IC MAP-Elites, namely, the continuous adaptive evolution aspect~\cite{p11alvarez_tropetwist_2022,alvarez_interactive_2020}.
+
+%\input{tables/table0}
+
+%Graph grammars do not apply rules sequentially; instead, every individual does a random sampling of the rules in their genotype to produce \emph{recipes} to generate a narrative graph. \emph{Recipes} describe the rules' order and repetition. \emph{Recipes} do not have repetitions within them, i.e., if rule 1 is added at step 2, subsequent addition would simply add to the number of times that rule will be applied at step 2. 
+
+%The EA worksThe EA works exactly as 
+
+
+%Our implementation uses the tropes listed in Table \ref{tab:tropes} as nodes, and the three available connection types as edges. Figure~\ref{fig:gen2phen} shows a sample complete process from an individual's genotype (i.e., rules) to the phenotype (i.e., narrative graph).
+
+%Figure XXX shows a sample individual's genotype (grammar) and phenotype (narrative graph).
+
+% individual's genotype is the production rules of the grammar, which are deterministic i.e., a production rule (or pattern) only matches one production. Given that the graph grammar does not need to be applied sequentially until terminal nodes are reached, every individual does a random sampling of the rules in their genotype to produce \emph{recipes}. \emph{Recipes} simply describe the order of rules to be applied (sequentially) and the amount of times they will be applied. \emph{Recipes} do not have repetitions within them i.e., if rule 1 is added at step 2, subsequent addition would simply add to the amount of times that rule will be applied at step 2. Given that production rules can grow without limit and are always minimum 2, the amount of recipes can escalate quickly (e.g., if we have 5 rules, the permutations are calculated as $5!$, resulting in 120 possible recipes without counting the amount of times the rule can be applied). Therefore, we limit the system and all experiments to $10$ recipes regardless of the chromosome size.
+
+%Maybe show first the fitness evaluation and then go and jump to the dimensions.
+
+Moreover, thanks to continuous evolution, the EA constantly incorporates the most recent version of the user’s design to the population of individuals in the corresponding cell of the feature-dimension matrix. The designer can switch between dimensions at any given time, as well as changing their granularity. IC MAP-Elites manages two different populations within each cell: a feasible and an infeasible one. Individuals move across cells when their dimension values change, or between the feasible and infeasible population according to their fulfillment of the feasibility constraint. Narrative graphs are deemed infeasible if they are not fully connected (i.e., all nodes can be reached from an arbitrary starting point), if there exist a conflict pattern within the graph with more than one self-conflict, or if level design constraints are enabled, the narrative graph violates any level design constraint. Infeasible individuals are evaluated (equation~\ref{eq:inf_fitness} in a weighted sum ($w_{0}=0.5, w_{1}=0.25, w_{2}=0.25$) based on how close they are to being fully connected and to remove inadequate self-conflicts, while trying to maximize the graph's cohesion.
+
+%\begin{equation}
+%\label{eq:cohesion_fitness}
+%f(cohesion) = w_{0} *  \frac{\#NOT_{pat} + \#BROL_{pat}}{|V(NG)| \times 2} + w_{1} *  \frac{\#NOT_{pat} + \#BROL_{pat}}{\#micro_{pat} \times 2} 
+%\end{equation}
+
+\begin{multline}
+\label{eq:inf_fitness}
+f(infeasible) = w_{0} \times f(cohesion) + w_{1} \times \frac{\#!reachable_{V(NG)}}{|V(NG)|} 
+\\ + w_{2} \times  \frac{\#!valid_{NG(self_conf)}}{|V(NG)|}
+\end{multline}
+
+Generated narrative graphs that are deemed feasible, are evaluated on their coherence (equation~\ref{eq:coherence_fitness}), which is used to assess how correct, coherent, and in general, syntactically correct the narrative graphs are. Coherence aims at maximizing an equally weighted sum between cohesion and consistency (eq.~\ref{eq:consistency_fitness}). Cohesion refers to the link between elements that hold together to form some group, which in Story Designer means the minimization of auxiliary patterns (\textit{Nothing} and \textit{Broken Link}) within the narrative graph. Consistency means that the narrative graph should be regular and free of contradictions, aiming at maximizing the quality of micro-patterns and minimize contradictions created by meso-patterns (contradictions can affect the consistency fitness up to $w_{0}=0.3$). For a more detailed explanation of how the EA works internally and the different fitness functions, we refer to the TropeTwist paper~\cite{p11alvarez_tropetwist_2022}.
+
+%.. Thus, we calculate $f(consistency)$ as the collective quality of micro-patterns (regarded as fundamental units that should be somewhat regular and useful) normalized by the micro-pattern count $|micropat|$, and the goodness of explicit and implicit conflicts based on the amount of fake conflicts that exist. In effect, with consistency we aim at minimizing contradictions created by meso-patterns that affect micro-patterns and improving the general quality of the four micro-patterns.
+
+%A consistent NG should be regular and free of contradictions. Thus, we calculate $f(consistency)$  (eq.~\ref{eq:consistency_fitness}) as the collective quality of micro-patterns since they are the building blocks, and conflicts' goodness based on the number of fake conflicts. In effect, with consistency, we aim to maximize the quality of micro-patterns and minimize contradictions created by meso-patterns.
+
+%With cohesion, we focus on minimizing the   calculated as a equally weighted sum that aims at maxizming
+
+%- Cohesion: Linking between words to hold together the text (how related the tropes are??)
+ %*       --> Probably we can use something like, if a pattern is "nothing" there are cohesion problems?
+
+%Coherence is calculated as a weighted sum ($w_{0}=0.7, w_{1}=0.3$)
+
+
+%In addition to the feature-dimensions, all individuals are evaluated according to the following fitness function:
+
+%\begin{equation}
+%\label{eq:consistency_fitness}
+%f(consistency) = w_{0} \times \frac{\sum_{i=0}^{|ng_{micro}|} i_{qual}}{|ng_{micropat}|} +  \\ 
+%w_{1} \times \frac{|ng_{fakeConfP}|}{|ng_{confP}|} 
+%\end{equation}
+
+\begin{equation}
+\label{eq:consistency_fitness}
+f_{consistency} = \frac{\sum_{i=0}^{len(ng_{micro})} i_{qual}}{len(ng_{micropat})} -  \\ 
+w_{0} \times \frac{len(ng_{fakeConfP})}{len(ng_{confP})} 
+\end{equation}
+
+\begin{equation}
+\label{eq:coherence_fitness}
+f(coherence) = f(consistency) + (1.0 - f(cohesion))
+\end{equation}
+
+\subsubsection{Behavior Dimensions for Graph Grammars}
+
+Dimensions in MAP-Elites are a key component for the search space to be delimited, and are identified as those aspects of the individuals that can be calculated in the behavioral space, and that are independent of the fitness calculation. In Story Designer, the designer is able to pick two dimensions at a time to facilitate visualization, and all dimensions, when needed, are limited using a threshold $\delta = 5$. TropeTwist implemented \textit{Interestingness} and \textit{Step} as behavior dimensions when using MAP-Elites to generate novel narrative graphs. \textit{Step} is calculated as the Levenshtein distance between two narrative graphs, taking into account the amount of nodes and connections and their type (eq. \ref{eq:StepDim}). \textit{Interestingness} make use of the APDs, Plot Points, and Plot Twists that are present in a narrative graph to assess an approximate semantic evaluation since those represent some type of variation in the graph (eq.~\ref{eq:interesting_fitness}). Given \textit{Interestingness} is a highly subjective measurement, we rely on those patterns since they calculate their quality based on the current narrative graph and the one being edited by the designer.
+
+\begin{equation}
+\label{eq:StepDim}
+D_{step} =  \frac{lev_{a,b} (|a|, |b|)}{\theta}
+\end{equation}
+
+\begin{equation}
+\label{eq:interesting_fitness}
+D_{int} = w_{0} \times \frac{APD_{q}}{\#APD} + w_{1} \times \frac{\#PP_{q}}{\#PP} +  w_{2} \times \frac{PT_{q}}{\#PT}ng
+\end{equation}
+
+Furthermore, we have extended TropeTwist with five more dimensions relevant to the narrative structure design process, to give more choice to designers and experiment with other dimensions in the search space:
+
+
+%Furthermore, This EA is wrapped by an IC MAP-Elites \cite{p11alvarez} that evaluates each phenotype (narrative graph) according to the a set of feature-dimensions that assess different aspects of the narrative graphs:
+
+%Given that the patterns active plot devices, plot points, and plot twists can have a high impact in the narrative graph and depend on several other patterns and specific structures, we limit all of then with threshold $\delta = 5$.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/example-experiments.png}
+    \caption{Narrative graphs used for the experiments, constructed and designed in Story Designer. When experiment 4 is discussed, the narrative graph referred is Experiment 4.5 as that is the design's final step.}
+    \label{fig:examples}
 \end{figure*}
 
-% \begin{figure*}[t]
-% \centerline{\includegraphics[width=16cm]{figures/final-cluster.png}}
-% \caption{Best resulting cluster sets. (a) is K-Means (K=9), and (b) is K-Means (K=12), both are using the \textbf{Tiles} Dataset. While (b) performs slightly worst in the internal indices, when inspecting the qualitative features, it successfully subdivides the main bottom clusters which grants us with more granularity to label and cluster the design process of designers.} \label{p6fig:all-clusters}
-% \end{figure*}
+\textbf{Diversity (div).} Diversity measures the variety of [base] trope types within a narrative structure. Currently, there exist four base trope types, \textit{Hero} (h), \textit{Villain} (v), \textit{Structure} (s), \textit{Plot Devices} (pd). Diversity takes into account the tropes that also extend these base tropes. Thus, $D_{div}$ collects all tropes within a graph, and increase a counter for each of the base trope type ($NG_{base} = h, v, s, pd \in NG$), normalized by the max amount of base trope types depicted in Eq.~\ref{eq:diversityDim}:
 
-% \begin{figure}[t]
-% \centerline{\includegraphics[width=8cm]{figures/cluster-figure-updated.png}}
-% \caption{Overview of how the design style clustering would be used and integrated into the evaluation of the suggestions provided to the user. %is used and integrates into the evaluation of the suggestions provided to the user.
-% } \label{p6fig:cluster}
-% \end{figure}
+%\textbf{Diversity (div).} Diversity measures the variety of [base] trope types within a narrative structure. Currently, there exist four base trope types, \textit{Hero} (h), \textit{Villain} (v), \textit{Structure} (s), \textit{Plot Devices} (pd). Diversity takes into account the tropes that also extend these base tropes shown in table~\ref{tab:tropes}. Thus, $D_{div}$ collects all tropes within a graph, and increase a counter for each of the base trope type ($NG_{base} = h, v, s, pd \in NG$), normalized by the max amount of base trope types depicted in Eq.~\ref{eq:diversityDim}:
 
-% \begin{figure}[t]
-% \centerline{\includegraphics[width=8cm]{figures/all_clusters.png}}
-% \caption{All the selected clusters to be labeled and analyzed. In order, each of the clustering approaches correspond to the setups presented in table~\ref{p6table:setups}. (e) Shows extra information on the designs that were clustered together, and which were used to label the respective cluster.} \label{p6fig:all-clusters}
-% \end{figure}
+\begin{equation}
+\label{eq:diversityDim}
+D_{div} =  \frac{NG_{base}}{\#Trope_{base}}
+\end{equation}
 
-% \begin{figure}[b]
-% \centerline{\includegraphics[width=8cm]{figures/hand-made-clusters.png}}
-% \caption{Example of hand-made room designs used to create the clusters. only (a) and (b) belong to the same clusters} \label{p6fig:handMadeClustered}
-% \end{figure}
+%Equation~\ref{eq:diversityDim} shows  is calcula
+%A measurement of the variety of trope types included in the graph's nodes in relation to its size.
 
-% \begin{figure*}[t]
-% \centerline{\includegraphics[width=18cm]{figures/approach_steps.png}}
-% \caption{Rooms at generation $2090$ targeting Number of spatial-patterns (X) and Symmetry (Y). Each cell displays (top-right) the fitness of the optimal individual in its related feasible population. }
-% \label{p6figs:approachSteps}
-% \end{figure*}
+\textbf{Conflict (confs).} Since we already calculate all patterns within a narrative graph, conflict simply calculates the amount of \emph{explicit} conflict patterns ($\#NG_{c} = C_{exp} \in allPatterns$) that exist within a narrative graph normalized by a conflict threshold $\omega = 5$. We use $\omega$ to avoid stimulating the generation of narrative graphs with a massive amount of conflicts, which could create noise in the evolution and focus on the conflicts rather than other tropes and patterns. $D_{confs}$ is then calculated as $\frac{\#NG_{c}}{\omega}$.
 
-% \begin{figure}[t]
-% \centerline{\includegraphics[width=8cm]{figures/cluster-figure-updated.png}}
-% \caption{Example of a figure caption.}
-% \label{p6fig:implementationClusters}
-% \end{figure}
+%Equation~\ref{eq:ConfsDim} shows the final calculation of $D_{confs}$.
+
+%\begin{equation}
+%\label{eq:ConfsDim}
+%D_{confs} =  \frac{\#NG_{c}}{\omega}
+%\end{equation}
+
+\textbf{Plot points (pp).} Plot points measures the amount of plot points within a narrative graph ($\#NG_{pp} = pp \in allPatterns$) and normalize it by $\delta$. Given that plot points are dynamically assessed based on other patterns and combination of tropes, we limit the dimension with $\delta$ to avoid losing coherence in favor of generating more plot points. $D_{pp}$ is calculated as $\frac{\#NG_{pp}}{\delta}$.
+
+\textbf{Plot Twist (pt).} Plot twist measures the amount of plot twists within a narrative graph ($\#NG_{pt} = pt \in allPatterns$) and normalize it by $\delta$. Plot twists relate to special situations within a narrative graph where the somewhat abrupt change in the tropes or combination of tropes could alter the narrative and create a surprise effect. Therefore, we limit the dimension with $\delta$ to avoid ``degenerating" narratives with too many twists. $D_{pp}$ is calculated as $\frac{\#NG_{pt}}{\delta}$.
+
+\textbf{Plot devices (pd).} Plot devices measure the amount of active plot devices within a narrative graph ($\#NG_{pd} = apd \in allPatterns$) and normalize it by $\delta$. Plot devices create targets and goals within a narrative, and active plot devices operationalize these in the narrative graph associating them with multiple tropes; thus, similar to \emph{pt}, we limit with $\delta$ to avoid ``degenerating" the narrative. $D_{pd}$ is calculated as $\frac{\#NG_{pd}}{\delta}$.
+
+
+
+%How many plot devices are included in the graph in relation to its size
+
+%therefore, we leverage from the \emph{plot point}, \emph{plot twist}, and \emph{active plot device} patterns and the ratio of fake conflicts to measure the \emph{int} of the generated narrative graphs.
+
+%\textbf{Interestingness (int).} With interesting, we aim at measuring the semantic quality of a narrative graph. A narrative graph can be syntactically correct and coherent yet do not have a good (or existent) semantic quality and do not evoke interest for designers and players. Therefore, we leverage from the \emph{plot point}, \emph{plot twist}, and \emph{active plot device} patterns to measure the \emph{int} of the generated narrative graphs. Given that \emph{int} combines these three qualities designers might not be interested in highly\footnote{Interesting-boring qualities are subjective measurements, thus what is highly interesting in our system might not necessarily be for a designer, which is why (in part) we leverage on the narrative graph created by the designer to measure and evaluate patterns and their quality.} interesting generated narrative graphs as they could degrade their narrative objective. Furthermore, the nature of \emph{int} creates pressure on the fitness function since the incidence of the three above-mentioned patterns could (if overused) "degenerate" the narrative; thus, decreasing its coherence. $D_{int}$ is calculated as the weighted sum ($w_{0}=0.4, w_{1}=0.2, w_{2}=0.4$) of the cumulative quality of \emph{plot twists} and \emph{active plot devices} within a narrative graph normalized by their count, and the \emph{plot point} count normalized by the amount of nodes in the graph (equation~\ref{eq:interesting_fitness}).
+
+
+
+%\begin{equation}
+%\label{eq:fitness}
+%f(narrative) = w_{0} * f(interesting) + w_{1} * f(coherence)
+%\end{equation}
+
+%The fitness function encompasses a weighted sum between \textit{interest} and \textit{coherence}.
+
+

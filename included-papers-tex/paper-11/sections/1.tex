@@ -1,23 +1,33 @@
 \subsection{Introduction}
 
-% Procedural Content Generation (PCG) is defined as the use of algorithms to generate game content (levels, narrative, visuals, or even game rules) with limited human input \citepsixth{p6shaker_procedural_2016}. Recent research works have shown PCG's ability to enable new game genres, as well as to create better environments and benchmarks for learning algorithms \citepsixth{p6risi2019procedural}.
+% \begin{itemize}
+%     \item The paper will have two main contributions:
+%     \begin{itemize}
+%         \item The implementation of Tropetwist into a Mixed-Initiative system (Story Designer). With that, of course it comes all the new workflow/GUI, how the design works, and how that works with MAP-Elites, etc.
+%         \item The new dimensions to be used
+%         \item The connection between the Level design and the Story Struct design. The main thing here is that the information from the level is extracted and that constraints what can be designed and MAP-Elites. IC MAP-Elites uses these constraints to identify what individuals are feasible and unfeasible.
+%     \end{itemize}
+% \end{itemize}
 
-% In parallel, 
-
-% Julian's text
-
-How can we best build a system that lets a human designer collaborate with procedural content generation (PCG) algorithms in order to create useful and novel game content? Various systems have been proposed that allow for humans and algorithms to share authorship by both editing and critiquing the content being created, in what is called the mixed-initiative paradigm~\citepsixth{p6yannakakis2014micc,p6liapis2016mixed}. However, for such collaboration to reach its true potential, there needs to be an understanding between the human designer and the software system about what needs to be designed; ideally even a shared goal.
-
-Reaching such a shared understanding is a hard task even when both collaborators share significant cultural and professional background. When one of the collaborators is a computer program, this task is perhaps AI-complete. But we can take steps towards the goal of shared understanding. One idea is to train a supervised learning model on traces of other collaborative creation session and try to predict the next step the human would take in the design process. The main problem with this is that people are different, and different creators will want to take different design actions in the same state; another problem is what to do in design states that have not been encountered in the training data. To remedy this, it has been proposed to train multiple different models, predicting the next step for different designer ``personas'' (akin to procedural personas in game-playing~\citepsixth{p6Holmgard2019-proceduralPersonas}). However, for such a procedure to be effective, we need to have a sufficient amount of training data. The more different designer personas there are, the more training data is necessary.
-
-One way of overcoming this problem could be to change the level of abstraction at which design actions are modeled and predicted. Instead of predicting individual edits, one could identify different styles or phases of the artifact being created, and model how a designer moves from one to another. To put this concretely in the context of designing rooms for a Zelda-like dungeon crawler~\citepsixth{p6tloz}, one could classify room styles depending on whether they were enemy onslaughts, complex wall mazes, treasure puzzles, and so on. One could then train models to recognize which types of rooms a user creates in which order. By clustering sequences of styles, we could formulate designer personas as archetypical trajectories through style space, rather than as sequences of individual edits. For example, in the context of creating a dungeon crawler, some designers might start with the outer walls of the rooms and then populate it with NPCs, whereas another type of designer might first sketch the path they would like the player to take from the entrance to the exit and then add parts of the room outside the main path. These designer models could then be combined with search-based or other procedural generation methods to suggest ways of getting to the next design style from the current one. 
-
-In this paper we provide a prototype implementation of designer personas as archetypical paths through style space. Through this, we take a step further into modeling designers  For this we use the Evolutionary Dungeon Designer (EDD), a research platform for exploring mixed-initiative creation of dungeon crawler content~\citepsixth{p6alvarez2019empowering,Baldwin2017}. Data from several dozen users designing game levels with the tool have been used to train the models. Based on this data, we clustered room styles to identify a dozen distinct types of rooms. To understand the typical progress of designers and validate the clustering, we visualize how typical design sessions traverse the various clusters. We also perform frequent sequence mining on the design sessions to find a small handful of designer personas.
-
-% end of Julian's text
-
-
+% \begin{itemize}
+%     \item Talk about the combination between level (space) and narrative
+%     \item What is Story Designer and what can it be used for
+%     \item what is the point of the system? give an example.
+%     \item what did we do in the paper?/contributions!
+% \end{itemize}
 
 
 
+%julian The intro in its current state is light on motivation and heavy on references to narrative theory; for someone who is not already well-read on this theory, it is not very understandable.
+%Agree, it should be adjusted to motivate better.
 
+%coherently intertwines
+Games are multifaceted content that intertwines gameplay, mechanics, audio, level, graphics, and narrative facets~\cite{p11liapis_orchestrating_2019}. Narrative has been linked as a key facet to connect different components in games such as level design~\cite{p11kishino_hunt_2005}, and to create meaningful interactions with depth and context~\cite{p11ashmore_quest_2007,kybartas_quinn_survey_2017}. Thus, narrative in games has been a focus of study~\cite{p11aarseth_narrative_2012,eladhari_interweaving_2014,yu_what_2020} and its generation has been approached in different ways and with different techniques~\cite{p11smith_situating_2011,ammanabrolu_story_2020,green_data_2018,tambwekar_controllable_2019,alvarez_questgram_2021}.
+
+Patterns have been a common approach to narrative and other facets. The focus then has been on extracting common narrative aspects to ease the identification, encoding, and generation of narrative in different forms~\cite{p11doran_prototype_2011,alvarez_tropetwist_2022,trenton_quest_2010,treanor_ai-based_2015,rouse_sketching_2018,breault_let_2021}. However, it remains a challenge to define certain narrative aspects more aligned with the structure and overarching goals of the game given what type of content is generated, as well as using these to design and compare among games. One approach would be to change the abstraction level at which the narrative is designed. Instead of focusing on the details, quests, or plot, one could focus on the structure. Narrative structures can be used to describe how a story is to be developed, as argued by Barthes~\cite{p11barthes_introduction_1966}, and to create an abstract representation that reveals common structures among them, such as Propp's 31 ``narremes" ~\cite{p11propp_morphology_1975}. One approach to generate narrative structures is TropeTwist~\cite{p11alvarez_tropetwist_2022}, which uses tropes, narrative conventions found across many media types~\cite{p11lewis_governing_2018,garcia-sanchez_simpsons_2021}, as patterns to design these structures.
+
+This paper presents Story Designer, a mixed-initiative co-creative (MI-CC) narrative structure tool built on top of the Evolutionary Dungeon Designer (EDD) using the TropeTwist system. Story Designer uses tropes as building blocks for designers to compose complete narrative structures by interconnecting them in graph structures called narrative graphs. Story Designer lets designers create narrative graphs and assist them with a suggestion grid that uses the Interactive Constrained MAP-Elites (IC MAP-Elites)~\cite{p11alvarez_interactive_2020}. By having an MI-CC system to design narrative structures, designers could ideate and prototype their structures while the system adapts and suggest novel narratives, making use of patterns, optimizing coherence, and situating the narrative structures along dimensions of interest for designers. At the same time, IC MAP-Elites can take advantage and use the designer's structure as a proxy to evaluate subjective characteristics such as interestingness, which has been the subject of several studies~\cite{p11perez_model_2013,lankoski_models_2013,rowe_storyeval_2009}.
+
+%to generate variations focusing on the graph's coherence and the dimensions that the designer might be interested. 
+
+As Story Designer is implemented in EDD and based on the link between level design and narrative, we make use of the designed dungeon to create constraints over the narrative generation, effectively intertwining both facets. We assess Story Designer with four controlled and simulated experiments, three premade structures of different games, and one step by step design that showcase the possibilities within the system. All experiments were tested with and without level design constraints and using a pair of dimensions and all dimensions during the search. Our results indicate that IC MAP-Elites have consistency and stability in generating content and that delimiting the search space with additional level constraints, while limiting the diversity and generation of complex structures, guides better the search.
