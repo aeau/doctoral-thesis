@@ -39,7 +39,8 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[]
-\resizebox{\columnwidth}{!}{%
+\centering
+%\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|l|lll|}
 \hline
      & AI replaced & Human replaced & Interactions \\ \hline
@@ -47,8 +48,8 @@ AIv1 & 3.31±2.1     & 1.63±1.47       & 3.88±0.59    \\
 AIv2 & 24.94±6.67   & 12.06±5.29      & 8.56±3.28    \\
 AIv3 & 19.25±5.13   & 0               & 9.13±3.64    \\ \hline
 \end{tabular}%
-}
-\caption{Summary of the interactions between AI and human}
+%}
+\caption{Summary of the interactions between AI and human. The first two columns relate to the avg. amount of tiles that the AI or human replaced of each other. Interactions refer to the avg. number of times the human pressed ``End Turn.''}
 \label{tab:humanai-interactions}
 \end{table}
 

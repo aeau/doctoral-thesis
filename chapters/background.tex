@@ -1,9 +1,9 @@
 \section{BACKGROUND} \normalfont \label{background}
 
-\setlength{\epigraphwidth}{2in} 
-\epigraph{\textit{Snake? Snake? SNAAAKE!}}{Metal Gear Solid}
+%\setlength{\epigraphwidth}{2in} 
+%\epigraph{\textit{Snake? Snake? SNAAAKE!}}{Metal Gear Solid}
 
-\setlength{\parindent}{0.0em}
+%\setlength{\parindent}{0.0em}
 
 This chapter offers an overview of the different fields surrounding the central subject of study in this thesis, i.e., the collaboration between AI and humans to co-create game content, and the related RQs. First,~\acrlong{pcg} is explored with multiple examples of the type of content that might be created. It is then presented the search-based approach, quality-diversity algorithms, and the~\acrlong{mi} paradigm as they are the main approaches and paradigms used throughout the thesis. Then, player and designer modeling is presented to give an overview of the concepts and the differences between them, and examples of each computational model. Finally, creativity and computational creativity are explored by briefly analyzing the field's goals with the most relevant literature and presenting examples within the computational intelligence in games research area.
 
@@ -132,10 +132,10 @@ Moreover, the role that both human and AI play in this collaboration are as impo
 
 \subsubsection{Mixed-Initiative Co-Creativity}
 
-\begin{itemize}
-    \item nathan*~\cite{partlan_design-driven_2021}
-    \item work by Gorm:~\cite{lai_towards_2020} and the new one from the journal!~\cite{lai_mixed-initiative_2022}.
-\end{itemize}
+% \begin{itemize}
+%     \item nathan*~\cite{partlan_design-driven_2021}
+%     \item work by Gorm:~\cite{lai_towards_2020} and the new one from the journal!~\cite{lai_mixed-initiative_2022}.
+% \end{itemize}
 
 Yannakakis et al. introduced the~\acrlong{micc} paradigm for the co-creation of creative content such as games, and regarding~\acrshort{pcg}, where machine and humans alternate initiative to co-design content~\cite{yannakakis_mixed-initiative_2014}. Their work and discussion on the capabilities of such interaction to foster creativity on both humans and machines is pivotal for understanding and develop~\acrshort{micc} tools that can reduce the designer's workload, foster their creativity, and in general, improve the design and creative process~\cite{liapis_can_2016,alvarez_fostering_2018}. 
 
@@ -204,7 +204,7 @@ Shifting towards a designer-centric perspective means that besides focusing on p
 
 %Establishing different roles such as colleague and collaborator might require some user model within the system. Designer modeling, as defined by Liapis et al.~\cite{liapis_designer_2013}, is a way to classify and predict a designer's style, goals, preferences, and processes. Preference models~\cite{alvarez_learning_2020,liapis_adapting_2012} have been built based on designers' choices and used as surrogate models to evaluate further generated content. Similarly, using the designers' creation, the designers' processes and styles could be modeled to inform other systems and adapt the generated content~\cite{liapis_designer_2014,alvarez_designer_2022,halina_threshold_2022}.
 
-As part of this thesis work, two approaches to model different designer's processes have been proposed, the designer's preference model~\cite{alvarez_learning_2020} (\textsc{paper v}), and design style cluster together with designer personas~\cite{alvarez_designer_2022} (\textsc{paper x}). The work presented in \textsc{paper v} introduced the Designer Preference Model, a data-driven solution that learns from user-generated data in the~\acrshort{edd}. This preference model uses an Artificial Neural Network to model the designer's preferences based on the choices they make while using~\acrshort{edd}, which is then used to drive the content generation. Moreover, The work presented in \textsc{paper x} uses data from the design process of 180 sessions to analyze the room styles created along the process, yielding twelve clusters representing such styles. The design process was again analyzed in function of these formed clusters, where we encountered four archetypical paths, i.e., designer personas, that were most commonly taken by designers with the aim to be used to drive the generation of content towards more adapted content. 
+As part of this thesis work, two approaches to model different designer's processes have been proposed, the designer's preference model~\cite{alvarez_learning_2020} (\textsc{paper iv}), and design style cluster together with designer personas~\cite{alvarez_designer_2022} (\textsc{paper ix}). The work presented in \textsc{paper iv} introduced the Designer Preference Model, a data-driven solution that learns from user-generated data in the~\acrshort{edd}. This preference model uses an Artificial Neural Network to model the designer's preferences based on the choices they make while using~\acrshort{edd}, which is then used to drive the content generation. Moreover, The work presented in \textsc{paper ix} uses data from the design process of 180 sessions to analyze the room styles created along the process, yielding twelve clusters representing such styles. The design process was again analyzed in function of these formed clusters, where we encountered four archetypical paths, i.e., designer personas, that were most commonly taken by designers with the aim to be used to drive the generation of content towards more adapted content. 
 
 % \paragraph{Style}
 
@@ -251,7 +251,7 @@ Moreover, Mikkulainen discuses the use of~\acrlong{ec} to achieve creative AI, w
 % Creativity is the main 
 
 % Moreover, Mikkulainen discusses 
-% Moreover, while Miikkulainen does not specifically refer to Computational Creativity, his recent work on Creative AI, reflects the aims of the AI field into using search-based approaches for exploring complex spaces filled with ``unknown unknowns", and reaching good results~\cite{miikkulainen2020-creativeAIEVO}. Likewise, Sarkar discusses ~\cite{sarkar2019-GameDesignCreativeAI}
+% Moreover, while Miikkulainen does not specifically refer to Computational Creativity, his recent work on Creative AI, reflects the aims of the AI field into using search-based approaches for exploring complex spaces filled with ``unknown unknowns'', and reaching good results~\cite{miikkulainen2020-creativeAIEVO}. Likewise, Sarkar discusses ~\cite{sarkar2019-GameDesignCreativeAI}
 
 % Similarly,~\acrlong{qd} algoritms were conceptualized under the same \textbf{pretext}, since a plethora of problems require more than convergence search, i.e. searches driven by objectives~\cite{stanley2015-mythObjective}. On the other hand, while divergent search has demonstrated many strengths, especially in deceitful environments~\cite{Novelty-Lehman2011}, when the search space is unconstrained in some dimensions, divergent search encounter challenges into finding optimal solutions~\cite{Lehman2010-MCNS}. Therefore,~\acrlong{qd} algorithms were conceptualized, where divergent and convergence searches are combined to highlight and use the strengths of both with many applications such as in robotics~\cite{Cully2015-qdRobotsAnimals} or games~\cite{gravina2019procedural}. Remarkably,~\acrfull{mape} is an algorithm with a simple process that has been demonstrated to work extremely well~\cite{Mouret2015}.
 

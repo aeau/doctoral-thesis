@@ -2,8 +2,8 @@
 
 
 
-% The current relationship between the AI and the human designer in EDD is one where the AI supports the designer in the form of presenting data in a helpful way, and enables the designer to easily apply the well curated high performing rooms through using PCG and MAP-Elites~\cite{p13MAP-Elites-eddy}. 
-The standard version of EDD presents a unidirectional relationship between the human designer and the AI, where the AI can only suggest content adapted to the designer's room, called the target room. As concluded in Morai Maker~\cite{p13guzdial_co-creative_2018}, allowing the human designer and the computer-controlled agent to take turns in the creative process enables the possibility of an even influence between the co-creators; thus, the human user and the AI take turns placing down tiles. Here we present three modified versions of EDD that implement three different dynamics for the human-AI co-creative process. %(each version summarized in table~\ref{tab:AI-key-difference}).
+% The current relationship between the AI and the human designer in EDD is one where the AI supports the designer in the form of presenting data in a helpful way, and enables the designer to easily apply the well curated high performing rooms through using PCG and MAP-Elites~\citepthirteenth{p13MAP-Elites-eddy}. 
+The standard version of EDD presents a unidirectional relationship between the human designer and the AI, where the AI can only suggest content adapted to the designer's room, called the target room. As concluded in Morai Maker~\citepthirteenth{p13guzdial_co-creative_2018}, allowing the human designer and the computer-controlled agent to take turns in the creative process enables the possibility of an even influence between the co-creators; thus, the human user and the AI take turns placing down tiles. Here we present three modified versions of EDD that implement three different dynamics for the human-AI co-creative process. %(each version summarized in table~\ref{tab:AI-key-difference}).
 
 % , where the human user and the AI will place down tiles in a turn based fashion.
 
@@ -64,9 +64,9 @@ Unlike in the other versions, in AIv3, the human designer cannot be the sole con
 
 %We use all seven dimensions, which was shown to explore , which its adaptiveness to continuous editions, such as the ones done  was later assessed 
 
-%The work in~\cite{p13alvarez_interactive_2020} shows
+%The work in~\citepthirteenth{p13alvarez_interactive_2020} shows
 
-The goal is for the AI to be perceived as dynamic, responsive, and helpful but not totally predictable. These qualities were selected to try to create a co-creator that supports the design choices of the human but also introduces unexpected elements to stimulate lateral thinking. By making the AI dynamic and responsive, the aim is to minimize the risk of unsatisfactory asymmetric design between the AI and the human, as reported by~\cite{p13guzdial_co-creative_2018}, where some of the critiques mentioned that the AI was designing its own parts of the level instead of creating consistency with the human designer's contributions.
+The goal is for the AI to be perceived as dynamic, responsive, and helpful but not totally predictable. These qualities were selected to try to create a co-creator that supports the design choices of the human but also introduces unexpected elements to stimulate lateral thinking. By making the AI dynamic and responsive, the aim is to minimize the risk of unsatisfactory asymmetric design between the AI and the human, as reported by~\citepthirteenth{p13guzdial_co-creative_2018}, where some of the critiques mentioned that the AI was designing its own parts of the level instead of creating consistency with the human designer's contributions.
 
 % \subsubsection{Limitations and variables}
 % There are some limitations and rules that need to be implemented for the system to work well.
@@ -92,7 +92,7 @@ Furthermore, depending on the level of agency, these tiles are just displayed as
 % The locations available for the AI to contribute in for each turn are limited to a rectangular area surrounding the tiles the human designer recently contributed with, including a margin of 1 tile. This choice is made to support a responsive and collaborative behavior of the AI that builds on the human designer's contribution.
 
 % . If the AI where able to contribute with tiles all over the room, the AI will likely contribute with tiles at various locations in the room during one turn, and the human designer might perceive this as incoherent behaviour. 
-% In Morai Maker~\cite{p13morai-maker}, the AI could place elements at any valid location in the level during its turn. One could argue that this is a possible cause of the criticism from the study's participants, regarding incoherent and disconnected contributions from the AI in relation to the human designer's creation.
+% In Morai Maker~\citepthirteenth{p13morai-maker}, the AI could place elements at any valid location in the level during its turn. One could argue that this is a possible cause of the criticism from the study's participants, regarding incoherent and disconnected contributions from the AI in relation to the human designer's creation.
 % To counter this, the AI will contribute with tiles in
 
 % . %not yet decided 
@@ -105,7 +105,7 @@ Furthermore, depending on the level of agency, these tiles are just displayed as
 
 
 
-% The KNN algorithm receives the elites as the data, and the target room as the query, to find the K elites that are the closest to it, using the all of the seven dimensions included in EDD IC MAP-Elites \cite{p13MAP-Elites-eddy}. K is set to 20 through experimentation. This removes those elites that are far from what the designer is currently working with in the target room. 
+% The KNN algorithm receives the elites as the data, and the target room as the query, to find the K elites that are the closest to it, using the all of the seven dimensions included in EDD IC MAP-Elites \citepthirteenth{p13MAP-Elites-eddy}. K is set to 20 through experimentation. This removes those elites that are far from what the designer is currently working with in the target room. 
 
 % The resulting list of elites is further processed tile by tile, creating a final list that contains the most reoccurring tile-types per position in the contribution area, which constitutes the list of generated tiles for the computer to use.
 

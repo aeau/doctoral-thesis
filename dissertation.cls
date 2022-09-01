@@ -22,7 +22,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   ALL PACKAGES USED IN THIS CLS       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\usepackage{morewrites} 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -51,7 +51,9 @@
 \usepackage{emptypage}
 
 \usepackage{cite}
+\let\Bbbk\relax
 \usepackage{amsmath,amssymb,amsfonts}
+
 \usepackage{xfrac}
 % \usepackage{algorithmic}
 \usepackage{graphicx}
@@ -71,8 +73,11 @@
 % \usepackage{natbib}
 %\usepackage[resetlabels,labeled]{multibib}
 \usepackage{multibib}
-\newcites{Included,NonIncluded,pone,psecond,pthird,pfourth,pfifth,psixth,pseventh,peighth,pninth,ptenth}{Included Publications,Excluded Publications,References,References,References,References,References,References,References,References,References,References}
-% \newcites{q}{References}
+\newcites{Included,NonIncluded,pone,psecond,pthird,pfourth,pfifth,psixth,pseventh,peighth,pninth,ptenth,peleventh,ptwelvth,pthirteenth}{Included Publications,Excluded Publications,References,References,References,References,References,References,References,References,References,References,References,References,References}
+
+
+
+% \newcites{q}{References}peleventh
 % \usepackage{bibentry}
 % \nobibliography*
 

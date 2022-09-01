@@ -1,18 +1,26 @@
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table*}[t]
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|lllllllllll|l|}
+\begin{table}[]
+\centering
+\begin{tabular}{|l|lll|}
 \hline
-AIs  & Len       & Lin       & Meso      & Spatial   & Symmetry  & $W_{dens}$ & $W_{spar}$ & $E_{dens}$ & $E_{spar}$ & $T_{dens}$ & $T_{spar}$ & Steps       \\ \hline
-AIv1 & 0.56±0.07 & 0.91±0.02 & 0.15±0.05 & 0.35±0.1  & 0.43±0.11 & 0.27±0.09  & 0.21±0.05  & 0.24±0.07  & 0.22±0.05  & 0.37±0.13  & 0.36±0.11  & 39.25±6.38  \\
-AIv2 & 0.62±0.09 & 0.92±0.02 & 0.13±0.07 & 0.41±0.11 & 0.35±0.18 & 0.26±0.08  & 0.19±0.03  & 0.27±0.06  & 0.32±0.05  & 0.28±0.09  & 0.3±0.1    & 84.31±14.85 \\
-AIv3 & 0.57±0.08 & 0.91±0.01 & 0.12±0.05 & 0.34±0.09 & 0.35±0.12 & 0.21±0.05  & 0.15±0.01  & 0.3±0.06   & 0.35±0.06  & 0.34±0.07  & 0.37±0.05  & 76.75±17.02 \\ \hline
-\end{tabular}%
-}
-\caption{Summary of the created rooms filtered by the AI version used. The first five values relates to the MAP-Elites dimensions, then the fitness of the rooms, the density and sparsity values for wall (W), enemies (E), and treasures (T), and finally the avg. steps taken to design a room.}
+        & AIv1       & AIv2        & AIv3        \\ \hline
+Leniency        & 0.56±0.07  & 0.62±0.09   & 0.57±0.08   \\
+Linearity        & 0.91±0.02  & 0.92±0.02   & 0.91±0.01   \\
+MesoPat       & 0.15±0.05  & 0.13±0.07   & 0.12±0.05   \\
+SpatialPat    & 0.35±0.1   & 0.41±0.11   & 0.34±0.09   \\
+Symmetry   & 0.43±0.11  & 0.35±0.18   & 0.35±0.12   \\
+$W_{dens}$ & 0.27±0.09  & 0.26±0.08   & 0.21±0.05   \\
+$W_{spar}$ & 0.21±0.05  & 0.19±0.03   & 0.15±0.01   \\
+$E_{dens}$ & 0.24±0.07  & 0.27±0.06   & 0.3±0.06    \\
+$E_{spar}$ & 0.22±0.05  & 0.32±0.05   & 0.35±0.06   \\
+$T_{dens}$ & 0.37±0.13  & 0.28±0.09   & 0.34±0.07   \\
+$T_{spar}$ & 0.36±0.11  & 0.3±0.1     & 0.37±0.05   \\ \hline
+Steps      & 39.25±6.38 & 84.31±14.85 & 76.75±17.02 \\ \hline
+\end{tabular}
+\caption{Summary of the created rooms filtered by the AI version used. All values are the average of all the created rooms using the specific AI version. The first five values relates to the MAP-Elites dimensions, then the fitness of the rooms, the density and sparsity values for wall (W), enemies (E), and treasures (T), and finally the avg. steps taken to design a room.}
 \label{tab:AIavgValues}
-\end{table*}
+\end{table}
 
 \subsection{Experiment Setup}
 
