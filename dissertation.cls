@@ -124,6 +124,8 @@ left=3.0cm, right=2.2cm]{geometry}
 \usepackage{subcaption}
 %\usepackage[caption=false,font=footnotesize]{subfig}
 
+%Uncomment to check margins!
+\overfullrule=2cm
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       !!!!CUSTOM ALGORITHMIC COMMANDS!!!!     %
