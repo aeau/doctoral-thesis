@@ -21,6 +21,8 @@
 %julian The intro in its current state is light on motivation and heavy on references to narrative theory; for someone who is not already well-read on this theory, it is not very understandable.
 %Agree, it should be adjusted to motivate better.
 
+
+
 %coherently intertwines
 Games are multifaceted content that intertwines gameplay, mechanics, audio, level, graphics, and narrative facets~\citepeleventh{p11liapis_orchestrating_2019}. Narrative has been linked as a key facet to connect different components in games such as level design~\citepeleventh{p11kishino_hunt_2005}, and to create meaningful interactions with depth and context~\citepeleventh{p11ashmore_quest_2007,p11kybartas_quinn_survey_2017}. Thus, narrative in games has been a focus of study~\citepeleventh{p11aarseth_narrative_2012,p11eladhari_interweaving_2014,p11yu_what_2020} and its generation has been approached in different ways and with different techniques~\citepeleventh{p11smith_situating_2011,p11ammanabrolu_story_2020,p11green_data_2018,p11tambwekar_controllable_2019,p11alvarez_questgram_2021}.
 
@@ -30,4 +32,11 @@ This paper presents Story Designer, a mixed-initiative co-creative (MI-CC) narra
 
 %to generate variations focusing on the graph's coherence and the dimensions that the designer might be interested. 
 
-As Story Designer is implemented in EDD and based on the link between level design and narrative, we make use of the designed dungeon to create constraints over the narrative generation, effectively intertwining both facets. We assess Story Designer with four controlled and simulated experiments, three premade structures of different games, and one step by step design that showcase the possibilities within the system. All experiments were tested with and without level design constraints and using a pair of dimensions and all dimensions during the search. Our results indicate that IC MAP-Elites have consistency and stability in generating content and that delimiting the search space with additional level constraints, while limiting the diversity and generation of complex structures, guides better the search.
+As Story Designer is implemented in EDD and based on the link between level design and narrative, we make use of the designed dungeon to create constraints over the narrative generation, effectively intertwining both facets. We assess Story Designer with four controlled and simulated experiments, three premade structures of different games, and one step by step design that showcasze the possibilities within the system. All experiments were tested with and without level design constraints and using a pair of dimensions and all dimensions during the search. Our results indicate that IC MAP-Elites have consistency and stability in generating content and that delimiting the search space with additional level constraints, while limiting the diversity and generation of complex structures, guides better the search.
+
+\begin{figure*}[t]
+\centering
+  \includegraphics[width=\textwidth]{figures/current_GUI_fixed.png}
+\caption{The Story Designer screen in the Evolutionary Dungeon Designer. In the center, there is the main narrative graph being edited by the designer. to the right, the suggestion grid using the Interactive Constrained MAP-Elites (IC MAP-Elites), the possible dimensions to be used, and two inspected suggestions. At the bottom, Story Designer presents some extra information regarding fitness, interestingness, and coherence, for the designer's convenience.}
+    \label{fig:story-screen}
+\end{figure*}

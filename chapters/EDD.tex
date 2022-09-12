@@ -1,5 +1,5 @@
 \section[EVOLUTIONARY DUNGEON DESIGNER]{EVOLUTIONARY DUNGEON \\DESIGNER}
-
+\label{sec:edd}
 This section presents the~\acrfull{edd} research tool, all its subsystems and features, and the multiple interactions between the human designer and the computational designer. First, it describes the tool's objectives, the iterations it has gone through, and game design patterns as a significant feature. Then, it presents and discusses the room and narrative generation process, the intertwined attempts, and multiple designer interactions. Finally, it describes the tool's workflow and presents some examples.
 
 % \begin{itemize}
@@ -16,7 +16,12 @@ The~\acrshort{edd} is an~\acrshort{micc} system to create adventure and dungeon 
 
 % the designer is provided with additional information
 
-The first iteration of~\acrshort{edd} was described and presented by Baldwin et al.~\cite{baldwin_mixed-initiative_2017,baldwin_towards_2017}. In their work, the aim was on creating the first steps towards a~\acrshort{micc} system that allowed the designer to create fixed-sized individual rooms while receiving four generated rooms with diverse targets upon request.~\acrshort{edd} was developed further with a revamped UI, allowing the creation of complete dungeons, and providing augmented information on the suggestions compared to the current design~\cite{alvarez_fostering_2018,alvarez_assessing_2018}. The next version of~\acrshort{edd} allows the designer to create dungeons in whatever layout preferred, and incorporates the~\acrlong{icmape}, providing a customizable grid of suggestions steered by the selected feature dimensions~\cite{alvarez_empowering_2019,alvarez_interactive_2020}. Narrative aspects were included in the following iterations. Automatic objective assessment~\cite{flodhag_make_2020} and quest creation and generation~\cite{alvarez_questgram_2021,larsson_queststories_2021} were included in the next iteration. Dungeons were assessed for overarching objective placement, and designers could add different NPCs and quest items in their levels to couple quest actions to them, receiving suggestions from the computational designer. Finally, the last iteration included the creation of overarching narrative structures~\cite{alvarez_tropetwist_2022,alvarez_story_2022}, where designers could set characters, factions, conflicts, objectives, and kernel and satellite events~\cite{aarseth_narrative_2012}, while receiving suggestions in the same line as when creating rooms using the~\acrshort{icmape}. All of the available views where the designer can create content and interact with different parts of the system are shown in figure~\ref{fig:eddWorkflow}. In addition,~\acrshort{edd} now includes prototype implementations of different designer models: the designer preference model~\cite{alvarez_exploring_2020} and designer personas~\cite{alvarez_designer_2022}.
+The first iteration of~\acrshort{edd} was described and presented by Baldwin et al.~\cite{baldwin_mixed-initiative_2017,baldwin_towards_2017}. In their work, the aim was on creating the first steps towards a~\acrshort{micc} system that allowed the designer to create fixed-sized individual rooms while receiving four generated rooms with diverse targets upon request.~\acrshort{edd} was developed further with a revamped UI, allowing the creation of complete dungeons, and providing augmented information on the suggestions compared to the current design~\cite{alvarez_fostering_2018,alvarez_assessing_2018}. The next version of~\acrshort{edd} allows the designer to create dungeons in whatever layout preferred, and incorporates the~\acrlong{icmape}, providing a customizable grid of suggestions steered by the selected feature dimensions~\cite{alvarez_empowering_2019,alvarez_interactive_2020}. Narrative aspects were included in the following iterations. Automatic objective assessment~\cite{flodhag_make_2020} and quest creation and generation~\cite{alvarez_questgram_2021,larsson_queststories_2021} were included in the next iteration. Dungeons were assessed for overarching objective placement, and designers could add different NPCs and quest items in their levels to couple quest actions to them, receiving suggestions from the computational designer. Finally, the last iteration included the creation of overarching narrative structures~\cite{alvarez_tropetwist_2022,alvarez_story_2022}, where designers could set characters, factions, conflicts, objectives, and main or side events, while receiving suggestions in the same line as when creating rooms using the~\acrshort{icmape}. All of the available views where the designer can create content and interact with different parts of the system are shown in figure~\ref{fig:eddWorkflow}. In addition,~\acrshort{edd} now includes prototype implementations of different designer models: the designer preference model~\cite{alvarez_exploring_2020} and designer personas~\cite{alvarez_designer_2022}.
+
+\begin{figure}[t]
+\centerline{\includegraphics[width=\textwidth]{figures/EDD-figs/eddworkflow.png}}
+\caption{Workflow of the~\acrlong{edd}. (a) Shows the world view with a prototype dungeon (\textsc{papers i, ii, iii}) and it's automatically assessed objectives (\textsc{paper vi}). (b) Shows the room view, the main interactive view of~\acrshort{edd}. In this view the designer can edit their room while the computational designer is offering suggestions for their design (\textsc{papers i, ii, iii, v}). (c) Shows the QuestGram view, where designers can use their current dungeon to add different quest actions linked to the room elements (\textsc{paper vii}). Finally, (d) shows the Story Designer view, where designers can create the overarching narrative structure for their game (\textsc{papers x, xi}).} \label{fig:eddWorkflow}
+\end{figure}
 
 %Finally, the latest version of~\acrshort{edd} is the one presented on this thesis, which incorporates the~\acrshort{icmape} and allows the designer to create dungeons in whatever layout preferred~\cite{alvarez_empowering_2019,alvarez_interactive_2020}. In addition,~\acrshort{edd} now includes prototype implementations of different designer models: the designer preference model~\cite{alvarez_exploring_2020} and designer personas~\cite{alvarez_designer_2022}.
 
@@ -30,17 +35,24 @@ The first iteration of~\acrshort{edd} was described and presented by Baldwin et 
 
 Dungeons in~\acrshort{edd} are a cyclical graph composed of interconnected rooms. Rooms are a rectangular $M \times N$ grid of tiles, which might be: \emph{Floor}, \emph{Wall}, \emph{Treasure}, \emph{Enemy}, \emph{Enemy Boss}, and \emph{Door} (all shown in figure~\ref{fig:tilesPats}.b). \emph{Wall} tiles are obstacles that cannot be traversed by the player, while all the other are considered passable and could be ``interacted'' by the player. \emph{Enemy boss} tiles are a special type of tile that occupies a $3\times3$ area, as its challenge might be comparable to nine enemies, and only two at a time can co-exist in a room. Doors cannot be placed at will by the designer but might be added when connecting rooms in the world view. 
 
-\subsubsection{Level Design Patterns}
+%\subsubsection{Level Design Patterns}
 
 An essential part of~\acrshort{edd} is its use of level design patterns to hierarchically divide a room into micro-patterns (inventorial and spatial patterns) and their combination into meso-patterns. The level design patterns in~\acrshort{edd} are based on~\cite{bjork_patterns_2004,dahlskog_patterns_2015,dahlskog_procedural_2014}. While~\acrshort{edd} is an~\acrshort{micc} tool to create dungeons for adventure games, we can leverage design patterns to create a generic and domain-independent tool. Through this, we do not need strict definitions or constraints based on specific tiles or functionalities. Rather we rely on patterns that can be made into specific content by the designer if needed.
+
+The design patterns are used in two ways. First, they are used to evaluate the designer's design and show the designer how the system categorizes different parts of the rooms. Second, and more important, design patterns are used to estimate the quality of a generated room. By extracting the patterns of the designer's design and evaluating the generated rooms based on that, design patterns can be used as goals to be achieved by the generated content. In EDD, we have defined \emph{micro-patterns} as the minimum bits that compose the room, and are divided into \emph{inventorial} and \emph{spatial} patterns. \emph{Inventorial patterns} are individual passable tiles, and \emph{spatial patterns}, are a combination of passable tiles and walls resulting in chambers, corridors, and different intersections. 
+
+\emph{Meso-patterns} are the next level in the design pattern hierarchy. They are the composition of micro- and meso-patterns. The meso-patterns that are currently implemented are (shown in figure~\ref{fig:tilesPats}.d): \emph{dead-end}, \emph{ambush}, \emph{guard chamber}, \emph{treasure chamber}, \emph{guarded treasure}.
+
+%To perform this evaluation, design patterns in~\acrshort{edd} calculate a \emph{quality} metric. For instance, the enemy pattern's quality is a combination of the number of enemies placed in the room and how they are distributed. Thus, if the enemies are a certain amount and are not simply added next to each other but distributed with other patterns, the ``enemy quality'' improves.
+
+
 
 %the work by Bjork and Holopainen~\cite{bjork_patterns_2004}, Dahlskog et al.~\cite{dahlskog_patterns_2015}, and Dahlskog and Togelius~\cite{dahlskog_procedural_2014}. While~\acrshort{edd} is~\acrshort{micc} tool to create dungeons for adventure games, we can leverage design patterns to create a generic and domain-independent tool. Through this, we do not need strict definitions or constraints based on specific tiles or functionalities. Rather we rely on patterns that can be made into specific content by the designer if needed.
 
 % without strict definitions or constraints based on specific tiles or
 
-The design patterns are used in two ways. First, design patterns are used to evaluate the designer's design and show the designer how the system categorizes different parts of the rooms. Second, and more important, design patterns are used to estimate the quality of a generated room. By extracting the patterns of the designer's design and evaluating the generated rooms based on that, design patterns can be used as goals to be achieved by the generated content. 
 
-To perform this evaluation, design patterns in~\acrshort{edd} calculate a \emph{quality} metric. For instance, the enemy pattern's quality is a combination of the number of enemies placed in the room and how they are distributed. Thus, if the enemies are a certain amount and are not simply added next to each other but distributed with other patterns, the ``enemy quality'' improves.
+
 
 % Through this, the system extract the patterns composing the rooms and use it as an estimator of 
 
@@ -53,37 +65,34 @@ To perform this evaluation, design patterns in~\acrshort{edd} calculate a \emph{
 
 % Further, the designer can edit all the rooms with the following set of tiles: \emph{Floor}, \emph{Wall}, \emph{Treasure}, \emph{Enemy}, and \emph{Boss}. When editing their rooms, the designer can activate
 
-\paragraph{Micro-patterns}
+% \paragraph{Micro-patterns}
 
-Micro-patterns are the minimum bits that compose an artifact, in this case, a room. Micro-patterns in~\acrshort{edd} are divided into inventorial patterns and spatial patterns. Inventorial patterns relate to each individual passable tile; thus, each passable tile is represented by an inventorial pattern, and its aggregated quality can be measured. Spatial patterns are composite patterns based on the used space and are a combination of passable and unpassable tiles (i.e., walls).
+% Micro-patterns are the minimum bits that compose an artifact, in this case, a room. Micro-patterns in~\acrshort{edd} are divided into inventorial patterns and spatial patterns. Inventorial patterns relate to each individual passable tile; thus, each passable tile is represented by an inventorial pattern, and its aggregated quality can be measured. Spatial patterns are composite patterns based on the used space and are a combination of passable and unpassable tiles (i.e., walls).
 
-Inventorial patterns relate to passable tiles. Yet, rather than calculating each pattern's quality based on individual tiles, they are calculated as a whole. For instance, two enemies placed in different parts of the level will have a shared quality. Inventorial patterns' quality is a trivial calculation based on a user-defined target proportion and the number of tiles of the same type in the room. Doors are a special inventorial pattern, where their quality is based on a linear combination of four measures: \emph{door safety}, \emph{door greed}, \emph{average treasure safety}, and \emph{treasure safety variance}.
+% Inventorial patterns relate to passable tiles. Yet, rather than calculating each pattern's quality based on individual tiles, they are calculated as a whole. For instance, two enemies placed in different parts of the level will have a shared quality. Inventorial patterns' quality is a trivial calculation based on a user-defined target proportion and the number of tiles of the same type in the room. Doors are a special inventorial pattern, where their quality is based on a linear combination of four measures: \emph{door safety}, \emph{door greed}, \emph{average treasure safety}, and \emph{treasure safety variance}.
 
-Spatial patterns focus on each room's spatial characteristics and are categorized as a combination of passable tiles and walls. A combination of spatial patterns might give an indication of the type of gameplay the designer wants to create. For instance, multiple interconnected chambers in a room could indicate more small goals within a room and where combat could take place with more maneuvers.
+% Spatial patterns focus on each room's spatial characteristics and are categorized as a combination of passable tiles and walls. A combination of spatial patterns might give an indication of the type of gameplay the designer wants to create. For instance, multiple interconnected chambers in a room could indicate more small goals within a room and where combat could take place with more maneuvers.
 
-The spatial patterns are (shown in figure~\ref{fig:tilesPats}.c): \emph{chamber}, \emph{corridor}, \emph{t-junction}, \emph{turn}, and \emph{intersection}. Like inventorial patterns, they are also driven by user-defined targets for creating ``high-quality'' areas and user-defined minimums for areas to be identified as a spatial pattern. For instance, a chamber is identified if there exists at least a $3 \times 3$ open area in a room. Quality is also a trivial calculation based on the expected user-defined targets and the spatial pattern's actual proportion.
-% In figure~\ref{fig:tilesPats}.b, all the possible spatial patterns are shown, and these ar. 
+% The spatial patterns are (shown in figure~\ref{fig:tilesPats}.c): \emph{chamber}, \emph{corridor}, \emph{t-junction}, \emph{turn}, and \emph{intersection}. Like inventorial patterns, they are also driven by user-defined targets for creating ``high-quality'' areas and user-defined minimums for areas to be identified as a spatial pattern. For instance, a chamber is identified if there exists at least a $3 \times 3$ open area in a room. Quality is also a trivial calculation based on the expected user-defined targets and the spatial pattern's actual proportion.
+% % In figure~\ref{fig:tilesPats}.b, all the possible spatial patterns are shown, and these ar. 
 
-% Nevertheless, when both inventorial and spatial patterns are used to evaluate generated rooms while the designer works in their design, the user-defined targets are replaced, to a large extent, by the designer's design.
+% % Nevertheless, when both inventorial and spatial patterns are used to evaluate generated rooms while the designer works in their design, the user-defined targets are replaced, to a large extent, by the designer's design.
  
-\paragraph{Meso-patterns}
+% \paragraph{Meso-patterns}
 
-Meso-patterns are the next level in the design pattern hierarchy. They are identified as pattern compositions and are defined as how micro- and meso-patterns relate. For instance, a chamber (spatial pattern) containing some enemies (inventorial patterns) would result in a ``guarded chamber'' meso-pattern.
+% Meso-patterns are the next level in the design pattern hierarchy. They are identified as pattern compositions and are defined as how micro- and meso-patterns relate. For instance, a chamber (spatial pattern) containing some enemies (inventorial patterns) would result in a ``guarded chamber'' meso-pattern.
 
-The meso-patterns that are currently implemented are (shown in figure~\ref{fig:tilesPats}.d): \emph{dead-end}, \emph{ambush}, \emph{guard chamber}, \emph{treasure chamber}, \emph{guarded treasure}. \emph{Dead-end} is the only meso-pattern that acts as a pattern modifier rather than a composition of patterns. They are calculated by traversing the pattern graph from all the spatial patterns containing a door to all the other spatial patterns. If any spatial pattern can only be reached by one way, the spatial pattern and all the steps towards it that are not connected to other patterns are classified as dead-ends. For the rest of the meso-patterns, the crucial aspect is that their main component is a chamber (spatial pattern). Thus, these meso-patterns can be seen as a specialization of the chamber. 
+% The meso-patterns that are currently implemented are (shown in figure~\ref{fig:tilesPats}.d): \emph{dead-end}, \emph{ambush}, \emph{guard chamber}, \emph{treasure chamber}, \emph{guarded treasure}. \emph{Dead-end} is the only meso-pattern that acts as a pattern modifier rather than a composition of patterns. They are calculated by traversing the pattern graph from all the spatial patterns containing a door to all the other spatial patterns. If any spatial pattern can only be reached by one way, the spatial pattern and all the steps towards it that are not connected to other patterns are classified as dead-ends. For the rest of the meso-patterns, the crucial aspect is that their main component is a chamber (spatial pattern). Thus, these meso-patterns can be seen as a specialization of the chamber. 
 
-\textbf{Ambush:} Relates to a chamber containing at least one enemy and a door (inventorial pattern). Similar to others, the amount of enemies is also a user-defined minimum. 
+% \textbf{Ambush:} Relates to a chamber containing at least one enemy and a door (inventorial pattern). Similar to others, the amount of enemies is also a user-defined minimum. 
 
-\textbf{Guard chamber}: Relates to a chamber containing at least two enemies (inventorial pattern) and nothing else. Similar to others, the amount of enemies is also a user-defined minimum. 
+% \textbf{Guard chamber}: Relates to a chamber containing at least two enemies (inventorial pattern) and nothing else. Similar to others, the amount of enemies is also a user-defined minimum. 
 
-\textbf{Treasure chamber:} Relates to a chamber containing at least two treasures (inventorial pattern) and nothing else. Similar to others, the amount of treasures is also a user-defined minimum. 
+% \textbf{Treasure chamber:} Relates to a chamber containing at least two treasures (inventorial pattern) and nothing else. Similar to others, the amount of treasures is also a user-defined minimum. 
 
-\textbf{Guarded treasure}: Relates to a chamber, which is a dead-end, containing at least two treasures (inventorial pattern) and nothing else, but preceded by a guarded chamber. Similar to others, the amount of treasures is also a user-defined minimum. 
+% \textbf{Guarded treasure}: Relates to a chamber, which is a dead-end, containing at least two treasures (inventorial pattern) and nothing else, but preceded by a guarded chamber. Similar to others, the amount of treasures is also a user-defined minimum. 
 
-\begin{figure}[!h]
-\centerline{\includegraphics[width=\textwidth]{figures/EDD-figs/all-designers-interactions.png}}
-\caption{\acrshort{icmape} evolutionary loop showing the possible designer interactions and what part of the loop these interaction affect} \label{fig:interactiveMAPE}
-\end{figure}
+
 
 
 
@@ -203,6 +212,11 @@ TropeTwist was implemented within~\acrshort{edd} as a parallel mixed-initiative 
 
 %What are narrative struxtures? Express this as narrative graphs. What are the narrative structure patterns, and how are they used within the system.
 
+\begin{figure}[!h]
+\centerline{\includegraphics[width=\textwidth]{figures/EDD-figs/all-designers-interactions.png}}
+\caption{\acrshort{icmape} evolutionary loop showing the possible designer interactions and what part of the loop these interaction affect} \label{fig:interactiveMAPE}
+\end{figure}
+
 \subsection{Designer Interaction}
 \label{sec:desInteraction}
 
@@ -284,10 +298,7 @@ Within the narrative facet, the designer can interact with it by controlling or 
 
 
 
-% \begin{figure}[!h]
-% \centerline{\includegraphics[width=\textwidth]{figures/EDD-figs/edd-workflow-2.png}}
-% \caption{Workflow of the~\acrlong{edd}. (a) Shows the world view with a prototype dungeon created. (b) Shows the suggestion view where designers can receive instantly six suggestions to start their design with, rather than from scratch. (c) Shows the room view, the main interactive view of~\acrshort{edd}. In this view the designer can edit their room while the computational designer is offering suggestions for their design.} \label{fig:eddWorkflow}
-% \end{figure}
+
 
 
 

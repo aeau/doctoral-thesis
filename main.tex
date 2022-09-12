@@ -70,6 +70,10 @@
 % \renewcommand{\cftsubsubsecnumwidth}{0em}
 % \renewcommand{\cftparanumwidth}{0em}
 
+\makeatletter
+\renewcommand\@pnumwidth{2.5em}
+\makeatother
+
 \begin{document}
 \pagenumbering{Roman}
 \frenchspacing
@@ -288,11 +292,11 @@ Therefore, this thesis explores~\acrshort{mi} collaboration between human game d
 % \bigskip
 % \bigskip
 
-%{\fontfamily{phv}\selectfont\textbf{Related papers but not included in the thesis}}
-%
-%    \nociteNonIncluded{book-section-2}
-%    
-%    \normalfont\bibliographyNonIncluded{publications}
+% {\fontfamily{phv}\selectfont\textbf{Related papers but not included in the thesis}}
+
+%     \nociteNonIncluded{book-section-2}
+    
+%     \normalfont\bibliographyNonIncluded{publications}
 }
 
 \newpage
@@ -303,7 +307,7 @@ Therefore, this thesis explores~\acrshort{mi} collaboration between human game d
 %%%% Text about your personal contribution
 {\fontfamily{ptm}\selectfont
 
-Publication [6] is an extended version of [3], adding new features to the proposed algorithm, experiments, and evaluations.
+Publication [5] is an extended version of [3], adding new features to the proposed algorithm, experiments, and evaluations.
 
 For all publications above except for [1], [2], and [7], the first author was the main contributor with regards to inception, planning, execution and writing of the research. %For [4], both authors contributed equally.
 
@@ -312,6 +316,7 @@ For [1], [2], and [7] the first author contributed to inception, planning, and e
 \begin{itemize}
     \item C. Nolasco, and A. Österman, "A Study on Mixed-Initiative for Fostering Creativity in Game Design," M.S. Thesis, DVMT, TS, Malmö University, Malmö, 2018, \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20051}
     
+    \sloppy
     \item S. Johansson, "A Study on Fitness Functions and Their Impact in PCG," M.S. Thesis, DVMT, TS, Malmö University, Malmö, 2018. \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20829}
     
     \item S. Tolinsson, and A. Flodhag, "To make sense of dungeons," B.S. Thesis, DVMT, TS, Malmö University, Malmö, 2020. \url{http://urn.kb.se/resolve?urn=urn:nbn:se:mau:diva-20865}
@@ -336,29 +341,33 @@ For [1], [2], and [7] the first author contributed to inception, planning, and e
 \section*{ACKNOWLEDGEMENT} \normalfont
 
 
-% I want to thank all my supervisors, Jose Font, Julian Togelius, Steve Dahlskog, and Nancy L. Russo; your advice, uncountable conversations, mentorship, and friendship is paramount for me and has contributed enormously to the conception of this thesis and my research path. I would like to thank especially my main supervisor, Jose; your teaching on AI back in Spain during my undergraduate really sparked the curiosity on me, which would then become the roadmap I took to be where I am now; I hope for many more years of collaboration! 
+I want to thank all my supervisors, Jose Font, Julian Togelius, Steve Dahlskog, and Nancy L. Russo; your advice, uncountable conversations, mentorship, and friendship is paramount to me and has contributed enormously to the conception of this thesis and my research path. I would like to thank especially my main supervisor, Jose; your teaching on AI back in Spain during my undergraduate really sparked the curiosity on me, which would then become the roadmap I took to be where I am now. I hope for many more years of collaboration! 
 
 
-% %I would like to thank my committee members for their academic guidance through the process of completing my dissertation: My PhD examiner Paul Davidsson, and the follow-up group, Carl-Magnus Olsson and Arezoo Sarkheily-Hägele. 
+%I would like to thank my committee members for their academic guidance through the process of completing my dissertation: My PhD examiner Paul Davidsson, and the follow-up group, Carl-Magnus Olsson and Arezoo Sarkheily-Hägele. 
 
-% I would like to thank my PhD examiner Paul Davidsson, and the follow-up group, Carl-Magnus Olsson and Arezoo Sarkheily-Hägele for their academic guidance throughout the process of completing my licentiate. Your suggestions and discussions on my study plan helped shaped several of the decisions on this thesis. I would like to thank Professor Sebastian Risi, opponent at my Licentiate Seminar, Associate Professor Marco Scirea, opponent at the final seminar, and Professor Georgios Yannakakis, opponent at the PhD Defence, for their participation and guidance.
+Likewise, I would like to thank my PhD examiner Paul Davidsson, and the follow-up group, Carl Magnus Olsson and Arezoo Sarkheily-Hägele, for their academic guidance. Your suggestions and discussions on my study plan helped shape several of the decisions on this thesis. I would like to thank Sebastian Risi, opponent at my Licentiate Seminar, Marco Scirea, opponent at the Final Seminar, and Georgios N. Yannakakis, opponent at the PhD Defence, for their participation, guidance, and discussions with me. I do feel that I have leveled up for every one of you! 
 
-% Furthermore, I would like to thank all my PhD colleagues for uncountable conversations, discussions, fikas, and random encounters! This goes especially to Majid Ashouri, Sergei Dytckov, Lars Holmberg, Johan Salo, and Jens Sjöberg (PhD at Jonköping University); your support and ears to discuss much more than research have enriched my journey so far. I would like to thank the faculty (and visiting faculty) for your support, friendship, and experience. Especially Cecilia Ovesdotter Alm, Solveig-Karin Erdal, Johan Holmberg, Åse Jevinger, Annabella Loconsole, Susanne Lundborg, Petra Mullerova, and Thomas Pederson; this little space is not enough to write all your help and support throughout this period.
+I would like to thank all my PhD colleagues at MAU (and outside) for uncountable conversations, discussions, fikas, and random encounters. Your support and ears to discuss much more than research have made this an extraordinary journey! I want to also thank the faculty for your support, friendship, and guidance in my research and teaching. I cannot leave this without thanking all my students throughout the years, those that I supervised (whose works I proudly incorporate as part of this thesis), and those that I briefly taught. I have learned so much from all of you!
+
+Finally, I would like to thank my friends outside of academia and family for always being there no matter what and supporting me every step of the way. This would not be possible without all of you! 
+
+% Furthermore, I would like to thank all my PhD colleagues for uncountable conversations, discussions, fikas, and random encounters! This goes especially to Majid Ashouri, Sally Bagheri, Sergei Dytckov, Lars Holmberg, Johan Salo, and Jens Sjöberg (PhD at Jonköping University); your support and ears to discuss much more than research have enriched my journey so far. I would like to thank the faculty (and visiting faculty) for your support, friendship, and experience. Especially Cecilia Ovesdotter Alm, Solveig-Karin Erdal, Johan Holmberg, Åse Jevinger, Annabella Loconsole, Susanne Lundborg, Petra Mullerova, and Thomas Pederson; this little space is not enough to write all your help and support throughout this period.
 
 % Everyone that knows me (or has heard me talk for more than 5 minutes) knows how much I speak about my experience at the IT University of Copenhagen. Therefore, I cannot miss this opportunity to thank everyone I met there, from professors to former colleagues and fellow students, especially Pablo Sarmiento and Miruna Vozaru, great friends and collaborators.
 
-%I have studied in many different countries where I have had the opportunity to meet many special persons that are meaningful to me
+% % I have studied in many different countries where I have had the opportunity to meet many special persons that are meaningful to me
 
-%Moreover, over time and during my studies, I have had the opportunity to meet many special persons meaningful to me. A complete list would be non-sense, but I want to take the space to thank some that I learned a ton from and were instrumental in my path: Mauricio De Marco, Juan Rodriguez, Rolman Rodriguez, Priscilla Teixeira, Daniel Zambrano, Luis Barranco, Alberto Hernandez, Jose Larrañaga, Juan Antonio Sanchez, Oscar Losada, Martin Nygård, Martin Thomsen, Peter Vestergård, Robin Nilsson, Anna Schölberg, and Anton Svensson.
+% % Moreover, over time and during my studies, I have had the opportunity to meet many special persons meaningful to me. A complete list would be non-sense, but I want to take the space to thank some that I learned a ton from and were instrumental in my path: Mauricio De Marco, Juan Rodriguez, Rolman Rodriguez, Priscilla Teixeira, Daniel Zambrano, Luis Barranco, Alberto Hernandez, Jose Larrañaga, Juan Antonio Sanchez, Oscar Losada, Martin Nygård, Martin Thomsen, Peter Vestergård, Robin Nilsson, Anna Schölberg, and Anton Svensson.
 
 
-%I would like to thank my partner, Petronella Ottosson. In many ways, the path that brings me here presenting this work would have never been followed if it wasn't for you. Through eight wonderful years, your love, intelligence, and kindness have made me thrive and made the path endurable and achievable even in times when everything seemed impossible. I love you.
+% I would like to thank my partner, Petronella Ottosson. In many ways, the path that brings me here presenting this work would have never been followed if it wasn't for you. Through eight wonderful years, your love, intelligence, and kindness have made me thrive and made the path endurable and achievable even in times when everything seemed impossible. I love you.
 
-% I would like to thank my partner, Petronella Ottosson; it will sound like a cliché, but if it were not for her, I would not have taken the path that brings me here. Helping me focus my life for the past eight years and being together all along is what has made me thrive and made the path endurable even in times that everything seemed impossible. I love you.
+% % I would like to thank my partner, Petronella Ottosson; it will sound like a cliché, but if it were not for her, I would not have taken the path that brings me here. Helping me focus my life for the past eight years and being together all along is what has made me thrive and made the path endurable even in times that everything seemed impossible. I love you.
 
-%Last but not least, I would like to thank my parents, Armidas Alvarez and Beatriz Uribe, for your life teachings, sacrifices, and encouragement to follow my dreams even if it meant to be at a very different time zone. I would like to extend this gratefulness to my brothers, Carlos Alvarez and Orlando Alvarez, for the encouragement over the years and for distracting our parents while I went farther and farther away. Of course, I could not end this acknowledgment without thanking my Swedish and second family, Weronica Bernhardsson, Kajsa-Lena Ottosson, Matilda Ottosson, and Mats Ottosson. Thank you so much for all you have done for me and all we have lived together; the family and closeness feeling is the secret ingredient for a wholesome and endurable path. 
+% Last but not least, I would like to thank my parents, Armidas Alvarez and Beatriz Uribe, for your life teachings, sacrifices, and encouragement to follow my dreams even if it meant to be at a very different time zone. I would like to extend this gratefulness to my brothers, Carlos Alvarez and Orlando Alvarez, for the encouragement over the years and for distracting our parents while I went farther and farther away. Of course, I could not end this acknowledgment without thanking my Swedish and second family, Weronica Bernhardsson, Kajsa-Lena Ottosson, Matilda Ottosson, and Mats Ottosson. Thank you so much for all you have done for me and all we have lived together; the family and closeness feeling is the secret ingredient for a wholesome and endurable path. 
 
-%Finally, thanks to all the persons that I have met and talked to thus far, which these pages are not enough to list; we might have met for a brief moment or be long time friends, but know for sure that you have in one way or another influence my path. 
+% Finally, thanks to all the persons that I have met and talked to thus far, which these pages are not enough to list; we might have met for a brief moment or be long time friends, but know for sure that you have in one way or another influence my path. 
 
 %an endurable and consistent path. 
 % shaped the person I am now.
@@ -438,6 +447,6 @@ For [1], [2], and [7] the first author contributed to inception, planning, and e
 % % \bibliographystyle{apalike}
 % \nobibliography{publications}
 
-\input{chapters/external-papers} 
+%\input{chapters/external-papers} 
 
 \end{document}

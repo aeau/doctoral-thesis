@@ -125,7 +125,7 @@ left=3.0cm, right=2.2cm]{geometry}
 %\usepackage[caption=false,font=footnotesize]{subfig}
 
 %Uncomment to check margins!
-\overfullrule=2cm
+%\overfullrule=2cm
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       !!!!CUSTOM ALGORITHMIC COMMANDS!!!!     %
@@ -325,7 +325,7 @@ left=3.0cm, right=2.2cm]{geometry}
     
     %qag or cmss (https://www.overleaf.com/learn/latex/Font_typefaces)  
          
-    \maintitlesize\fontfamily{qag}\selectfont\textls{\textcolor{gray}{\MakeUppercase{\myName}}} \\
+    \bfseries\maintitlesize\fontfamily{phv}\selectfont\textls{\textcolor{gray}{\MakeUppercase{\myName}}} \\
     \vspace{7pt}
     
     \begin{spacing}{0.9}
@@ -344,9 +344,12 @@ left=3.0cm, right=2.2cm]{geometry}
          %\MakeUppercase{Procedural} \\
          %\MakeUppercase{Content Generation}} 
          
-         \maintitlesize\textls{\MakeUppercase{Exploring Game Design} \\
-         \MakeUppercase{through Human-AI} \\
-         \MakeUppercase{Collaboration}}
+         \bfseries\maintitlesize\textls{\MakeUppercase{Exploring Game Design through} \\
+         \MakeUppercase{Human-AI Collaboration}}
+         %\MakeUppercase{Collaboration}}
+         % \bfseries\maintitlesize\textls{\MakeUppercase{Exploring Game Design} \\
+         %\MakeUppercase{through Human-AI} \\
+         %\MakeUppercase{Collaboration}}
         % Exploring Game Design through Human-AI Collaboration
         
     \end{spacing}
@@ -364,11 +367,12 @@ left=3.0cm, right=2.2cm]{geometry}
 \vfill
   
 \begin{flushright}
-    \normalfont\juniorSize\fontfamily{qag}\selectfont\juniorSize\mainUniversity{,} \juniorSize\fontfamily{qag}\selectfont\graduationYear{} \\
-    \normalfont\juniorSize\fontfamily{qag}\selectfont\juniorSize\universityFaculty{} \\
-    \normalfont\juniorSize\fontfamily{qag}\selectfont\juniorSize\universityDepartment{} \\
-    \normalfont\juniorSize\fontfamily{qag}\selectfont\juniorSize\partnerUniversity{}
+    \normalfont\juniorSize\fontfamily{phv}\selectfont\juniorSize\mainUniversity{,} \juniorSize\fontfamily{phv}\selectfont\graduationYear{} \\
+    \normalfont\juniorSize\fontfamily{phv}\selectfont\juniorSize\universityFaculty{} \\
+    \normalfont\juniorSize\fontfamily{phv}\selectfont\juniorSize\universityDepartment{} \\
+    \normalfont\juniorSize\fontfamily{phv}\selectfont\juniorSize\partnerUniversity{}
 \end{flushright}
+%qag
     
 }
 
